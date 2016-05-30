@@ -152,9 +152,8 @@ var Stage = function(game) {
                         
                         var result = game.levels[game.currentLevel].evaluateObjectives();
                         if (result == true){
-                        	var data = new Array();
-                        	data[0] = "A";
-                        	data[1] = "B";
+                        	var data = game.util.convertModelsToJson(
+                        			game.levels[game.currentLevel].objects,null);
                         	game.util.jsonSubmit("POST", "Validation", data);
 
                         	game.stage.showDialog();

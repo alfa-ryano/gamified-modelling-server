@@ -8,41 +8,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.york.gamified.modelling.model.Model;
+
+import com.google.gson.Gson;
+
 /**
- * Servlet implementation class Main
+ * Servlet implementation class Validation
  */
-@WebServlet(description = "Main Class for Gamified Modelling", urlPatterns = { "/Validation" })
+@WebServlet("/Validation")
 public class Validation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Validation() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public Validation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	// /**
-	// * @see Servlet#init(ServletConfig)
-	// */
-	// public void init(ServletConfig config) throws ServletException {
-	// super();
-	// }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		try {
-			// String filename = getServletContext().getRealPath("/");
-			// response.getWriter().append(filename);
-			//
-			// Eol eol = new Eol();
-			// eol.execute();
 
 			StringBuilder stringBuilder = new StringBuilder();
 			String result;
@@ -51,8 +41,15 @@ public class Validation extends HttpServlet {
 			}
 
 			String json = stringBuilder.toString();
+			System.out.println(json);
+			
+			Gson gson = new Gson();
+			Model model = gson.fromJson(json, Model.class);
+			
+			
+			
 			if (json != null && json.length() > 0) {
-				response.setContentType("application/json");
+				response.setContentType("application/text");
 				response.getWriter().append(json);
 				response.getWriter().flush();
 			}
@@ -60,18 +57,14 @@ public class Validation extends HttpServlet {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-
 	}
 
 }

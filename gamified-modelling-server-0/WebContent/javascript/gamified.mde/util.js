@@ -1,11 +1,32 @@
+//JSON.stringify(obj, function(key, value) {
+//	if (typeof value === 'object') {
+//		if (!seen.indexOf(value)) {
+//			return '__cycle__' + (typeof value) + '[' + key + ']';
+//		}
+//		seen.push(value);
+//	}
+//	return value;
+//}, 4);
+//
+//var json = JSON.Stringify(obj, function(key, val) {
+//	if (val != null && typeof val == "object") {
+//		if (seen.indexOf(val) >= 0) {
+//			return;
+//		}
+//		seen.push(val);
+//	}
+//	return val;
+//});
+
 var Util = function(game) {
 
-	this.convertModelsToJson(objects){
-		
-		
-		return objects;
+	this.convertModelsToJson = function(nodes, edges) {
+		var model = new Object();
+		model["nodes"] = nodes;
+		model["edges"] = edges;
+		return model;
 	}
-	
+
 	this.jsonSubmit = function(method, address, data) {
 		var xmlhttp;
 		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera,
@@ -27,8 +48,23 @@ var Util = function(game) {
 				}
 			}
 		}
-		xmlhttp.open(method, address, true); // xmlhttp.open(GET, index.aspx,
-		var jsonString = JSON.stringify(data); // true);
-		xmlhttp.send(jsonString); // xhr.send(JSON.stringify(data));
+		
+		var jsonString = JSON.stringify(data);
+		xmlhttp.open(method, address, true); 
+		xmlhttp.send(jsonString);
+		
+		
+		// var seen = [];
+
+//		var jsonString = JSON.stringify(data, function(key, val) {
+//			if (val != null && typeof val == "object") {
+//				if (seen.indexOf(val) >= 0) {
+//					return;
+//				}
+//				seen.push(val);
+//			}
+//			return val;
+//		});
+		 // xhr.send(JSON.stringify(data));
 	}
 }

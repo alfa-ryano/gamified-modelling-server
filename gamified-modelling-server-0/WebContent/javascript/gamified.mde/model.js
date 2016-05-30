@@ -5,11 +5,9 @@ var inheritsFrom = function (child, parent) {
     child.prototype = Object.create(parent.prototype);
 };
 
-var MyObject = function (game, level, objectName, identity) {
-    this.game = game;
-    this.level = level;
-    this.objectName = objectName;
-    this.identity = identity;
+var ModelObject = function (objectName, identity) {
+	this.identity = identity;
+	this.objectName = objectName;
 }
 
 var Objective = function (game, level, objectiveName, description) {
@@ -42,9 +40,9 @@ var Level = function (game, levelName) {
 
 
     this.addObject = function (objectName, identity) {
-        var myObject = new MyObject(this.game, this, objectName, identity);
-        this.objects.push(myObject);
-        return myObject;
+        var modelObject = new ModelObject(objectName, identity);
+        this.objects.push(modelObject);
+        return modelObject;
     }
 
     this.addObjective = function (objective) {
