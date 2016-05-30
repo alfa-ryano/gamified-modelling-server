@@ -54,6 +54,35 @@ public interface Level extends EObject {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Model Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link gamifiedmodelling.ModelType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model Type</em>' attribute.
+	 * @see gamifiedmodelling.ModelType
+	 * @see #setModelType(ModelType)
+	 * @see gamifiedmodelling.GamifiedmodellingPackage#getLevel_ModelType()
+	 * @model
+	 * @generated
+	 */
+	ModelType getModelType();
+
+	/**
+	 * Sets the value of the '{@link gamifiedmodelling.Level#getModelType <em>Model Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model Type</em>' attribute.
+	 * @see gamifiedmodelling.ModelType
+	 * @see #getModelType()
+	 * @generated
+	 */
+	void setModelType(ModelType value);
+
+	/**
 	 * Returns the value of the '<em><b>Objectives</b></em>' containment reference list.
 	 * The list contents are of type {@link gamifiedmodelling.Objective}.
 	 * <!-- begin-user-doc -->
@@ -96,32 +125,6 @@ public interface Level extends EObject {
 	 * @generated
 	 */
 	void setCase(Case value);
-
-	/**
-	 * Returns the value of the '<em><b>Model Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model Type</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model Type</em>' attribute.
-	 * @see #setModelType(String)
-	 * @see gamifiedmodelling.GamifiedmodellingPackage#getLevel_ModelType()
-	 * @model
-	 * @generated
-	 */
-	String getModelType();
-
-	/**
-	 * Sets the value of the '{@link gamifiedmodelling.Level#getModelType <em>Model Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Type</em>' attribute.
-	 * @see #getModelType()
-	 * @generated
-	 */
-	void setModelType(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.

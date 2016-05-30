@@ -67,46 +67,6 @@ public interface GamifiedmodellingPackage extends EPackage {
 	int GAME = 0;
 
 	/**
-	 * The meta object id for the '{@link gamifiedmodelling.impl.LevelImpl <em>Level</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gamifiedmodelling.impl.LevelImpl
-	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getLevel()
-	 * @generated
-	 */
-	int LEVEL = 1;
-
-	/**
-	 * The meta object id for the '{@link gamifiedmodelling.impl.ObjectiveImpl <em>Objective</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gamifiedmodelling.impl.ObjectiveImpl
-	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getObjective()
-	 * @generated
-	 */
-	int OBJECTIVE = 2;
-
-	/**
-	 * The meta object id for the '{@link gamifiedmodelling.impl.CaseImpl <em>Case</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gamifiedmodelling.impl.CaseImpl
-	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getCase()
-	 * @generated
-	 */
-	int CASE = 3;
-
-	/**
-	 * The meta object id for the '{@link gamifiedmodelling.impl.PathImpl <em>Path</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gamifiedmodelling.impl.PathImpl
-	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getPath()
-	 * @generated
-	 */
-	int PATH = 4;
-
-	/**
 	 * The feature id for the '<em><b>Levels</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +83,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 	 * @ordered
 	 */
 	int GAME_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link gamifiedmodelling.impl.LevelImpl <em>Level</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodelling.impl.LevelImpl
+	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getLevel()
+	 * @generated
+	 */
+	int LEVEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -179,6 +149,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 	int LEVEL_FEATURE_COUNT = 5;
 
 	/**
+	 * The meta object id for the '{@link gamifiedmodelling.impl.ObjectiveImpl <em>Objective</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodelling.impl.ObjectiveImpl
+	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getObjective()
+	 * @generated
+	 */
+	int OBJECTIVE = 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +184,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECTIVE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link gamifiedmodelling.impl.CaseImpl <em>Case</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodelling.impl.CaseImpl
+	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getCase()
+	 * @generated
+	 */
+	int CASE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -242,6 +232,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 	int CASE_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link gamifiedmodelling.impl.PathImpl <em>Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodelling.impl.PathImpl
+	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getPath()
+	 * @generated
+	 */
+	int PATH = 4;
+
+	/**
 	 * The feature id for the '<em><b>Prev Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,6 +267,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 	 * @ordered
 	 */
 	int PATH_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link gamifiedmodelling.ModelType <em>Model Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodelling.ModelType
+	 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getModelType()
+	 * @generated
+	 */
+	int MODEL_TYPE = 5;
 
 
 	/**
@@ -312,6 +322,17 @@ public interface GamifiedmodellingPackage extends EPackage {
 	EAttribute getLevel_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodelling.Level#getModelType <em>Model Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model Type</em>'.
+	 * @see gamifiedmodelling.Level#getModelType()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_ModelType();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link gamifiedmodelling.Level#getObjectives <em>Objectives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,17 +353,6 @@ public interface GamifiedmodellingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLevel_Case();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gamifiedmodelling.Level#getModelType <em>Model Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Model Type</em>'.
-	 * @see gamifiedmodelling.Level#getModelType()
-	 * @see #getLevel()
-	 * @generated
-	 */
-	EAttribute getLevel_ModelType();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link gamifiedmodelling.Level#getPath <em>Path</em>}'.
@@ -463,6 +473,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 	EReference getPath_NextLevel();
 
 	/**
+	 * Returns the meta object for enum '{@link gamifiedmodelling.ModelType <em>Model Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Model Type</em>'.
+	 * @see gamifiedmodelling.ModelType
+	 * @generated
+	 */
+	EEnum getModelType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,6 +541,14 @@ public interface GamifiedmodellingPackage extends EPackage {
 		EAttribute LEVEL__NAME = eINSTANCE.getLevel_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__MODEL_TYPE = eINSTANCE.getLevel_ModelType();
+
+		/**
 		 * The meta object literal for the '<em><b>Objectives</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -535,14 +563,6 @@ public interface GamifiedmodellingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LEVEL__CASE = eINSTANCE.getLevel_Case();
-
-		/**
-		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LEVEL__MODEL_TYPE = eINSTANCE.getLevel_ModelType();
 
 		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
@@ -637,6 +657,16 @@ public interface GamifiedmodellingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATH__NEXT_LEVEL = eINSTANCE.getPath_NextLevel();
+
+		/**
+		 * The meta object literal for the '{@link gamifiedmodelling.ModelType <em>Model Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gamifiedmodelling.ModelType
+		 * @see gamifiedmodelling.impl.GamifiedmodellingPackageImpl#getModelType()
+		 * @generated
+		 */
+		EEnum MODEL_TYPE = eINSTANCE.getModelType();
 
 	}
 

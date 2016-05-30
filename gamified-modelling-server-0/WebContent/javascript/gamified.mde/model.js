@@ -60,7 +60,9 @@ var Level = function (game, levelName) {
             }
         }
         if (trueCounter == this.objectives.length) {
-            game.stage.showDialog();
+            return true;
+        }else{
+        	return false;
         }
     }
 }

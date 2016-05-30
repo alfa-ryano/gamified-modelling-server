@@ -62,6 +62,13 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	private EClass pathEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum modelTypeEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -163,6 +170,15 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLevel_ModelType() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getLevel_Objectives() {
 		return (EReference)levelEClass.getEStructuralFeatures().get(2);
 	}
@@ -174,15 +190,6 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 */
 	public EReference getLevel_Case() {
 		return (EReference)levelEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLevel_ModelType() {
-		return (EAttribute)levelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -289,6 +296,15 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getModelType() {
+		return modelTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GamifiedmodellingFactory getGamifiedmodellingFactory() {
 		return (GamifiedmodellingFactory)getEFactoryInstance();
 	}
@@ -334,6 +350,9 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 		pathEClass = createEClass(PATH);
 		createEReference(pathEClass, PATH__PREV_LEVEL);
 		createEReference(pathEClass, PATH__NEXT_LEVEL);
+
+		// Create enums
+		modelTypeEEnum = createEEnum(MODEL_TYPE);
 	}
 
 	/**
@@ -371,7 +390,7 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 
 		initEClass(levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLevel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLevel_ModelType(), ecorePackage.getEString(), "modelType", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_ModelType(), this.getModelType(), "modelType", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Objectives(), this.getObjective(), null, "objectives", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Case(), this.getCase(), null, "case", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Path(), this.getPath(), null, "path", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -388,6 +407,14 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 		initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPath_PrevLevel(), this.getLevel(), null, "prevLevel", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPath_NextLevel(), this.getLevel(), null, "nextLevel", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(modelTypeEEnum, ModelType.class, "ModelType");
+		addEEnumLiteral(modelTypeEEnum, ModelType.OBJECT);
+		addEEnumLiteral(modelTypeEEnum, ModelType.CLASS);
+		addEEnumLiteral(modelTypeEEnum, ModelType.SEQUENCE);
+		addEEnumLiteral(modelTypeEEnum, ModelType.ACTIVITY);
+		addEEnumLiteral(modelTypeEEnum, ModelType.STATECHART);
 
 		// Create resource
 		createResource(eNS_URI);

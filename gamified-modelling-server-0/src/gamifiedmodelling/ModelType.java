@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public enum ModelType implements Enumerator
-{
+public enum ModelType implements Enumerator {
 	/**
 	 * The '<em><b>OBJECT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -28,8 +26,7 @@ public enum ModelType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	OBJECT(1, "OBJECT", "OBJECT"),
-	/**
+	OBJECT(1, "OBJECT", "OBJECT"), /**
 	 * The '<em><b>CLASS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,17 +34,7 @@ public enum ModelType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	CLASS(2, "CLASS", "CLASS"),
-	/**
-	 * The '<em><b>ACTIVITY</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ACTIVITY_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ACTIVITY(3, "ACTIVITY", "ACTIVITY"),
-	/**
+	CLASS(2, "CLASS", "CLASS"), /**
 	 * The '<em><b>SEQUENCE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,7 +42,24 @@ public enum ModelType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	SEQUENCE(4, "SEQUENCE", "SEQUENCE");
+	SEQUENCE(3, "SEQUENCE", "SEQUENCE"), /**
+	 * The '<em><b>ACTIVITY</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ACTIVITY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ACTIVITY(4, "ACTIVITY", "ACTIVITY"), /**
+	 * The '<em><b>STATECHART</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATECHART_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STATECHART(5, "STATECHART", "STATECHART");
+
 	/**
 	 * The '<em><b>OBJECT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -87,21 +91,6 @@ public enum ModelType implements Enumerator
 	public static final int CLASS_VALUE = 2;
 
 	/**
-	 * The '<em><b>ACTIVITY</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ACTIVITY</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #ACTIVITY
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ACTIVITY_VALUE = 3;
-
-	/**
 	 * The '<em><b>SEQUENCE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -114,7 +103,37 @@ public enum ModelType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEQUENCE_VALUE = 4;
+	public static final int SEQUENCE_VALUE = 3;
+
+	/**
+	 * The '<em><b>ACTIVITY</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ACTIVITY</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ACTIVITY
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ACTIVITY_VALUE = 4;
+
+	/**
+	 * The '<em><b>STATECHART</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>STATECHART</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #STATECHART
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATECHART_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Model Type</b></em>' enumerators.
@@ -126,8 +145,9 @@ public enum ModelType implements Enumerator
 		new ModelType[] {
 			OBJECT,
 			CLASS,
-			ACTIVITY,
 			SEQUENCE,
+			ACTIVITY,
+			STATECHART,
 		};
 
 	/**
@@ -186,8 +206,9 @@ public enum ModelType implements Enumerator
 		switch (value) {
 			case OBJECT_VALUE: return OBJECT;
 			case CLASS_VALUE: return CLASS;
-			case ACTIVITY_VALUE: return ACTIVITY;
 			case SEQUENCE_VALUE: return SEQUENCE;
+			case ACTIVITY_VALUE: return ACTIVITY;
+			case STATECHART_VALUE: return STATECHART;
 		}
 		return null;
 	}
@@ -262,4 +283,5 @@ public enum ModelType implements Enumerator
 	public String toString() {
 		return literal;
 	}
-}
+	
+} //ModelType

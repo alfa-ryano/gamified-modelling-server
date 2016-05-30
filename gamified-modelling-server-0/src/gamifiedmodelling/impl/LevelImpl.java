@@ -71,7 +71,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MODEL_TYPE_EDEFAULT = null;
+	protected static final ModelType MODEL_TYPE_EDEFAULT = ModelType.OBJECT;
 
 	/**
 	 * The cached value of the '{@link #getModelType() <em>Model Type</em>}' attribute.
@@ -81,7 +81,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * @generated
 	 * @ordered
 	 */
-	protected String modelType = MODEL_TYPE_EDEFAULT;
+	protected ModelType modelType = MODEL_TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getObjectives() <em>Objectives</em>}' containment reference list.
@@ -158,6 +158,27 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModelType getModelType() {
+		return modelType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModelType(ModelType newModelType) {
+		ModelType oldModelType = modelType;
+		modelType = newModelType == null ? MODEL_TYPE_EDEFAULT : newModelType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__MODEL_TYPE, oldModelType, modelType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Objective> getObjectives() {
 		if (objectives == null) {
 			objectives = new EObjectContainmentEList<Objective>(Objective.class, this, GamifiedmodellingPackage.LEVEL__OBJECTIVES);
@@ -206,27 +227,6 @@ public class LevelImpl extends EObjectImpl implements Level {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__CASE, newCase, newCase));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getModelType() {
-		return modelType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModelType(String newModelType) {
-		String oldModelType = modelType;
-		modelType = newModelType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__MODEL_TYPE, oldModelType, modelType));
 	}
 
 	/**
@@ -325,7 +325,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 				setName((String)newValue);
 				return;
 			case GamifiedmodellingPackage.LEVEL__MODEL_TYPE:
-				setModelType((String)newValue);
+				setModelType((ModelType)newValue);
 				return;
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
@@ -379,7 +379,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 			case GamifiedmodellingPackage.LEVEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GamifiedmodellingPackage.LEVEL__MODEL_TYPE:
-				return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
+				return modelType != MODEL_TYPE_EDEFAULT;
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				return objectives != null && !objectives.isEmpty();
 			case GamifiedmodellingPackage.LEVEL__CASE:

@@ -149,12 +149,19 @@ var Stage = function(game) {
                             }
                             return false;
                         });
+                        
+                        var result = game.levels[game.currentLevel].evaluateObjectives();
+                        if (result == true){
+                        	var data = new Array();
+                        	data[0] = "A";
+                        	data[1] = "B";
+                        	Util.JSONSubmit("GET", "validate", data);
 
-                        game.levels[game.currentLevel].evaluateObjectives();
-
-
+                        	game.stage.showDialog();
+                        }
                     }
                 });
+                
 
             } else if (elementId == "LinkIcon") {
 
