@@ -155,7 +155,7 @@ var Stage = function(game) {
                         	var data = new Array();
                         	data[0] = "A";
                         	data[1] = "B";
-                        	Util.JSONSubmit("GET", "validate", data);
+                        	game.util.jsonSubmit("POST", "Validation", data);
 
                         	game.stage.showDialog();
                         }

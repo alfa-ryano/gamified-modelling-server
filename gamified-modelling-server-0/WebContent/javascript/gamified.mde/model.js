@@ -71,6 +71,7 @@ var Level = function (game, levelName) {
 
 var Game = function () {
 
+	this.util = new Util(this);
     this.stage = new Stage(this);
 
     //SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
