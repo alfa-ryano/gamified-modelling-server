@@ -151,13 +151,13 @@ var Stage = function(game) {
                         });
                         
                         var result = game.levels[game.currentLevel].evaluateObjectives();
-                        if (result == true){
+                        //if (result == true){
                         	var data = game.util.convertModelsToJson(
                         			game.levels[game.currentLevel].objects,null);
                         	game.util.jsonSubmit("POST", "Validation", data);
 
-                        	game.stage.showDialog();
-                        }
+                        //	game.stage.showDialog();
+                        //}
                     }
                 });
                 

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gamifiedmodellingobjectmodel:ObjectModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:gamifiedmodellingobjectmodel="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/">
+  <objects name="button" identity="element-1"/>
+</gamifiedmodellingobjectmodel:ObjectModel>

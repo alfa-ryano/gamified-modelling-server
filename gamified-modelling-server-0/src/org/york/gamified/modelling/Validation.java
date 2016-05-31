@@ -1,5 +1,6 @@
 package org.york.gamified.modelling;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.emf.EmfModel;
+import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.EolModule;
 import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.execute.context.Variable;
@@ -102,8 +104,12 @@ public class Validation extends HttpServlet {
 			// Register XML resource factory
 			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi",
 					new XMIResourceFactoryImpl());
-			Resource resource = resourceSet.createResource(
-					URI.createFileURI(getFileURI("epsilon/models/ObjectModel.xmi").getPath()));
+
+			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() 
+					+ "../epsilon/models/ObjectModel.xmi";
+			System.out.println(path);
+
+			Resource resource = resourceSet.createResource(URI.createFileURI(path));
 			// add the root object to the resource
 			resource.getContents().add(objectModel);
 			// serialize resource – you can specify also serialization
@@ -111,31 +117,37 @@ public class Validation extends HttpServlet {
 			resource.save(null);
 
 			IEolExecutableModule module = new EolModule();
-			String source = "epsilon/models/Validation.eol";
+			String source = "epsilon/models/Validation.evl";
 			java.net.URI binUri = getFileURI(source);
 			module.parse(binUri);
 
-			EmfModel emfModel = new EmfModel();
-			StringProperties properties = new StringProperties();
-			properties.put(EmfModel.PROPERTY_NAME, "Model");
-			properties.put(EmfModel.PROPERTY_METAMODEL_URI, "epsilon/models/ObjectModel.ecore");
-			properties.put(EmfModel.PROPERTY_MODEL_URI, getFileURI("epsilon/models/ObjectModel.xmi").toString());
-			properties.put(EmfModel.PROPERTY_READONLOAD, true + "");
-			properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, true + "");
-			emfModel.load(properties, (IRelativePathResolver) null);
+//			EmfModel emfModel = new EmfModel();
+//			StringProperties properties = new StringProperties();
+//			properties.put(EmfModel.PROPERTY_NAME, "ObjectModel");
+//			properties.put(EmfModel.PROPERTY_METAMODEL_URI, getFileURI("epsilon/models/ObjectModel.ecore").toString());
+//			properties.put(EmfModel.PROPERTY_MODEL_URI, getFileURI("epsilon/models/ObjectModel.xmi").toString());
+//			properties.put(EmfModel.PROPERTY_READONLOAD, true + "");
+//			properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, true + "");
+//			emfModel.load(properties, (IRelativePathResolver) null);
+//
+//			module.getContext().getModelRepository().addModel(emfModel);
 
-			module.getContext().getModelRepository().addModel(emfModel);
-
+			
+			InMemoryEmfModel inMemoryEmfModel = new InMemoryEmfModel(resource);
+			inMemoryEmfModel.setName("ObjectModel");
+			module.getContext().getModelRepository().addModel(inMemoryEmfModel);
+			
 			// List<Variable> parameters = new ArrayList<Variable>();
 			// for (Variable parameter : parameters) {
 			// module.getContext().getFrameStack().put(parameter);
 			// }
-			Object output = module.execute();
+			Object output; 
+			output = module.execute();
 
 			module.getContext().getModelRepository().dispose();
 
 			if (json != null && json.length() > 0) {
-				response.setContentType("application/text");
+				//response.setContentType("application/text");
 				response.getWriter().append(json);
 				response.getWriter().flush();
 			}
