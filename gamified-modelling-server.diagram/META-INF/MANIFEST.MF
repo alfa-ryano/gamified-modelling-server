@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: gamifiedmodelling.diagram.edit.parts, 
+Export-Package: gamifiedmodelling.diagram.edit.parts,
  gamifiedmodelling.diagram.part,
  gamifiedmodelling.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

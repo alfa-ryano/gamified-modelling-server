@@ -13,4 +13,19 @@
             class="gamifiedmodelling.GamifiedmodellingPackage"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ModelObject -->
+      <package
+            uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
+            class="gamifiedmodelling.modelobject.Gamifiedmodelling.modelobjectPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ObjectModel -->
+      <package
+            uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
+            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"
+            genModel="WebContent/WEB-INF/epsilon/models/ObjectModel.genmodel"/>
+   </extension>
+
 </plugin>
