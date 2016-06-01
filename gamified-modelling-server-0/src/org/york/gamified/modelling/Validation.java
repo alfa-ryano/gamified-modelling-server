@@ -1,10 +1,7 @@
 package org.york.gamified.modelling;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,13 +15,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.epsilon.common.util.StringProperties;
-import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
-import org.eclipse.epsilon.eol.EolModule;
-import org.eclipse.epsilon.eol.IEolExecutableModule;
-import org.eclipse.epsilon.eol.execute.context.Variable;
-import org.eclipse.epsilon.eol.models.IRelativePathResolver;
+import org.eclipse.epsilon.evl.EvlModule;
+import org.eclipse.epsilon.evl.IEvlModule;
+import org.eclipse.epsilon.evl.execute.UnsatisfiedConstraint;
 import org.york.gamified.modelling.model.Model;
 import org.york.gamified.modelling.model.Node;
 
@@ -84,7 +78,6 @@ public class Validation extends HttpServlet {
 			}
 
 			String json = stringBuilder.toString();
-			System.out.println(json);
 
 			Gson gson = new Gson();
 			Model model = gson.fromJson(json, Model.class);
@@ -105,50 +98,50 @@ public class Validation extends HttpServlet {
 			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi",
 					new XMIResourceFactoryImpl());
 
-			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() 
+			// save XMI of the model
+			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath()
 					+ "../epsilon/models/ObjectModel.xmi";
-			System.out.println(path);
-
+//			URI uri =  URI.createFileURI(path);
+//			File file = new File(uri.path());
+//			if (file.exists()){
+//				file.delete();
+//			}
 			Resource resource = resourceSet.createResource(URI.createFileURI(path));
-			// add the root object to the resource
 			resource.getContents().add(objectModel);
-			// serialize resource – you can specify also serialization
-			// options which defined on org.eclipse.emf.ecore.xmi.XMIResource
 			resource.save(null);
 
-			IEolExecutableModule module = new EolModule();
-			String source = "epsilon/models/Validation.evl";
+			// Load EVL module
+			IEvlModule module = new EvlModule();
+			String source = "epsilon/evl/Validation.evl";
 			java.net.URI binUri = getFileURI(source);
 			module.parse(binUri);
 
-//			EmfModel emfModel = new EmfModel();
-//			StringProperties properties = new StringProperties();
-//			properties.put(EmfModel.PROPERTY_NAME, "ObjectModel");
-//			properties.put(EmfModel.PROPERTY_METAMODEL_URI, getFileURI("epsilon/models/ObjectModel.ecore").toString());
-//			properties.put(EmfModel.PROPERTY_MODEL_URI, getFileURI("epsilon/models/ObjectModel.xmi").toString());
-//			properties.put(EmfModel.PROPERTY_READONLOAD, true + "");
-//			properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, true + "");
-//			emfModel.load(properties, (IRelativePathResolver) null);
-//
-//			module.getContext().getModelRepository().addModel(emfModel);
-
-			
+			// create in memory Emf Model and add the model to Validation EVL
 			InMemoryEmfModel inMemoryEmfModel = new InMemoryEmfModel(resource);
 			inMemoryEmfModel.setName("ObjectModel");
 			module.getContext().getModelRepository().addModel(inMemoryEmfModel);
+
+			//excute the module
+			module.execute();
 			
-			// List<Variable> parameters = new ArrayList<Variable>();
-			// for (Variable parameter : parameters) {
-			// module.getContext().getFrameStack().put(parameter);
-			// }
-			Object output; 
-			output = module.execute();
+			//do the validation
+			String validationResult = "";
+			List<UnsatisfiedConstraint> unsatisfiedConstraints = module.getContext().getUnsatisfiedConstraints();
+			if (unsatisfiedConstraints.size() > 0) {
+				for (UnsatisfiedConstraint unsatisfied : unsatisfiedConstraints) {
+					unsatisfied.getMessage();
+				}
+				validationResult = "false";
+			} else {
+				validationResult = "true";
+			}
 
 			module.getContext().getModelRepository().dispose();
 
-			if (json != null && json.length() > 0) {
-				//response.setContentType("application/text");
-				response.getWriter().append(json);
+			//returning the result
+			if (validationResult != null && validationResult.length() > 0) {
+				response.setContentType("application/json");
+				response.getWriter().append(validationResult);
 				response.getWriter().flush();
 			}
 
