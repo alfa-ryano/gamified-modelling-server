@@ -223,17 +223,17 @@ var Game = function() {
 	}
 
 	this.replay = function() {
-		this.stage.closeDialog();
-		this.stage.graph.clear();
 		this.levels[game.currentLevel].initialize();
+		this.stage.graph.clear();
+		this.stage.closeDialog();
 	}.bind(this);
 	document.getElementById("button-replay").onclick = this.replay;
 
 	this.nextLevel = function() {
-		this.stage.closeDialog();
-		this.stage.graph.clear();
 		this.currentLevel += 1;
 		this.levels[game.currentLevel].initialize();
+		this.stage.graph.clear();
+		this.stage.closeDialog();
 	}.bind(this);
 	document.getElementById("button-next").onclick = this.nextLevel;
 }

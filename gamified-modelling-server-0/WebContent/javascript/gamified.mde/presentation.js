@@ -224,7 +224,7 @@ var Stage = function(game) {
     			game.levels[game.currentLevel].objects.splice(index, 1);
     		}
     	} 
-    	//game.levels[game.currentLevel].evaluateObjectives();
+    	game.levels[game.currentLevel].evaluateObjectives();
     });
 
 
