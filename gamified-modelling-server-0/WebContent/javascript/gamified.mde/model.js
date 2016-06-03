@@ -17,26 +17,38 @@ var Objective = function(game, level, objectiveName, description) {
 	this.description = description;
 }
 
+var DraggableItem = function (levelCase, identity, text) {
+	this.identity = identity;
+    this.levelCase = levelCase;
+    this.text = text;
+}
+
+var Case = function (game, level, name, description) {
+    this.level = level;
+    this.game = game;
+    this. description = description;
+    this.draggableItems = new Array();
+    
+    this.addDraggableItem = function(text){
+    	var identity = "DraggableCaseItem_" + (this.draggableItems.length + 1);
+    	var draggableItem = new DraggableItem(this, identity, text);
+        this.draggableItems.push(draggableItem);
+        return draggableItem;
+    };
+}
+
 var Level = function(game, levelId, levelName) {
 	this.levelId = levelId;
 	this.levelName = levelName;
-	this.game = game;
-	this.objectives = new Array();
-	this.objects = new Array();
-	this.caseDescription = "";
+    this.game = game;
+    this.objectives = new Array();
+    this.objects = new Array();
+    this.levelCase = null;
 
 	this.points = 0;
 	this.timeElapsed = "00:00:00";
 
 	this.initialize = function() {
-	}
-
-	this.setCaseDescription = function(caseDescription) {
-		this.caseDescription = caseDescription;
-	}
-
-	this.getCaseDescription = function() {
-		return this.caseDescription;
 	}
 
 	this.addObject = function(objectName, identity) {
@@ -50,18 +62,6 @@ var Level = function(game, levelId, levelName) {
 	}
 
 	this.evaluateObjectives = function() {
-//		var trueCounter = 0;
-//		for (var i = 0; i < this.objectives.length; i++) {
-//			if (this.objectives[i].check()) {
-//				trueCounter += 1;
-//				document.getElementById(this.objectives[i].objectiveName).style.color = "#007826";
-//			}
-//		}
-//		if (trueCounter == this.objectives.length) {
-//			return true;
-//		} else {
-//			return false;
-//		}
 		var data = game.util.convertModelsToJson(
     			game.levels[game.currentLevel].levelId,
     			game.levels[game.currentLevel].objects,
@@ -104,11 +104,13 @@ var Game = function() {
 
 	this.levels[0] = new Level(this, "level_001",
 			"Level 01 - Object Modelling: Create a Single Object");
-	this.levels[0]
-			.setCaseDescription("Create a <span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' "
-					+ "style='color:#0066cc'>button</span>!!!!!!");
+	this.levels[0].levelCase = new Case(this, this.levels[0], "Case_01", 
+	"Create a button!!!");
+	this.levels[0].levelCase.addDraggableItem("button");
+
 	var objectiveLevel01 = new Objective(this, this.levels[0], "objective_01",
 			"Create an object with name 'button'");
+	
 	objectiveLevel01.check = function() {
 		// alert(this.level.name);
 		if (this.level != null && this.level.objects.length >= 1) {
@@ -126,7 +128,33 @@ var Game = function() {
 
 		this.objects.length = 0;
 		document.getElementById("Title").innerHTML = this.levelName;
-		document.getElementById("Instruction").innerHTML = this.caseDescription;
+		document.getElementById("Instruction").innerHTML = this.levelCase.description;
+        
+        var div = document.getElementById("DraggableItems");
+        while (div.hasChildNodes()) {
+			div.removeChild(div.lastChild);
+		}
+        for (var i = 0; i < this.levelCase.draggableItems.length; i++){
+        	var draggableItem = this.levelCase.draggableItems[i];
+        	var newSpan = document.createElement("span");
+        	
+        	newSpan.className = "DraggableCaseItem";
+        	newSpan.id = draggableItem.identity;
+        	newSpan.innerHTML = draggableItem.text;
+        	newSpan.style.color = "#0066cc";
+//        	newSpan.style.backgroundColor= "#f5f5f5";
+        	newSpan.style.borderWidth = "thin";
+        	newSpan.style.borderStyle = "solid";
+        	newSpan.style.borderColor = "black";
+        	newSpan.style.paddingLeft = "1%";
+        	newSpan.style.paddingRight = "1%";
+        	newSpan.draggable = "true";
+        	newSpan.cursor = "grab";
+        	newSpan.style.zIndex="9";
+        	newSpan.style.marginRight="1%";
+        	div.appendChild(newSpan);        	
+        }
+		
 		$('.DraggableCaseItem').draggable({
 			opacity : 0.7,
 			helper : "clone",
@@ -154,11 +182,13 @@ var Game = function() {
 
 	this.levels[1] = new Level(this, "level_002",
 			"Level 02 - Object Modelling: Create Two Objects");
-	this.levels[1]
-			.setCaseDescription("Create two buttons:<br/> "
-					+ "<span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 1</span> "
-					+ "and <span id='DraggableCaseItem2' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 2</span>");
+	
+	this.levels[1].levelCase = new Case(this, this.levels[0], "Case_01", 
+	"Create two buttons: <br/> button 1 and button 2 !!!");
 
+    this.levels[1].levelCase.addDraggableItem("button 1");
+    this.levels[1].levelCase.addDraggableItem("button 2");
+    
 	var objectiveLevel02_1 = new Objective(this, this.levels[1], "objective_01",
 			"Create an object named 'button 1'!");
 	objectiveLevel02_1.check = function() {
@@ -191,7 +221,33 @@ var Game = function() {
 
 		this.objects.length = 0;
 		document.getElementById("Title").innerHTML = this.levelName;
-		document.getElementById("Instruction").innerHTML = this.caseDescription;
+		document.getElementById("Instruction").innerHTML = this.levelCase.description;
+        
+        var div = document.getElementById("DraggableItems");
+        while (div.hasChildNodes()) {
+			div.removeChild(div.lastChild);
+		}
+        for (var i = 0; i < this.levelCase.draggableItems.length; i++){
+        	var draggableItem = this.levelCase.draggableItems[i];
+        	var newSpan = document.createElement("span");
+        	
+        	newSpan.className = "DraggableCaseItem";
+        	newSpan.id = draggableItem.identity;
+        	newSpan.innerHTML = draggableItem.text;
+        	newSpan.style.color = "#0066cc";
+//        	newSpan.style.backgroundColor= "#f5f5f5";
+        	newSpan.style.borderWidth = "thin";
+        	newSpan.style.borderStyle = "solid";
+        	newSpan.style.borderColor = "black";
+        	newSpan.style.paddingLeft = "1%";
+        	newSpan.style.paddingRight = "1%";
+        	newSpan.draggable = "true";
+        	newSpan.cursor = "grab";
+        	newSpan.style.zIndex="9";
+        	newSpan.style.marginRight="1%";
+        	div.appendChild(newSpan);    	
+        }
+        
 		$('.DraggableCaseItem').draggable({
 			opacity : 0.7,
 			helper : "clone",

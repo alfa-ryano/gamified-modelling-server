@@ -17,28 +17,40 @@ var Objective = function (game, level, objectiveName, description) {
     this.description = description;
 }
 
+var DraggableItem = function (levelCase, identity, text) {
+	this.identity = identity;
+    this.levelCase = levelCase;
+    this.text = text;
+}
+
+var Case = function (game, level, name, description) {
+    this.level = level;
+    this.game = game;
+    this.text = text;
+    this. description = description;
+    this.draggableItems = new Array();
+    
+    this.addDraggableItem = function(text){
+    	var identity = "DraggableCaseItem_" + (this.DraggableItems.length + 1);
+    	var draggableItem = new DraggableItem(this, identity, text);
+        this.draggableItems.push(draggableItem);
+        return draggableItem;
+    };
+}
+
 var Level = function (game, levelName) {
     this.levelName = levelName;
     this.game = game;
     this.objectives = new Array();
     this.objects = new Array();
-    this.caseDescription = "";
-
+    this.levelCase = null;
+    
     this.points = 0;
     this.timeElapsed = "00:00:00";
 
     this.initialize = function () {
     }
-
-    this.setCaseDescription = function (caseDescription) {
-        this.caseDescription = caseDescription;
-    }
-
-    this.getCaseDescription = function () {
-        return this.caseDescription;
-    }
-
-
+    
     this.addObject = function (objectName, identity) {
         var modelObject = new ModelObject(objectName, identity);
         this.objects.push(modelObject);
@@ -78,10 +90,19 @@ var Game = function () {
     this.levels = new Array();
 
     this.levels[0] = new Level(this, "Level 01 - Object Modelling: Create a Single Object");
-    this.levels[0].setCaseDescription(
-        "Create a <span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' " +
-        "style='color:#0066cc'>button</span>!!!!!!"
-    );
+    
+    
+    this.levels[0].levelCase = new Case(this, this.levels[0], "Case_01", 
+    		"Create a button!!!");
+   
+    this.levels[0].levelCase.addDraggableItem("button");
+    
+//    this.levels[0].setCaseDescription("Create a button!!!!!!"
+//        "Create a <span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' " +
+//        "style='color:#0066cc'>button</span>!!!!!!"
+//    );
+    
+    
     var objectiveLevel01 = new Objective(this, this.levels[0], "Objective-1",
         "Create an object with name 'button'"
     );
@@ -102,7 +123,21 @@ var Game = function () {
 
         this.objects.length = 0;
         document.getElementById("Title").innerHTML = this.levelName;
-        document.getElementById("Instruction").innerHTML = this.caseDescription;
+        document.getElementById("Instruction").innerHTML = this.levelCase.description;
+        
+        var div = document.getElementById("DraggableItems");
+        for (var i = 0; i < this.levelCase.draggableItems.length; i++){
+        	var draggableItem = this.levelCase.draggableItems[i];
+        	var newSpan = document.createElement("span");
+        	
+        	newSpan.class = "DraggableCaseItem";
+        	newSpan.id = draggableItem.identity;
+        	newSpan.innerHTML = draggableItem.text;
+        	newSpan.style.color = "#0066cc";
+        	newSpan.draggable = "true";
+        	div.appendChild(newSpan);        	
+        }
+        
         $('.DraggableCaseItem').draggable({
             opacity: 0.7, helper: "clone",
             start: function (event, ui) {
@@ -128,11 +163,18 @@ var Game = function () {
 
 
     this.levels[1] = new Level(this, "Level 02 - Object Modelling: Create Two Objects");
-    this.levels[1].setCaseDescription(
-        "Create two buttons:<br/> " +
-        "<span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 1</span> " +
-        "and <span id='DraggableCaseItem2' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 2</span>"
-    );
+    
+    this.levels[1].levelCase = new Case(this, this.levels[0], "Case_01", 
+	"Create two buttons: <br/> button 1 and button 2 !!!");
+
+    this.levels[1].levelCase.addDraggableItem("button 1");
+    this.levels[1].levelCase.addDraggableItem("button 2");
+    
+//    this.levels[1].setCaseDescription(
+//        "Create two buttons:<br/> " +
+//        "<span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 1</span> " +
+//        "and <span id='DraggableCaseItem2' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 2</span>"
+//    );
 
     var objectiveLevel02_1 = new Objective(this, this.levels[1], "Objective-1",
         "Create an object named 'button 1'!");
@@ -166,7 +208,21 @@ var Game = function () {
 
         this.objects.length = 0;
         document.getElementById("Title").innerHTML = this.levelName;
-        document.getElementById("Instruction").innerHTML = this.caseDescription;
+        document.getElementById("Instruction").innerHTML = this.levelCase.description;
+        
+        var div = document.getElementById("DraggableItems");
+        for (var i = 0; i < this.levelCase.draggableItems.length; i++){
+        	var draggableItem = this.levelCase.draggableItems[i];
+        	var newSpan = document.createElement("span");
+        	
+        	newSpan.class = "DraggableCaseItem";
+        	newSpan.id = draggableItem.identity;
+        	newSpan.innerHTML = draggableItem.text;
+        	newSpan.style.color = "#0066cc";
+        	newSpan.draggable = "true";
+        	div.appendChild(newSpan);        	
+        }
+        
         $('.DraggableCaseItem').draggable({
             opacity: 0.7, helper: "clone",
             start: function (event, ui) {
