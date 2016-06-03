@@ -150,7 +150,14 @@ var Stage = function(game) {
                             return false;
                         });
                         
-                        game.levels[game.currentLevel].evaluateObjectives();
+                        var result = game.levels[game.currentLevel].evaluateObjectives();
+                        //if (result == true){
+                        	var data = game.util.convertModelsToJson(
+                        			game.levels[game.currentLevel].objects,null);
+                        	game.util.jsonSubmit("POST", "Validation", data);
+
+                        //	game.stage.showDialog();
+                        //}
                     }
                 });
                 
@@ -196,6 +203,17 @@ var Stage = function(game) {
         })
     });
 
+//this.paper.on('cell:mouseover', function (cellView, evt) {
+//    var element = game.stage.graph.get('cells').find(function (cell) {
+//        if (cell instanceof joint.dia.Link) return false;
+//        if (cell.id === cellView.model.id) {
+//            //alert("123");
+//            return true;
+//        }
+//        return false;
+//    });
+//});
+
     this.paper.on('cell:pointerdblclick', function (cellView, evt, x, y) {
         //var element = game.stage.get('cells').find(function (cell) {
         //        if (cell instanceof joint.dia.Link) return false;
@@ -215,16 +233,6 @@ var Stage = function(game) {
         //        return false;
         //    })
         //    ;
-    });
-    
-    this.graph.on("remove", function(cell) { 
-    	if (cell instanceof joint.dia.Element){
-    		var index = game.levels[game.currentLevel].objects.indexOf(cell.attributes.model);
-    		if (index != null){
-    			game.levels[game.currentLevel].objects.splice(index, 1);
-    		}
-    	} 
-    	//game.levels[game.currentLevel].evaluateObjectives();
     });
 
 

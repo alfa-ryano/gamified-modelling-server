@@ -1,215 +1,239 @@
 //-- MODEL  ----------------------------------------------------------------------------------
 var draggedId = null;
 
-var inheritsFrom = function (child, parent) {
-    child.prototype = Object.create(parent.prototype);
+var inheritsFrom = function(child, parent) {
+	child.prototype = Object.create(parent.prototype);
 };
 
-var ModelObject = function (objectName, identity) {
+var ModelObject = function(objectName, identity) {
 	this.identity = identity;
 	this.objectName = objectName;
 }
 
-var Objective = function (game, level, objectiveName, description) {
-    this.objectiveName = objectiveName;
-    this.level = level;
-    this.game = game;
-    this.description = description;
+var Objective = function(game, level, objectiveName, description) {
+	this.objectiveName = objectiveName;
+	this.level = level;
+	this.game = game;
+	this.description = description;
 }
 
-var Level = function (game, levelName) {
-    this.levelName = levelName;
-    this.game = game;
-    this.objectives = new Array();
-    this.objects = new Array();
-    this.caseDescription = "";
+var Level = function(game, levelId, levelName) {
+	this.levelId = levelId;
+	this.levelName = levelName;
+	this.game = game;
+	this.objectives = new Array();
+	this.objects = new Array();
+	this.caseDescription = "";
 
-    this.points = 0;
-    this.timeElapsed = "00:00:00";
+	this.points = 0;
+	this.timeElapsed = "00:00:00";
 
-    this.initialize = function () {
-    }
+	this.initialize = function() {
+	}
 
-    this.setCaseDescription = function (caseDescription) {
-        this.caseDescription = caseDescription;
-    }
+	this.setCaseDescription = function(caseDescription) {
+		this.caseDescription = caseDescription;
+	}
 
-    this.getCaseDescription = function () {
-        return this.caseDescription;
-    }
+	this.getCaseDescription = function() {
+		return this.caseDescription;
+	}
 
+	this.addObject = function(objectName, identity) {
+		var modelObject = new ModelObject(objectName, identity);
+		this.objects.push(modelObject);
+		return modelObject;
+	}
 
-    this.addObject = function (objectName, identity) {
-        var modelObject = new ModelObject(objectName, identity);
-        this.objects.push(modelObject);
-        return modelObject;
-    }
+	this.addObjective = function(objective) {
+		this.objectives.push(objective);
+	}
 
-    this.addObjective = function (objective) {
-        this.objectives.push(objective);
-    }
-
-    this.evaluateObjectives = function () {
-        var trueCounter = 0;
-        for (var i = 0; i < this.objectives.length; i++) {
-            if (this.objectives[i].check()) {
-                trueCounter += 1;
-                document.getElementById(this.objectives[i].objectiveName).style.color = "#007826";
-            }
-        }
-        if (trueCounter == this.objectives.length) {
-            return true;
-        }else{
-        	return false;
-        }
-    }
+	this.evaluateObjectives = function() {
+//		var trueCounter = 0;
+//		for (var i = 0; i < this.objectives.length; i++) {
+//			if (this.objectives[i].check()) {
+//				trueCounter += 1;
+//				document.getElementById(this.objectives[i].objectiveName).style.color = "#007826";
+//			}
+//		}
+//		if (trueCounter == this.objectives.length) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+		var data = game.util.convertModelsToJson(
+    			game.levels[game.currentLevel].levelId,
+    			game.levels[game.currentLevel].objects,
+    			null);
+    	game.util.jsonSubmit("POST", "Validation", data,
+    		//function to respond to the feedback response provided by the server 
+	    	function (jsonString){
+	    		var json = JSON.parse(jsonString);
+	    		
+	    		//manage the color of the objectives on the screen
+	    		var objectives = game.levels[game.currentLevel].objectives;
+	    		for (var i = 0; i < objectives.length; i++) {
+	    			document.getElementById(objectives[i].objectiveName).style.color = "#007826";
+	    			for(var j = 0; j < json["objectives"].length;j++){
+		    			if (objectives[i].objectiveName == json["objectives"][j].objectiveName) {
+		    				document.getElementById(objectives[i].objectiveName).style.color = "#000000";
+		    			}
+	    			}
+	    		}
+	    		
+	    		//display the dialog to move to next level
+	    		if (json["isLevelCompleted"] == true) {
+	    			game.stage.showDialog();
+	    		}else{
+	    		}
+	    	}		
+    	);
+	}
 }
 
-
-
-var Game = function () {
+var Game = function() {
 
 	this.util = new Util(this);
-    this.stage = new Stage(this);
+	this.stage = new Stage(this);
 
-    //SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
-    this.currentLevel = 0;
+	// SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
+	this.currentLevel = 0;
 
-    this.levels = new Array();
+	this.levels = new Array();
 
-    this.levels[0] = new Level(this, "Level 01 - Object Modelling: Create a Single Object");
-    this.levels[0].setCaseDescription(
-        "Create a <span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' " +
-        "style='color:#0066cc'>button</span>!!!!!!"
-    );
-    var objectiveLevel01 = new Objective(this, this.levels[0], "Objective-1",
-        "Create an object with name 'button'"
-    );
-    objectiveLevel01.check = function () {
-        //alert(this.level.name);
-        if (this.level != null && this.level.objects.length >= 1) {
-            for (var i = 0; i < this.level.objects.length; i++) {
-                //alert(this.level.objects[i].name);
-                if (this.level.objects[i].objectName == "button") {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }.bind(objectiveLevel01);
+	this.levels[0] = new Level(this, "level_001",
+			"Level 01 - Object Modelling: Create a Single Object");
+	this.levels[0]
+			.setCaseDescription("Create a <span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' "
+					+ "style='color:#0066cc'>button</span>!!!!!!");
+	var objectiveLevel01 = new Objective(this, this.levels[0], "objective_01",
+			"Create an object with name 'button'");
+	objectiveLevel01.check = function() {
+		// alert(this.level.name);
+		if (this.level != null && this.level.objects.length >= 1) {
+			for (var i = 0; i < this.level.objects.length; i++) {
+				// alert(this.level.objects[i].name);
+				if (this.level.objects[i].objectName == "button") {
+					return true;
+				}
+			}
+			return false;
+		}
+	}.bind(objectiveLevel01);
 
-    this.levels[0].initialize = function () {
+	this.levels[0].initialize = function() {
 
-        this.objects.length = 0;
-        document.getElementById("Title").innerHTML = this.levelName;
-        document.getElementById("Instruction").innerHTML = this.caseDescription;
-        $('.DraggableCaseItem').draggable({
-            opacity: 0.7, helper: "clone",
-            start: function (event, ui) {
-                draggedId = $(event.target).attr('id');
-            }
-        });
+		this.objects.length = 0;
+		document.getElementById("Title").innerHTML = this.levelName;
+		document.getElementById("Instruction").innerHTML = this.caseDescription;
+		$('.DraggableCaseItem').draggable({
+			opacity : 0.7,
+			helper : "clone",
+			start : function(event, ui) {
+				draggedId = $(event.target).attr('id');
+			}
+		});
 
-        var ol = document.getElementById("Objective");
-        ol.style.color = "#000000";
-        while (ol.hasChildNodes()) {
-            ol.removeChild(ol.lastChild);
-        }
-        for (var i = 0; i < game.levels[game.currentLevel].objectives.length; i++) {
-            var li = document.createElement("li");
-            li.style.color = "#000000";
-            li.id = game.levels[game.currentLevel].objectives[i].objectiveName;
-            var text = document.createTextNode(game.levels[game.currentLevel].objectives[i].description);
-            li.appendChild(text);
-            ol.appendChild(li);
-        }
-    }.bind(this.levels[0]);
-    this.levels[0].addObjective(objectiveLevel01);
+		var ol = document.getElementById("Objective");
+		ol.style.color = "#000000";
+		while (ol.hasChildNodes()) {
+			ol.removeChild(ol.lastChild);
+		}
+		for (var i = 0; i < game.levels[game.currentLevel].objectives.length; i++) {
+			var li = document.createElement("li");
+			li.style.color = "#000000";
+			li.id = game.levels[game.currentLevel].objectives[i].objectiveName;
+			var text = document
+					.createTextNode(game.levels[game.currentLevel].objectives[i].description);
+			li.appendChild(text);
+			ol.appendChild(li);
+		}
+	}.bind(this.levels[0]);
+	this.levels[0].addObjective(objectiveLevel01);
 
+	this.levels[1] = new Level(this, "level_002",
+			"Level 02 - Object Modelling: Create Two Objects");
+	this.levels[1]
+			.setCaseDescription("Create two buttons:<br/> "
+					+ "<span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 1</span> "
+					+ "and <span id='DraggableCaseItem2' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 2</span>");
 
-    this.levels[1] = new Level(this, "Level 02 - Object Modelling: Create Two Objects");
-    this.levels[1].setCaseDescription(
-        "Create two buttons:<br/> " +
-        "<span id='DraggableCaseItem1' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 1</span> " +
-        "and <span id='DraggableCaseItem2' class='DraggableCaseItem' draggable='true' style='color:#0066cc'>button 2</span>"
-    );
+	var objectiveLevel02_1 = new Objective(this, this.levels[1], "objective_01",
+			"Create an object named 'button 1'!");
+	objectiveLevel02_1.check = function() {
+		if (this.level != null && this.level.objects.length >= 1) {
+			for (var i = 0; i < this.level.objects.length; i++) {
+				if (this.level.objects[i].objectName == "button 1") {
+					return true;
+				}
+			}
+		}
+		return false;
+	}.bind(objectiveLevel02_1);
+	this.levels[1].addObjective(objectiveLevel02_1);
 
-    var objectiveLevel02_1 = new Objective(this, this.levels[1], "Objective-1",
-        "Create an object named 'button 1'!");
-    objectiveLevel02_1.check = function () {
-        if (this.level != null && this.level.objects.length >= 1) {
-            for (var i = 0; i < this.level.objects.length; i++) {
-                if (this.level.objects[i].objectName == "button 1") {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }.bind(objectiveLevel02_1);
-    this.levels[1].addObjective(objectiveLevel02_1);
+	var objectiveLevel02_2 = new Objective(this, this.levels[1], "objective_02",
+			"Create an object named 'button 2'!");
+	objectiveLevel02_2.check = function() {
+		if (this.level != null && this.level.objects.length >= 1) {
+			for (var i = 0; i < this.level.objects.length; i++) {
+				if (this.level.objects[i].objectName == "button 2") {
+					return true;
+				}
+			}
+		}
+		return false;
+	}.bind(objectiveLevel02_2);
+	this.levels[1].addObjective(objectiveLevel02_2);
 
-    var objectiveLevel02_2 = new Objective(this, this.levels[1], "Objective-2",
-        "Create an object named 'button 2'!");
-    objectiveLevel02_2.check = function () {
-        if (this.level != null && this.level.objects.length >= 1) {
-            for (var i = 0; i < this.level.objects.length; i++) {
-                if (this.level.objects[i].objectName == "button 2") {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }.bind(objectiveLevel02_2);
-    this.levels[1].addObjective(objectiveLevel02_2);
+	this.levels[1].initialize = function() {
 
-    this.levels[1].initialize = function () {
+		this.objects.length = 0;
+		document.getElementById("Title").innerHTML = this.levelName;
+		document.getElementById("Instruction").innerHTML = this.caseDescription;
+		$('.DraggableCaseItem').draggable({
+			opacity : 0.7,
+			helper : "clone",
+			start : function(event, ui) {
+				draggedId = $(event.target).attr('id');
+			}
+		});
 
-        this.objects.length = 0;
-        document.getElementById("Title").innerHTML = this.levelName;
-        document.getElementById("Instruction").innerHTML = this.caseDescription;
-        $('.DraggableCaseItem').draggable({
-            opacity: 0.7, helper: "clone",
-            start: function (event, ui) {
-                draggedId = $(event.target).attr('id');
-            }
-        });
+		var ol = document.getElementById("Objective");
+		ol.style.color = "#000000";
+		while (ol.hasChildNodes()) {
+			ol.removeChild(ol.lastChild);
+		}
+		for (var i = 0; i < game.levels[game.currentLevel].objectives.length; i++) {
+			var li = document.createElement("li");
+			li.style.color = "#000000";
+			li.id = game.levels[game.currentLevel].objectives[i].objectiveName;
+			var text = document
+					.createTextNode(game.levels[game.currentLevel].objectives[i].description);
+			li.appendChild(text);
+			ol.appendChild(li);
+		}
 
-        var ol = document.getElementById("Objective");
-        ol.style.color = "#000000";
-        while (ol.hasChildNodes()) {
-            ol.removeChild(ol.lastChild);
-        }
-        for (var i = 0; i < game.levels[game.currentLevel].objectives.length; i++) {
-            var li = document.createElement("li");
-            li.style.color = "#000000";
-            li.id = game.levels[game.currentLevel].objectives[i].objectiveName;
-            var text = document.createTextNode(game.levels[game.currentLevel].objectives[i].description);
-            li.appendChild(text);
-            ol.appendChild(li);
-        }
+	}.bind(this.levels[1]);
 
-    }.bind(this.levels[1]);
+	this.run = function() {
+		// First Level
+		this.levels[this.currentLevel].initialize();
+	}
 
+	this.replay = function() {
+		this.stage.closeDialog();
+		this.stage.graph.clear();
+		this.levels[game.currentLevel].initialize();
+	}.bind(this);
+	document.getElementById("button-replay").onclick = this.replay;
 
-    this.run = function () {
-
-        //Level 1
-        this.levels[this.currentLevel].initialize();
-
-    }
-
-    this.replay = function () {
-        this.stage.closeDialog();
-        this.stage.graph.clear();
-        this.levels[game.currentLevel].initialize();
-    }.bind(this);
-    document.getElementById("button-replay").onclick = this.replay;
-
-    this.nextLevel = function () {
-        this.stage.closeDialog();
-        this.stage.graph.clear();
-        this.currentLevel += 1;
-        this.levels[game.currentLevel].initialize();
-    }.bind(this);
-    document.getElementById("button-next").onclick = this.nextLevel;
+	this.nextLevel = function() {
+		this.stage.closeDialog();
+		this.stage.graph.clear();
+		this.currentLevel += 1;
+		this.levels[game.currentLevel].initialize();
+	}.bind(this);
+	document.getElementById("button-next").onclick = this.nextLevel;
 }

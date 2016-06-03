@@ -21,11 +21,12 @@ import org.eclipse.epsilon.evl.IEvlModule;
 import org.eclipse.epsilon.evl.execute.UnsatisfiedConstraint;
 import org.york.gamified.modelling.model.Model;
 import org.york.gamified.modelling.model.Node;
+import org.york.gamified.modelling.model.Objective;
+import org.york.gamified.modelling.model.Result;
 
 import com.google.gson.Gson;
 
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelFactory;
-import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage;
 import gamifiedmodellingobjectmodel.ObjectModel;
 
 /**
@@ -71,18 +72,19 @@ public class Validation extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 
+			//Get json string 
 			StringBuilder stringBuilder = new StringBuilder();
 			String result;
 			while ((result = request.getReader().readLine()) != null) {
 				stringBuilder.append(result);
 			}
-
 			String json = stringBuilder.toString();
-
+			
+			//convert json from client to pojo
 			Gson gson = new Gson();
 			Model model = gson.fromJson(json, Model.class);
 
-			GamifiedmodellingobjectmodelPackage myPackage = GamifiedmodellingobjectmodelPackage.eINSTANCE;
+			//map pojo to EMF model
 			GamifiedmodellingobjectmodelFactory factory = GamifiedmodellingobjectmodelFactory.eINSTANCE;
 			ObjectModel objectModel = factory.createObjectModel();
 			for (Node node : model.nodes) {
@@ -100,19 +102,14 @@ public class Validation extends HttpServlet {
 
 			// save XMI of the model
 			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath()
-					+ "../epsilon/models/ObjectModel.xmi";
-//			URI uri =  URI.createFileURI(path);
-//			File file = new File(uri.path());
-//			if (file.exists()){
-//				file.delete();
-//			}
+					+ "../game/" + model.level + "/ObjectModel.xmi";
 			Resource resource = resourceSet.createResource(URI.createFileURI(path));
 			resource.getContents().add(objectModel);
 			resource.save(null);
 
 			// Load EVL module
 			IEvlModule module = new EvlModule();
-			String source = "epsilon/evl/Validation.evl";
+			String source = "game/" + model.level + "/objectives.evl";
 			java.net.URI binUri = getFileURI(source);
 			module.parse(binUri);
 
@@ -123,25 +120,36 @@ public class Validation extends HttpServlet {
 
 			//excute the module
 			module.execute();
-			
+				
+			//create result object object for json
+			Result validationResult  = new Result();
+		
 			//do the validation
-			String validationResult = "";
 			List<UnsatisfiedConstraint> unsatisfiedConstraints = module.getContext().getUnsatisfiedConstraints();
 			if (unsatisfiedConstraints.size() > 0) {
 				for (UnsatisfiedConstraint unsatisfied : unsatisfiedConstraints) {
-					unsatisfied.getMessage();
+					Objective objective = new Objective();
+					objective.objectiveName = unsatisfied.getConstraint().getName();
+					objective.isCompleted = false;
+					objective.message = unsatisfied.getMessage();
+					validationResult.objectives.add(objective);
 				}
-				validationResult = "false";
+				validationResult.isLevelCompleted = false;
 			} else {
-				validationResult = "true";
+				validationResult.isLevelCompleted = true;
 			}
-
+			
+			//cleaning the module
 			module.getContext().getModelRepository().dispose();
+			
+			//convert object to json
+			String jsonString = "";
+			jsonString = gson.toJson(validationResult);
 
 			//returning the result
-			if (validationResult != null && validationResult.length() > 0) {
+			if (jsonString != null && jsonString.length() > 0) {
 				response.setContentType("application/json");
-				response.getWriter().append(validationResult);
+				response.getWriter().append(jsonString);
 				response.getWriter().flush();
 			}
 

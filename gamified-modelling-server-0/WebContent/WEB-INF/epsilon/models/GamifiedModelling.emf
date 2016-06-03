@@ -32,7 +32,7 @@ class Level {
 @gmf.node(label="name")
 class Objective {
 	attr String name;   
-	attr String evlName;
+	attr String description;
 }
 
 @gmf.node(label="name")
