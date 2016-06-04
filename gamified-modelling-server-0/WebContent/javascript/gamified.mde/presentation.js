@@ -153,8 +153,7 @@ var Stage = function(game) {
                         game.levels[game.currentLevel].evaluateObjectives();
                     }
                 });
-                
-
+                game.stage.updateProgress();
             } else if (elementId == "LinkIcon") {
 
                 var link = new joint.dia.Link({
@@ -162,6 +161,7 @@ var Stage = function(game) {
                     target: {x: paperPoint.x - game.stage.ICON_WIDTH / 2, y: paperPoint.y + game.stage.ICON_HEIGHT / 2}
                 });
                 game.stage.graph.addCell(link);
+                game.stage.updateProgress();
             }
             //else if (elementId == "DraggableCaseItem1") {
             //    var object = new joint.shapes.html.Element({
@@ -224,6 +224,8 @@ var Stage = function(game) {
     			game.levels[game.currentLevel].objects.splice(index, 1);
     		}
     	} 
+    	
+    	game.stage.updateProgress();
     	game.levels[game.currentLevel].evaluateObjectives();
     });
 
@@ -246,11 +248,20 @@ var Stage = function(game) {
         document.getElementById("dialog-background").style.visibility = "visible";
         document.getElementById("dialog-next").style.visibility = "visible";
     }
+    
     this.closeDialog = function() {
         document.getElementById("dialog-background").style.visibility = "collapse";
         document.getElementById("dialog-next").style.visibility = "collapse";
     }
     document.getElementById("button-continue").onclick = this.closeDialog;
+    
+    this.updateProgress = function(){
+    	//var objectValue = game.levels[game.currentLevel].objects.length;
+    	var nodeValue = game.stage.graph.getElements().length;
+    	document.getElementById("NodeValue").innerHTML = nodeValue;
+    	var edgeValue = game.stage.graph.getLinks().length;
+    	document.getElementById("EdgeValue").innerHTML = edgeValue;
+    }
     
 }
 

@@ -47,7 +47,7 @@ var Level = function(game, levelId, levelName) {
 
 	this.points = 0;
 	this.timeElapsed = "00:00:00";
-
+	
 	this.initialize = function() {
 	}
 
@@ -84,12 +84,14 @@ var Level = function(game, levelId, levelName) {
 	    		
 	    		//display the dialog to move to next level
 	    		if (json["isLevelCompleted"] == true) {
+	    			stopTime();
 	    			game.stage.showDialog();
 	    		}else{
 	    		}
 	    	}		
     	);
 	}
+	
 }
 
 var Game = function() {
@@ -152,6 +154,7 @@ var Game = function() {
         	newSpan.cursor = "grab";
         	newSpan.style.zIndex="9";
         	newSpan.style.marginRight="1%";
+        	newSpan.style.textAlign="center";
         	div.appendChild(newSpan);        	
         }
 		
@@ -177,6 +180,9 @@ var Game = function() {
 			li.appendChild(text);
 			ol.appendChild(li);
 		}
+		resetTime();
+		startTime("TimeValue");
+		
 	}.bind(this.levels[0]);
 	this.levels[0].addObjective(objectiveLevel01);
 
@@ -245,6 +251,7 @@ var Game = function() {
         	newSpan.cursor = "grab";
         	newSpan.style.zIndex="9";
         	newSpan.style.marginRight="1%";
+        	newSpan.style.textAlign="center";
         	div.appendChild(newSpan);    	
         }
         
@@ -270,6 +277,8 @@ var Game = function() {
 			li.appendChild(text);
 			ol.appendChild(li);
 		}
+		resetTime();
+		startTime("TimeValue");
 
 	}.bind(this.levels[1]);
 
