@@ -168,13 +168,13 @@ public interface GamifiedmodellingPackage extends EPackage {
 	int OBJECTIVE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Evl Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECTIVE__EVL_NAME = 1;
+	int OBJECTIVE__DESCRIPTION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Objective</em>' class.
@@ -387,15 +387,15 @@ public interface GamifiedmodellingPackage extends EPackage {
 	EAttribute getObjective_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gamifiedmodelling.Objective#getEvlName <em>Evl Name</em>}'.
+	 * Returns the meta object for the attribute '{@link gamifiedmodelling.Objective#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Evl Name</em>'.
-	 * @see gamifiedmodelling.Objective#getEvlName()
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see gamifiedmodelling.Objective#getDescription()
 	 * @see #getObjective()
 	 * @generated
 	 */
-	EAttribute getObjective_EvlName();
+	EAttribute getObjective_Description();
 
 	/**
 	 * Returns the meta object for class '{@link gamifiedmodelling.Case <em>Case</em>}'.
@@ -591,12 +591,12 @@ public interface GamifiedmodellingPackage extends EPackage {
 		EAttribute OBJECTIVE__NAME = eINSTANCE.getObjective_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Evl Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OBJECTIVE__EVL_NAME = eINSTANCE.getObjective_EvlName();
+		EAttribute OBJECTIVE__DESCRIPTION = eINSTANCE.getObjective_Description();
 
 		/**
 		 * The meta object literal for the '{@link gamifiedmodelling.impl.CaseImpl <em>Case</em>}' class.

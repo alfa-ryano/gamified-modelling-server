@@ -6,6 +6,7 @@ import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage;
 import gamifiedmodellingobjectmodel.Link;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link gamifiedmodellingobjectmodel.impl.LinkImpl#getIdentity <em>Identity</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.LinkImpl#getFromObject <em>From Object</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.LinkImpl#getToObject <em>To Object</em>}</li>
  * </ul>
@@ -28,6 +30,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class LinkImpl extends EObjectImpl implements Link {
+	/**
+	 * The default value of the '{@link #getIdentity() <em>Identity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IDENTITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIdentity() <em>Identity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentity()
+	 * @generated
+	 * @ordered
+	 */
+	protected String identity = IDENTITY_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getFromObject() <em>From Object</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -65,6 +87,27 @@ public class LinkImpl extends EObjectImpl implements Link {
 	@Override
 	protected EClass eStaticClass() {
 		return GamifiedmodellingobjectmodelPackage.Literals.LINK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getIdentity() {
+		return identity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentity(String newIdentity) {
+		String oldIdentity = identity;
+		identity = newIdentity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingobjectmodelPackage.LINK__IDENTITY, oldIdentity, identity));
 	}
 
 	/**
@@ -151,6 +194,8 @@ public class LinkImpl extends EObjectImpl implements Link {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GamifiedmodellingobjectmodelPackage.LINK__IDENTITY:
+				return getIdentity();
 			case GamifiedmodellingobjectmodelPackage.LINK__FROM_OBJECT:
 				if (resolve) return getFromObject();
 				return basicGetFromObject();
@@ -169,6 +214,9 @@ public class LinkImpl extends EObjectImpl implements Link {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GamifiedmodellingobjectmodelPackage.LINK__IDENTITY:
+				setIdentity((String)newValue);
+				return;
 			case GamifiedmodellingobjectmodelPackage.LINK__FROM_OBJECT:
 				setFromObject((gamifiedmodellingobjectmodel.Object)newValue);
 				return;
@@ -187,6 +235,9 @@ public class LinkImpl extends EObjectImpl implements Link {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GamifiedmodellingobjectmodelPackage.LINK__IDENTITY:
+				setIdentity(IDENTITY_EDEFAULT);
+				return;
 			case GamifiedmodellingobjectmodelPackage.LINK__FROM_OBJECT:
 				setFromObject((gamifiedmodellingobjectmodel.Object)null);
 				return;
@@ -205,12 +256,30 @@ public class LinkImpl extends EObjectImpl implements Link {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GamifiedmodellingobjectmodelPackage.LINK__IDENTITY:
+				return IDENTITY_EDEFAULT == null ? identity != null : !IDENTITY_EDEFAULT.equals(identity);
 			case GamifiedmodellingobjectmodelPackage.LINK__FROM_OBJECT:
 				return fromObject != null;
 			case GamifiedmodellingobjectmodelPackage.LINK__TO_OBJECT:
 				return toObject != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (identity: ");
+		result.append(identity);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LinkImpl

@@ -26,7 +26,9 @@ public enum ModelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OBJECT(1, "OBJECT", "OBJECT"), /**
+	OBJECT(1, "OBJECT", "OBJECT"),
+
+	/**
 	 * The '<em><b>CLASS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +36,9 @@ public enum ModelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLASS(2, "CLASS", "CLASS"), /**
+	CLASS(2, "CLASS", "CLASS"),
+
+	/**
 	 * The '<em><b>SEQUENCE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +46,9 @@ public enum ModelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEQUENCE(3, "SEQUENCE", "SEQUENCE"), /**
+	SEQUENCE(3, "SEQUENCE", "SEQUENCE"),
+
+	/**
 	 * The '<em><b>ACTIVITY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,7 +56,9 @@ public enum ModelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACTIVITY(4, "ACTIVITY", "ACTIVITY"), /**
+	ACTIVITY(4, "ACTIVITY", "ACTIVITY"),
+
+	/**
 	 * The '<em><b>STATECHART</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

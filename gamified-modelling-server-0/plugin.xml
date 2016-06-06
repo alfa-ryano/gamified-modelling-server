@@ -24,8 +24,7 @@
       <!-- @generated ObjectModel -->
       <package
             uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
-            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"
-            genModel="WebContent/WEB-INF/epsilon/models/ObjectModel.genmodel"/>
+            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"/>
    </extension>
 
 </plugin>

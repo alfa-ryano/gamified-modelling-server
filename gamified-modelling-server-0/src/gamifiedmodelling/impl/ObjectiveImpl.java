@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link gamifiedmodelling.impl.ObjectiveImpl#getName <em>Name</em>}</li>
- *   <li>{@link gamifiedmodelling.impl.ObjectiveImpl#getEvlName <em>Evl Name</em>}</li>
+ *   <li>{@link gamifiedmodelling.impl.ObjectiveImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,24 +48,24 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEvlName() <em>Evl Name</em>}' attribute.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEvlName()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String EVL_NAME_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getEvlName() <em>Evl Name</em>}' attribute.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEvlName()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected String evlName = EVL_NAME_EDEFAULT;
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,8 +112,8 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEvlName() {
-		return evlName;
+	public String getDescription() {
+		return description;
 	}
 
 	/**
@@ -121,11 +121,11 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEvlName(String newEvlName) {
-		String oldEvlName = evlName;
-		evlName = newEvlName;
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.OBJECTIVE__EVL_NAME, oldEvlName, evlName));
+			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.OBJECTIVE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -138,8 +138,8 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 		switch (featureID) {
 			case GamifiedmodellingPackage.OBJECTIVE__NAME:
 				return getName();
-			case GamifiedmodellingPackage.OBJECTIVE__EVL_NAME:
-				return getEvlName();
+			case GamifiedmodellingPackage.OBJECTIVE__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -155,8 +155,8 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 			case GamifiedmodellingPackage.OBJECTIVE__NAME:
 				setName((String)newValue);
 				return;
-			case GamifiedmodellingPackage.OBJECTIVE__EVL_NAME:
-				setEvlName((String)newValue);
+			case GamifiedmodellingPackage.OBJECTIVE__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +173,8 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 			case GamifiedmodellingPackage.OBJECTIVE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case GamifiedmodellingPackage.OBJECTIVE__EVL_NAME:
-				setEvlName(EVL_NAME_EDEFAULT);
+			case GamifiedmodellingPackage.OBJECTIVE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,8 +190,8 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 		switch (featureID) {
 			case GamifiedmodellingPackage.OBJECTIVE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GamifiedmodellingPackage.OBJECTIVE__EVL_NAME:
-				return EVL_NAME_EDEFAULT == null ? evlName != null : !EVL_NAME_EDEFAULT.equals(evlName);
+			case GamifiedmodellingPackage.OBJECTIVE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,8 +208,8 @@ public class ObjectiveImpl extends EObjectImpl implements Objective {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", evlName: ");
-		result.append(evlName);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

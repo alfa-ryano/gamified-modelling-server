@@ -75,13 +75,22 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int OBJECT_MODEL__OBJECTS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MODEL__LINKS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Object Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODEL_FEATURE_COUNT = 1;
+	int OBJECT_MODEL_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.ObjectImpl <em>Object</em>}' class.
@@ -112,22 +121,13 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int OBJECT__IDENTITY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Links</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__LINKS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = 3;
+	int OBJECT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.LinkImpl <em>Link</em>}' class.
@@ -140,13 +140,22 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int LINK = 2;
 
 	/**
+	 * The feature id for the '<em><b>Identity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__IDENTITY = 0;
+
+	/**
 	 * The feature id for the '<em><b>From Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__FROM_OBJECT = 0;
+	int LINK__FROM_OBJECT = 1;
 
 	/**
 	 * The feature id for the '<em><b>To Object</b></em>' reference.
@@ -155,7 +164,7 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__TO_OBJECT = 1;
+	int LINK__TO_OBJECT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -164,7 +173,7 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = 2;
+	int LINK_FEATURE_COUNT = 3;
 
 
 	/**
@@ -187,6 +196,17 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getObjectModel_Objects();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link gamifiedmodellingobjectmodel.ObjectModel#getLinks <em>Links</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Links</em>'.
+	 * @see gamifiedmodellingobjectmodel.ObjectModel#getLinks()
+	 * @see #getObjectModel()
+	 * @generated
+	 */
+	EReference getObjectModel_Links();
 
 	/**
 	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Object <em>Object</em>}'.
@@ -221,17 +241,6 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	EAttribute getObject_Identity();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link gamifiedmodellingobjectmodel.Object#getLinks <em>Links</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Links</em>'.
-	 * @see gamifiedmodellingobjectmodel.Object#getLinks()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_Links();
-
-	/**
 	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,6 +249,17 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLink();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Link#getIdentity <em>Identity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identity</em>'.
+	 * @see gamifiedmodellingobjectmodel.Link#getIdentity()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_Identity();
 
 	/**
 	 * Returns the meta object for the reference '{@link gamifiedmodellingobjectmodel.Link#getFromObject <em>From Object</em>}'.
@@ -304,6 +324,14 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		EReference OBJECT_MODEL__OBJECTS = eINSTANCE.getObjectModel_Objects();
 
 		/**
+		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_MODEL__LINKS = eINSTANCE.getObjectModel_Links();
+
+		/**
 		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.ObjectImpl <em>Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -330,14 +358,6 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		EAttribute OBJECT__IDENTITY = eINSTANCE.getObject_Identity();
 
 		/**
-		 * The meta object literal for the '<em><b>Links</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__LINKS = eINSTANCE.getObject_Links();
-
-		/**
 		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -346,6 +366,14 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LINK = eINSTANCE.getLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Identity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__IDENTITY = eINSTANCE.getLink_Identity();
 
 		/**
 		 * The meta object literal for the '<em><b>From Object</b></em>' reference feature.

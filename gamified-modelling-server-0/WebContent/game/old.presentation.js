@@ -150,13 +150,17 @@ var Stage = function(game) {
                             return false;
                         });
                         
-                        game.levels[game.currentLevel].evaluateObjectives();
+                    	var data = game.util.convertModelsToJson(
+                    			game.levels[game.currentLevel].objects,null);
+                    	game.util.jsonSubmit("POST", "Validation", data);
+
                     }
                 });
-                game.stage.updateProgress();
-            } else if (elementId == "LinkIcon") {
+                
 
-            	var edgeId = "element-" + (++game.stage.counter);
+            } else if (elementId == "LinkIcon") {
+            	
+	            var edgeId = "element-" + (++game.stage.counter);
 	            var edgetModel = game.levels[game.currentLevel].addEdge(edgeId);
 	             
 	            var link = new joint.dia.Link({
@@ -167,6 +171,17 @@ var Stage = function(game) {
 	            });
 	            game.stage.graph.addCell(link);
             }
+            //else if (elementId == "DraggableCaseItem1") {
+            //    var object = new joint.shapes.html.Element({
+            //        position: {x: paperPoint.x - game.stage.ICON_WIDTH / 2, y: paperPoint.y - game.stage.ICON_HEIGHT / 2},
+            //        size: {width: game.stage.ICON_WIDTH, height: game.stage.ICON_HEIGHT},
+            //        span: "object",
+            //        name: objectName
+            //    });
+            //    this.graph.addCell(object);
+            //
+            //}
+
 
         }
     });
@@ -189,6 +204,17 @@ var Stage = function(game) {
         })
     });
 
+//this.paper.on('cell:mouseover', function (cellView, evt) {
+//    var element = game.stage.graph.get('cells').find(function (cell) {
+//        if (cell instanceof joint.dia.Link) return false;
+//        if (cell.id === cellView.model.id) {
+//            //alert("123");
+//            return true;
+//        }
+//        return false;
+//    });
+//});
+
     this.paper.on('cell:pointerdblclick', function (cellView, evt, x, y) {
         //var element = game.stage.get('cells').find(function (cell) {
         //        if (cell instanceof joint.dia.Link) return false;
@@ -208,23 +234,6 @@ var Stage = function(game) {
         //        return false;
         //    })
         //    ;
-    });
-    
-    this.graph.on("remove", function(cell) { 
-    	if (cell instanceof joint.dia.Element){
-    		var index = game.levels[game.currentLevel].objects.indexOf(cell.attributes.model);
-    		if (index != null){
-    			game.levels[game.currentLevel].objects.splice(index, 1);
-    		}
-    	} else if (cell instanceof joint.dia.Link){
-    		var index = game.levels[game.currentLevel].edges.indexOf(cell.attributes.model);
-    		if (index != null){
-    			game.levels[game.currentLevel].edges.splice(index, 1);
-    		}
-    	}
-    	
-    	game.stage.updateProgress();
-    	game.levels[game.currentLevel].evaluateObjectives();
     });
 
 
@@ -246,20 +255,11 @@ var Stage = function(game) {
         document.getElementById("dialog-background").style.visibility = "visible";
         document.getElementById("dialog-next").style.visibility = "visible";
     }
-    
     this.closeDialog = function() {
         document.getElementById("dialog-background").style.visibility = "collapse";
         document.getElementById("dialog-next").style.visibility = "collapse";
     }
     document.getElementById("button-continue").onclick = this.closeDialog;
-    
-    this.updateProgress = function(){
-    	//var objectValue = game.levels[game.currentLevel].objects.length;
-    	var nodeValue = game.stage.graph.getElements().length;
-    	document.getElementById("NodeValue").innerHTML = nodeValue;
-    	var edgeValue = game.stage.graph.getLinks().length;
-    	document.getElementById("EdgeValue").innerHTML = edgeValue;
-    }
     
 }
 

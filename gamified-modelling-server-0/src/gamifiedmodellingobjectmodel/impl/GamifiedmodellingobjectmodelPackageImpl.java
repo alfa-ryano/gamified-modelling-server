@@ -126,6 +126,15 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getObjectModel_Links() {
+		return (EReference)objectModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getObject() {
 		return objectEClass;
 	}
@@ -153,15 +162,6 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObject_Links() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLink() {
 		return linkEClass;
 	}
@@ -171,8 +171,17 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLink_Identity() {
+		return (EAttribute)linkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getLink_FromObject() {
-		return (EReference)linkEClass.getEStructuralFeatures().get(0);
+		return (EReference)linkEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -181,7 +190,7 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * @generated
 	 */
 	public EReference getLink_ToObject() {
-		return (EReference)linkEClass.getEStructuralFeatures().get(1);
+		return (EReference)linkEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -214,13 +223,14 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		// Create classes and their features
 		objectModelEClass = createEClass(OBJECT_MODEL);
 		createEReference(objectModelEClass, OBJECT_MODEL__OBJECTS);
+		createEReference(objectModelEClass, OBJECT_MODEL__LINKS);
 
 		objectEClass = createEClass(OBJECT);
 		createEAttribute(objectEClass, OBJECT__NAME);
 		createEAttribute(objectEClass, OBJECT__IDENTITY);
-		createEReference(objectEClass, OBJECT__LINKS);
 
 		linkEClass = createEClass(LINK);
+		createEAttribute(linkEClass, LINK__IDENTITY);
 		createEReference(linkEClass, LINK__FROM_OBJECT);
 		createEReference(linkEClass, LINK__TO_OBJECT);
 	}
@@ -257,13 +267,14 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		// Initialize classes and features; add operations and parameters
 		initEClass(objectModelEClass, ObjectModel.class, "ObjectModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectModel_Objects(), this.getObject(), null, "objects", null, 0, -1, ObjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectModel_Links(), this.getLink(), null, "links", null, 0, -1, ObjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectEClass, gamifiedmodellingobjectmodel.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObject_Identity(), ecorePackage.getEString(), "identity", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_Links(), this.getLink(), null, "links", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLink_Identity(), ecorePackage.getEString(), "identity", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_FromObject(), this.getObject(), null, "fromObject", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_ToObject(), this.getObject(), null, "toObject", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

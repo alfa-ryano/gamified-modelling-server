@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link gamifiedmodelling.Objective#getName <em>Name</em>}</li>
- *   <li>{@link gamifiedmodelling.Objective#getEvlName <em>Evl Name</em>}</li>
+ *   <li>{@link gamifiedmodelling.Objective#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see gamifiedmodelling.GamifiedmodellingPackage#getObjective()
@@ -49,29 +49,29 @@ public interface Objective extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Evl Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Evl Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Evl Name</em>' attribute.
-	 * @see #setEvlName(String)
-	 * @see gamifiedmodelling.GamifiedmodellingPackage#getObjective_EvlName()
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see gamifiedmodelling.GamifiedmodellingPackage#getObjective_Description()
 	 * @model
 	 * @generated
 	 */
-	String getEvlName();
+	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link gamifiedmodelling.Objective#getEvlName <em>Evl Name</em>}' attribute.
+	 * Sets the value of the '{@link gamifiedmodelling.Objective#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Evl Name</em>' attribute.
-	 * @see #getEvlName()
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
 	 * @generated
 	 */
-	void setEvlName(String value);
+	void setDescription(String value);
 
 } // Objective

@@ -8,13 +8,14 @@
       ecorePackage="ObjectModel.ecore#/">
     <genClasses ecoreClass="ObjectModel.ecore#//ObjectModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//ObjectModel/objects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//ObjectModel/links"/>
     </genClasses>
     <genClasses ecoreClass="ObjectModel.ecore#//Object">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Object/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Object/identity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//Object/links"/>
     </genClasses>
     <genClasses ecoreClass="ObjectModel.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Link/identity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//Link/fromObject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//Link/toObject"/>
     </genClasses>

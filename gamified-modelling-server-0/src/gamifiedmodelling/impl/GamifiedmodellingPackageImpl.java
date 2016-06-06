@@ -224,7 +224,7 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getObjective_EvlName() {
+	public EAttribute getObjective_Description() {
 		return (EAttribute)objectiveEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -340,7 +340,7 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 
 		objectiveEClass = createEClass(OBJECTIVE);
 		createEAttribute(objectiveEClass, OBJECTIVE__NAME);
-		createEAttribute(objectiveEClass, OBJECTIVE__EVL_NAME);
+		createEAttribute(objectiveEClass, OBJECTIVE__DESCRIPTION);
 
 		caseEClass = createEClass(CASE);
 		createEAttribute(caseEClass, CASE__NAME);
@@ -397,7 +397,7 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 
 		initEClass(objectiveEClass, Objective.class, "Objective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObjective_Name(), ecorePackage.getEString(), "name", null, 0, 1, Objective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getObjective_EvlName(), ecorePackage.getEString(), "evlName", null, 0, 1, Objective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObjective_Description(), ecorePackage.getEString(), "description", null, 0, 1, Objective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(caseEClass, Case.class, "Case", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

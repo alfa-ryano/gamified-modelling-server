@@ -19,6 +19,7 @@ import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.IEvlModule;
 import org.eclipse.epsilon.evl.execute.UnsatisfiedConstraint;
+import org.york.gamified.modelling.model.Edge;
 import org.york.gamified.modelling.model.Model;
 import org.york.gamified.modelling.model.Node;
 import org.york.gamified.modelling.model.Objective;
@@ -72,26 +73,37 @@ public class Validation extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 
-			//Get json string 
+			// Get json string
 			StringBuilder stringBuilder = new StringBuilder();
 			String result;
 			while ((result = request.getReader().readLine()) != null) {
 				stringBuilder.append(result);
 			}
 			String json = stringBuilder.toString();
-			
-			//convert json from client to pojo
+
+			// convert json from client to pojo
 			Gson gson = new Gson();
 			Model model = gson.fromJson(json, Model.class);
 
-			//map pojo to EMF model
+			// map pojo to EMF model
 			GamifiedmodellingobjectmodelFactory factory = GamifiedmodellingobjectmodelFactory.eINSTANCE;
 			ObjectModel objectModel = factory.createObjectModel();
-			for (Node node : model.nodes) {
-				gamifiedmodellingobjectmodel.Object object = factory.createObject();
-				object.setIdentity(node.identity);
-				object.setName(node.objectName);
-				objectModel.getObjects().add(object);
+
+			if (model.nodes != null && model.nodes.size() > 0) {
+				for (Node node : model.nodes) {
+					gamifiedmodellingobjectmodel.Object object = factory.createObject();
+					object.setIdentity(node.identity);
+					object.setName(node.objectName);
+					objectModel.getObjects().add(object);
+				}
+			}
+
+			if (model.edges != null && model.edges.size() > 0) {
+				for (Edge edge : model.edges) {
+					gamifiedmodellingobjectmodel.Link link = factory.createLink();
+					link.setIdentity(edge.identity);
+					objectModel.getLinks().add(link);
+				}
 			}
 
 			// create resource set and resource
@@ -101,8 +113,8 @@ public class Validation extends HttpServlet {
 					new XMIResourceFactoryImpl());
 
 			// save XMI of the model
-			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath()
-					+ "../game/" + model.level + "/ObjectModel.xmi";
+			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../game/"
+					+ model.level + "/ObjectModel.xmi";
 			Resource resource = resourceSet.createResource(URI.createFileURI(path));
 			resource.getContents().add(objectModel);
 			resource.save(null);
@@ -118,13 +130,13 @@ public class Validation extends HttpServlet {
 			inMemoryEmfModel.setName("ObjectModel");
 			module.getContext().getModelRepository().addModel(inMemoryEmfModel);
 
-			//excute the module
+			// excute the module
 			module.execute();
-				
-			//create result object object for json
-			Result validationResult  = new Result();
-		
-			//do the validation
+
+			// create result object object for json
+			Result validationResult = new Result();
+
+			// do the validation
 			List<UnsatisfiedConstraint> unsatisfiedConstraints = module.getContext().getUnsatisfiedConstraints();
 			if (unsatisfiedConstraints.size() > 0) {
 				for (UnsatisfiedConstraint unsatisfied : unsatisfiedConstraints) {
@@ -138,15 +150,15 @@ public class Validation extends HttpServlet {
 			} else {
 				validationResult.isLevelCompleted = true;
 			}
-			
-			//cleaning the module
+
+			// cleaning the module
 			module.getContext().getModelRepository().dispose();
-			
-			//convert object to json
+
+			// convert object to json
 			String jsonString = "";
 			jsonString = gson.toJson(validationResult);
 
-			//returning the result
+			// returning the result
 			if (jsonString != null && jsonString.length() > 0) {
 				response.setContentType("application/json");
 				response.getWriter().append(jsonString);

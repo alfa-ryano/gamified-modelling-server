@@ -5,17 +5,18 @@ package gamifiedmodellingobjectmodel;
 @gmf.diagram(foo="bar")
 class ObjectModel {
     val Object[*] objects;
+    val Link[*] links;
 }
 
 @gmf.node(label="name")
 class Object {
     attr String name;
     attr String identity;
-    val Link links; 
 }
 
 @gmf.link(source="fromObject", target="toObject")
 class Link {
+    attr String identity; 
     ref Object fromObject;
     ref Object toObject;
 }

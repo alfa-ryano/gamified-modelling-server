@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link gamifiedmodellingobjectmodel.Object#getName <em>Name</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.Object#getIdentity <em>Identity</em>}</li>
- *   <li>{@link gamifiedmodellingobjectmodel.Object#getLinks <em>Links</em>}</li>
  * </ul>
  *
  * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getObject()
@@ -74,31 +73,5 @@ public interface Object extends EObject {
 	 * @generated
 	 */
 	void setIdentity(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Links</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Links</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Links</em>' containment reference.
-	 * @see #setLinks(Link)
-	 * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getObject_Links()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Link getLinks();
-
-	/**
-	 * Sets the value of the '{@link gamifiedmodellingobjectmodel.Object#getLinks <em>Links</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Links</em>' containment reference.
-	 * @see #getLinks()
-	 * @generated
-	 */
-	void setLinks(Link value);
 
 } // Object
