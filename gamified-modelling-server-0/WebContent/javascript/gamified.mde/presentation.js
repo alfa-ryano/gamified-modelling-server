@@ -157,13 +157,42 @@ var Stage = function(game) {
             } else if (elementId == "LinkIcon") {
 
             	var edgeId = "element-" + (++game.stage.counter);
-	            var edgetModel = game.levels[game.currentLevel].addEdge(edgeId);
+	            var edgeModel = game.levels[game.currentLevel].addEdge(edgeId);
 	             
 	            var link = new joint.dia.Link({
 	                source: {x: paperPoint.x + game.stage.ICON_WIDTH / 2, y: paperPoint.y - game.stage.ICON_HEIGHT / 2},
 	                target: {x: paperPoint.x - game.stage.ICON_WIDTH / 2, y: paperPoint.y + game.stage.ICON_HEIGHT / 2},
 	                identity: edgeId,
-	                model: edgetModel
+	                model: edgeModel
+	            });
+	            
+	            link.on('change:source', function() { 
+	            	var sourceElement = link.getSourceElement();
+	            	var targetElement = link.getTargetElement();
+	            	if (sourceElement != null ){
+	            		this.attributes.model.sourceIdentity = sourceElement.attributes.identity;
+	            	}else{
+	            		this.attributes.model.sourceIdentity = null;
+	            	}
+	            	
+	            	if (targetElement != null && targetElement != null){
+	            		game.levels[game.currentLevel].evaluateObjectives();
+	            	}
+	            });
+	            
+	            link.on('change:target', function() { 
+	            	var sourceElement = link.getSourceElement();
+	            	var targetElement = link.getTargetElement();
+	            	if (targetElement != null ){
+	            		this.attributes.model.targetIdentity = targetElement.attributes.identity;
+	            		
+	            	}else{
+	            		this.attributes.model.targetIdentity = null;
+	            	}
+	            	
+	            	if (targetElement != null && targetElement != null){
+	            		game.levels[game.currentLevel].evaluateObjectives();
+	            	}
 	            });
 	            game.stage.graph.addCell(link);
             }
@@ -226,6 +255,8 @@ var Stage = function(game) {
     	game.stage.updateProgress();
     	game.levels[game.currentLevel].evaluateObjectives();
     });
+    
+    
 
 
 //$("#ObjectIcon").on('doubletap', function(event) {

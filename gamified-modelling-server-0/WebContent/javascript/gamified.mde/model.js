@@ -12,6 +12,8 @@ var ModelObject = function(objectName, identity) {
 
 var ModelEdge = function (identity) {
 	this.identity = identity;
+	this.sourceIdentity = null;
+	this.targetIdentity = null;
 }
 
 var Objective = function(game, level, objectiveName, description) {
@@ -111,7 +113,7 @@ var Game = function() {
 	this.stage = new Stage(this);
 
 	// SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
-	this.currentLevel = 3;
+	this.currentLevel = 0;
 
 	this.levels = new Array();
 

@@ -102,6 +102,16 @@ public class Validation extends HttpServlet {
 				for (Edge edge : model.edges) {
 					gamifiedmodellingobjectmodel.Link link = factory.createLink();
 					link.setIdentity(edge.identity);
+					if (objectModel.getObjects() != null && objectModel.getObjects().size() > 0) {
+						for (gamifiedmodellingobjectmodel.Object object : objectModel.getObjects()) {
+							if (object.getIdentity().equals(edge.sourceIdentity)){
+								link.setFromObject(object);
+							}
+							if (object.getIdentity().equals(edge.targetIdentity)){
+								link.setToObject(object);
+							}
+						}
+					}
 					objectModel.getLinks().add(link);
 				}
 			}

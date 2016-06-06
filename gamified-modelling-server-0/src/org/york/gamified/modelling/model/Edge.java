@@ -6,4 +6,6 @@ public class Edge {
 	}
 	
 	public String identity;
+	public String sourceIdentity;
+	public String targetIdentity;
 }
