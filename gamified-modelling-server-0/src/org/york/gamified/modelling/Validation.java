@@ -104,10 +104,10 @@ public class Validation extends HttpServlet {
 					link.setIdentity(edge.identity);
 					if (objectModel.getObjects() != null && objectModel.getObjects().size() > 0) {
 						for (gamifiedmodellingobjectmodel.Object object : objectModel.getObjects()) {
-							if (object.getIdentity().equals(edge.sourceIdentity)){
+							if (object.getIdentity().equals(edge.sourceIdentity)) {
 								link.setFromObject(object);
 							}
-							if (object.getIdentity().equals(edge.targetIdentity)){
+							if (object.getIdentity().equals(edge.targetIdentity)) {
 								link.setToObject(object);
 							}
 						}
@@ -123,15 +123,26 @@ public class Validation extends HttpServlet {
 					new XMIResourceFactoryImpl());
 
 			// save XMI of the model
-			String path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../game/"
-					+ model.level + "/ObjectModel.xmi";
+			String path = "";
+			if (model.mode.equals("PRODUCTION")) {
+				path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../../game/"
+						+ model.level + "/ObjectModel.xmi";
+			} else {
+				path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../game/"
+						+ model.level + "/ObjectModel.xmi";
+			}
 			Resource resource = resourceSet.createResource(URI.createFileURI(path));
 			resource.getContents().add(objectModel);
 			resource.save(null);
 
 			// Load EVL module
 			IEvlModule module = new EvlModule();
-			String source = "game/" + model.level + "/objectives.evl";
+			String source = "";
+			if (model.mode.equals("PRODUCTION")) {
+				source = "../game/" + model.level + "/objectives.evl";
+			} else {
+				source = "game/" + model.level + "/objectives.evl";
+			}
 			java.net.URI binUri = getFileURI(source);
 			module.parse(binUri);
 

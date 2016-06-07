@@ -7,13 +7,11 @@ import gamifiedmodelling.Game;
 import gamifiedmodelling.GamifiedmodellingFactory;
 import gamifiedmodelling.GamifiedmodellingPackage;
 import gamifiedmodelling.Level;
-import gamifiedmodelling.ModelType;
 import gamifiedmodelling.Objective;
 import gamifiedmodelling.Path;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -60,13 +58,6 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * @generated
 	 */
 	private EClass pathEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum modelTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -170,8 +161,8 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLevel_ModelType() {
-		return (EAttribute)levelEClass.getEStructuralFeatures().get(1);
+	public EReference getLevel_Objectives() {
+		return (EReference)levelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -179,7 +170,7 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLevel_Objectives() {
+	public EReference getLevel_LevelCase() {
 		return (EReference)levelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -188,17 +179,8 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLevel_Case() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getLevel_Path() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(4);
+		return (EReference)levelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -296,15 +278,6 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getModelType() {
-		return modelTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public GamifiedmodellingFactory getGamifiedmodellingFactory() {
 		return (GamifiedmodellingFactory)getEFactoryInstance();
 	}
@@ -333,9 +306,8 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 
 		levelEClass = createEClass(LEVEL);
 		createEAttribute(levelEClass, LEVEL__NAME);
-		createEAttribute(levelEClass, LEVEL__MODEL_TYPE);
 		createEReference(levelEClass, LEVEL__OBJECTIVES);
-		createEReference(levelEClass, LEVEL__CASE);
+		createEReference(levelEClass, LEVEL__LEVEL_CASE);
 		createEReference(levelEClass, LEVEL__PATH);
 
 		objectiveEClass = createEClass(OBJECTIVE);
@@ -350,9 +322,6 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 		pathEClass = createEClass(PATH);
 		createEReference(pathEClass, PATH__PREV_LEVEL);
 		createEReference(pathEClass, PATH__NEXT_LEVEL);
-
-		// Create enums
-		modelTypeEEnum = createEEnum(MODEL_TYPE);
 	}
 
 	/**
@@ -390,9 +359,8 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 
 		initEClass(levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLevel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLevel_ModelType(), this.getModelType(), "modelType", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Objectives(), this.getObjective(), null, "objectives", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLevel_Case(), this.getCase(), null, "case", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLevel_LevelCase(), this.getCase(), null, "levelCase", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Path(), this.getPath(), null, "path", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectiveEClass, Objective.class, "Objective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -407,14 +375,6 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 		initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPath_PrevLevel(), this.getLevel(), null, "prevLevel", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPath_NextLevel(), this.getLevel(), null, "nextLevel", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		// Initialize enums and add enum literals
-		initEEnum(modelTypeEEnum, ModelType.class, "ModelType");
-		addEEnumLiteral(modelTypeEEnum, ModelType.OBJECT);
-		addEEnumLiteral(modelTypeEEnum, ModelType.CLASS);
-		addEEnumLiteral(modelTypeEEnum, ModelType.SEQUENCE);
-		addEEnumLiteral(modelTypeEEnum, ModelType.ACTIVITY);
-		addEEnumLiteral(modelTypeEEnum, ModelType.STATECHART);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -486,13 +446,13 @@ public class GamifiedmodellingPackageImpl extends EPackageImpl implements Gamifi
 		  (getLevel_Objectives(), 
 		   source, 
 		   new String[] {
-			 "x", ""
+			 "foo", "bar"
 		   });	
 		addAnnotation
-		  (getLevel_Case(), 
+		  (getLevel_LevelCase(), 
 		   source, 
 		   new String[] {
-			 "x", ""
+			 "foo", "bar"
 		   });
 	}
 

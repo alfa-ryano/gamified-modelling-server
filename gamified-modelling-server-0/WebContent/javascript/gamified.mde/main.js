@@ -1,6 +1,7 @@
 // MAIN ------------------------------------
 try {
 	var game = new Game();
+	game.mode = "DEVELOPMENT"
 
 	// ----Set Up Level 1----------------------------------------------------
 	game.levels[0] = new Level(game, "level_001",

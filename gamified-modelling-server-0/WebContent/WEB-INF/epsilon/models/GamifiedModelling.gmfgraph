@@ -10,11 +10,11 @@
           <maximumSize dx="10000" dy="50"/>
         </children>
         <children xsi:type="gmfgraph:Rectangle" name="LevelObjectivesCompartmentFigure" outline="false"/>
-        <children xsi:type="gmfgraph:Rectangle" name="LevelCaseCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="LevelLevelCaseCompartmentFigure" outline="false"/>
       </actualFigure>
       <accessors accessor="getFigureLevelLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
       <accessors accessor="getLevelObjectivesCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
-      <accessors accessor="getLevelCaseCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
+      <accessors accessor="getLevelLevelCaseCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors name="ObjectiveFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ObjectiveFigure">
@@ -43,7 +43,7 @@
   <nodes name="Case" figure="CaseFigure"/>
   <connections name="Path" figure="PathFigure"/>
   <compartments name="LevelObjectivesCompartment" figure="LevelFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
-  <compartments name="LevelCaseCompartment" figure="LevelFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <compartments name="LevelLevelCaseCompartment" figure="LevelFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
   <labels name="LevelLabel" figure="LevelFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels name="ObjectiveLabel" figure="ObjectiveFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels name="CaseLabel" figure="CaseFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>

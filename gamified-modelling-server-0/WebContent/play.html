@@ -1,75 +1,80 @@
 <head>
-    <link rel="stylesheet" href="css/joint.css"/>
-    <link rel="stylesheet" href="css/mystyle.css"/>
-    <script src="javascript/jquery.min.js"></script>
-    <script src="javascript/jquery-ui.min.js"></script>
-    <script src="javascript/jquery.ui.touch-punch.min.js"></script>
-    <script src="javascript/jquery.finger.min.js"></script>
-    <script src="javascript/lodash.min.js"></script>
-    <script src="javascript/backbone-min.js"></script>
-    <script src="javascript/joint.js"></script>
+<link rel="stylesheet" href="css/joint.css" />
+<link rel="stylesheet" href="css/mystyle.css" />
+<script src="javascript/jquery.min.js"></script>
+<script src="javascript/jquery-ui.min.js"></script>
+<script src="javascript/jquery.ui.touch-punch.min.js"></script>
+<script src="javascript/jquery.finger.min.js"></script>
+<script src="javascript/lodash.min.js"></script>
+<script src="javascript/backbone-min.js"></script>
+<script src="javascript/joint.js"></script>
 </head>
 <body>
-<div id="HeaderViewport" class="Viewport">
-    <span id="Title">
-        Level 01 - Object Modelling: Create a Single Object
-        <!--(<br/>drag and drop the item from the palette or the colored texts into the drawing area)-->
-    </span>
-</div>
-<div id="CaseViewport" class="Viewport">
-    <div>CASES:</div>
-    <div id="Instruction">
-        <!--Create a <span id="DraggableCaseItem1" class="DraggableCaseItem" draggable="true"
+	<div id="HeaderViewport" class="Viewport">
+		<span id="Title"> Level 01 - Object Modelling: Create a Single
+			Object <!--(<br/>drag and drop the item from the palette or the colored texts into the drawing area)-->
+		</span>
+	</div>
+	<div id="CaseViewport" class="Viewport">
+		<div id="TitleCaseViewport">CASES:</div>
+		<div id="Instruction"></div>
+		<br />
+		<div id="DraggableItems">
+			<!--Create a <span id="DraggableCaseItem1" class="DraggableCaseItem" draggable="true"
                        style="color:#0066cc">button</span>!-->
-    </div>
-</div>
-<div id="ObjectiveViewport" class="Viewport">
-    <div>OBJECTIVES:</div>
-    <ol id="Objective" style="padding-left: 10%">
-        <li id="ObjectiveItem1" class="ObjectiveItem">Create one object with name 'button'</li>
-    </ol>
-</div>
-<div id="DrawingViewport" class="Viewport"></div>
-<div id="PaletteViewport" class="Viewport">
-    <div>PALETTE:</div>
-    <div id="ObjectIcon" class="Icon" draggable="true">
-        <div id="NameObject" class="ContainerIcon">
-            <span class="ObjectNameText"></span>
-        </div>
-        <div id="SlotObject" class="ContainerIcon"></div>
-        <div id="OperationObject" class="ContainerIcon"></div>
-    </div>
-    <div id="LinkIcon" class="Icon" draggable="true">
-        <svg style='width: 100%; height: 100%;'>
+		</div>
+	</div>
+	<div id="ObjectiveViewport" class="Viewport">
+		<div>OBJECTIVES:</div>
+		<ol id="Objective" style="padding-left: 10%">
+			<li id="ObjectiveItem1" class="ObjectiveItem">Create one object
+				with name 'button'</li>
+		</ol>
+	</div>
+	<div id="DrawingViewport" class="Viewport"></div>
+	<div id="PaletteViewport" class="Viewport">
+		<div>PALETTE:</div>
+		<div id="ObjectIcon" class="Icon" draggable="true">
+			<div id="NameObject" class="ContainerIcon">
+				<span class="ObjectNameText"></span>
+			</div>
+			<div id="SlotObject" class="ContainerIcon"></div>
+			<div id="OperationObject" class="ContainerIcon"></div>
+		</div>
+		<div id="LinkIcon" class="Icon" draggable="true">
+			<svg style='width: 100%; height: 100%;'>
             <line x1="0" y1="100%" x2="100%" y2="0"
-                  style="stroke:black;stroke-width:1"/>
+					style="stroke:black;stroke-width:1" />
         </svg>
-    </div>
-</div>
-<div id="ProgressViewport" class="Viewport"></div>
-<div id="FooterViewport" class="Viewport" onclick="console.log('aaa')">
+		</div>
+	</div>
+	<div id="ProgressViewport" class="Viewport">
+		<div>PROGRESS:</div>
+		<span id="ObjectiveProgress">Completed Objectives: </span><span id="ObjectiveValue">0</span><br/>
+		<span id="NodetProgress">Objects: </span><span id="NodeValue">0</span><br/>
+		<span id="EdgeProgress">Links: </span><span id="EdgeValue">0</span><br/>
+		<span id="PointProgress">Points: </span><span id="PointValue">0</span><br/>
+		<span id="TimeProgress">Time Elapsed: </span><span id="TimeValue">00:00:00</span><br/>
+	</div>
+	<div id="FooterViewport" class="Viewport"></div>
+	<div id="dialog-background" class="filler"></div>
+	<div id="dialog-next" class="dialog">
+		<p>CONGRATULATIONS!</p>
+		<br />
+		<p>
+			You have completed the level! <br /> Press 'Next' to go to the next
+			level!
+		</p>
+		<br />
+		<button id="button-continue" class="dialog-button">Continue</button>
+		<button id="button-replay" class="dialog-button">Replay</button>
+		<button id="button-next" class="dialog-button">Next</button>
+	</div>
 
-</div>
-
-<div id="dialog-background" class="filler">
-</div>
-<div id="dialog-next" class="dialog">
-    <p>
-        CONGRATULATIONS!
-    </p>
-    <br/>
-    <p>You have completed the level! <br/>
-        Press 'Next' to go to the next level!
-    </p>
-    <br/>
-    <button id="button-continue" class="dialog-button" >Continue</button>
-    <button id="button-replay" class="dialog-button" >Replay</button>
-    <button id="button-next" class="dialog-button" >Next</button>
-</div>
-
-<script type="text/javascript" src="game/util.js"></script>
-<script type="text/javascript" src="game/model.js"></script>
-<script type="text/javascript" src="game/presentation.js"></script>
-<script type="text/javascript" src="game/main.js"></script>
+	<script type="text/javascript" src="javascript/gamified.mde/util.js"></script>
+	<script type="text/javascript" src="javascript/gamified.mde/model.js"></script>
+	<script type="text/javascript"
+		src="javascript/gamified.mde/presentation.js"></script>
+	<script type="text/javascript" src="game/generated.main.js"></script>
 </body>
 </html>

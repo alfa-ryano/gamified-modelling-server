@@ -1,0 +1,6 @@
+rule GenerateMainJS
+transform game : GamifiedModelling!Game {
+  guard : true 
+  template : "template.main.egl"
+  target : "generated.main.js"
+}

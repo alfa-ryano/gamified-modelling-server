@@ -1,0 +1,7 @@
+# Tracing options for the gamified-modelling-server.diagram plug-in
+
+# Common issues
+gamified-modelling-server.diagram/debug=false
+
+# Visual IDs
+gamified-modelling-server.diagram/debug/visualID=false

@@ -5,7 +5,6 @@ package gamifiedmodelling.impl;
 import gamifiedmodelling.Case;
 import gamifiedmodelling.GamifiedmodellingPackage;
 import gamifiedmodelling.Level;
-import gamifiedmodelling.ModelType;
 import gamifiedmodelling.Objective;
 import gamifiedmodelling.Path;
 
@@ -34,9 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link gamifiedmodelling.impl.LevelImpl#getName <em>Name</em>}</li>
- *   <li>{@link gamifiedmodelling.impl.LevelImpl#getModelType <em>Model Type</em>}</li>
  *   <li>{@link gamifiedmodelling.impl.LevelImpl#getObjectives <em>Objectives</em>}</li>
- *   <li>{@link gamifiedmodelling.impl.LevelImpl#getCase <em>Case</em>}</li>
+ *   <li>{@link gamifiedmodelling.impl.LevelImpl#getLevelCase <em>Level Case</em>}</li>
  *   <li>{@link gamifiedmodelling.impl.LevelImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
@@ -64,26 +62,6 @@ public class LevelImpl extends EObjectImpl implements Level {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getModelType() <em>Model Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ModelType MODEL_TYPE_EDEFAULT = ModelType.OBJECT;
-
-	/**
-	 * The cached value of the '{@link #getModelType() <em>Model Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelType()
-	 * @generated
-	 * @ordered
-	 */
-	protected ModelType modelType = MODEL_TYPE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getObjectives() <em>Objectives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,14 +72,14 @@ public class LevelImpl extends EObjectImpl implements Level {
 	protected EList<Objective> objectives;
 
 	/**
-	 * The cached value of the '{@link #getCase() <em>Case</em>}' containment reference.
+	 * The cached value of the '{@link #getLevelCase() <em>Level Case</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCase()
+	 * @see #getLevelCase()
 	 * @generated
 	 * @ordered
 	 */
-	protected Case case_;
+	protected Case levelCase;
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -158,27 +136,6 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelType getModelType() {
-		return modelType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModelType(ModelType newModelType) {
-		ModelType oldModelType = modelType;
-		modelType = newModelType == null ? MODEL_TYPE_EDEFAULT : newModelType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__MODEL_TYPE, oldModelType, modelType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Objective> getObjectives() {
 		if (objectives == null) {
 			objectives = new EObjectContainmentEList<Objective>(Objective.class, this, GamifiedmodellingPackage.LEVEL__OBJECTIVES);
@@ -191,8 +148,8 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Case getCase() {
-		return case_;
+	public Case getLevelCase() {
+		return levelCase;
 	}
 
 	/**
@@ -200,11 +157,11 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCase(Case newCase, NotificationChain msgs) {
-		Case oldCase = case_;
-		case_ = newCase;
+	public NotificationChain basicSetLevelCase(Case newLevelCase, NotificationChain msgs) {
+		Case oldLevelCase = levelCase;
+		levelCase = newLevelCase;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__CASE, oldCase, newCase);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__LEVEL_CASE, oldLevelCase, newLevelCase);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -215,18 +172,18 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCase(Case newCase) {
-		if (newCase != case_) {
+	public void setLevelCase(Case newLevelCase) {
+		if (newLevelCase != levelCase) {
 			NotificationChain msgs = null;
-			if (case_ != null)
-				msgs = ((InternalEObject)case_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GamifiedmodellingPackage.LEVEL__CASE, null, msgs);
-			if (newCase != null)
-				msgs = ((InternalEObject)newCase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GamifiedmodellingPackage.LEVEL__CASE, null, msgs);
-			msgs = basicSetCase(newCase, msgs);
+			if (levelCase != null)
+				msgs = ((InternalEObject)levelCase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GamifiedmodellingPackage.LEVEL__LEVEL_CASE, null, msgs);
+			if (newLevelCase != null)
+				msgs = ((InternalEObject)newLevelCase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GamifiedmodellingPackage.LEVEL__LEVEL_CASE, null, msgs);
+			msgs = basicSetLevelCase(newLevelCase, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__CASE, newCase, newCase));
+			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingPackage.LEVEL__LEVEL_CASE, newLevelCase, newLevelCase));
 	}
 
 	/**
@@ -282,8 +239,8 @@ public class LevelImpl extends EObjectImpl implements Level {
 		switch (featureID) {
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				return ((InternalEList<?>)getObjectives()).basicRemove(otherEnd, msgs);
-			case GamifiedmodellingPackage.LEVEL__CASE:
-				return basicSetCase(null, msgs);
+			case GamifiedmodellingPackage.LEVEL__LEVEL_CASE:
+				return basicSetLevelCase(null, msgs);
 			case GamifiedmodellingPackage.LEVEL__PATH:
 				return basicSetPath(null, msgs);
 		}
@@ -300,12 +257,10 @@ public class LevelImpl extends EObjectImpl implements Level {
 		switch (featureID) {
 			case GamifiedmodellingPackage.LEVEL__NAME:
 				return getName();
-			case GamifiedmodellingPackage.LEVEL__MODEL_TYPE:
-				return getModelType();
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				return getObjectives();
-			case GamifiedmodellingPackage.LEVEL__CASE:
-				return getCase();
+			case GamifiedmodellingPackage.LEVEL__LEVEL_CASE:
+				return getLevelCase();
 			case GamifiedmodellingPackage.LEVEL__PATH:
 				return getPath();
 		}
@@ -324,15 +279,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 			case GamifiedmodellingPackage.LEVEL__NAME:
 				setName((String)newValue);
 				return;
-			case GamifiedmodellingPackage.LEVEL__MODEL_TYPE:
-				setModelType((ModelType)newValue);
-				return;
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
 				getObjectives().addAll((Collection<? extends Objective>)newValue);
 				return;
-			case GamifiedmodellingPackage.LEVEL__CASE:
-				setCase((Case)newValue);
+			case GamifiedmodellingPackage.LEVEL__LEVEL_CASE:
+				setLevelCase((Case)newValue);
 				return;
 			case GamifiedmodellingPackage.LEVEL__PATH:
 				setPath((Path)newValue);
@@ -352,14 +304,11 @@ public class LevelImpl extends EObjectImpl implements Level {
 			case GamifiedmodellingPackage.LEVEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case GamifiedmodellingPackage.LEVEL__MODEL_TYPE:
-				setModelType(MODEL_TYPE_EDEFAULT);
-				return;
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
 				return;
-			case GamifiedmodellingPackage.LEVEL__CASE:
-				setCase((Case)null);
+			case GamifiedmodellingPackage.LEVEL__LEVEL_CASE:
+				setLevelCase((Case)null);
 				return;
 			case GamifiedmodellingPackage.LEVEL__PATH:
 				setPath((Path)null);
@@ -378,12 +327,10 @@ public class LevelImpl extends EObjectImpl implements Level {
 		switch (featureID) {
 			case GamifiedmodellingPackage.LEVEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GamifiedmodellingPackage.LEVEL__MODEL_TYPE:
-				return modelType != MODEL_TYPE_EDEFAULT;
 			case GamifiedmodellingPackage.LEVEL__OBJECTIVES:
 				return objectives != null && !objectives.isEmpty();
-			case GamifiedmodellingPackage.LEVEL__CASE:
-				return case_ != null;
+			case GamifiedmodellingPackage.LEVEL__LEVEL_CASE:
+				return levelCase != null;
 			case GamifiedmodellingPackage.LEVEL__PATH:
 				return path != null;
 		}
@@ -402,8 +349,6 @@ public class LevelImpl extends EObjectImpl implements Level {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", modelType: ");
-		result.append(modelType);
 		result.append(')');
 		return result.toString();
 	}

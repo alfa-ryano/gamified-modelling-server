@@ -76,6 +76,7 @@ var Level = function(game, levelId, levelName) {
 
 	this.evaluateObjectives = function() {
 		var data = game.util.convertModelsToJson(
+				game.mode,
     			game.levels[game.currentLevel].levelId,
     			game.levels[game.currentLevel].objects,
     			game.levels[game.currentLevel].edges);
@@ -94,7 +95,6 @@ var Level = function(game, levelId, levelName) {
 		    			}
 	    			}
 	    		}
-	    		
 	    		//display the dialog to move to next level
 	    		if (json["isLevelCompleted"] == true) {
 	    			stopTime();
@@ -114,6 +114,8 @@ var Game = function() {
 
 	// SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
 	this.currentLevel = 0;
+	
+	this.mode = "DEVELOPMENT"
 
 	this.levels = new Array();
 

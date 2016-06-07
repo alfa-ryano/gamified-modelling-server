@@ -16,9 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link gamifiedmodelling.Level#getName <em>Name</em>}</li>
- *   <li>{@link gamifiedmodelling.Level#getModelType <em>Model Type</em>}</li>
  *   <li>{@link gamifiedmodelling.Level#getObjectives <em>Objectives</em>}</li>
- *   <li>{@link gamifiedmodelling.Level#getCase <em>Case</em>}</li>
+ *   <li>{@link gamifiedmodelling.Level#getLevelCase <em>Level Case</em>}</li>
  *   <li>{@link gamifiedmodelling.Level#getPath <em>Path</em>}</li>
  * </ul>
  *
@@ -54,35 +53,6 @@ public interface Level extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Model Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link gamifiedmodelling.ModelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model Type</em>' attribute.
-	 * @see gamifiedmodelling.ModelType
-	 * @see #setModelType(ModelType)
-	 * @see gamifiedmodelling.GamifiedmodellingPackage#getLevel_ModelType()
-	 * @model
-	 * @generated
-	 */
-	ModelType getModelType();
-
-	/**
-	 * Sets the value of the '{@link gamifiedmodelling.Level#getModelType <em>Model Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Type</em>' attribute.
-	 * @see gamifiedmodelling.ModelType
-	 * @see #getModelType()
-	 * @generated
-	 */
-	void setModelType(ModelType value);
-
-	/**
 	 * Returns the value of the '<em><b>Objectives</b></em>' containment reference list.
 	 * The list contents are of type {@link gamifiedmodelling.Objective}.
 	 * <!-- begin-user-doc -->
@@ -94,37 +64,37 @@ public interface Level extends EObject {
 	 * @return the value of the '<em>Objectives</em>' containment reference list.
 	 * @see gamifiedmodelling.GamifiedmodellingPackage#getLevel_Objectives()
 	 * @model containment="true"
-	 *        annotation="gmf.compartment x=''"
+	 *        annotation="gmf.compartment foo='bar'"
 	 * @generated
 	 */
 	EList<Objective> getObjectives();
 
 	/**
-	 * Returns the value of the '<em><b>Case</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Level Case</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Case</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Level Case</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Case</em>' containment reference.
-	 * @see #setCase(Case)
-	 * @see gamifiedmodelling.GamifiedmodellingPackage#getLevel_Case()
+	 * @return the value of the '<em>Level Case</em>' containment reference.
+	 * @see #setLevelCase(Case)
+	 * @see gamifiedmodelling.GamifiedmodellingPackage#getLevel_LevelCase()
 	 * @model containment="true"
-	 *        annotation="gmf.compartment x=''"
+	 *        annotation="gmf.compartment foo='bar'"
 	 * @generated
 	 */
-	Case getCase();
+	Case getLevelCase();
 
 	/**
-	 * Sets the value of the '{@link gamifiedmodelling.Level#getCase <em>Case</em>}' containment reference.
+	 * Sets the value of the '{@link gamifiedmodelling.Level#getLevelCase <em>Level Case</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Case</em>' containment reference.
-	 * @see #getCase()
+	 * @param value the new value of the '<em>Level Case</em>' containment reference.
+	 * @see #getLevelCase()
 	 * @generated
 	 */
-	void setCase(Case value);
+	void setLevelCase(Case value);
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.

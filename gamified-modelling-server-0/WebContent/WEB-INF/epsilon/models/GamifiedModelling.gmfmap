@@ -49,7 +49,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.1">
         <containmentFeature
-            href="GamifiedModelling.ecore#//Level/case"/>
+            href="GamifiedModelling.ecore#//Level/levelCase"/>
         <ownedChild>
           <domainMetaElement
               href="GamifiedModelling.ecore#//Case"/>
@@ -75,7 +75,7 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.1">
         <compartment
-            href="GamifiedModelling.gmfgraph#LevelCaseCompartment"/>
+            href="GamifiedModelling.gmfgraph#LevelLevelCaseCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

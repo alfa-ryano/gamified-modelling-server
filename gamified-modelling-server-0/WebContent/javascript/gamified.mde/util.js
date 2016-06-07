@@ -53,11 +53,12 @@ function getTime() {
 // UTIL
 var Util = function(game) {
 
-	this.convertModelsToJson = function(level, nodes, edges) {
+	this.convertModelsToJson = function(mode, level, nodes, edges) {
 		var model = new Object();
+		model["mode"] = mode;
 		model["level"] = level;
 		model["nodes"] = nodes;
-		model["edges"] = edges;
+		model["edges"] = edges; 
 		return model;
 	}
 

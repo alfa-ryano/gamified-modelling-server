@@ -1,0 +1,20 @@
+context ObjectModel!ObjectModel {
+    
+  constraint objective_1 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        ""
+  }
+  
+  constraint objective_2 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        ""
+  }
+} 
+
+operation ObjectModel evaluationFunction_01(): Boolean{
+    return true;
+}

@@ -2,14 +2,6 @@
 
 package gamifiedmodelling;
 
-enum ModelType {
-   OBJECT = 1;
-   CLASS = 2;
-   SEQUENCE = 3;
-   ACTIVITY = 4;
-   STATECHART = 5;
-}
-
 @gmf.diagram(foo="bar")
 class Game {
 	val Level[*] levels;
@@ -18,16 +10,15 @@ class Game {
 @gmf.node(label="name")
 class Level {
 	attr String name;
-	attr ModelType modelType;
 	
-	@gmf.compartment(x="")
+	@gmf.compartment(foo="bar")
 	val Objective[*] objectives;
-	@gmf.compartment(x="")
 	
-	val Case case;		
+	@gmf.compartment(foo="bar")
+	val Case levelCase;		
+	
 	val Path path; 
 }
-
 
 @gmf.node(label="name")
 class Objective {
