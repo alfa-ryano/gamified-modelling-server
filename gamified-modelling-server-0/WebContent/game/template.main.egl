@@ -3,9 +3,14 @@ try {
 	var game = new Game();
 	
 	game.mode = "PRODUCTION"
-	
+
     [% var levelIndex := 0; %]
-    [%    for (level in game.levels){ %]
+    [% for (level in game.levels){ %]
+    
+    [% TemplateFactory.setOutputRoot("."); %]
+    [% var t : Template = TemplateFactory.load("template.objectives.egl"); %]   
+    [% t.populate("level", level); %]
+    [% t.generate("level_" + (levelIndex + 1) + "/objectives.evl"); %]
     
     game.levels[[%=levelIndex%]] = new Level(game, "level_[%=levelIndex + 1%]",
             "[%=level.name%]");
@@ -17,12 +22,12 @@ try {
 	    [%    } %]
 	    
 	    [% var i := 1; %]
-	    [%for (object in level.objectives){ %]
-	    var objectiveLevel[%=i%] = new Objective(game, game.levels[[%=levelIndex%]], "[%=object.name%]",
-            "[%=object.description%]");
+	    [%for (objective in level.objectives){ %]
+	    var objectiveLevel[%=i%] = new Objective(game, game.levels[[%=levelIndex%]], "[%=objective.name%]",
+            "[%=objective.description%]");
        game.levels[[%=levelIndex%]].addObjective(objectiveLevel[%=i%]);
                 [% i := i + 1; %]
-        [%    } %]
+    [%    } %]
 	      
 	game.levels[[%=levelIndex%]].initialize = function() {
 

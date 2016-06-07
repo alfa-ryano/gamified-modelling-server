@@ -3,7 +3,9 @@ try {
 	var game = new Game();
 	
 	game.mode = "PRODUCTION"
-	
+
+    
+   
     
     game.levels[0] = new Level(game, "level_1",
             "Level 1: Create Two Objects");
@@ -80,6 +82,8 @@ try {
 
     }.bind(game.levels[0]);    
 	    
+    
+   
     
     game.levels[1] = new Level(game, "level_2",
             "Level 2: Create one Link");

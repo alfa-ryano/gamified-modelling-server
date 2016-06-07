@@ -1,20 +1,24 @@
 context ObjectModel!ObjectModel {
-    
-  constraint objective_1 {
+
+//--Level 1: Create Two Objects
+ 
+  constraint objective_02 {
     check : 
-        self.evaluationFunction_01()
+        self.evaluationFunction_1()
     message : 
-        ""
-  }
-  
-  constraint objective_2 {
+        "Create an object with name 'B'"
+  }  
+  constraint objective_01 {
     check : 
-        self.evaluationFunction_01()
+        self.evaluationFunction_2()
     message : 
-        ""
-  }
+        "Create an object with name 'A'"
+  }  
 } 
 
-operation ObjectModel evaluationFunction_01(): Boolean{
+operation ObjectModel evaluationFunction_1(): Boolean{
+    return true;
+}
+operation ObjectModel evaluationFunction_2(): Boolean{
     return true;
 }

@@ -1,13 +1,15 @@
 context ObjectModel!ObjectModel {
-    
-  constraint objective_1 {
+
+//--Level 2: Create one Link
+ 
+  constraint objective_01 {
     check : 
-        self.evaluationFunction_01()
+        self.evaluationFunction_1()
     message : 
-        ""
-  }
+        "A Link Connecting object 'A' to object 'B'"
+  }  
 } 
 
-operation ObjectModel evaluationFunction_01(): Boolean{
+operation ObjectModel evaluationFunction_1(): Boolean{
     return true;
 }
