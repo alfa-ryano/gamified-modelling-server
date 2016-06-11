@@ -1,0 +1,28 @@
+context ObjectModel!ObjectModel {
+    
+  // At least there is an object with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01("button 1")
+    message : 
+        "At least one object named 'button 1' must exist"
+  }
+  
+  constraint objective_02 {
+    check : 
+        self.evaluationFunction_01("button 2")
+    message : 
+        "At least one object named 'button 2' must exist"
+  }
+} 
+
+operation ObjectModel evaluationFunction_01(name: String): Boolean{
+    if (self.objects.size() > 0){  
+	    for (object in self.objects){
+	        if (object.name = name){
+	        return true;
+	        }
+	    }
+    }
+    return false;
+}

@@ -1,6 +1,6 @@
-@namespace(uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/",prefix="gamifiedmodellingobjectmodel")
+@namespace(uri="org.york.gamified.modelling.objectmodel",prefix="org.york.gamified.modelling.objectmodel")
 
-package gamifiedmodellingobjectmodel;
+package objectmodel;
 
 @gmf.diagram(foo="bar")
 class ObjectModel {

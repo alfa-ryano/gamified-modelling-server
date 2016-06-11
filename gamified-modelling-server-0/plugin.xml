@@ -23,8 +23,23 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ObjectModel -->
       <package
-            uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
-            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"/>
+            uri="http://gamefulgrowth.org/objectmodel/"
+            class="objectmodel.ObjectmodelPackage"
+            genModel="WebContent/WEB-INF/epsilon/models/ObjectModel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EditorModel -->
+      <package
+            uri="http://gamefulgrowth.org/editormodel/"
+            class="editormodel.EditormodelPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated MainEditor -->
+      <package
+            uri="org.york.gamified.modelling.objectmodel"
+            class="maineditor.MaineditorPackage"/>
    </extension>
 
 </plugin>

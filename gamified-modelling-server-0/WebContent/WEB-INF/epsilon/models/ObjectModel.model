@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<gamifiedmodellingobjectmodel:ObjectModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:gamifiedmodellingobjectmodel="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/" xmi:id="_C27OcCcQEeaSDs36akYeTw">
-  <objects xmi:id="_E7o4MCcQEeaSDs36akYeTw" name="textbox" identity="element-1"/>
-  <objects xmi:id="_UJi54Cv_Eea7UMKWg3BUHA" name="qqqq" identity="qqqq"/>
-  <links xmi:id="_Q5-mkCv_Eea7UMKWg3BUHA" fromObject="_E7o4MCcQEeaSDs36akYeTw" toObject="_UJi54Cv_Eea7UMKWg3BUHA"/>
-</gamifiedmodellingobjectmodel:ObjectModel>

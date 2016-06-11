@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated GamifiedModelling -->
+      <package
+            uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
+            class="gamifiedmodelling.GamifiedmodellingPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ModelObject -->
+      <package
+            uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
+            class="gamifiedmodelling.modelobject.Gamifiedmodelling.modelobjectPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ObjectModel -->
+      <package
+            uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
+            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"/>
+   </extension>
+
+</plugin>

@@ -7,13 +7,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="gamifiedmodelling_diagram"/>
+      <fileTypes type="text" extension="maineditor_diagram"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="gamifiedmodelling_diagram"
+         type="maineditor_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -21,14 +21,14 @@
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
-         id="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID"
+         id="maineditor.diagram.part.MaineditorDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/GamifiedmodellingDiagramFile.gif"
-         extensions="gamifiedmodelling_diagram"
+         icon="icons/obj16/MaineditorDiagramFile.gif"
+         extensions="maineditor_diagram"
          default="true"
-         class="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditor"
-         matchingStrategy="gamifiedmodelling.diagram.part.GamifiedmodellingMatchingStrategy"
-         contributorClass="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramActionBarContributor">
+         class="maineditor.diagram.part.MaineditorDiagramEditor"
+         matchingStrategy="maineditor.diagram.part.MaineditorMatchingStrategy"
+         contributorClass="maineditor.diagram.part.MaineditorDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -36,7 +36,7 @@
       <?gmfgen generated="true"?>
       <context
          description="%context.description"
-         id="gamifiedmodelling.diagram.ui.diagramContext"
+         id="maineditor.diagram.ui.diagramContext"
          name="%context.name"
          parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
       </context>
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/GamifiedmodellingDiagramFile.gif"
+  	     icon="icons/obj16/MaineditorDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="gamifiedmodelling.diagram.part.GamifiedmodellingCreationWizard"
-  	     id="gamifiedmodelling.diagram.part.GamifiedmodellingCreationWizardID">
+  	     class="maineditor.diagram.part.MaineditorCreationWizard"
+  	     id="maineditor.diagram.part.MaineditorCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="gamified-modelling-server.diagram.InitDiagram"
-            nameFilter="*.gamifiedmodelling"
+            nameFilter="*.maineditor"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="gamifiedmodelling.diagram.part.GamifiedmodellingInitDiagramFileAction"
+               class="maineditor.diagram.part.MaineditorInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="gamified-modelling-server.diagram.InitDiagramAction">
@@ -74,9 +74,9 @@
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
-         id="GamifiedmodellingPresentation">
+         id="MaineditorPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID">
+         <ViewId id="maineditor.diagram.part.MaineditorDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -91,9 +91,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
-         id="GamifiedmodellingPresentationPrint">
+         id="MaineditorPresentationPrint">
          <Priority name="Lowest"/>
-         <ViewId id="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID">
+         <ViewId id="maineditor.diagram.part.MaineditorDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="print"/>
             </ElementType>
@@ -101,9 +101,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
-         id="GamifiedmodellingPresentationIDE">
+         id="MaineditorPresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID">
+         <ViewId id="maineditor.diagram.part.MaineditorDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -111,9 +111,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
-            id="GamifiedmodellingRender">
+            id="MaineditorRender">
          <Priority name="Lowest"/>
-         <ViewId id="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID">
+         <ViewId id="maineditor.diagram.part.MaineditorDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingMarkerNavigationProvider">
+      <MarkerNavigationProvider class="maineditor.diagram.providers.MaineditorMarkerNavigationProvider">
          <MarkerType name="gamified-modelling-server.diagram.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Gamifiedmodelling Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Maineditor Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingValidationDecoratorProvider">
+      <decoratorProvider class="maineditor.diagram.providers.MaineditorValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -150,7 +150,7 @@
 
    <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
-      <initializer class="gamifiedmodelling.diagram.preferences.DiagramPreferenceInitializer"/>
+      <initializer class="maineditor.diagram.preferences.DiagramPreferenceInitializer"/>
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
@@ -158,31 +158,31 @@
       <page
             id="gamified-modelling-server.diagram.general"
             name="%prefpage.gamified-modelling-server.diagram.general"
-            class="gamifiedmodelling.diagram.preferences.DiagramGeneralPreferencePage">
+            class="maineditor.diagram.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="gamified-modelling-server.diagram.appearance"
             name="%prefpage.gamified-modelling-server.diagram.appearance"
             category="gamified-modelling-server.diagram.general"
-            class="gamifiedmodelling.diagram.preferences.DiagramAppearancePreferencePage">
+            class="maineditor.diagram.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
             id="gamified-modelling-server.diagram.connections"
             name="%prefpage.gamified-modelling-server.diagram.connections"
             category="gamified-modelling-server.diagram.general"
-            class="gamifiedmodelling.diagram.preferences.DiagramConnectionsPreferencePage">
+            class="maineditor.diagram.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
             id="gamified-modelling-server.diagram.printing"
             name="%prefpage.gamified-modelling-server.diagram.printing"
             category="gamified-modelling-server.diagram.general"
-            class="gamifiedmodelling.diagram.preferences.DiagramPrintingPreferencePage">
+            class="maineditor.diagram.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
             id="gamified-modelling-server.diagram.rulersAndGrid"
             name="%prefpage.gamified-modelling-server.diagram.rulersAndGrid"
             category="gamified-modelling-server.diagram.general"
-            class="gamifiedmodelling.diagram.preferences.DiagramRulersAndGridPreferencePage">
+            class="maineditor.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
    </extension>
 
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="gamified-modelling-server.diagram"
-            labelProvider="gamifiedmodelling.diagram.sheet.GamifiedmodellingSheetLabelProvider">
+            labelProvider="maineditor.diagram.sheet.MaineditorSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,43 +241,43 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="gamifiedmodelling.diagram.sheet.GamifiedmodellingPropertySection">
+            class="maineditor.diagram.sheet.MaineditorPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="gamifiedmodelling.diagram.navigator.GamifiedmodellingAbstractNavigatorItem"/>
+            <input type="maineditor.diagram.navigator.MaineditorAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingViewProvider">
+      <viewProvider class="maineditor.diagram.providers.MaineditorViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="gamifiedmodelling"/>
+            <method name="getType()" value="maineditor"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Gamifiedmodelling"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Maineditor"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingEditPartProvider">
+      <editpartProvider class="maineditor.diagram.providers.MaineditorEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
-            <method name="getType()" value="Gamifiedmodelling"/>
+            <method name="getType()" value="Maineditor"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3003"/>
+            <method name="getType()" value="2001,3001,3002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5003,5001,5004"/>
+            <method name="getType()" value="5003,5001,5002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7002"/>
@@ -289,25 +289,25 @@
    
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="gamifiedmodelling.diagram.providers.assistants.GamifiedmodellingModelingAssistantProviderOfGameEditPart">
+      <modelingAssistantProvider class="maineditor.diagram.providers.assistants.MaineditorModelingAssistantProviderOfGameEditPart">
          <Priority name="Lowest"/>
-         <object class="gamifiedmodelling.diagram.edit.parts.GameEditPart" id="Game_1000"/>
+         <object class="maineditor.diagram.edit.parts.GameEditPart" id="Game_1000"/>
          <context elements="Game_1000"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="gamifiedmodelling.diagram.providers.assistants.GamifiedmodellingModelingAssistantProviderOfLevelEditPart">
+            <modelingAssistantProvider class="maineditor.diagram.providers.assistants.MaineditorModelingAssistantProviderOfLevelEditPart">
          <Priority name="Lowest"/>
-         <object class="gamifiedmodelling.diagram.edit.parts.LevelEditPart" id="Level_2001"/>
+         <object class="maineditor.diagram.edit.parts.LevelEditPart" id="Level_2001"/>
          <context elements="Level_2001"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="gamifiedmodelling.diagram.providers.assistants.GamifiedmodellingModelingAssistantProviderOfObjectiveEditPart">
+            <modelingAssistantProvider class="maineditor.diagram.providers.assistants.MaineditorModelingAssistantProviderOfObjectiveEditPart">
          <Priority name="Lowest"/>
-         <object class="gamifiedmodelling.diagram.edit.parts.ObjectiveEditPart" id="Objective_3001"/>
+         <object class="maineditor.diagram.edit.parts.ObjectiveEditPart" id="Objective_3001"/>
          <context elements="Objective_3001"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="gamifiedmodelling.diagram.providers.assistants.GamifiedmodellingModelingAssistantProviderOfCaseEditPart">
+            <modelingAssistantProvider class="maineditor.diagram.providers.assistants.MaineditorModelingAssistantProviderOfCaseEditPart">
          <Priority name="Lowest"/>
-         <object class="gamifiedmodelling.diagram.edit.parts.CaseEditPart" id="Case_3003"/>
-         <context elements="Case_3003"/>
+         <object class="maineditor.diagram.edit.parts.CaseEditPart" id="Case_3002"/>
+         <context elements="Case_3002"/>
       </modelingAssistantProvider>
       
    </extension>
@@ -315,21 +315,21 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingIconProvider">
+      <IconProvider class="maineditor.diagram.providers.MaineditorIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingParserProvider">
+      <ParserProvider class="maineditor.diagram.providers.MaineditorParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="gamifiedmodelling.diagram.providers.GamifiedmodellingShortcutsDecoratorProvider">
+      <decoratorProvider class="maineditor.diagram.providers.MaineditorShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
             <method name="getType()" value="2001"/>
@@ -340,53 +340,53 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/">
+      <metamodel nsURI="org.york.gamified.modelling.objectmodel">
          <metamodelType
                id="gamified-modelling-server.diagram.Game_1000"
                name="%metatype.name.Game_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Game"
-               edithelper="gamifiedmodelling.diagram.edit.helpers.GameEditHelper">
+               edithelper="maineditor.diagram.edit.helpers.GameEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/">
+      <metamodel nsURI="org.york.gamified.modelling.objectmodel">
          <metamodelType
                id="gamified-modelling-server.diagram.Level_2001"
                name="%metatype.name.Level_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Level"
-               edithelper="gamifiedmodelling.diagram.edit.helpers.LevelEditHelper">
+               edithelper="maineditor.diagram.edit.helpers.LevelEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/">
+      <metamodel nsURI="org.york.gamified.modelling.objectmodel">
          <metamodelType
                id="gamified-modelling-server.diagram.Objective_3001"
                name="%metatype.name.Objective_3001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Objective"
-               edithelper="gamifiedmodelling.diagram.edit.helpers.ObjectiveEditHelper">
+               edithelper="maineditor.diagram.edit.helpers.ObjectiveEditHelper">
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/">
+      <metamodel nsURI="org.york.gamified.modelling.objectmodel">
          <metamodelType
-               id="gamified-modelling-server.diagram.Case_3003"
-               name="%metatype.name.Case_3003"
+               id="gamified-modelling-server.diagram.Case_3002"
+               name="%metatype.name.Case_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Case"
-               edithelper="gamifiedmodelling.diagram.edit.helpers.CaseEditHelper">
-            <param name="semanticHint" value="3003"/>
+               edithelper="maineditor.diagram.edit.helpers.CaseEditHelper">
+            <param name="semanticHint" value="3002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/">
+      <metamodel nsURI="org.york.gamified.modelling.objectmodel">
          <metamodelType
                id="gamified-modelling-server.diagram.Path_4001"
                name="%metatype.name.Path_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Path"
-               edithelper="gamifiedmodelling.diagram.edit.helpers.PathEditHelper">
+               edithelper="maineditor.diagram.edit.helpers.PathEditHelper">
             <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
@@ -405,7 +405,7 @@
          <elementType ref="gamified-modelling-server.diagram.Game_1000"/>
          <elementType ref="gamified-modelling-server.diagram.Level_2001"/>
          <elementType ref="gamified-modelling-server.diagram.Objective_3001"/>
-         <elementType ref="gamified-modelling-server.diagram.Case_3003"/>
+         <elementType ref="gamified-modelling-server.diagram.Case_3002"/>
          <elementType ref="gamified-modelling-server.diagram.Path_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
@@ -417,7 +417,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="gamified-modelling-server.diagram"
            properties="isURIEditorInput"
-           class="gamifiedmodelling.diagram.part.GamifiedmodellingUriEditorInputTester">
+           class="maineditor.diagram.part.MaineditorUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -428,7 +428,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="gamified-modelling-server.diagram"
            properties="isShortcut"
-           class="gamifiedmodelling.diagram.part.GamifiedmodellingShortcutPropertyTester">
+           class="maineditor.diagram.part.MaineditorShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -454,17 +454,17 @@
             id="gamified-modelling-server.diagram.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="gamifiedmodelling.diagram.navigator.GamifiedmodellingNavigatorContentProvider" 
-            labelProvider="gamifiedmodelling.diagram.navigator.GamifiedmodellingNavigatorLabelProvider"
-            icon="icons/obj16/GamifiedmodellingDiagramFile.gif"
+            contentProvider="maineditor.diagram.navigator.MaineditorNavigatorContentProvider" 
+            labelProvider="maineditor.diagram.navigator.MaineditorNavigatorLabelProvider"
+            icon="icons/obj16/MaineditorDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="gamifiedmodelling_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="maineditor_diagram"/>
                </and>
-               <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingAbstractNavigatorItem"/>
+               <instanceof value="maineditor.diagram.navigator.MaineditorAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="gamified-modelling-server.diagram.isShortcut"/>
            	   </adapt>
@@ -472,7 +472,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingAbstractNavigatorItem"/>
+         	   <instanceof value="maineditor.diagram.navigator.MaineditorAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="gamified-modelling-server.diagram.isShortcut"/>
            	   </adapt>
@@ -480,14 +480,14 @@
          </possibleChildren>
          <commonSorter 
                id="gamified-modelling-server.diagram.navigatorSorter" 
-               class="gamifiedmodelling.diagram.navigator.GamifiedmodellingNavigatorSorter">
+               class="maineditor.diagram.navigator.MaineditorNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="gamifiedmodelling_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="maineditor_diagram"/>
                   </and>
-                  <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingAbstractNavigatorItem"/>
+                  <instanceof value="maineditor.diagram.navigator.MaineditorAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -496,29 +496,29 @@
             id="gamified-modelling-server.diagram.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="gamifiedmodelling.diagram.navigator.GamifiedmodellingDomainNavigatorContentProvider" 
-            labelProvider="gamifiedmodelling.diagram.navigator.GamifiedmodellingDomainNavigatorLabelProvider"
-            icon="icons/obj16/GamifiedmodellingDiagramFile.gif"
+            contentProvider="maineditor.diagram.navigator.MaineditorDomainNavigatorContentProvider" 
+            labelProvider="maineditor.diagram.navigator.MaineditorDomainNavigatorLabelProvider"
+            icon="icons/obj16/MaineditorDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="gamifiedmodelling"/>
+        	      <test property="org.eclipse.core.resources.extension" value="maineditor"/>
                </and>
-               <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingDomainNavigatorItem"/>
+               <instanceof value="maineditor.diagram.navigator.MaineditorDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingDomainNavigatorItem"/>
+            <instanceof value="maineditor.diagram.navigator.MaineditorDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="gamified-modelling-server.diagram.navigatorActionProvider"
-            class="gamifiedmodelling.diagram.navigator.GamifiedmodellingNavigatorActionProvider">
+            class="maineditor.diagram.navigator.MaineditorNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingAbstractNavigatorItem"/>
+               <instanceof value="maineditor.diagram.navigator.MaineditorAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="gamified-modelling-server.diagram.isShortcut"/>
            	   </adapt>
@@ -531,7 +531,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="gamified-modelling-server.diagram.navigatorLinkHelper"
-            class="gamifiedmodelling.diagram.navigator.GamifiedmodellingNavigatorLinkHelper">
+            class="maineditor.diagram.navigator.MaineditorNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -539,7 +539,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="gamifiedmodelling.diagram.navigator.GamifiedmodellingAbstractNavigatorItem"/>
+            <instanceof value="maineditor.diagram.navigator.MaineditorAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -547,17 +547,17 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramUpdateCommand"
+         defaultHandler="maineditor.diagram.part.MaineditorDiagramUpdateCommand"
          description="%update.diagram.description"
-         id="gamifiedmodelling.diagram.updateDiagram"
+         id="maineditor.diagram.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
    
    <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
-         commandId="gamifiedmodelling.diagram.updateDiagram"
-         contextId="gamifiedmodelling.diagram.ui.diagramContext"
+         commandId="maineditor.diagram.updateDiagram"
+         contextId="maineditor.diagram.ui.diagramContext"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
    </extension>
@@ -572,9 +572,9 @@
          <command commandId="gamified-modelling-server.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="maineditor.diagram.part.MaineditorDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="gamifiedmodelling.diagram.edit.parts.GameEditPart"/>
+                     <instanceof value="maineditor.diagram.edit.parts.GameEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>
@@ -584,11 +584,11 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="maineditor.diagram.part.MaineditorDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="gamified-modelling-server.diagram.LoadResourceAction"
          name="Load Resource"
-         categoryId="gamifiedmodelling.diagram.part.GamifiedmodellingDiagramEditorID"
-         defaultHandler="gamifiedmodelling.diagram.part.LoadResourceAction"/>
+         categoryId="maineditor.diagram.part.MaineditorDiagramEditorID"
+         defaultHandler="maineditor.diagram.part.LoadResourceAction"/>
    </extension>
 
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">

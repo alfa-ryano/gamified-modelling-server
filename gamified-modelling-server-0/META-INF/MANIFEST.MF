@@ -7,13 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: gamifiedmodelling,
- gamifiedmodelling.impl,
- gamifiedmodelling.util,
- gamifiedmodellingobjectmodel,
- gamifiedmodellingobjectmodel.impl,
- gamifiedmodellingobjectmodel.util
+Export-Package: objectmodel,
+ objectmodel.impl,
+ objectmodel.util,
+ maineditor,
+ maineditor.impl,
+ maineditor.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Import-Package: filesystem
