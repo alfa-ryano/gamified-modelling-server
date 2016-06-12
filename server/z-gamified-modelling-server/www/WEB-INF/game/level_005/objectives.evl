@@ -1,0 +1,55 @@
+context ObjectModel!ObjectModel {
+    
+  // At least there is an object with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Create four links between objects that probably have relationships"
+  }
+  
+} 
+
+operation ObjectModel evaluationFunction_01(): Boolean{
+    var count : Integer = 0;
+    var objectName1 : String = ""; 
+    var objectName2 : String = "";
+    if (self.links.size() > 0){  
+	    for (link in self.links){
+	       if(link.fromObject <> null and link.toObject <> null){
+                //1st Evaluation
+                objectName1 = "greet button";
+                objectName2 = "greet label";   
+		        if ((link.fromObject.name = objectName1 and link.toObject.name = objectName2) or
+		            (link.fromObject.name = objectName2 and link.toObject.name = objectName1)){
+	                    count = count + 1;
+		        }
+		        //2nd Evaluation
+		        objectName1 = "clear button";
+                objectName2 = "greet label";   
+                if ((link.fromObject.name = objectName1 and link.toObject.name = objectName2) or
+                    (link.fromObject.name = objectName2 and link.toObject.name = objectName1)){
+                        count = count + 1;
+                }
+                //3rd Evaluation
+                objectName1 = "name textbox";
+                objectName2 = "greet label";   
+                if ((link.fromObject.name = objectName1 and link.toObject.name = objectName2) or
+                    (link.fromObject.name = objectName2 and link.toObject.name = objectName1)){
+                        count = count + 1;
+                }
+                //4th Evaluation
+                objectName1 = "name textbox";
+                objectName2 = "name label";   
+                if ((link.fromObject.name = objectName1 and link.toObject.name = objectName2) or
+                    (link.fromObject.name = objectName2 and link.toObject.name = objectName1)){
+                        count = count + 1;
+                }
+		        if (count >= 4){
+		          return true;
+		        }
+	        }
+	    }
+    }
+    return false;
+}

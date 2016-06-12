@@ -292,6 +292,54 @@ var Stage = function(game) {
     	document.getElementById("EdgeValue").innerHTML = edgeValue;
     }
     
-}
+    
+    this.setDraggableItems = function(level){
+    	
+    	var div = document.getElementById("DraggableItems");
+		while (div.hasChildNodes()) {
+			div.removeChild(div.lastChild);
+		}
+		for (var i = 0; i < level.levelCase.draggableItems.length; i++) {
+			var draggableItem = level.levelCase.draggableItems[i];
+			var newSpan = document.createElement("span");
 
+				newSpan.className = "DraggableCaseItem";
+				newSpan.id = draggableItem.identity;
+				newSpan.innerHTML = "";
+				newSpan.innerHTML = draggableItem.text;
+				div.appendChild(newSpan);
+			
+				if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OBJECT){
+					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OBJECT;
+				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION){
+					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
+				}
+		}
 
+		$('.DraggableCaseItem').draggable({
+			opacity : 0.8,
+			helper : "clone",  
+			start : function(event, ui) {
+				draggedId = $(event.target).attr('id');
+			}
+		});
+    }
+    
+    this.setObjectives = function(level){
+    	var ol = document.getElementById("Objective");
+		ol.style.color = "#000000";
+		while (ol.hasChildNodes()) {
+			ol.removeChild(ol.lastChild);
+		}
+		for (var i = 0; i < level.objectives.length; i++) {
+			var li = document.createElement("li");
+			li.style.color = "#000000";
+			li.id = level.objectives[i].objectiveName;
+			var text = document
+					.createTextNode(level.objectives[i].description);
+			li.appendChild(text);
+			ol.appendChild(li);
+		}
+    }
+    
+}  

@@ -25,7 +25,7 @@
       <package
             uri="http://gamefulgrowth.org/objectmodel/"
             class="objectmodel.ObjectmodelPackage"
-            genModel="WebContent/WEB-INF/epsilon/models/ObjectModel.genmodel"/>
+            genModel="www/WEB-INF/epsilon/models/ObjectModel.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
