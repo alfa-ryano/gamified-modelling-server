@@ -5,9 +5,19 @@ var inheritsFrom = function(child, parent) {
 	child.prototype = Object.create(parent.prototype);
 };
 
+var Property = function(text){
+	this.text = text;
+}
+
+var Operation = function(text){
+	this.text = text;
+}
+
 var ModelObject = function(objectName, identity) {
 	this.identity = identity;
 	this.objectName = objectName;
+	this.properties = new Array();
+	this.operations = new Array();
 }
 
 var ModelEdge = function(identity) {
@@ -26,7 +36,7 @@ var Objective = function(game, level, objectiveName, description) {
 var DRAGGABLE_ITEM_TYPE = {
 	OBJECT : "ObjectDraggableCaseItem",
 	CLASS : "ClassDraggableCaseItem",
-	ATTRIBUTE : "AttributeDraggableCaseItem",
+	SLOT : "SlotDraggableCaseItem",
 	OPERATION : "OperationDraggableCaseItem"
 }
 

@@ -2,10 +2,12 @@
  */
 package gamifiedmodellingobjectmodel.util;
 
+import gamifiedmodellingobjectmodel.Attribute;
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage;
 import gamifiedmodellingobjectmodel.Link;
 import gamifiedmodellingobjectmodel.ObjectModel;
 
+import gamifiedmodellingobjectmodel.Operation;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -78,6 +80,14 @@ public class GamifiedmodellingobjectmodelAdapterFactory extends AdapterFactoryIm
 				return createObjectAdapter();
 			}
 			@Override
+			public Adapter caseAttribute(Attribute object) {
+				return createAttributeAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
 			public Adapter caseLink(Link object) {
 				return createLinkAdapter();
 			}
@@ -126,6 +136,34 @@ public class GamifiedmodellingobjectmodelAdapterFactory extends AdapterFactoryIm
 	 * @generated
 	 */
 	public Adapter createObjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gamifiedmodellingobjectmodel.Attribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gamifiedmodellingobjectmodel.Attribute
+	 * @generated
+	 */
+	public Adapter createAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gamifiedmodellingobjectmodel.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gamifiedmodellingobjectmodel.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
 		return null;
 	}
 

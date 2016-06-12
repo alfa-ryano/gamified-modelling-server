@@ -1,0 +1,27 @@
+context ObjectModel!ObjectModel {
+    
+  // At least there is an object with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "An object named 'name label' must have slot 'text = \"Name\"'"
+  }
+} 
+
+operation ObjectModel evaluationFunction_01(): Boolean{
+    if (self.objects.size() > 0){  
+        for (object in self.objects){
+            if (object.name = "name label"){
+                if (object.attributes.size() > 0){
+                    for (property in object.attributes){
+	                    if (property.text = "text = \"Name\""){
+	                        return true;
+	                    } 
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}

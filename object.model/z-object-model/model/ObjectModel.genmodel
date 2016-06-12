@@ -13,6 +13,14 @@
     <genClasses ecoreClass="ObjectModel.ecore#//Object">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Object/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Object/identity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//Object/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ObjectModel.ecore#//Object/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="ObjectModel.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Attribute/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ObjectModel.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Operation/text"/>
     </genClasses>
     <genClasses ecoreClass="ObjectModel.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Link/identity"/>

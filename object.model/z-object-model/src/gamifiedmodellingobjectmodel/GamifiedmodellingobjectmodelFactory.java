@@ -40,6 +40,24 @@ public interface GamifiedmodellingobjectmodelFactory extends EFactory {
 	Object createObject();
 
 	/**
+	 * Returns a new object of class '<em>Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute</em>'.
+	 * @generated
+	 */
+	Attribute createAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation</em>'.
+	 * @generated
+	 */
+	Operation createOperation();
+
+	/**
 	 * Returns a new object of class '<em>Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -16,13 +16,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectives" upperBound="-1"
         eType="#//Objective" containment="true">
       <eAnnotations source="gmf.compartment">
-        <details key="foo" value="bar"/>
+        <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="levelCase" eType="#//Case"
         containment="true">
       <eAnnotations source="gmf.compartment">
-        <details key="foo" value="bar"/>
+        <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Path" containment="true"/>

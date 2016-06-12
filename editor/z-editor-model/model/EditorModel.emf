@@ -11,10 +11,10 @@ class Game {
 class Level {
 	attr String name;
 	
-	@gmf.compartment(foo="bar")
+	@gmf.compartment(layout="list")
 	val Objective[*] objectives;
 	
-	@gmf.compartment(foo="bar")
+	@gmf.compartment(layout="list")
 	val Case levelCase;		
 	
 	val Path path; 

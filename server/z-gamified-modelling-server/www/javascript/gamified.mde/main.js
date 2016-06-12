@@ -2,12 +2,13 @@
 try {
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
-	game.currentLevel = 0;
+	game.currentLevel = 4;
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------
 	game.levels[iLevel] = new Level(game, "level_001",
 			"Level 01 - Object Modelling: Create a Single Object");
+	game.levels[iLevel].isSequel = false;
 	game.levels[iLevel].levelCase = new Case(game,
 			game.levels[iLevel], "Case_01", "Create a button!!!");
 	game.levels[iLevel].levelCase.addDraggableItem("button");
@@ -21,7 +22,7 @@ try {
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_002",
 			"Level 02 - Object Modelling: Create Two Objects");
-
+	game.levels[iLevel].isSequel = false;
 	game.levels[iLevel].levelCase = new Case(game, game.levels[iLevel],
 			"Case_01", "Create two buttons: <br/> button 1 and button 2 !!!");
 
@@ -42,6 +43,7 @@ try {
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_003",
 			"Level 03 - Object Modelling: Create multiple objects");
+	game.levels[iLevel].isSequel = false;
 	game.levels[iLevel].levelCase = new Case(game, game.levels[iLevel], "Case_03",
 			"Create two buttons:<br/>" + "greet button and clear button!<br/>"
 					+ "Create two labels as well:<br/>"
@@ -96,10 +98,10 @@ try {
 			game,
 			game.levels[iLevel],
 			"Case_05",
-			"If a <b>greet button</b> is pressed then a <b>greet label</b> will display " +
-			"\"Hello, [name]!\", with [name] is the text " +
-			"inside a <b>name textbox</b>. The textbox has a <b>name label</b>. If " +
-			"a <b>clear button</b> is pressed then the <b>greet label</b> will be cleared.");
+			"If a <strong>greet button</strong> is pressed then a <strong>greet label</strong> will display " +
+			"\"Hello, name!\", with 'name' is the text " +
+			"of a <strong>name textbox</strong>. The textbox has a <strong>name label</strong>. If " +
+			"a <strong>clear button</strong> is pressed then the <strong>greet label</strong> will be cleared.");
 
 	game.levels[iLevel].levelCase.addDraggableItem("greet button");
 	game.levels[iLevel].levelCase.addDraggableItem("clear button");
@@ -111,6 +113,31 @@ try {
 			"objective_01", "Create four links between objects that probably have relationships");
 
 	game.levels[iLevel].addObjective(objectiveLevel05_1);
+	
+	// ----Set Up Level 6----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_006",
+			"Level 06 - Object Modelling: Determine a slot and its value");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_06",
+			"The <strong>name label</strong> has a <strong>slot text</strong> with text \"Name\"");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	
+	var objectiveLevel06_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", "Create a slot text in its respective object");
+
+	game.levels[iLevel].addObjective(objectiveLevel06_1);
+	
 	// ---Execute Game---------------------------------------------------------
 	game.run();
 } catch (error) {

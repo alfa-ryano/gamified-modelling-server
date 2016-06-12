@@ -2,11 +2,13 @@
  */
 package gamifiedmodellingobjectmodel.impl;
 
+import gamifiedmodellingobjectmodel.Attribute;
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelFactory;
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage;
 import gamifiedmodellingobjectmodel.Link;
 import gamifiedmodellingobjectmodel.ObjectModel;
 
+import gamifiedmodellingobjectmodel.Operation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -61,6 +63,8 @@ public class GamifiedmodellingobjectmodelFactoryImpl extends EFactoryImpl implem
 		switch (eClass.getClassifierID()) {
 			case GamifiedmodellingobjectmodelPackage.OBJECT_MODEL: return createObjectModel();
 			case GamifiedmodellingobjectmodelPackage.OBJECT: return createObject();
+			case GamifiedmodellingobjectmodelPackage.ATTRIBUTE: return createAttribute();
+			case GamifiedmodellingobjectmodelPackage.OPERATION: return createOperation();
 			case GamifiedmodellingobjectmodelPackage.LINK: return createLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -85,6 +89,26 @@ public class GamifiedmodellingobjectmodelFactoryImpl extends EFactoryImpl implem
 	public gamifiedmodellingobjectmodel.Object createObject() {
 		ObjectImpl object = new ObjectImpl();
 		return object;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Attribute createAttribute() {
+		AttributeImpl attribute = new AttributeImpl();
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
 	}
 
 	/**

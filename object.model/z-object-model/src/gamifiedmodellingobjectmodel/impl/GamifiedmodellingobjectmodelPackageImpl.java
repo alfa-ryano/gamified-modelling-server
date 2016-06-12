@@ -2,11 +2,13 @@
  */
 package gamifiedmodellingobjectmodel.impl;
 
+import gamifiedmodellingobjectmodel.Attribute;
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelFactory;
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage;
 import gamifiedmodellingobjectmodel.Link;
 import gamifiedmodellingobjectmodel.ObjectModel;
 
+import gamifiedmodellingobjectmodel.Operation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -34,6 +36,20 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * @generated
 	 */
 	private EClass objectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass attributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,6 +178,60 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getObject_Attributes() {
+		return (EReference)objectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getObject_Operations() {
+		return (EReference)objectEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAttribute() {
+		return attributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttribute_Text() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperation() {
+		return operationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Text() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLink() {
 		return linkEClass;
 	}
@@ -228,6 +298,14 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		objectEClass = createEClass(OBJECT);
 		createEAttribute(objectEClass, OBJECT__NAME);
 		createEAttribute(objectEClass, OBJECT__IDENTITY);
+		createEReference(objectEClass, OBJECT__ATTRIBUTES);
+		createEReference(objectEClass, OBJECT__OPERATIONS);
+
+		attributeEClass = createEClass(ATTRIBUTE);
+		createEAttribute(attributeEClass, ATTRIBUTE__TEXT);
+
+		operationEClass = createEClass(OPERATION);
+		createEAttribute(operationEClass, OPERATION__TEXT);
 
 		linkEClass = createEClass(LINK);
 		createEAttribute(linkEClass, LINK__IDENTITY);
@@ -272,6 +350,14 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		initEClass(objectEClass, gamifiedmodellingobjectmodel.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObject_Identity(), ecorePackage.getEString(), "identity", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_Operations(), this.getOperation(), null, "operations", null, 0, -1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttribute_Text(), ecorePackage.getEString(), "text", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperation_Text(), ecorePackage.getEString(), "text", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLink_Identity(), ecorePackage.getEString(), "identity", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -286,8 +372,10 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		createGmfAnnotations();
 		// gmf.node
 		createGmf_1Annotations();
-		// gmf.link
+		// gmf.compartment
 		createGmf_2Annotations();
+		// gmf.link
+		createGmf_3Annotations();
 	}
 
 	/**
@@ -323,12 +411,34 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	}
 
 	/**
-	 * Initializes the annotations for <b>gmf.link</b>.
+	 * Initializes the annotations for <b>gmf.compartment</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void createGmf_2Annotations() {
+		String source = "gmf.compartment";	
+		addAnnotation
+		  (getObject_Attributes(), 
+		   source, 
+		   new String[] {
+			 "layout", "list"
+		   });	
+		addAnnotation
+		  (getObject_Operations(), 
+		   source, 
+		   new String[] {
+			 "layout", "list"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>gmf.link</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGmf_3Annotations() {
 		String source = "gmf.link";	
 		addAnnotation
 		  (linkEClass, 

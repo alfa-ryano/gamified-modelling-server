@@ -10,7 +10,8 @@
       <!-- @generated ObjectModel -->
       <package
             uri="http://gamefulgrowth.blogspot.co.uk/gamified-modelling/"
-            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"/>
+            class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"
+            genModel="model/ObjectModel.genmodel"/>
    </extension>
 
 </plugin>

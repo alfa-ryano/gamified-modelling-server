@@ -12,7 +12,21 @@ class ObjectModel {
 class Object {
     attr String name;
     attr String identity;
+    
+    @gmf.compartment(layout="list")
+    val Attribute[*] attributes;
+    
+    @gmf.compartment(layout="list")
+    val Operation[*] operations;
 }
+
+class Attribute {
+   attr String text;
+}
+
+class Operation {
+   attr String text;
+} 
 
 @gmf.link(source="fromObject", target="toObject")
 class Link {

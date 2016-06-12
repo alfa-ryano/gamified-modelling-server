@@ -2,6 +2,7 @@
  */
 package gamifiedmodellingobjectmodel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link gamifiedmodellingobjectmodel.Object#getName <em>Name</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.Object#getIdentity <em>Identity</em>}</li>
+ *   <li>{@link gamifiedmodellingobjectmodel.Object#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link gamifiedmodellingobjectmodel.Object#getOperations <em>Operations</em>}</li>
  * </ul>
  *
  * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getObject()
@@ -73,5 +76,39 @@ public interface Object extends EObject {
 	 * @generated
 	 */
 	void setIdentity(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link gamifiedmodellingobjectmodel.Attribute}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getObject_Attributes()
+	 * @model containment="true"
+	 *        annotation="gmf.compartment layout='list'"
+	 * @generated
+	 */
+	EList<Attribute> getAttributes();
+
+	/**
+	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+	 * The list contents are of type {@link gamifiedmodellingobjectmodel.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operations</em>' containment reference list.
+	 * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getObject_Operations()
+	 * @model containment="true"
+	 *        annotation="gmf.compartment layout='list'"
+	 * @generated
+	 */
+	EList<Operation> getOperations();
 
 } // Object

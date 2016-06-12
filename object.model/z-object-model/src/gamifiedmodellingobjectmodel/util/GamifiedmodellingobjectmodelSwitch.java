@@ -2,10 +2,12 @@
  */
 package gamifiedmodellingobjectmodel.util;
 
+import gamifiedmodellingobjectmodel.Attribute;
 import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage;
 import gamifiedmodellingobjectmodel.Link;
 import gamifiedmodellingobjectmodel.ObjectModel;
 
+import gamifiedmodellingobjectmodel.Operation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -80,6 +82,18 @@ public class GamifiedmodellingobjectmodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GamifiedmodellingobjectmodelPackage.ATTRIBUTE: {
+				Attribute attribute = (Attribute)theEObject;
+				T result = caseAttribute(attribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GamifiedmodellingobjectmodelPackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T result = caseOperation(operation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GamifiedmodellingobjectmodelPackage.LINK: {
 				Link link = (Link)theEObject;
 				T result = caseLink(link);
@@ -117,6 +131,36 @@ public class GamifiedmodellingobjectmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObject(gamifiedmodellingobjectmodel.Object object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttribute(Attribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperation(Operation object) {
 		return null;
 	}
 

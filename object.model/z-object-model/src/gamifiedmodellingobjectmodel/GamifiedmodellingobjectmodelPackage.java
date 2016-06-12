@@ -121,13 +121,87 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int OBJECT__IDENTITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__ATTRIBUTES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__OPERATIONS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = 2;
+	int OBJECT_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.AttributeImpl <em>Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodellingobjectmodel.impl.AttributeImpl
+	 * @see gamifiedmodellingobjectmodel.impl.GamifiedmodellingobjectmodelPackageImpl#getAttribute()
+	 * @generated
+	 */
+	int ATTRIBUTE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__TEXT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.OperationImpl <em>Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gamifiedmodellingobjectmodel.impl.OperationImpl
+	 * @see gamifiedmodellingobjectmodel.impl.GamifiedmodellingobjectmodelPackageImpl#getOperation()
+	 * @generated
+	 */
+	int OPERATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__TEXT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.LinkImpl <em>Link</em>}' class.
@@ -137,7 +211,7 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @see gamifiedmodellingobjectmodel.impl.GamifiedmodellingobjectmodelPackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 2;
+	int LINK = 4;
 
 	/**
 	 * The feature id for the '<em><b>Identity</b></em>' attribute.
@@ -239,6 +313,70 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getObject_Identity();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link gamifiedmodellingobjectmodel.Object#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see gamifiedmodellingobjectmodel.Object#getAttributes()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EReference getObject_Attributes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link gamifiedmodellingobjectmodel.Object#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operations</em>'.
+	 * @see gamifiedmodellingobjectmodel.Object#getOperations()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EReference getObject_Operations();
+
+	/**
+	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Attribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute</em>'.
+	 * @see gamifiedmodellingobjectmodel.Attribute
+	 * @generated
+	 */
+	EClass getAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Attribute#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see gamifiedmodellingobjectmodel.Attribute#getText()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Text();
+
+	/**
+	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation</em>'.
+	 * @see gamifiedmodellingobjectmodel.Operation
+	 * @generated
+	 */
+	EClass getOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Operation#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see gamifiedmodellingobjectmodel.Operation#getText()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Text();
 
 	/**
 	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Link <em>Link</em>}'.
@@ -356,6 +494,58 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OBJECT__IDENTITY = eINSTANCE.getObject_Identity();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT__ATTRIBUTES = eINSTANCE.getObject_Attributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT__OPERATIONS = eINSTANCE.getObject_Operations();
+
+		/**
+		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.AttributeImpl <em>Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gamifiedmodellingobjectmodel.impl.AttributeImpl
+		 * @see gamifiedmodellingobjectmodel.impl.GamifiedmodellingobjectmodelPackageImpl#getAttribute()
+		 * @generated
+		 */
+		EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__TEXT = eINSTANCE.getAttribute_Text();
+
+		/**
+		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.OperationImpl <em>Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gamifiedmodellingobjectmodel.impl.OperationImpl
+		 * @see gamifiedmodellingobjectmodel.impl.GamifiedmodellingobjectmodelPackageImpl#getOperation()
+		 * @generated
+		 */
+		EClass OPERATION = eINSTANCE.getOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__TEXT = eINSTANCE.getOperation_Text();
 
 		/**
 		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.LinkImpl <em>Link</em>}' class.

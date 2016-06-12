@@ -73,12 +73,17 @@ var Stage = function(game) {
             // Set the position and dimension of the box so that it covers the JointJS element.
             var bbox = this.model.getBBox();
             // Example of updating the HTML with a data stored in the cell model.
-
-            //this.$box.find('input').text(this.model.get('input'));
-            //this.$box.find('input').text(this.model.get('name'));
-            this.$box.find('.HtmlObjectNameText')[0].value = this.model.get('name');
             this.$box.find('.HtmlObjectNameText')[0].id = this.model.get('identity');
-            //this.$box.find('HtmlObjectNameText').text(this.model.get('name'));
+            this.$box.find('.HtmlObjectSlotText')[0].id = this.model.get('identity');
+            this.$box.find('.HtmlObjectOperationText')[0].id = this.model.get('identity');
+            
+            this.$box.find('.HtmlObjectNameText')[0].value = this.model.get('model').objectName;
+            if (this.model.get('model').properties.length > 0){
+            	this.$box.find('.HtmlObjectSlotText')[0].value = this.model.get('model').properties[0].text;
+            }
+            if (this.model.get('model').operations.length > 0){
+            	this.$box.find('.HtmlObjectOperationText')[0].value = this.model.get('model').operations[0].text;
+            }
             this.$box.css({
                 width: bbox.width,
                 height: bbox.height,
@@ -131,20 +136,45 @@ var Stage = function(game) {
                 $(".HtmlIcon").droppable({
                     drop: function (event, ui) {
                         //var elementId = $(event.target).attr('id');
-                        var name;
                         var source = $(event.originalEvent.target)[0];
-                        name = source.innerHTML;
-                        var target = $(event.target).find(".HtmlObjectNameText")[0];
+                        var name = source.innerHTML;
+                        var type =  null;
+                        
+                        for (var property in DRAGGABLE_ITEM_TYPE) {
+                            if (DRAGGABLE_ITEM_TYPE.hasOwnProperty(property)) {
+                            	if (source.className.indexOf(DRAGGABLE_ITEM_TYPE[property]) > -1){
+                            		type = DRAGGABLE_ITEM_TYPE[property];
+                            	}
+                            }
+                        }
+                        
+                        // change name only first time/once on screen
+                        var target = null;
+                        if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
+                        	target = $(event.target).find(".HtmlObjectNameText")[0];
+                        }else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
+                        	target = $(event.target).find(".HtmlObjectSlotText")[0];
+                    	}
+                        else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
+                        	target = $(event.target).find(".HtmlObjectOperationText")[0];
+                    	}
                         target.value = name;
 
-                        //Perubahan data di layar dan di model
+                        //Persist name change on screen and in model
                         var element = game.stage.graph.get('cells').find(function (cell) {
                             if (cell instanceof joint.dia.Link) return false;
                             if (cell instanceof joint.shapes.html.Element) {
                                 if (target.id == cell.attributes.identity) {
-                                    cell.attributes.name = name;
-                                    cell.attributes.model.objectName = name;
-                                    return true;
+                                	if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
+	                                	cell.attributes.name = name;
+	                                    cell.attributes.model.objectName = name;
+	                                    return true;
+                                	}else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
+                                		cell.attributes.model.properties.push(new Property(name));
+                                	}
+                                	else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
+                                		cell.attributes.model.operations.push(new Operation(name));
+                                	}
                                 }
                             }
                             return false;
@@ -311,8 +341,8 @@ var Stage = function(game) {
 			
 				if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OBJECT){
 					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OBJECT;
-				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION){
-					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
+				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.SLOT){
+					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.SLOT;
 				}
 		}
 

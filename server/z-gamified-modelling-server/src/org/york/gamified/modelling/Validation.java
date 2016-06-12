@@ -23,6 +23,8 @@ import org.york.gamified.modelling.model.Edge;
 import org.york.gamified.modelling.model.Model;
 import org.york.gamified.modelling.model.Node;
 import org.york.gamified.modelling.model.Objective;
+import org.york.gamified.modelling.model.Operation;
+import org.york.gamified.modelling.model.Property;
 import org.york.gamified.modelling.model.Result;
 
 import com.google.gson.Gson;
@@ -94,6 +96,23 @@ public class Validation extends HttpServlet {
 					gamifiedmodellingobjectmodel.Object object = factory.createObject();
 					object.setIdentity(node.identity);
 					object.setName(node.objectName);
+
+					if (node.properties != null) {
+						for (Property property : node.properties) {
+							gamifiedmodellingobjectmodel.Attribute attribute = factory.createAttribute();
+							attribute.setText(property.text);
+							object.getAttributes().add(attribute);
+						}
+					}
+
+					if (node.operations != null) {
+						for (Operation operation : node.operations) {
+							gamifiedmodellingobjectmodel.Operation operation2 = factory.createOperation();
+							operation2.setText(operation.text);
+							object.getOperations().add(operation2);
+						}
+					}
+
 					objectModel.getObjects().add(object);
 				}
 			}
