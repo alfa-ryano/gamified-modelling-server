@@ -141,7 +141,7 @@ try {
 	// ----Set Up Level 7----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_007",
-			"Level 07 - Object Modelling: Determine a slot and its value");
+			"Level 07 - Object Modelling: Determine multiple slots and their values");
 	game.levels[iLevel].isSequel = true;
 	game.levels[iLevel].levelCase = new Case(
 			game,
@@ -150,8 +150,8 @@ try {
 			"A <strong>greet button</strong> has a <strong>text \"Greet\"</strong>. " +
 			"A <strong>clear button</strong> has a <strong>text \"Clear\"</strong>. " +
 			"User types the text of his/her name into a <strong>name textbox</strong>. " +
-			"At first, a <strong>greet label has no text but after the greet button is clicked, " +
-			"it displays <strong>\"Hello, name!\"<strong> with name according to the text inside the name textbox. " +
+			"At first, a <strong>greet label</strong> has no text but after the greet button is clicked, " +
+			"it displays <strong>\"Hello, name!\"</strong> with name according to the text inside the name textbox. " +
 			"The textbox's text is editable");
 
 	game.levels[iLevel].levelCase.addDraggableItem("greet button");

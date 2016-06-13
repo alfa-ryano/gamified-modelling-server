@@ -176,7 +176,14 @@ var Stage = function(game) {
                         else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
                         	target = $(event.target).find(".HtmlObjectOperationText")[0];
                     	}
-                        target.innerHTML = name;
+                        
+                        if (target.innerHTML.indexOf(name) < 0){
+                        	if (target.innerHTML==""){
+                        		target.innerHTML += name;
+                        	}else{
+                        		target.innerHTML += ("<br/>" + name);
+                            }
+                        }
 
                         //Persist name change on screen and in model
                         var element = game.stage.graph.get('cells').find(function (cell) {
