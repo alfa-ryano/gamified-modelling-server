@@ -2,7 +2,7 @@
 try {
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
-	game.currentLevel = 4;
+	game.currentLevel = 6;
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------
@@ -137,6 +137,39 @@ try {
 			"objective_01", "Create a slot text in its respective object");
 
 	game.levels[iLevel].addObjective(objectiveLevel06_1);
+	
+	// ----Set Up Level 7----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_007",
+			"Level 07 - Object Modelling: Determine a slot and its value");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_07",
+			"A <strong>greet button</strong> has a <strong>text \"Greet\"</strong>. " +
+			"A <strong>clear button</strong> has a <strong>text \"Clear\"</strong>. " +
+			"User types the text of his/her name into a <strong>name textbox</strong>. " +
+			"At first, a <strong>greet label has no text but after the greet button is clicked, " +
+			"it displays <strong>\"Hello, name!\"<strong> with name according to the text inside the name textbox. " +
+			"The textbox's text is editable");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	game.levels[iLevel].levelCase.addDraggableItem("text = \"\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	game.levels[iLevel].levelCase.addDraggableItem("editable = true").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	
+	var objectiveLevel07_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", "Every object has slots");
+
+	game.levels[iLevel].addObjective(objectiveLevel07_1);
 	
 	// ---Execute Game---------------------------------------------------------
 	game.run();

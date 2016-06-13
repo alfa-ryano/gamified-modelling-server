@@ -1,0 +1,25 @@
+context ObjectModel!ObjectModel {
+    
+  // At least there is an object with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Every object has at least one slot"
+  }
+} 
+
+operation ObjectModel evaluationFunction_01(): Boolean{
+    if (self.objects.size() > 0){  
+        var count = 0;
+        for (object in self.objects){
+            if (object.attributes.size() > 0){
+                count = count + 1;
+            }
+        }
+        if (count >= self.objects.size() and self.objects.size() >= 5  ){
+        return true;
+        }
+    }
+    return false;
+}

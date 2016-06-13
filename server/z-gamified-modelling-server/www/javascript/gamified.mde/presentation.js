@@ -31,13 +31,13 @@ var Stage = function(game) {
             '<div class="HtmlIcon">',
             '<button class="delete">x</button>',
             '<div id="HtmlNameObject" class="HtmlContainerIcon">',
-            '<input class="HtmlObjectNameText" type="text" value="" />',
+            '<div class="HtmlObjectNameText"></div>',
             '</div>',
             '<div id="HtmlSlotObject" class="HtmlContainerIcon">',
-            '<input class="HtmlObjectSlotText" type="text" value="" />',
+            '<div class="HtmlObjectSlotText"></div>',
             '</div>',
             '<div id="HtmlOperationObject" class="HtmlContainerIcon">',
-            '<input class="HtmlObjectOperationText" type="text" value="" />',
+            '<div class="HtmlObjectOperationText"></div>',
             '</div>',
             '</div>'
         ].join(''),
@@ -77,12 +77,30 @@ var Stage = function(game) {
             this.$box.find('.HtmlObjectSlotText')[0].id = this.model.get('identity');
             this.$box.find('.HtmlObjectOperationText')[0].id = this.model.get('identity');
             
-            this.$box.find('.HtmlObjectNameText')[0].value = this.model.get('model').objectName;
+            this.$box.find('.HtmlObjectNameText')[0].innerHTML = this.model.get('model').objectName;
             if (this.model.get('model').properties.length > 0){
-            	this.$box.find('.HtmlObjectSlotText')[0].value = this.model.get('model').properties[0].text;
+            	var properties = this.model.get('model').properties;
+            	var text = "";
+            	for(var i = 0; i < properties.length;i++){
+            		if (i == 0){
+            			text += properties[i].text;
+            		}else{
+            			text += ("<br/>" + properties[i].text);
+            		}
+            	}
+            	this.$box.find('.HtmlObjectSlotText')[0].innerHTML = text;
             }
             if (this.model.get('model').operations.length > 0){
-            	this.$box.find('.HtmlObjectOperationText')[0].value = this.model.get('model').operations[0].text;
+            	var operations = this.model.get('model').operations;
+            	var text = "";
+            	for(var i = 0; i < properties.length;i++){
+            		if (i == 0){
+            			text += operations[i].text;
+            		}else{
+            			 text += ("<br/>" + operations[i].text);
+            		}  
+            	}
+            	this.$box.find('.HtmlObjectOperationText')[0].innerHTML = text;
             }
             this.$box.css({
                 width: bbox.width,
@@ -158,7 +176,7 @@ var Stage = function(game) {
                         else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
                         	target = $(event.target).find(".HtmlObjectOperationText")[0];
                     	}
-                        target.value = name;
+                        target.innerHTML = name;
 
                         //Persist name change on screen and in model
                         var element = game.stage.graph.get('cells').find(function (cell) {
@@ -170,10 +188,34 @@ var Stage = function(game) {
 	                                    cell.attributes.model.objectName = name;
 	                                    return true;
                                 	}else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
-                                		cell.attributes.model.properties.push(new Property(name));
+                                		var properties = cell.attributes.model.properties;
+                                		var alreadyExist = false;
+                                		for(var i = 0; i < properties.length; i++){
+                                			if (properties[i].text == name){
+                                				alreadyExist = true;
+                                				console.log("Property already exists");
+                                				break;
+                                			}
+                                		}
+                                		if (alreadyExist == false){
+                                			console.log("New property");
+                                			properties.push(new Property(name));
+                                		}
                                 	}
                                 	else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
-                                		cell.attributes.model.operations.push(new Operation(name));
+                                		var operations = cell.attributes.model.operations;
+                                		var alreadyExist = false;
+                                		for(var i = 0; i < operations.length; i++){
+                                			if (operations[i].text == name){
+                                				alreadyExist = true;
+                                				console.log("Operation already exists");
+                                				break;
+                                			}
+                                		}
+                                		if (alreadyExist == false){
+                                			console.log("New operation");
+                                			operations.push(new Operation(name));
+                                		}
                                 	}
                                 }
                             }
