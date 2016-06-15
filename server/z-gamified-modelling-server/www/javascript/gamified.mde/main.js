@@ -2,7 +2,7 @@
 try {
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
-	game.currentLevel = 6;
+	game.currentLevel = 0;
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="gamified-modelling-server">
+    <wb-module deploy-name="z-gamified-modelling-server">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/www"/>
         <dependent-module archiveName="z-object-model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/z-object-model/z-object-model">
@@ -8,7 +8,7 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/z-editor-model/z-editor-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="java-output-path" value="/gamified-modelling-server/build/classes"/>
-        <property name="context-root" value="gamified-modelling-server"/>
+        <property name="java-output-path" value="/z-gamified-modelling-server/build/classes"/>
+        <property name="context-root" value="z-gamified-modelling-server"/>
     </wb-module>
 </project-modules>
