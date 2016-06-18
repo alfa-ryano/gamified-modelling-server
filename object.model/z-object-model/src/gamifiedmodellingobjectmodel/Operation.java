@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link gamifiedmodellingobjectmodel.Operation#getText <em>Text</em>}</li>
+ *   <li>{@link gamifiedmodellingobjectmodel.Operation#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getOperation()
@@ -46,5 +47,31 @@ public interface Operation extends EObject {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage#getOperation_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link gamifiedmodellingobjectmodel.Operation#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Operation

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.OperationImpl#getText <em>Text</em>}</li>
+ *   <li>{@link gamifiedmodellingobjectmodel.impl.OperationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +46,26 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,11 +112,34 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingobjectmodelPackage.OPERATION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GamifiedmodellingobjectmodelPackage.OPERATION__TEXT:
 				return getText();
+			case GamifiedmodellingobjectmodelPackage.OPERATION__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +154,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		switch (featureID) {
 			case GamifiedmodellingobjectmodelPackage.OPERATION__TEXT:
 				setText((String)newValue);
+				return;
+			case GamifiedmodellingobjectmodelPackage.OPERATION__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,6 +173,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			case GamifiedmodellingobjectmodelPackage.OPERATION__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case GamifiedmodellingobjectmodelPackage.OPERATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,6 +190,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		switch (featureID) {
 			case GamifiedmodellingobjectmodelPackage.OPERATION__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case GamifiedmodellingobjectmodelPackage.OPERATION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,6 +208,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (text: ");
 		result.append(text);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

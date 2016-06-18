@@ -2,7 +2,7 @@
 try {
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
-	game.currentLevel = 6;
+	game.currentLevel = 7;
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------
@@ -131,7 +131,12 @@ try {
 	game.levels[iLevel].levelCase.addDraggableItem("greet label");
 	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
 	
-	game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	var item = null;
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
 	
 	var objectiveLevel06_1 = new Objective(game, game.levels[iLevel],
 			"objective_01", "Create a slot text in its respective object");
@@ -160,16 +165,90 @@ try {
 	game.levels[iLevel].levelCase.addDraggableItem("greet label");
 	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
 	
-	game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
-	game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
-	game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
-	game.levels[iLevel].levelCase.addDraggableItem("text = \"\"").type = DRAGGABLE_ITEM_TYPE.SLOT;
-	game.levels[iLevel].levelCase.addDraggableItem("editable = true").type = DRAGGABLE_ITEM_TYPE.SLOT;
+	var item = null;
+	item  = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Name\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Greet\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Clear\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("editable = true");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
 	
 	var objectiveLevel07_1 = new Objective(game, game.levels[iLevel],
 			"objective_01", "Every object has slots");
 
 	game.levels[iLevel].addObjective(objectiveLevel07_1);
+	
+	// ----Set Up Level 8----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_008",
+			"Level 08 - Object Modelling: Determine the operations");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_08",
+			"All buttons can be <strong>clicked</strong>");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	var item = null;
+	item  = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Name\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Greet\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Clear\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("editable = true");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("clicked");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clicked";
+	
+	var objectiveLevel08_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", "Create an operation for each button object");
+
+	game.levels[iLevel].addObjective(objectiveLevel08_1);
 	
 	// ---Execute Game---------------------------------------------------------
 	game.run();

@@ -5,4 +5,5 @@ public class Operation {
 		
 	}
 	public String text;
+	public String name;
 }

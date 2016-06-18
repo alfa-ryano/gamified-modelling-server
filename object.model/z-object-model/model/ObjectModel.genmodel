@@ -18,9 +18,13 @@
     </genClasses>
     <genClasses ecoreClass="ObjectModel.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Attribute/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Attribute/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Attribute/valueType"/>
     </genClasses>
     <genClasses ecoreClass="ObjectModel.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Operation/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Operation/name"/>
     </genClasses>
     <genClasses ecoreClass="ObjectModel.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ObjectModel.ecore#//Link/identity"/>

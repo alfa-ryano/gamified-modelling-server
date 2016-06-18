@@ -101,6 +101,9 @@ public class Validation extends HttpServlet {
 						for (Property property : node.properties) {
 							gamifiedmodellingobjectmodel.Attribute attribute = factory.createAttribute();
 							attribute.setText(property.text);
+							attribute.setName(property.name);
+							attribute.setValue(property.value);
+							attribute.setValueType(property.valueType);
 							object.getAttributes().add(attribute);
 						}
 					}
@@ -109,6 +112,7 @@ public class Validation extends HttpServlet {
 						for (Operation operation : node.operations) {
 							gamifiedmodellingobjectmodel.Operation operation2 = factory.createOperation();
 							operation2.setText(operation.text);
+							operation2.setName(operation.name);
 							object.getOperations().add(operation2);
 						}
 					}

@@ -167,13 +167,40 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int ATTRIBUTE__TEXT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__VALUE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__VALUE_TYPE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = 1;
+	int ATTRIBUTE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.OperationImpl <em>Operation</em>}' class.
@@ -195,13 +222,22 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int OPERATION__TEXT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = 1;
+	int OPERATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.LinkImpl <em>Link</em>}' class.
@@ -358,6 +394,39 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	EAttribute getAttribute_Text();
 
 	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Attribute#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see gamifiedmodellingobjectmodel.Attribute#getName()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Attribute#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see gamifiedmodellingobjectmodel.Attribute#getValue()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Attribute#getValueType <em>Value Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Type</em>'.
+	 * @see gamifiedmodellingobjectmodel.Attribute#getValueType()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_ValueType();
+
+	/**
 	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +446,17 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOperation_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Operation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see gamifiedmodellingobjectmodel.Operation#getName()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Name();
 
 	/**
 	 * Returns the meta object for class '{@link gamifiedmodellingobjectmodel.Link <em>Link</em>}'.
@@ -530,6 +610,30 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		EAttribute ATTRIBUTE__TEXT = eINSTANCE.getAttribute_Text();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__VALUE = eINSTANCE.getAttribute_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__VALUE_TYPE = eINSTANCE.getAttribute_ValueType();
+
+		/**
 		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.OperationImpl <em>Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -546,6 +650,14 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPERATION__TEXT = eINSTANCE.getOperation_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
 
 		/**
 		 * The meta object literal for the '{@link gamifiedmodellingobjectmodel.impl.LinkImpl <em>Link</em>}' class.

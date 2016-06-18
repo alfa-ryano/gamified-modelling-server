@@ -214,6 +214,33 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAttribute_Name() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttribute_Value() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttribute_ValueType() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOperation() {
 		return operationEClass;
 	}
@@ -225,6 +252,15 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 */
 	public EAttribute getOperation_Text() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Name() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -303,9 +339,13 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__TEXT);
+		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+		createEAttribute(attributeEClass, ATTRIBUTE__VALUE);
+		createEAttribute(attributeEClass, ATTRIBUTE__VALUE_TYPE);
 
 		operationEClass = createEClass(OPERATION);
 		createEAttribute(operationEClass, OPERATION__TEXT);
+		createEAttribute(operationEClass, OPERATION__NAME);
 
 		linkEClass = createEClass(LINK);
 		createEAttribute(linkEClass, LINK__IDENTITY);
@@ -355,9 +395,13 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Text(), ecorePackage.getEString(), "text", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_ValueType(), ecorePackage.getEString(), "valueType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOperation_Text(), ecorePackage.getEString(), "text", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLink_Identity(), ecorePackage.getEString(), "identity", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

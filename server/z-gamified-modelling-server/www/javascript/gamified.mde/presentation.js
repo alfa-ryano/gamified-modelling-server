@@ -96,7 +96,7 @@ var Stage = function(game) {
             if (this.model.get('model').operations.length > 0){
             	var operations = this.model.get('model').operations;
             	var text = "";
-            	for(var i = 0; i < properties.length;i++){
+            	for(var i = 0; i < operations.length;i++){
             		if (i == 0){
             			text += operations[i].text;
             		}else{
@@ -116,7 +116,6 @@ var Stage = function(game) {
             var identifier = this.$box[0].id;
             var htmlIcon = document.getElementById(identifier);
             if (htmlIcon != null){
-            	console.log(htmlIcon.offsetWidth);
             	this.model.resize(htmlIcon.offsetWidth-2, htmlIcon.offsetHeight-2);
             }
         },
@@ -168,66 +167,43 @@ var Stage = function(game) {
                     drop: function (event, ui) {
                         //var elementId = $(event.target).attr('id');
                         var source = $(event.originalEvent.target)[0];
-                        var name = source.innerHTML;
-                        var type =  null;
+                        var text = source.innerHTML;
+                        var name = source.getAttribute("name");
+                        var type =  source.getAttribute("type");
+                        var value =  source.getAttribute("value");
+                        var valueType = source.getAttribute("valueType");
                         
-                        for (var property in DRAGGABLE_ITEM_TYPE) {
-                            if (DRAGGABLE_ITEM_TYPE.hasOwnProperty(property)) {
-                            	if (source.className.indexOf(DRAGGABLE_ITEM_TYPE[property]) > -1){
-                            		type = DRAGGABLE_ITEM_TYPE[property];
-                            	}
-                            }
-                        }
-                        
-                        // change name only first time/once on screen
+                        // change text only first time/once on screen
                         var target = null;
                         var htmlIcon = $(event.target).find(".HtmlIcon");
-                        if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
-                        	target = $(event.target).find(".HtmlObjectNameText")[0];
-                        	target.innerHTML = name;
-                        }else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
-                        	target = $(event.target).find(".HtmlObjectSlotText")[0];
-                        	if (target.innerHTML.indexOf(name) < 0){
-                            	if (target.innerHTML==""){
-                            		target.innerHTML += name;
-                            	}else{
-                            		target.innerHTML += ("<br/>" + name);
-                                }
-                            }
-                    	}
-                        else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
-                        	target = $(event.target).find(".HtmlObjectOperationText")[0];
-                        	if (target.innerHTML.indexOf(name) < 0){
-                            	if (target.innerHTML==""){
-                            		target.innerHTML += name;
-                            	}else{
-                            		target.innerHTML += ("<br/>" + name);
-                                }
-                            }
-                    	}
                         
-                        //Persist name change on screen and in model
+                        //Persist text change on screen and in model
                         var element = game.stage.graph.get('cells').find(function (cell) {
                             if (cell instanceof joint.dia.Link) return false;
                             if (cell instanceof joint.shapes.html.Element) {
                                 if (htmlIcon.context.id == cell.attributes.identity) {
                                 	if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
-	                                	cell.attributes.name = name;
-	                                    cell.attributes.model.objectName = name;
+	                                	cell.attributes.text = text;
+	                                    cell.attributes.model.objectName = text;
 	                                    return true;
                                 	}else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
                                 		var properties = cell.attributes.model.properties;
                                 		var alreadyExist = false;
                                 		for(var i = 0; i < properties.length; i++){
-                                			if (properties[i].text == name){
+                                			if (properties[i].name == name){
+                                				properties[i].text = text;
+                                				properties[i].value = value;
+                                				properties[i].valueType = valueType;
                                 				alreadyExist = true;
-                                				console.log("Property already exists");
                                 				break;
                                 			}
                                 		}
                                 		if (alreadyExist == false){
-                                			console.log("New property");
-                                			properties.push(new Property(name));
+                                			var property = new Property(text);
+                                			property.name = name;
+                                			property.value = value;
+                                			property.valueType = valueType;
+                                			properties.push(property);
                                 		}
                                 		return true;
                                 	}
@@ -235,7 +211,8 @@ var Stage = function(game) {
                                 		var operations = cell.attributes.model.operations;
                                 		var alreadyExist = false;
                                 		for(var i = 0; i < operations.length; i++){
-                                			if (operations[i].text == name){
+                                			if (operations[i].name == name){
+                                				operations[i].text = text;
                                 				alreadyExist = true;
                                 				console.log("Operation already exists");
                                 				break;
@@ -243,7 +220,9 @@ var Stage = function(game) {
                                 		}
                                 		if (alreadyExist == false){
                                 			console.log("New operation");
-                                			operations.push(new Operation(name));
+                                			var operation = new Operation(text);
+                                			operation.name = name;
+                                			operations.push(operation);
                                 		}
                                 		return true;
                                 	}
@@ -252,6 +231,13 @@ var Stage = function(game) {
                             return false;
                         });
                         
+                        //Update bounding box size
+                        var view = element.findView(game.stage.paper);
+                        if (view != null){
+                        	view.updateBox();
+                        }
+                        
+                        //do evaluation if objectives are met
                         game.levels[game.currentLevel].evaluateObjectives();
                     }
                 });
@@ -409,12 +395,19 @@ var Stage = function(game) {
 				newSpan.id = draggableItem.identity;
 				newSpan.innerHTML = "";
 				newSpan.innerHTML = draggableItem.text;
+				newSpan.setAttribute("type", draggableItem.type);
+				newSpan.setAttribute("name", draggableItem.name);
+				newSpan.setAttribute("value", draggableItem.value);
+				newSpan.setAttribute("valueType", draggableItem.valueType);
+				
 				div.appendChild(newSpan);
 			
 				if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OBJECT){
 					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OBJECT;
 				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.SLOT){
 					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.SLOT;
+				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION){
+					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
 				}
 		}
 

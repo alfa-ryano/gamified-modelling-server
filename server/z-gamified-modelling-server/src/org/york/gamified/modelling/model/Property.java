@@ -5,4 +5,7 @@ public class Property {
 		
 	}
 	public String text;
+	public String name;
+	public String value;
+	public String valueType;
 }

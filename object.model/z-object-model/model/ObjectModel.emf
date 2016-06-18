@@ -22,10 +22,14 @@ class Object {
 
 class Attribute {
    attr String text;
+   attr String name;
+   attr String value;
+   attr String valueType; 
 }
 
 class Operation {
    attr String text;
+   attr String name;
 } 
 
 @gmf.link(source="fromObject", target="toObject")

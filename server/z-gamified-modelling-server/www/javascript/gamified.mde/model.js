@@ -7,6 +7,9 @@ var inheritsFrom = function(child, parent) {
 
 var Property = function(text){
 	this.text = text;
+	this.name = null;
+	this.value = null;
+	this.valueType = null;
 }
 
 var Operation = function(text){
@@ -45,6 +48,8 @@ var DraggableItem = function(levelCase, identity, text) {
 	this.levelCase = levelCase;
 	this.text = text;
 	this.type = DRAGGABLE_ITEM_TYPE.OBJECT;
+	this.name = null;
+	this.value = null; 
 }
 
 var Case = function(game, level, name, description) {
