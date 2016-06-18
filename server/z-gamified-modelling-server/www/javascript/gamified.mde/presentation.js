@@ -73,9 +73,12 @@ var Stage = function(game) {
             // Set the position and dimension of the box so that it covers the JointJS element.
             var bbox = this.model.getBBox();
             // Example of updating the HTML with a data stored in the cell model.
-            this.$box.find('.HtmlObjectNameText')[0].id = this.model.get('identity');
-            this.$box.find('.HtmlObjectSlotText')[0].id = this.model.get('identity');
-            this.$box.find('.HtmlObjectOperationText')[0].id = this.model.get('identity');
+            this.$box[0].id = this.model.get('identity');
+            
+//            this.$box.find('.HtmlObjectNameText')[0].id = this.model.get('identity');
+//            this.$box.find('.HtmlObjectSlotText')[0].id = this.model.get('identity');
+//            this.$box.find('.HtmlObjectOperationText')[0].id = this.model.get('identity');
+            
             
             this.$box.find('.HtmlObjectNameText')[0].innerHTML = this.model.get('model').objectName;
             if (this.model.get('model').properties.length > 0){
@@ -108,6 +111,14 @@ var Stage = function(game) {
                 left: bbox.x - 1,
                 top: bbox.y - 1
             });
+            
+            
+            var identifier = this.$box[0].id;
+            var htmlIcon = document.getElementById(identifier);
+            if (htmlIcon != null){
+            	console.log(htmlIcon.offsetWidth);
+            	this.model.resize(htmlIcon.offsetWidth-2, htmlIcon.offsetHeight-2);
+            }
         },
 
         removeBox: function (evt) {
@@ -150,6 +161,8 @@ var Stage = function(game) {
                     model: objectModel
                 });
                 game.stage.graph.addCell(object);
+                var view = object.findView(game.stage.paper);
+                view.$box[0].id = objectId;
 
                 $(".HtmlIcon").droppable({
                     drop: function (event, ui) {
@@ -168,28 +181,36 @@ var Stage = function(game) {
                         
                         // change name only first time/once on screen
                         var target = null;
+                        var htmlIcon = $(event.target).find(".HtmlIcon");
                         if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
                         	target = $(event.target).find(".HtmlObjectNameText")[0];
+                        	target.innerHTML = name;
                         }else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
                         	target = $(event.target).find(".HtmlObjectSlotText")[0];
+                        	if (target.innerHTML.indexOf(name) < 0){
+                            	if (target.innerHTML==""){
+                            		target.innerHTML += name;
+                            	}else{
+                            		target.innerHTML += ("<br/>" + name);
+                                }
+                            }
                     	}
                         else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
                         	target = $(event.target).find(".HtmlObjectOperationText")[0];
+                        	if (target.innerHTML.indexOf(name) < 0){
+                            	if (target.innerHTML==""){
+                            		target.innerHTML += name;
+                            	}else{
+                            		target.innerHTML += ("<br/>" + name);
+                                }
+                            }
                     	}
                         
-                        if (target.innerHTML.indexOf(name) < 0){
-                        	if (target.innerHTML==""){
-                        		target.innerHTML += name;
-                        	}else{
-                        		target.innerHTML += ("<br/>" + name);
-                            }
-                        }
-
                         //Persist name change on screen and in model
                         var element = game.stage.graph.get('cells').find(function (cell) {
                             if (cell instanceof joint.dia.Link) return false;
                             if (cell instanceof joint.shapes.html.Element) {
-                                if (target.id == cell.attributes.identity) {
+                                if (htmlIcon.context.id == cell.attributes.identity) {
                                 	if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
 	                                	cell.attributes.name = name;
 	                                    cell.attributes.model.objectName = name;
@@ -208,6 +229,7 @@ var Stage = function(game) {
                                 			console.log("New property");
                                 			properties.push(new Property(name));
                                 		}
+                                		return true;
                                 	}
                                 	else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
                                 		var operations = cell.attributes.model.operations;
@@ -223,6 +245,7 @@ var Stage = function(game) {
                                 			console.log("New operation");
                                 			operations.push(new Operation(name));
                                 		}
+                                		return true;
                                 	}
                                 }
                             }
