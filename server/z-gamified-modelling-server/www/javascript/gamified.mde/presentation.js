@@ -399,6 +399,15 @@ var Stage = function(game) {
 				newSpan.setAttribute("name", draggableItem.name);
 				newSpan.setAttribute("value", draggableItem.value);
 				newSpan.setAttribute("valueType", draggableItem.valueType);
+				//newSpan.style.zIndex = 99;
+				newSpan.ondragstart = function(){
+					//document.getElementsByTagName("body")[0].appendChild(newSpan);
+					document.getElementById("DraggableItems").style.overflow = "visible";
+				};
+				newSpan.ondragstop = function(){
+					//document.getElementById("DraggableItems").appendChild(newSpan);
+					document.getElementById("DraggableItems").style.overflow = "auto";
+				};
 				
 				div.appendChild(newSpan);
 			

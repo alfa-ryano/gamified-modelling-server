@@ -2,7 +2,7 @@
 try {
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
-	game.currentLevel = 7;
+	game.currentLevel = 8;
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------
@@ -249,6 +249,69 @@ try {
 			"objective_01", "Create an operation for each button object");
 
 	game.levels[iLevel].addObjective(objectiveLevel08_1);
+	
+	
+	// ----Set Up Level 9----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_009",
+			"Level 09 - Object Modelling: Determine the operations");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_09",
+			"At first, greet label has no text but after the greet button is clicked, " +
+			"it will <strong>display</strong> \"Hello, [name]!\" with name according to " +
+			"the text inputted into the name textbox. If clear button is clicked, " +
+			"greet button will <strong>clear</strong> its text.");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	var item = null;
+	item  = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Name\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Greet\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Clear\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("editable = true");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("clicked");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clicked";
+	item = game.levels[iLevel].levelCase.addDraggableItem("display");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "display";
+	item = game.levels[iLevel].levelCase.addDraggableItem("clear");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clear";
+	
+	var objectiveLevel09_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", "Create two operations for greet label");
+
+	game.levels[iLevel].addObjective(objectiveLevel09_1);
 	
 	// ---Execute Game---------------------------------------------------------
 	game.run();

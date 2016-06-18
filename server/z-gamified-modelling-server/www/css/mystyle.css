@@ -55,6 +55,7 @@ body, html {
 	border-right: thin solid black;
 	border-bottom: thin solid black;
 	resize: both;
+	overflow: auto;
 }
 
 .DraggableCaseItem {
