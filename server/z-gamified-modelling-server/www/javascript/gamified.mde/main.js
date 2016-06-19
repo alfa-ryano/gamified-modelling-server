@@ -4,7 +4,7 @@ try {
 	game.mode = "DEVELOPMENT";
 	
 	// the Real level displayed is always plus one (+1)
-	game.currentLevel = 9;  
+	game.currentLevel = 11;  
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------
@@ -384,7 +384,7 @@ try {
 	// ----Set Up Level 11----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_011",
-			"Level 11 - Object Modelling: Determine the operations");
+			"Level 11 - Object Modelling: Determine the classes of heterogeneous objects");
 	game.levels[iLevel].isSequel = true;
 	game.levels[iLevel].levelCase = new Case(
 			game,
@@ -452,6 +452,80 @@ try {
 			"objective_01", "Define the classes for label and textbox objects.");
 
 	game.levels[iLevel].addObjective(objectiveLevel11_1);
+	
+	// ----Set Up Level 12----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_012",
+			"Level 12 -  Reconstruct the model from the beginning");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_12",
+			"Reconstruct the previous model from the beginning! Watch this video." +
+			"<video width='240' height='180' controls autoplay loop>" +
+				"<source src='resource/level_012.mp4' type='video/mp4'>" +
+				"Your browser does not support HTML5 video." +
+			"</video>");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	var item = null;
+	item  = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Name\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Greet\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Clear\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("editable = true");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("clicked");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clicked";
+	item = game.levels[iLevel].levelCase.addDraggableItem("display");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "display";
+	item = game.levels[iLevel].levelCase.addDraggableItem("clear");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clear";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("Button");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "button";
+	item = game.levels[iLevel].levelCase.addDraggableItem("TextBox");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "textbox";
+	item = game.levels[iLevel].levelCase.addDraggableItem("Label");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "label";
+	
+	var objectiveLevel12_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", "Reconstruct the previous model from the beginning");
+
+	game.levels[iLevel].addObjective(objectiveLevel12_1);
+	
 	
 	// ---Execute Game---------------------------------------------------------
 	game.run();
