@@ -96,6 +96,7 @@ public class Validation extends HttpServlet {
 					gamifiedmodellingobjectmodel.Object object = factory.createObject();
 					object.setIdentity(node.identity);
 					object.setName(node.objectName);
+					object.setClassName(node.className);
 
 					if (node.properties != null) {
 						for (Property property : node.properties) {

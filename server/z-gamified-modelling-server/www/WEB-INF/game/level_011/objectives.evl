@@ -1,0 +1,21 @@
+context ObjectModel!ObjectModel {
+    
+  // At least there is an object with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Create two operations for greet label"
+  }
+} 
+
+operation ObjectModel evaluationFunction_01(): Boolean{
+    if (self.objects.size() > 0){  
+        if (self.objects.select(object |object.className = "TextBox").size() >= 1
+            and
+            self.objects.select(object |object.className = "Label").size() >= 2){
+            return true;
+        }
+    }
+    return false;
+}

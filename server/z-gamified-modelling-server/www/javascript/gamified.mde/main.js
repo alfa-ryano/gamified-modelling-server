@@ -2,7 +2,9 @@
 try {
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
-	game.currentLevel = 8;
+	
+	// the Real level displayed is always plus one (+1)
+	game.currentLevel = 9;  
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------
@@ -312,6 +314,144 @@ try {
 			"objective_01", "Create two operations for greet label");
 
 	game.levels[iLevel].addObjective(objectiveLevel09_1);
+	
+	// ----Set Up Level 10----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_010",
+			"Level 10 - Object Modelling: Determine the operations");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_10",
+			"There are two buttons in the diagram. You can classify them" +
+			" into one single class since they belong to the one same concept, " +
+			"<strong>Button</strong>. They also have the same slot (text) and " +
+			"operation (clicked).");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	var item = null;
+	item  = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Name\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Greet\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Clear\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("editable = true");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("clicked");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clicked";
+	item = game.levels[iLevel].levelCase.addDraggableItem("display");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "display";
+	item = game.levels[iLevel].levelCase.addDraggableItem("clear");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clear";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("Button");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "button";
+	
+	var objectiveLevel10_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", " Define the class of the two button objects.");
+
+	game.levels[iLevel].addObjective(objectiveLevel10_1);
+	
+	// ----Set Up Level 11----------------------------------------------------
+	iLevel += 1;
+	game.levels[iLevel] = new Level(game, "level_011",
+			"Level 11 - Object Modelling: Determine the operations");
+	game.levels[iLevel].isSequel = true;
+	game.levels[iLevel].levelCase = new Case(
+			game,
+			game.levels[iLevel],
+			"Case_11",
+			"There are two other classes that can be added to the diagram," +
+			"<strong>Textbox</strong> and <strong>Label</strong> classes. " +
+			"Add them to their respective objects.</br></br>Beware that objects with " +
+			"the same class require to have the same slots and operations.");
+
+	game.levels[iLevel].levelCase.addDraggableItem("greet button");
+	game.levels[iLevel].levelCase.addDraggableItem("clear button");
+	game.levels[iLevel].levelCase.addDraggableItem("name label");
+	game.levels[iLevel].levelCase.addDraggableItem("greet label");
+	game.levels[iLevel].levelCase.addDraggableItem("name textbox");
+	
+	var item = null;
+	item  = game.levels[iLevel].levelCase.addDraggableItem("text = \"Name\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Name\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Greet\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Greet\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"Clear\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"Clear\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("text = \"\"");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "text";
+	item.value = "\"\"";
+	item.valueType = "String";
+	item = game.levels[iLevel].levelCase.addDraggableItem("editable = true");
+	item.type = DRAGGABLE_ITEM_TYPE.SLOT;
+	item.name = "editable";
+	item.value = "true";
+	item.valueType = "boolean";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("clicked");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clicked";
+	item = game.levels[iLevel].levelCase.addDraggableItem("display");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "display";
+	item = game.levels[iLevel].levelCase.addDraggableItem("clear");
+	item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+	item.name = "clear";
+	
+	item = game.levels[iLevel].levelCase.addDraggableItem("Button");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "button";
+	item = game.levels[iLevel].levelCase.addDraggableItem("TextBox");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "textbox";
+	item = game.levels[iLevel].levelCase.addDraggableItem("Label");
+	item.type = DRAGGABLE_ITEM_TYPE.CLASS;
+	item.name = "label";
+	
+	var objectiveLevel11_1 = new Objective(game, game.levels[iLevel],
+			"objective_01", "Define the classes for label and textbox objects.");
+
+	game.levels[iLevel].addObjective(objectiveLevel11_1);
 	
 	// ---Execute Game---------------------------------------------------------
 	game.run();

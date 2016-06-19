@@ -12,6 +12,7 @@ class ObjectModel {
 class Object {
     attr String name;
     attr String identity;
+    attr String className; 
     
     @gmf.compartment(layout="list")
     val Attribute[*] attributes;

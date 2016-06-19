@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.ObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.ObjectImpl#getIdentity <em>Identity</em>}</li>
+ *   <li>{@link gamifiedmodellingobjectmodel.impl.ObjectImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.ObjectImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link gamifiedmodellingobjectmodel.impl.ObjectImpl#getOperations <em>Operations</em>}</li>
  * </ul>
@@ -75,6 +76,26 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 	 * @ordered
 	 */
 	protected String identity = IDENTITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -162,6 +183,27 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getClassName() {
+		return className;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassName(String newClassName) {
+		String oldClassName = className;
+		className = newClassName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GamifiedmodellingobjectmodelPackage.OBJECT__CLASS_NAME, oldClassName, className));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
 			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, GamifiedmodellingobjectmodelPackage.OBJECT__ATTRIBUTES);
@@ -209,6 +251,8 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 				return getName();
 			case GamifiedmodellingobjectmodelPackage.OBJECT__IDENTITY:
 				return getIdentity();
+			case GamifiedmodellingobjectmodelPackage.OBJECT__CLASS_NAME:
+				return getClassName();
 			case GamifiedmodellingobjectmodelPackage.OBJECT__ATTRIBUTES:
 				return getAttributes();
 			case GamifiedmodellingobjectmodelPackage.OBJECT__OPERATIONS:
@@ -231,6 +275,9 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 				return;
 			case GamifiedmodellingobjectmodelPackage.OBJECT__IDENTITY:
 				setIdentity((String)newValue);
+				return;
+			case GamifiedmodellingobjectmodelPackage.OBJECT__CLASS_NAME:
+				setClassName((String)newValue);
 				return;
 			case GamifiedmodellingobjectmodelPackage.OBJECT__ATTRIBUTES:
 				getAttributes().clear();
@@ -258,6 +305,9 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 			case GamifiedmodellingobjectmodelPackage.OBJECT__IDENTITY:
 				setIdentity(IDENTITY_EDEFAULT);
 				return;
+			case GamifiedmodellingobjectmodelPackage.OBJECT__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
+				return;
 			case GamifiedmodellingobjectmodelPackage.OBJECT__ATTRIBUTES:
 				getAttributes().clear();
 				return;
@@ -280,6 +330,8 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GamifiedmodellingobjectmodelPackage.OBJECT__IDENTITY:
 				return IDENTITY_EDEFAULT == null ? identity != null : !IDENTITY_EDEFAULT.equals(identity);
+			case GamifiedmodellingobjectmodelPackage.OBJECT__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
 			case GamifiedmodellingobjectmodelPackage.OBJECT__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
 			case GamifiedmodellingobjectmodelPackage.OBJECT__OPERATIONS:
@@ -302,6 +354,8 @@ public class ObjectImpl extends EObjectImpl implements gamifiedmodellingobjectmo
 		result.append(name);
 		result.append(", identity: ");
 		result.append(identity);
+		result.append(", className: ");
+		result.append(className);
 		result.append(')');
 		return result.toString();
 	}

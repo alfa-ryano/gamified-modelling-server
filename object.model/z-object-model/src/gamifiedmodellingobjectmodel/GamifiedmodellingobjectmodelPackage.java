@@ -121,13 +121,22 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	int OBJECT__IDENTITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__CLASS_NAME = 2;
+
+	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__ATTRIBUTES = 2;
+	int OBJECT__ATTRIBUTES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -136,7 +145,7 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__OPERATIONS = 3;
+	int OBJECT__OPERATIONS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -145,7 +154,7 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = 4;
+	int OBJECT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link gamifiedmodellingobjectmodel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -349,6 +358,17 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getObject_Identity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gamifiedmodellingobjectmodel.Object#getClassName <em>Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see gamifiedmodellingobjectmodel.Object#getClassName()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EAttribute getObject_ClassName();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link gamifiedmodellingobjectmodel.Object#getAttributes <em>Attributes</em>}'.
@@ -574,6 +594,14 @@ public interface GamifiedmodellingobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OBJECT__IDENTITY = eINSTANCE.getObject_Identity();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBJECT__CLASS_NAME = eINSTANCE.getObject_ClassName();
 
 		/**
 		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.

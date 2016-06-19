@@ -89,7 +89,10 @@ body, html {
 
 .OperationDraggableCaseItem {
   color: #990099;
-;
+}
+
+.ClassDraggableCaseItem {
+  color: #CC0000;
 }
 
 #ObjectiveViewport {
@@ -203,22 +206,30 @@ body, html {
 	vertical-align: middle;
 	display: inline-block;
 	min-width: 150px;
+	padding-left:2px;
+	padding-right: 2px;
 }
 
 .HtmlObjectNameText {
 	border: none;
 	text-align: center;
 	text-decoration: underline;
+	/*display: inline-block;*/
+	/*white-space: nowrap;*/
 }
 
 .HtmlObjectSlotText {
 	text-align: left;
 	border: none;
+	/*display: inline-block;*/
+	/*white-space: nowrap;*/
 }
 
 .HtmlObjectOperationText {
 	text-align: left;
 	border: none;
+	/*display: inline-block;*/
+	/*white-space: nowrap;*/
 }
 
 input:focus {
@@ -251,7 +262,6 @@ input:focus {
 .HtmlIcon {
 	display: table;
 	position: absolute;
-	background-color: white;
 	/* Make sure events are propagated to the JointJS element so, e.g. dragging works.*/
 	pointer-events: none;
 	box-sizing: border-box;

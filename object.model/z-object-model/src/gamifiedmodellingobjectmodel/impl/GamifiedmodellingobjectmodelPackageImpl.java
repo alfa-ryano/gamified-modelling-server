@@ -178,8 +178,17 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getObject_ClassName() {
+		return (EAttribute)objectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getObject_Attributes() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(2);
+		return (EReference)objectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -188,7 +197,7 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 	 * @generated
 	 */
 	public EReference getObject_Operations() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(3);
+		return (EReference)objectEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -334,6 +343,7 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		objectEClass = createEClass(OBJECT);
 		createEAttribute(objectEClass, OBJECT__NAME);
 		createEAttribute(objectEClass, OBJECT__IDENTITY);
+		createEAttribute(objectEClass, OBJECT__CLASS_NAME);
 		createEReference(objectEClass, OBJECT__ATTRIBUTES);
 		createEReference(objectEClass, OBJECT__OPERATIONS);
 
@@ -390,6 +400,7 @@ public class GamifiedmodellingobjectmodelPackageImpl extends EPackageImpl implem
 		initEClass(objectEClass, gamifiedmodellingobjectmodel.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObject_Identity(), ecorePackage.getEString(), "identity", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObject_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_Operations(), this.getOperation(), null, "operations", null, 0, -1, gamifiedmodellingobjectmodel.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -73,14 +73,21 @@ var Stage = function(game) {
             // Set the position and dimension of the box so that it covers the JointJS element.
             var bbox = this.model.getBBox();
             // Example of updating the HTML with a data stored in the cell model.
+            
+            //add identity to HTML Icon/the first div inside the box
             this.$box[0].id = this.model.get('identity');
             
-//            this.$box.find('.HtmlObjectNameText')[0].id = this.model.get('identity');
-//            this.$box.find('.HtmlObjectSlotText')[0].id = this.model.get('identity');
-//            this.$box.find('.HtmlObjectOperationText')[0].id = this.model.get('identity');
+            //set the object name and the class name
+            var className = "";
+            if (this.model.get('model').className != null && 
+            		this.model.get('model').className != ""){
+            	className = ": " +  this.model.get('model').className; 
+            }
             
+            this.$box.find('.HtmlObjectNameText')[0].innerHTML = 
+            	this.model.get('model').objectName + className;  
             
-            this.$box.find('.HtmlObjectNameText')[0].innerHTML = this.model.get('model').objectName;
+            //set the attributes/slots
             if (this.model.get('model').properties.length > 0){
             	var properties = this.model.get('model').properties;
             	var text = "";
@@ -93,6 +100,8 @@ var Stage = function(game) {
             	}
             	this.$box.find('.HtmlObjectSlotText')[0].innerHTML = text;
             }
+            
+            //set the operations/actions
             if (this.model.get('model').operations.length > 0){
             	var operations = this.model.get('model').operations;
             	var text = "";
@@ -186,7 +195,11 @@ var Stage = function(game) {
 	                                	cell.attributes.text = text;
 	                                    cell.attributes.model.objectName = text;
 	                                    return true;
-                                	}else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
+                                	}if (type == DRAGGABLE_ITEM_TYPE.CLASS){
+	                                    cell.attributes.model.className = text;
+	                                    return true;
+                                	}
+                                	else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
                                 		var properties = cell.attributes.model.properties;
                                 		var alreadyExist = false;
                                 		for(var i = 0; i < properties.length; i++){
@@ -413,7 +426,10 @@ var Stage = function(game) {
 			
 				if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OBJECT){
 					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OBJECT;
-				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.SLOT){
+				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.CLASS){
+					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.CLASS;
+				}
+				else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.SLOT){
 					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.SLOT;
 				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION){
 					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;

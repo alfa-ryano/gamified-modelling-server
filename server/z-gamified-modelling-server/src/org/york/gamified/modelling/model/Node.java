@@ -11,4 +11,6 @@ public class Node {
 	public String objectName;
 	public ArrayList<Property> properties;
 	public ArrayList<Operation> operations;
+	public String className;  
+	
 }

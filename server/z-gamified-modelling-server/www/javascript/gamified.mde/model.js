@@ -21,6 +21,7 @@ var ModelObject = function(objectName, identity) {
 	this.objectName = objectName;
 	this.properties = new Array();
 	this.operations = new Array();
+	this.className = "";
 }
 
 var ModelEdge = function(identity) {
