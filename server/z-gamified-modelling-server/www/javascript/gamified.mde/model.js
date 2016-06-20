@@ -158,11 +158,15 @@ var Game = function() {
 	this.levels = new Array();
 
 	this.run = function() {
+		//Setup Screens
+		this.stage.setUpScreens();
+		
 		// First Level
 		this.levels[this.currentLevel].initialize();
 	}
 
-	this.replay = function() {
+	this.replay = function(level) {
+		game.currentLevel = level != null? level : game.currentLevel;
 		this.levels[game.currentLevel].initialize();
 		this.stage.graph.clear();
 		this.stage.closeDialog();

@@ -4,7 +4,7 @@ try {
 	game.mode = "DEVELOPMENT";
 	
 	// the Real level displayed is always plus one (+1)
-	game.currentLevel = 11;  
+	game.currentLevel = 0;  
 	var iLevel = 0;
 
 	// ----Set Up Level 1----------------------------------------------------

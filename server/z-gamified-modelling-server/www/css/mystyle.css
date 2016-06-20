@@ -10,6 +10,10 @@ body, html {
 	width: 100%;
 }
 
+#LevelScreen {
+	visibility: collapse;
+}
+
 .Viewport {
 	box-sizing: border-box;
 	position: fixed;
@@ -88,11 +92,11 @@ body, html {
 }
 
 .OperationDraggableCaseItem {
-  color: #990099;
+	color: #990099;
 }
 
 .ClassDraggableCaseItem {
-  color: #CC0000;
+	color: #CC0000;
 }
 
 #ObjectiveViewport {
@@ -206,7 +210,7 @@ body, html {
 	vertical-align: middle;
 	display: inline-block;
 	min-width: 150px;
-	padding-left:2px;
+	padding-left: 2px;
 	padding-right: 2px;
 }
 
@@ -238,7 +242,7 @@ input:focus {
 
 #HtmlNameObject {
 	display: inline-block;
-	text-align:center;
+	text-align: center;
 	border: thin solid black;
 	min-height: 30px;
 }
@@ -297,8 +301,12 @@ input:focus {
 	line-height: 20px;
 }
 
-.filler {
+/*-----------------------------------------------------*/
+#DialogScreen {
 	visibility: collapse;
+}
+
+.filler {
 	position: absolute;
 	background-color: black;
 	z-index: 16;
@@ -310,7 +318,6 @@ input:focus {
 }
 
 .dialog {
-	visibility: collapse;
 	box-sizing: border-box;
 	padding: 0.5%;
 	text-align: center;
@@ -327,4 +334,107 @@ input:focus {
 
 .dialog-button {
 	width: 30%;
+}
+
+/*-----------------------------------------------------*/
+#PlayScreen {
+	visibility: visible;
+	position: absolute;
+	background-color: white;
+	z-index: 16;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+}
+
+#ButtonPlay {
+	padding: 0%;
+	box-sizing: border-box;
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	z-index: 17;
+	background-color: white;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	margin-left: -25%;
+	margin-top: -70px;
+	font-size: 100px;
+	line-height: 100px;
+	font-weight: bolder;
+	cursor: pointer;
+	font-weight: bolder;
+}
+
+/*----------------------------------------------------*/
+#LevelSelectionScreen {
+	visibility: collapse;
+	box-sizing: border-box;
+}
+
+#LevelSelectionTitle {
+	text-align: center;
+	vertical-align: middle;
+	box-sizing: border-box;
+	font-size: xx-large;
+	font-weight: bolder;
+}
+
+.BackButton {
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	box-sizing: border-box;
+	font-size: xx-large;
+	font-weight: bolder;
+	top: 0%;
+	left: 90%;
+	width: 10%;
+	cursor: pointer;
+	z-index: 20;
+}
+
+.StoryHeader {
+	box-sizing: border-box;
+	font-size: xx-large;
+	font-weight: bolder;
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.StorySubHeader {
+	box-sizing: border-box;
+	font-size: x-large;
+	padding-left: 60px;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+.StoryLevels {
+	box-sizing: border-box;
+	padding-left: 60px;
+	vertical-align: middle;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+
+.StoryLevel {
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: x-large;
+	text-align: center;
+	vertical-align: middle;
+	border: thin solid black;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	margin: 5px;
+	cursor: pointer;
 }

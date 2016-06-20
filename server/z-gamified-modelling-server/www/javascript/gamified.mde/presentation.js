@@ -375,13 +375,11 @@ var Stage = function(game) {
 
     // other functions
     this.showDialog =function() {
-        document.getElementById("dialog-background").style.visibility = "visible";
-        document.getElementById("dialog-next").style.visibility = "visible";
+    	document.getElementById("DialogScreen").style.visibility = "visible";
     }
     
     this.closeDialog = function() {
-        document.getElementById("dialog-background").style.visibility = "collapse";
-        document.getElementById("dialog-next").style.visibility = "collapse";
+    	document.getElementById("DialogScreen").style.visibility = "collapse";
     }
     document.getElementById("button-continue").onclick = this.closeDialog;
     
@@ -462,4 +460,35 @@ var Stage = function(game) {
 		}
     }
     
+    this.setUpScreens = function(){
+    	document.getElementById("ButtonPlay").onclick = function(){
+        	document.getElementById("PlayScreen").style.visibility = "collapse"; 
+        	document.getElementById("LevelSelectionScreen").style.visibility = "visible";
+        }
+    	document.getElementById("LevelSelectionBack").onclick = function(){
+        	document.getElementById("PlayScreen").style.visibility = "visible"; 
+        	document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
+        }
+    	document.getElementById("LevelScreenBack").onclick = function(){
+        	document.getElementById("LevelSelectionScreen").style.visibility = "visible"; 
+        	document.getElementById("LevelScreen").style.visibility = "collapse";
+        }
+    	var element = document.getElementById("Story_01");
+    	while (element.hasChildNodes()) {
+    		element.removeChild(element.lastChild);
+		}
+    	
+    	for (var i = 0; i < game.levels.length;i++){
+    		var child = document.createElement("div");
+    		child.className =  "StoryLevel";
+			child.innerHTML = i + 1;
+			child.addEventListener("click", function(){   
+				game.replay(this.innerHTML - 1);
+				document.getElementById("LevelScreen").style.visibility = "visible"; 
+	        	document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
+			});
+			element.appendChild(child);
+    	}
+    	
+    }
 }  
