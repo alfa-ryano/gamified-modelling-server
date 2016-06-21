@@ -1,11 +1,19 @@
 // MAIN ------------------------------------
-try {
+
 	var game = new Game();
 	game.mode = "DEVELOPMENT";
 	
 	// the Real level displayed is always plus one (+1)
 	game.currentLevel = 0;  
 	var iLevel = 0;
+
+	//Setup story and substory
+	var story = new Story(game);
+	story.name = "Object Modelling";
+	story.description = "Learn how to model instances or objects.";
+	var subStory = new SubStory(game,story);
+	subStory.name = "Hello World!!!";
+	subStory.description = "Create a simple object model.";
 
 	// ----Set Up Level 1----------------------------------------------------
 	game.levels[iLevel] = new Level(game, "level_001",
@@ -19,6 +27,8 @@ try {
 			"objective_01", "Create an object with name 'button'");
 
 	game.levels[iLevel].addObjective(objectiveLevel01);
+
+	subStory.levels.push(game.levels[iLevel]);
 
 	// ----Set Up Level 2----------------------------------------------------
 	iLevel += 1;
@@ -40,6 +50,8 @@ try {
 			"objective_02", "Create an object named 'button 2'!");
 
 	game.levels[iLevel].addObjective(objectiveLevel02_2);
+
+	subStory.levels.push(game.levels[iLevel]);
 
 	// ----Set Up Level 3----------------------------------------------------
 	iLevel += 1;
@@ -68,6 +80,8 @@ try {
 	game.levels[iLevel].addObjective(objectiveLevel03_2);
 	game.levels[iLevel].addObjective(objectiveLevel03_3);
 
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 4----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_004",
@@ -90,6 +104,8 @@ try {
 			"objective_01", "Create a link between the intended objects");
 
 	game.levels[iLevel].addObjective(objectiveLevel04_1);
+
+	subStory.levels.push(game.levels[iLevel]);
 
 	// ----Set Up Level 5----------------------------------------------------
 	iLevel += 1;
@@ -115,7 +131,9 @@ try {
 			"objective_01", "Create four links between objects that probably have relationships");
 
 	game.levels[iLevel].addObjective(objectiveLevel05_1);
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 6----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_006",
@@ -144,7 +162,9 @@ try {
 			"objective_01", "Create a slot text in its respective object");
 
 	game.levels[iLevel].addObjective(objectiveLevel06_1);
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 7----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_007",
@@ -198,7 +218,9 @@ try {
 			"objective_01", "Every object has slots");
 
 	game.levels[iLevel].addObjective(objectiveLevel07_1);
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 8----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_008",
@@ -251,8 +273,9 @@ try {
 			"objective_01", "Create an operation for each button object");
 
 	game.levels[iLevel].addObjective(objectiveLevel08_1);
-	
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 9----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_009",
@@ -314,7 +337,9 @@ try {
 			"objective_01", "Create two operations for greet label");
 
 	game.levels[iLevel].addObjective(objectiveLevel09_1);
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 10----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_010",
@@ -380,7 +405,9 @@ try {
 			"objective_01", " Define the class of the two button objects.");
 
 	game.levels[iLevel].addObjective(objectiveLevel10_1);
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 11----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_011",
@@ -452,7 +479,9 @@ try {
 			"objective_01", "Define the classes for label and textbox objects.");
 
 	game.levels[iLevel].addObjective(objectiveLevel11_1);
-	
+
+	subStory.levels.push(game.levels[iLevel]);
+
 	// ----Set Up Level 12----------------------------------------------------
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_012",
@@ -525,10 +554,21 @@ try {
 			"objective_01", "Reconstruct the previous model from the beginning");
 
 	game.levels[iLevel].addObjective(objectiveLevel12_1);
+
+	subStory.levels.push(game.levels[iLevel]);
+
+	//set other stories and substories
+	var subStory = new SubStory(game,story);
+	subStory.name = "Create Login Screen (Coming Soon)";
+	subStory.description = "Create Login Screen (Coming Soon).";
+	
+	var story = new Story(game);
+	story.name = "Sequence Modelling (Comming Soon)";
+	story.description = "Learn how to model in sequence diagram.";
+	var subStory = new SubStory(game,story);
+	subStory.name = "Sequencing \"Hello, World!!!\" (Coming Soon)";
+	subStory.description = "Sequencing \"Hello, World!!!\"";
 	
 	
 	// ---Execute Game---------------------------------------------------------
 	game.run();
-} catch (error) {
-	alert(error.message);
-}

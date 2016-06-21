@@ -1,5 +1,5 @@
 //-- PRESENTATION ----------------------------------------------------------------------------------
-var Stage = function(game) {
+var Stage = function (game) {
     this.ICON_WIDTH = 100;
     this.ICON_HEIGHT = 90;
     this.counter = 0;
@@ -73,46 +73,46 @@ var Stage = function(game) {
             // Set the position and dimension of the box so that it covers the JointJS element.
             var bbox = this.model.getBBox();
             // Example of updating the HTML with a data stored in the cell model.
-            
+
             //add identity to HTML Icon/the first div inside the box
             this.$box[0].id = this.model.get('identity');
-            
+
             //set the object name and the class name
             var className = "";
-            if (this.model.get('model').className != null && 
-            		this.model.get('model').className != ""){
-            	className = ": " +  this.model.get('model').className; 
+            if (this.model.get('model').className != null &&
+                this.model.get('model').className != "") {
+                className = ": " + this.model.get('model').className;
             }
-            
-            this.$box.find('.HtmlObjectNameText')[0].innerHTML = 
-            	this.model.get('model').objectName + className;  
-            
+
+            this.$box.find('.HtmlObjectNameText')[0].innerHTML =
+                this.model.get('model').objectName + className;
+
             //set the attributes/slots
-            if (this.model.get('model').properties.length > 0){
-            	var properties = this.model.get('model').properties;
-            	var text = "";
-            	for(var i = 0; i < properties.length;i++){
-            		if (i == 0){
-            			text += properties[i].text;
-            		}else{
-            			text += ("<br/>" + properties[i].text);
-            		}
-            	}
-            	this.$box.find('.HtmlObjectSlotText')[0].innerHTML = text;
+            if (this.model.get('model').properties.length > 0) {
+                var properties = this.model.get('model').properties;
+                var text = "";
+                for (var i = 0; i < properties.length; i++) {
+                    if (i == 0) {
+                        text += properties[i].text;
+                    } else {
+                        text += ("<br/>" + properties[i].text);
+                    }
+                }
+                this.$box.find('.HtmlObjectSlotText')[0].innerHTML = text;
             }
-            
+
             //set the operations/actions
-            if (this.model.get('model').operations.length > 0){
-            	var operations = this.model.get('model').operations;
-            	var text = "";
-            	for(var i = 0; i < operations.length;i++){
-            		if (i == 0){
-            			text += operations[i].text;
-            		}else{
-            			 text += ("<br/>" + operations[i].text);
-            		}  
-            	}
-            	this.$box.find('.HtmlObjectOperationText')[0].innerHTML = text;
+            if (this.model.get('model').operations.length > 0) {
+                var operations = this.model.get('model').operations;
+                var text = "";
+                for (var i = 0; i < operations.length; i++) {
+                    if (i == 0) {
+                        text += operations[i].text;
+                    } else {
+                        text += ("<br/>" + operations[i].text);
+                    }
+                }
+                this.$box.find('.HtmlObjectOperationText')[0].innerHTML = text;
             }
             this.$box.css({
                 width: bbox.width,
@@ -120,12 +120,12 @@ var Stage = function(game) {
                 left: bbox.x - 1,
                 top: bbox.y - 1
             });
-            
-            
+
+
             var identifier = this.$box[0].id;
             var htmlIcon = document.getElementById(identifier);
-            if (htmlIcon != null){
-            	this.model.resize(htmlIcon.offsetWidth-2, htmlIcon.offsetHeight-2);
+            if (htmlIcon != null) {
+                this.model.resize(htmlIcon.offsetWidth - 2, htmlIcon.offsetHeight - 2);
             }
         },
 
@@ -157,17 +157,26 @@ var Stage = function(game) {
             if (elementId == "ObjectIcon") {
 
                 var objectName = "";
-                var objectId = "element-" + (++game.stage.counter);
+                var objectId = game.util.createId();
+                //var objectId = "element-" + (++game.stage.counter);
                 var objectModel = game.levels[game.currentLevel].addObject("", objectId);
 
+                var width = $(event.originalEvent.target)[0].clientWidth;
+                var height = $(event.originalEvent.target)[0].clientHeight;
+
                 var object = new joint.shapes.html.Element({
-                    position: {x: paperPoint.x - game.stage.ICON_WIDTH / 2, y: paperPoint.y - game.stage.ICON_HEIGHT / 2},
-                    size: {width: game.stage.ICON_WIDTH, height: game.stage.ICON_HEIGHT},
+                    position: {
+                        x: paperPoint.x - width / 2,
+                        y: paperPoint.y - height / 2
+                    },
+                    size: {width: width, height: height},
                     span: "object",
                     name: objectName,
                     identity: objectId,
                     model: objectModel
                 });
+                object.toFront(true);
+                
                 game.stage.graph.addCell(object);
                 var view = object.findView(game.stage.paper);
                 view.$box[0].id = objectId;
@@ -176,80 +185,86 @@ var Stage = function(game) {
                     drop: function (event, ui) {
                         //var elementId = $(event.target).attr('id');
                         var source = $(event.originalEvent.target)[0];
+                        
+                        if (source.className.indexOf("DraggableCaseItem") <= -1){
+                        	return false;
+                        }
+                        
                         var text = source.innerHTML;
                         var name = source.getAttribute("name");
-                        var type =  source.getAttribute("type");
-                        var value =  source.getAttribute("value");
+                        var type = source.getAttribute("type");
+                        var value = source.getAttribute("value");
                         var valueType = source.getAttribute("valueType");
-                        
+
                         // change text only first time/once on screen
                         var target = null;
                         var htmlIcon = $(event.target).find(".HtmlIcon");
-                        
+
                         //Persist text change on screen and in model
                         var element = game.stage.graph.get('cells').find(function (cell) {
                             if (cell instanceof joint.dia.Link) return false;
                             if (cell instanceof joint.shapes.html.Element) {
                                 if (htmlIcon.context.id == cell.attributes.identity) {
-                                	if (type == DRAGGABLE_ITEM_TYPE.OBJECT){
-	                                	cell.attributes.text = text;
-	                                    cell.attributes.model.objectName = text;
-	                                    return true;
-                                	}if (type == DRAGGABLE_ITEM_TYPE.CLASS){
-	                                    cell.attributes.model.className = text;
-	                                    return true;
-                                	}
-                                	else if (type == DRAGGABLE_ITEM_TYPE.SLOT){
-                                		var properties = cell.attributes.model.properties;
-                                		var alreadyExist = false;
-                                		for(var i = 0; i < properties.length; i++){
-                                			if (properties[i].name == name){
-                                				properties[i].text = text;
-                                				properties[i].value = value;
-                                				properties[i].valueType = valueType;
-                                				alreadyExist = true;
-                                				break;
-                                			}
-                                		}
-                                		if (alreadyExist == false){
-                                			var property = new Property(text);
-                                			property.name = name;
-                                			property.value = value;
-                                			property.valueType = valueType;
-                                			properties.push(property);
-                                		}
-                                		return true;
-                                	}
-                                	else if (type == DRAGGABLE_ITEM_TYPE.OPERATION){
-                                		var operations = cell.attributes.model.operations;
-                                		var alreadyExist = false;
-                                		for(var i = 0; i < operations.length; i++){
-                                			if (operations[i].name == name){
-                                				operations[i].text = text;
-                                				alreadyExist = true;
-                                				console.log("Operation already exists");
-                                				break;
-                                			}
-                                		}
-                                		if (alreadyExist == false){
-                                			console.log("New operation");
-                                			var operation = new Operation(text);
-                                			operation.name = name;
-                                			operations.push(operation);
-                                		}
-                                		return true;
-                                	}
+                                    if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
+                                        cell.attributes.text = text;
+                                        cell.attributes.model.objectName = text;
+                                        return true;
+                                    }
+                                    if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
+                                        cell.attributes.model.className = text;
+                                        return true;
+                                    }
+                                    else if (type == DRAGGABLE_ITEM_TYPE.SLOT) {
+                                        var properties = cell.attributes.model.properties;
+                                        var alreadyExist = false;
+                                        for (var i = 0; i < properties.length; i++) {
+                                            if (properties[i].name == name) {
+                                                properties[i].text = text;
+                                                properties[i].value = value;
+                                                properties[i].valueType = valueType;
+                                                alreadyExist = true;
+                                                break;
+                                            }
+                                        }
+                                        if (alreadyExist == false) {
+                                            var property = new Property(text);
+                                            property.name = name;
+                                            property.value = value;
+                                            property.valueType = valueType;
+                                            properties.push(property);
+                                        }
+                                        return true;
+                                    }
+                                    else if (type == DRAGGABLE_ITEM_TYPE.OPERATION) {
+                                        var operations = cell.attributes.model.operations;
+                                        var alreadyExist = false;
+                                        for (var i = 0; i < operations.length; i++) {
+                                            if (operations[i].name == name) {
+                                                operations[i].text = text;
+                                                alreadyExist = true;
+                                                console.log("Operation already exists");
+                                                break;
+                                            }
+                                        }
+                                        if (alreadyExist == false) {
+                                            console.log("New operation");
+                                            var operation = new Operation(text);
+                                            operation.name = name;
+                                            operations.push(operation);
+                                        }
+                                        return true;
+                                    }
                                 }
                             }
                             return false;
                         });
-                        
+
                         //Update bounding box size
                         var view = element.findView(game.stage.paper);
-                        if (view != null){
-                        	view.updateBox();
+                        if (view != null) {
+                            view.updateBox();
                         }
-                        
+
                         //do evaluation if objectives are met
                         game.levels[game.currentLevel].evaluateObjectives();
                     }
@@ -257,45 +272,48 @@ var Stage = function(game) {
                 game.stage.updateProgress();
             } else if (elementId == "LinkIcon") {
 
-            	var edgeId = "element-" + (++game.stage.counter);
-	            var edgeModel = game.levels[game.currentLevel].addEdge(edgeId);
-	             
-	            var link = new joint.dia.Link({
-	                source: {x: paperPoint.x + game.stage.ICON_WIDTH / 2, y: paperPoint.y - game.stage.ICON_HEIGHT / 2},
-	                target: {x: paperPoint.x - game.stage.ICON_WIDTH / 2, y: paperPoint.y + game.stage.ICON_HEIGHT / 2},
-	                identity: edgeId,
-	                model: edgeModel
-	            });
-	            
-	            link.on('change:source', function() { 
-	            	var sourceElement = link.getSourceElement();
-	            	var targetElement = link.getTargetElement();
-	            	if (sourceElement != null ){
-	            		this.attributes.model.sourceIdentity = sourceElement.attributes.identity;
-	            	}else{
-	            		this.attributes.model.sourceIdentity = null;
-	            	}
-	            	
-	            	if (targetElement != null && targetElement != null){
-	            		game.levels[game.currentLevel].evaluateObjectives();
-	            	}
-	            });
-	            
-	            link.on('change:target', function() { 
-	            	var sourceElement = link.getSourceElement();
-	            	var targetElement = link.getTargetElement();
-	            	if (targetElement != null ){
-	            		this.attributes.model.targetIdentity = targetElement.attributes.identity;
-	            		
-	            	}else{
-	            		this.attributes.model.targetIdentity = null;
-	            	}
-	            	
-	            	if (targetElement != null && targetElement != null){
-	            		game.levels[game.currentLevel].evaluateObjectives();
-	            	}
-	            });
-	            game.stage.graph.addCell(link);
+                var edgeId = game.util.createId();
+                var edgeModel = game.levels[game.currentLevel].addEdge(edgeId);
+
+                var width = $(event.originalEvent.target)[0].clientWidth;
+                var height = $(event.originalEvent.target)[0].clientHeight;
+                
+                var link = new joint.dia.Link({
+                    source: {x: paperPoint.x + width / 2, y: paperPoint.y - height / 2},
+                    target: {x: paperPoint.x - width / 2, y: paperPoint.y + height / 2},
+                    identity: edgeId,
+                    model: edgeModel
+                });
+
+                link.on('change:source', function () {
+                    var sourceElement = link.getSourceElement();
+                    var targetElement = link.getTargetElement();
+                    if (sourceElement != null) {
+                        this.attributes.model.sourceIdentity = sourceElement.attributes.identity;
+                    } else {
+                        this.attributes.model.sourceIdentity = null;
+                    }
+
+                    if (targetElement != null && targetElement != null) {
+                        game.levels[game.currentLevel].evaluateObjectives();
+                    }
+                });
+
+                link.on('change:target', function () {
+                    var sourceElement = link.getSourceElement();
+                    var targetElement = link.getTargetElement();
+                    if (targetElement != null) {
+                        this.attributes.model.targetIdentity = targetElement.attributes.identity;
+
+                    } else {
+                        this.attributes.model.targetIdentity = null;
+                    }
+
+                    if (targetElement != null && targetElement != null) {
+                        game.levels[game.currentLevel].evaluateObjectives();
+                    }
+                });
+                game.stage.graph.addCell(link);
             }
 
         }
@@ -339,25 +357,23 @@ var Stage = function(game) {
         //    })
         //    ;
     });
-    
-    this.graph.on("remove", function(cell) { 
-    	if (cell instanceof joint.dia.Element){
-    		var index = game.levels[game.currentLevel].objects.indexOf(cell.attributes.model);
-    		if (index != null){
-    			game.levels[game.currentLevel].objects.splice(index, 1);
-    		}
-    	} else if (cell instanceof joint.dia.Link){
-    		var index = game.levels[game.currentLevel].edges.indexOf(cell.attributes.model);
-    		if (index != null){
-    			game.levels[game.currentLevel].edges.splice(index, 1);
-    		}
-    	}
-    	
-    	game.stage.updateProgress();
-    	game.levels[game.currentLevel].evaluateObjectives();
+
+    this.graph.on("remove", function (cell) {
+        if (cell instanceof joint.dia.Element) {
+            var index = game.levels[game.currentLevel].objects.indexOf(cell.attributes.model);
+            if (index != null) {
+                game.levels[game.currentLevel].objects.splice(index, 1);
+            }
+        } else if (cell instanceof joint.dia.Link) {
+            var index = game.levels[game.currentLevel].edges.indexOf(cell.attributes.model);
+            if (index != null) {
+                game.levels[game.currentLevel].edges.splice(index, 1);
+            }
+        }
+
+        game.stage.updateProgress();
+        game.levels[game.currentLevel].evaluateObjectives();
     });
-    
-    
 
 
 //$("#ObjectIcon").on('doubletap', function(event) {
@@ -374,121 +390,145 @@ var Stage = function(game) {
 
 
     // other functions
-    this.showDialog =function() {
-    	document.getElementById("DialogScreen").style.visibility = "visible";
+    this.showDialog = function () {
+        document.getElementById("DialogScreen").style.visibility = "visible";
     }
-    
-    this.closeDialog = function() {
-    	document.getElementById("DialogScreen").style.visibility = "collapse";
+
+    this.closeDialog = function () {
+        document.getElementById("DialogScreen").style.visibility = "collapse";
     }
     document.getElementById("button-continue").onclick = this.closeDialog;
-    
-    this.updateProgress = function(){
-    	//var objectValue = game.levels[game.currentLevel].objects.length;
-    	var nodeValue = game.stage.graph.getElements().length;
-    	document.getElementById("NodeValue").innerHTML = nodeValue;
-    	var edgeValue = game.stage.graph.getLinks().length;
-    	document.getElementById("EdgeValue").innerHTML = edgeValue;
-    }
-    
-    
-    this.setDraggableItems = function(level){
-    	
-    	var div = document.getElementById("DraggableItems");
-		while (div.hasChildNodes()) {
-			div.removeChild(div.lastChild);
-		}
-		for (var i = 0; i < level.levelCase.draggableItems.length; i++) {
-			var draggableItem = level.levelCase.draggableItems[i];
-			var newSpan = document.createElement("span");
 
-				newSpan.className = "DraggableCaseItem";
-				newSpan.id = draggableItem.identity;
-				newSpan.innerHTML = "";
-				newSpan.innerHTML = draggableItem.text;
-				newSpan.setAttribute("type", draggableItem.type);
-				newSpan.setAttribute("name", draggableItem.name);
-				newSpan.setAttribute("value", draggableItem.value);
-				newSpan.setAttribute("valueType", draggableItem.valueType);
-				//newSpan.style.zIndex = 99;
-				newSpan.ondragstart = function(){
-					//document.getElementsByTagName("body")[0].appendChild(newSpan);
-					document.getElementById("DraggableItems").style.overflow = "visible";
-				};
-				newSpan.ondragstop = function(){
-					//document.getElementById("DraggableItems").appendChild(newSpan);
-					document.getElementById("DraggableItems").style.overflow = "auto";
-				};
-				
-				div.appendChild(newSpan);
-			
-				if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OBJECT){
-					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OBJECT;
-				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.CLASS){
-					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.CLASS;
-				}
-				else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.SLOT){
-					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.SLOT;
-				}else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION){
-					newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
-				}
-		}
+    this.updateProgress = function () {
+        //var objectValue = game.levels[game.currentLevel].objects.length;
+        var nodeValue = game.stage.graph.getElements().length;
+        document.getElementById("NodeValue").innerHTML = nodeValue;
+        var edgeValue = game.stage.graph.getLinks().length;
+        document.getElementById("EdgeValue").innerHTML = edgeValue;
+    }
 
-		$('.DraggableCaseItem').draggable({
-			opacity : 0.8,
-			helper : "clone",  
-			start : function(event, ui) {
-				draggedId = $(event.target).attr('id');
-			}
-		});
+
+    this.setDraggableItems = function (level) {
+
+        var div = document.getElementById("DraggableItems");
+        while (div.hasChildNodes()) {
+            div.removeChild(div.lastChild);
+        }
+        for (var i = 0; i < level.levelCase.draggableItems.length; i++) {
+            var draggableItem = level.levelCase.draggableItems[i];
+            var newSpan = document.createElement("span");
+
+            newSpan.className = "DraggableCaseItem";
+            newSpan.id = draggableItem.identity;
+            newSpan.innerHTML = "";
+            newSpan.innerHTML = draggableItem.text;
+            newSpan.setAttribute("type", draggableItem.type);
+            newSpan.setAttribute("name", draggableItem.name);
+            newSpan.setAttribute("value", draggableItem.value);
+            newSpan.setAttribute("valueType", draggableItem.valueType);
+            //newSpan.style.zIndex = 99;
+            newSpan.ondragstart = function () {
+                //document.getElementsByTagName("body")[0].appendChild(newSpan);
+                document.getElementById("DraggableItems").style.overflow = "visible";
+            };
+            newSpan.ondragstop = function () {
+                //document.getElementById("DraggableItems").appendChild(newSpan);
+                document.getElementById("DraggableItems").style.overflow = "auto";
+            };
+
+            div.appendChild(newSpan);
+
+            if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OBJECT) {
+                newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OBJECT;
+            } else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.CLASS) {
+                newSpan.className += " " + DRAGGABLE_ITEM_TYPE.CLASS;
+            }
+            else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.SLOT) {
+                newSpan.className += " " + DRAGGABLE_ITEM_TYPE.SLOT;
+            } else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION) {
+                newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
+            }
+        }
+
+        $('.DraggableCaseItem').draggable({
+            opacity: 0.8,
+            helper: "clone",
+            start: function (event, ui) {
+                draggedId = $(event.target).attr('id');
+            }
+        });
     }
-    
-    this.setObjectives = function(level){
-    	var ol = document.getElementById("Objective");
-		ol.style.color = "#000000";
-		while (ol.hasChildNodes()) {
-			ol.removeChild(ol.lastChild);
-		}
-		for (var i = 0; i < level.objectives.length; i++) {
-			var li = document.createElement("li");
-			li.style.color = "#000000";
-			li.id = level.objectives[i].objectiveName;
-			var text = document
-					.createTextNode(level.objectives[i].description);
-			li.appendChild(text);
-			ol.appendChild(li);
-		}
+
+    this.setObjectives = function (level) {
+        var ol = document.getElementById("Objective");
+        ol.style.color = "#000000";
+        while (ol.hasChildNodes()) {
+            ol.removeChild(ol.lastChild);
+        }
+        for (var i = 0; i < level.objectives.length; i++) {
+            var li = document.createElement("li");
+            li.style.color = "#000000";
+            li.id = level.objectives[i].objectiveName;
+            var text = document
+                .createTextNode(level.objectives[i].description);
+            li.appendChild(text);
+            ol.appendChild(li);
+        }
     }
-    
-    this.setUpScreens = function(){
-    	document.getElementById("ButtonPlay").onclick = function(){
-        	document.getElementById("PlayScreen").style.visibility = "collapse"; 
-        	document.getElementById("LevelSelectionScreen").style.visibility = "visible";
+
+    this.setUpScreens = function () {
+        document.getElementById("ButtonPlay").onclick = function () {
+            document.getElementById("PlayScreen").style.visibility = "collapse";
+            document.getElementById("LevelSelectionScreen").style.visibility = "visible";
         }
-    	document.getElementById("LevelSelectionBack").onclick = function(){
-        	document.getElementById("PlayScreen").style.visibility = "visible"; 
-        	document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
+        document.getElementById("LevelSelectionBack").onclick = function () {
+            document.getElementById("PlayScreen").style.visibility = "visible";
+            document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
         }
-    	document.getElementById("LevelScreenBack").onclick = function(){
-        	document.getElementById("LevelSelectionScreen").style.visibility = "visible"; 
-        	document.getElementById("LevelScreen").style.visibility = "collapse";
+        document.getElementById("LevelScreenBack").onclick = function () {
+            document.getElementById("LevelSelectionScreen").style.visibility = "visible";
+            document.getElementById("LevelScreen").style.visibility = "collapse";
         }
-    	var element = document.getElementById("Story_01");
-    	while (element.hasChildNodes()) {
-    		element.removeChild(element.lastChild);
-		}
-    	
-    	for (var i = 0; i < game.levels.length;i++){
-    		var child = document.createElement("div");
-    		child.className =  "StoryLevel";
-			child.innerHTML = i + 1;
-			child.addEventListener("click", function(){   
-				game.replay(this.innerHTML - 1);
-				document.getElementById("LevelScreen").style.visibility = "visible"; 
-	        	document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
-			});
-			element.appendChild(child);
-    	}
-    	
+
+        var stories = document.getElementById("Stories");
+        while (stories.hasChildNodes()) {
+            stories.removeChild(stories.lastChild);
+        }
+
+        for (var i = 0; i < game.stories.length; i++) {
+            var story = game.stories[i];
+            var storyHeader = document.createElement("div");
+            storyHeader.className = "StoryHeader";
+            storyHeader.innerHTML = story.name;
+            stories.appendChild(storyHeader);
+
+            for (var j = 0; j < story.substories.length; j++) {
+                var subStory = story.substories[j];
+                var storySubHeader = document.createElement("div");
+                storySubHeader.className = "StorySubHeader";
+                storySubHeader.innerHTML = subStory.name;
+                stories.appendChild(storySubHeader);
+
+                var storyLevels = document.createElement("div");
+                storyLevels.className = "StoryLevels";
+                stories.appendChild(storyLevels);
+
+                for (var k = 0; k < subStory.levels.length; k++) {
+                    var child = document.createElement("div");
+                    child.className = "StoryLevel";
+                    child.innerHTML = k + 1;
+                    child.addEventListener("click", function () {
+                        game.play(this.innerHTML - 1);
+                        document.getElementById("LevelScreen").style.visibility = "visible";
+                        document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
+                    });
+                    storyLevels.appendChild(child);
+                }
+            }
+
+
+        }
+
+
     }
 }  
