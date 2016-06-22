@@ -1,0 +1,27 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "An node named 'name label' must have slot 'text = \"Name\"'"
+  }
+} 
+
+operation Graph evaluationFunction_01(): Boolean{
+    if (self.nodes.size() > 0){  
+        for (node in self.nodes){
+            if (node.name = "name label"){
+                if (node.properties.size() > 0){
+                    for (property in node.properties){
+	                    if (property.text = "text = \"Name\""){
+	                        return true;
+	                    } 
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}

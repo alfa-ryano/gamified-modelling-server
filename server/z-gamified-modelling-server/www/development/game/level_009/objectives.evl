@@ -1,0 +1,24 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Create two operations for greet label"
+  }
+} 
+
+operation Graph evaluationFunction_01(): Boolean{
+    if (self.nodes.size() > 0){  
+        var count = 0;
+        return self.nodes.exists(node | 
+            node.name = "greet label" and node.operations.size() >= 2);
+        /*for (node in self.nodes){
+            if (node.name = "greet label" and node.operations.size() >= 2){
+                return true;
+            }
+        }*/
+    }
+    return false;
+}

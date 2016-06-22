@@ -1,0 +1,39 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01("button", 2)
+    message : 
+        "Create two button nodes"
+  }
+  
+  constraint objective_02 {
+    check : 
+        self.evaluationFunction_01("label", 2)
+    message : 
+        "Create two label nodes"
+  }
+  
+  constraint objective_03 {
+    check : 
+        self.evaluationFunction_01("textbox", 1)
+    message : 
+        "Create one textbox node"
+  }
+} 
+
+operation Graph evaluationFunction_01(typeName: String, limit: Integer): Boolean{
+    var count : Integer = 0;
+    if (self.nodes.size() > 0){  
+	    for (node in self.nodes){
+	        if (typeName.isSubstringOf(node.name)){
+	           count = count + 1;
+	           if (count >= limit){
+                    return true;
+               }
+	        }
+	    }
+    }
+    return false;
+}

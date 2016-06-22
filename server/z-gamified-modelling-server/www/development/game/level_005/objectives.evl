@@ -1,0 +1,55 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Create four edges between nodes that probably have relationships"
+  }
+  
+} 
+
+operation Graph evaluationFunction_01(): Boolean{
+    var count : Integer = 0;
+    var nodeName1 : String = ""; 
+    var nodeName2 : String = "";
+    if (self.edges.size() > 0){  
+	    for (edge in self.edges){
+	       if(edge.source <> null and edge.target <> null){
+                //1st Evaluation
+                nodeName1 = "greet button";
+                nodeName2 = "greet label";   
+		        if ((edge.source.name = nodeName1 and edge.target.name = nodeName2) or
+		            (edge.source.name = nodeName2 and edge.target.name = nodeName1)){
+	                    count = count + 1;
+		        }
+		        //2nd Evaluation
+		        nodeName1 = "clear button";
+                nodeName2 = "greet label";   
+                if ((edge.source.name = nodeName1 and edge.target.name = nodeName2) or
+                    (edge.source.name = nodeName2 and edge.target.name = nodeName1)){
+                        count = count + 1;
+                }
+                //3rd Evaluation
+                nodeName1 = "name textbox";
+                nodeName2 = "greet label";   
+                if ((edge.source.name = nodeName1 and edge.target.name = nodeName2) or
+                    (edge.source.name = nodeName2 and edge.target.name = nodeName1)){
+                        count = count + 1;
+                }
+                //4th Evaluation
+                nodeName1 = "name textbox";
+                nodeName2 = "name label";   
+                if ((edge.source.name = nodeName1 and edge.target.name = nodeName2) or
+                    (edge.source.name = nodeName2 and edge.target.name = nodeName1)){
+                        count = count + 1;
+                }
+		        if (count >= 4){
+		          return true;
+		        }
+	        }
+	    }
+    }
+    return false;
+}

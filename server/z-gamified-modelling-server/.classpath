@@ -4,8 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/z-object-model"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/z-editor-model"/>
 	<classpathentry kind="lib" path="library/epsilon/epsilon-1.3-core.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>

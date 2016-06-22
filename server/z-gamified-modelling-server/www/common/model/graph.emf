@@ -1,0 +1,49 @@
+@namespace(uri="graphmodelling",prefix="graphmodelling")
+
+package graphmodelling;
+
+class Entity {
+	attr String ID;
+    attr String name;
+    attr String text;
+    attr String description;
+    attr String value;
+    
+    attr String type;
+    attr String entityClass;
+    attr String group;
+    attr String category;
+    attr String accessModifier;
+    
+    attr Integer x;
+    attr Integer y;
+    attr Integer width;
+    attr Integer height;
+    
+}
+
+class Graph extends Entity {
+    val Node[*] nodes;
+    val Edge[*] Edges;
+}
+
+class Node extends Entity {
+    val Node parentNode;
+    val Node[*] subNodes;
+    val Property[*] properties;
+    val Operation[*] operations;
+}
+
+class Property extends Entity {
+}
+
+class Operation extends Entity {
+   
+} 
+
+class Edge extends Entity { 
+    ref Node source;
+    ref Node target;
+}
+
+

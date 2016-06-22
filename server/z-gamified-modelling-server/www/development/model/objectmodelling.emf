@@ -1,0 +1,20 @@
+@namespace(uri="objectmodelling",prefix="objectmodelling")
+
+package objectmodelling;
+
+import "../../common/model/graph.ecore";
+
+
+class ObjectModel extends graphmodelling.Graph {
+    
+}
+
+class Object extends graphmodelling.Node {
+    
+} 
+
+class Link extends graphmodelling.Edge {
+
+}
+
+

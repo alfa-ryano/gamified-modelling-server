@@ -1,0 +1,25 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Every node has at least one slot"
+  }
+} 
+
+operation Graph evaluationFunction_01(): Boolean{
+    if (self.nodes.size() > 0){  
+        var count = 0;
+        for (node in self.nodes){
+            if (node.properties.size() > 0){
+                count = count + 1;
+            }
+        }
+        if (count >= self.nodes.size() and self.nodes.size() >= 5  ){
+        return true;
+        }
+    }
+    return false;
+}

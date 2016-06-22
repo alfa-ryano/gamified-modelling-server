@@ -1,0 +1,21 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "At least one node named 'button' must exist"
+  }
+} 
+
+operation Graph evaluationFunction_01(): Boolean{
+    if (self.nodes.size() > 0){  
+	    for (node in self.nodes){
+	        if (node.name = "button"){
+	        return true;
+	        }
+	    }
+    }
+    return false;
+}

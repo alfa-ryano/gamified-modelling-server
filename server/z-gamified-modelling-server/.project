@@ -3,8 +3,6 @@
 	<name>z-gamified-modelling-server</name>
 	<comment></comment>
 	<projects>
-		<project>z-object-model</project>
-		<project>z-editor-model</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

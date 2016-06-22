@@ -29,8 +29,8 @@ import org.york.gamified.modelling.model.Result;
 
 import com.google.gson.Gson;
 
-import gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelFactory;
-import gamifiedmodellingobjectmodel.ObjectModel;
+import graphmodelling.GraphmodellingFactory;
+import graphmodelling.Graph;
 
 /**
  * Servlet implementation class Validation
@@ -49,11 +49,11 @@ public class Validation extends HttpServlet {
 
 	protected java.net.URI getFileURI(String fileName) throws URISyntaxException {
 		String path = "";
-		for (int i = 0; i < Epsilon.class.getName().split("\\.").length; i++) {
+		for (int i = 0; i < Validation.class.getName().split("\\.").length; i++) {
 			path = path + "../";
 		}
 		path = path + fileName;
-		java.net.URL url = Epsilon.class.getResource(path);
+		java.net.URL url = Validation.class.getResource(path);
 		java.net.URI binUri = url.toURI();
 		java.net.URI uri = null;
 
@@ -88,55 +88,55 @@ public class Validation extends HttpServlet {
 			Model model = gson.fromJson(json, Model.class);
 
 			// map pojo to EMF model
-			GamifiedmodellingobjectmodelFactory factory = GamifiedmodellingobjectmodelFactory.eINSTANCE;
-			ObjectModel objectModel = factory.createObjectModel();
+			GraphmodellingFactory factory = GraphmodellingFactory.eINSTANCE;
+			Graph Graph = factory.createGraph();
 
 			if (model.nodes != null && model.nodes.size() > 0) {
 				for (Node node : model.nodes) {
-					gamifiedmodellingobjectmodel.Object object = factory.createObject();
-					object.setIdentity(node.identity);
-					object.setName(node.objectName);
-					object.setClassName(node.className);
+					graphmodelling.Node Node = factory.createNode();
+					Node.setID(node.identity);
+					Node.setName(node.objectName);
+					Node.setEntityClass(node.className);
 
 					if (node.properties != null) {
 						for (Property property : node.properties) {
-							gamifiedmodellingobjectmodel.Attribute attribute = factory.createAttribute();
-							attribute.setText(property.text);
-							attribute.setName(property.name);
-							attribute.setValue(property.value);
-							attribute.setValueType(property.valueType);
-							object.getAttributes().add(attribute);
+							graphmodelling.Property Property = factory.createProperty();
+							Property.setText(property.text);
+							Property.setName(property.name);
+							Property.setValue(property.value);
+							Property.setType(property.valueType);
+							Node.getProperties().add(Property);
 						}
 					}
 
 					if (node.operations != null) {
 						for (Operation operation : node.operations) {
-							gamifiedmodellingobjectmodel.Operation operation2 = factory.createOperation();
+							graphmodelling.Operation operation2 = factory.createOperation();
 							operation2.setText(operation.text);
 							operation2.setName(operation.name);
-							object.getOperations().add(operation2);
+							Node.getOperations().add(operation2);
 						}
 					}
 
-					objectModel.getObjects().add(object);
+					Graph.getNodes().add(Node);
 				}
 			}
 
 			if (model.edges != null && model.edges.size() > 0) {
 				for (Edge edge : model.edges) {
-					gamifiedmodellingobjectmodel.Link link = factory.createLink();
-					link.setIdentity(edge.identity);
-					if (objectModel.getObjects() != null && objectModel.getObjects().size() > 0) {
-						for (gamifiedmodellingobjectmodel.Object object : objectModel.getObjects()) {
-							if (object.getIdentity().equals(edge.sourceIdentity)) {
-								link.setFromObject(object);
+					graphmodelling.Edge edge2 = factory.createEdge();
+					edge2.setID(edge.identity);
+					if (Graph.getNodes() != null && Graph.getNodes().size() > 0) {
+						for (graphmodelling.Node node : Graph.getNodes()) {
+							if (node.getID().equals(edge.sourceIdentity)) {
+								edge2.setSource(node);
 							}
-							if (object.getIdentity().equals(edge.targetIdentity)) {
-								link.setToObject(object);
+							if (node.getID().equals(edge.targetIdentity)) {
+								edge2.setTarget(node);
 							}
 						}
 					}
-					objectModel.getLinks().add(link);
+					Graph.getEdges().add(edge2);
 				}
 			}
 
@@ -149,36 +149,36 @@ public class Validation extends HttpServlet {
 			// save XMI of the model
 			String path = "";
 			if (model.mode.equals("PRODUCTION")) {
-				path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../../game/"
-						+ model.level + "/ObjectModel.xmi";
+				path = Validation.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../../production/game/"
+						+ model.level + "/Graph.xmi";
 			} else {
-				path = Epsilon.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../game/"
-						+ model.level + "/ObjectModel.xmi";
+				path = Validation.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "../../development/game/"
+						+ model.level + "/Graph.xmi";
 			}
 			Resource resource = resourceSet.createResource(URI.createFileURI(path));
-			resource.getContents().add(objectModel);
+			resource.getContents().add(Graph);
 			resource.save(null);
 
 			// Load EVL module
 			IEvlModule module = new EvlModule();
 			String source = "";
 			if (model.mode.equals("PRODUCTION")) {
-				source = "../game/" + model.level + "/objectives.evl";
+				source = "../production/game/" + model.level + "/objectives.evl";
 			} else {
-				source = "game/" + model.level + "/objectives.evl";
+				source = "../development/game/" + model.level + "/objectives.evl";
 			}
 			java.net.URI binUri = getFileURI(source);
 			module.parse(binUri);
 
 			// create in memory Emf Model and add the model to Validation EVL
 			InMemoryEmfModel inMemoryEmfModel = new InMemoryEmfModel(resource);
-			inMemoryEmfModel.setName("ObjectModel");
+			inMemoryEmfModel.setName("Graph");
 			module.getContext().getModelRepository().addModel(inMemoryEmfModel);
 
 			// excute the module
 			module.execute();
 
-			// create result object object for json
+			// create result Node Node for json
 			Result validationResult = new Result();
 
 			// do the validation
@@ -199,7 +199,7 @@ public class Validation extends HttpServlet {
 			// cleaning the module
 			module.getContext().getModelRepository().dispose();
 
-			// convert object to json
+			// convert Node to json
 			String jsonString = "";
 			jsonString = gson.toJson(validationResult);
 

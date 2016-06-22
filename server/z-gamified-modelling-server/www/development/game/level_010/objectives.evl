@@ -1,0 +1,19 @@
+context Graph!Graph {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "Two button classes must exist"
+  }
+} 
+
+operation Graph evaluationFunction_01(): Boolean{
+    if (self.nodes.size() > 0){  
+        if (self.nodes.select(node |node.entityClass = "Button").size() >= 2){
+            return true;
+        }
+    }
+    return false;
+}

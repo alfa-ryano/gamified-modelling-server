@@ -27,4 +27,28 @@
             class="gamifiedmodellingobjectmodel.GamifiedmodellingobjectmodelPackage"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ObjectModelling -->
+      <package
+            uri="GamifiedModelling"
+            class="ObjectModelling.ObjectModellingPackage"
+            genModel="www/development/model/ObjectModelling.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated objectmodelling -->
+      <package
+            uri="objectmodelling"
+            class="objectmodelling.ObjectmodellingPackage"
+            genModel="www/development/model/objectmodelling.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated objectmodelling -->
+      <package
+            uri="graphmodelling"
+            class="graphmodelling.GraphmodellingPackage"
+            genModel="www/development/model/objectmodelling.genmodel"/>
+   </extension>
+
 </plugin>

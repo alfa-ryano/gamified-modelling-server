@@ -2,12 +2,6 @@
     <wb-module deploy-name="z-gamified-modelling-server">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/www"/>
-        <dependent-module archiveName="z-object-model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/z-object-model/z-object-model">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/z-editor-model/z-editor-model">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/z-gamified-modelling-server/build/classes"/>
         <property name="context-root" value="z-gamified-modelling-server"/>
     </wb-module>
