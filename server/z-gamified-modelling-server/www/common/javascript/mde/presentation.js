@@ -85,7 +85,7 @@ var Stage = function (game) {
             }
 
             this.$box.find('.HtmlObjectNameText')[0].innerHTML =
-                this.model.get('model').nodeName + className;
+                this.model.get('model').name + className;
 
             //set the attributes/slots
             if (this.model.get('model').properties.length > 0) {
@@ -157,7 +157,7 @@ var Stage = function (game) {
             if (elementId == "ObjectIcon") {
 
                 var nodeName = "";
-                var nodeId = game.util.createId();
+                var nodeId = CreateId();
                 var node = game.levels[game.currentLevel].addNode("", nodeId);
 
                 var width = $(event.originalEvent.target)[0].clientWidth;
@@ -205,7 +205,7 @@ var Stage = function (game) {
                                 if (htmlIcon.context.id == cell.attributes.identity) {
                                     if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
                                         cell.attributes.text = text;
-                                        cell.attributes.model.nodeName = text;
+                                        cell.attributes.model.name = text;
                                         return true;
                                     }
                                     if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
@@ -219,7 +219,7 @@ var Stage = function (game) {
                                             if (properties[i].name == name) {
                                                 properties[i].text = text;
                                                 properties[i].value = value;
-                                                properties[i].valueType = valueType;
+                                                properties[i].type = valueType;
                                                 alreadyExist = true;
                                                 break;
                                             }
@@ -228,7 +228,7 @@ var Stage = function (game) {
                                             var property = new Property(text);
                                             property.name = name;
                                             property.value = value;
-                                            property.valueType = valueType;
+                                            property.type = valueType;
                                             properties.push(property);
                                         }
                                         return true;
@@ -270,7 +270,7 @@ var Stage = function (game) {
                 game.stage.updateProgress();
             } else if (elementId == "LinkIcon") {
 
-                var edgeId = game.util.createId();
+                var edgeId = CreateId();
                 var edgeModel = game.levels[game.currentLevel].addEdge(edgeId);
 
                 var width = $(event.originalEvent.target)[0].clientWidth;
@@ -287,9 +287,9 @@ var Stage = function (game) {
                     var sourceElement = link.getSourceElement();
                     var targetElement = link.getTargetElement();
                     if (sourceElement != null) {
-                        this.attributes.model.sourceIdentity = sourceElement.attributes.identity;
+                        this.attributes.model.sourceId = sourceElement.attributes.identity;
                     } else {
-                        this.attributes.model.sourceIdentity = null;
+                        this.attributes.model.sourceId = null;
                     }
 
                     if (targetElement != null && targetElement != null) {
@@ -301,10 +301,10 @@ var Stage = function (game) {
                     var sourceElement = link.getSourceElement();
                     var targetElement = link.getTargetElement();
                     if (targetElement != null) {
-                        this.attributes.model.targetIdentity = targetElement.attributes.identity;
+                        this.attributes.model.targetId = targetElement.attributes.identity;
 
                     } else {
-                        this.attributes.model.targetIdentity = null;
+                        this.attributes.model.targetId = null;
                     }
 
                     if (targetElement != null && targetElement != null) {
@@ -417,7 +417,7 @@ var Stage = function (game) {
             var newSpan = document.createElement("span");
 
             newSpan.className = "DraggableCaseItem";
-            newSpan.id = draggableItem.identity;
+            newSpan.id = draggableItem.id;
             newSpan.innerHTML = "";
             newSpan.innerHTML = draggableItem.text;
             newSpan.setAttribute("type", draggableItem.type);
@@ -466,7 +466,7 @@ var Stage = function (game) {
         for (var i = 0; i < level.objectives.length; i++) {
             var li = document.createElement("li");
             li.style.color = "#000000";
-            li.id = level.objectives[i].objectiveName;
+            li.id = level.objectives[i].name;
             var text = document
                 .createTextNode(level.objectives[i].description);
             li.appendChild(text);

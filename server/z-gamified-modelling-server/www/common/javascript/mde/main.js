@@ -19,7 +19,7 @@
 	game.levels[iLevel] = new Level(game, "level_001",
 			"Level 01 - Object Modelling: Create a Single Object");
 	game.levels[iLevel].isSequel = false;
-	game.levels[iLevel].levelCase = new Case(game,
+	game.levels[iLevel].levelCase = new LevelCase(game,
 			game.levels[iLevel], "Case_01", "Create a button!!!");
 	game.levels[iLevel].levelCase.addDraggableItem("button");
 
@@ -35,7 +35,7 @@
 	game.levels[iLevel] = new Level(game, "level_002",
 			"Level 02 - Object Modelling: Create Two Objects");
 	game.levels[iLevel].isSequel = false;
-	game.levels[iLevel].levelCase = new Case(game, game.levels[iLevel],
+	game.levels[iLevel].levelCase = new LevelCase(game, game.levels[iLevel],
 			"Case_01", "Create two buttons: <br/> button 1 and button 2 !!!");
 
 	game.levels[iLevel].levelCase.addDraggableItem("button 1");
@@ -58,7 +58,7 @@
 	game.levels[iLevel] = new Level(game, "level_003",
 			"Level 03 - Object Modelling: Create multiple objects");
 	game.levels[iLevel].isSequel = false;
-	game.levels[iLevel].levelCase = new Case(game, game.levels[iLevel], "Case_03",
+	game.levels[iLevel].levelCase = new LevelCase(game, game.levels[iLevel], "Case_03",
 			"Create two buttons:<br/>" + "greet button and clear button!<br/>"
 					+ "Create two labels as well:<br/>"
 					+ "name label and greet label!<br/>" + "Add name textbox!");
@@ -87,7 +87,7 @@
 	game.levels[iLevel] = new Level(game, "level_004",
 			"Level 04 - Object Modelling: Create multiple objects");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_04",
@@ -112,7 +112,7 @@
 	game.levels[iLevel] = new Level(game, "level_005",
 			"Level 05 - Object Modelling: Create multiple links");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_05",
@@ -139,7 +139,7 @@
 	game.levels[iLevel] = new Level(game, "level_006",
 			"Level 06 - Object Modelling: Determine a slot and its value");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_06",
@@ -170,7 +170,7 @@
 	game.levels[iLevel] = new Level(game, "level_007",
 			"Level 07 - Object Modelling: Determine multiple slots and their values");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_07",
@@ -226,7 +226,7 @@
 	game.levels[iLevel] = new Level(game, "level_008",
 			"Level 08 - Object Modelling: Determine the operations");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_08",
@@ -281,7 +281,7 @@
 	game.levels[iLevel] = new Level(game, "level_009",
 			"Level 09 - Object Modelling: Determine the operations");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_09",
@@ -345,7 +345,7 @@
 	game.levels[iLevel] = new Level(game, "level_010",
 			"Level 10 - Object Modelling: Determine the operations");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_10",
@@ -413,7 +413,7 @@
 	game.levels[iLevel] = new Level(game, "level_011",
 			"Level 11 - Object Modelling: Determine the classes of heterogeneous objects");
 	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_11",
@@ -486,8 +486,8 @@
 	iLevel += 1;
 	game.levels[iLevel] = new Level(game, "level_012",
 			"Level 12 -  Reconstruct the model from the beginning");
-	game.levels[iLevel].isSequel = true;
-	game.levels[iLevel].levelCase = new Case(
+	game.levels[iLevel].isSequel = false;
+	game.levels[iLevel].levelCase = new LevelCase(
 			game,
 			game.levels[iLevel],
 			"Case_12",

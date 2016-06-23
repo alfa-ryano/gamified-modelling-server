@@ -93,10 +93,10 @@ public class Validation extends HttpServlet {
 
 			if (model.nodes != null && model.nodes.size() > 0) {
 				for (Node node : model.nodes) {
-					graphmodelling.Node Node = factory.createNode();
-					Node.setID(node.identity);
-					Node.setName(node.nodeName);
-					Node.setEntityClass(node.className);
+					graphmodelling.Node node2 = factory.createNode();
+					node2.setID(node.id);
+					node2.setName(node.name);
+					node2.setEntityClass(node.className);
 
 					if (node.properties != null) {
 						for (Property property : node.properties) {
@@ -105,7 +105,7 @@ public class Validation extends HttpServlet {
 							Property.setName(property.name);
 							Property.setValue(property.value);
 							Property.setType(property.valueType);
-							Node.getProperties().add(Property);
+							node2.getProperties().add(Property);
 						}
 					}
 
@@ -114,24 +114,24 @@ public class Validation extends HttpServlet {
 							graphmodelling.Operation operation2 = factory.createOperation();
 							operation2.setText(operation.text);
 							operation2.setName(operation.name);
-							Node.getOperations().add(operation2);
+							node2.getOperations().add(operation2);
 						}
 					}
 
-					Graph.getNodes().add(Node);
+					Graph.getNodes().add(node2);
 				}
 			}
 
 			if (model.edges != null && model.edges.size() > 0) {
 				for (Edge edge : model.edges) {
 					graphmodelling.Edge edge2 = factory.createEdge();
-					edge2.setID(edge.identity);
+					edge2.setID(edge.id);
 					if (Graph.getNodes() != null && Graph.getNodes().size() > 0) {
 						for (graphmodelling.Node node : Graph.getNodes()) {
-							if (node.getID().equals(edge.sourceIdentity)) {
+							if (node.getID().equals(edge.sourceId)) {
 								edge2.setSource(node);
 							}
-							if (node.getID().equals(edge.targetIdentity)) {
+							if (node.getID().equals(edge.targetId)) {
 								edge2.setTarget(node);
 							}
 						}

@@ -1,63 +1,85 @@
 //-- MODEL  ----------------------------------------------------------------------------------
 var draggedId = null;
 
-var Entity = {
-    passDown: function(child){
-        inherits(child, this);
-    }
+var Entity = function () {
+    this.id = CreateId();
+    this.name;
+    this.text;
+    this.description;
+    this.value;
+
+    this.type;
+    this.className;
+    this.group;
+    this.category;
+    this.accessModifier;
+
+    this.x;
+    this.y;
+    this.width;
+    this.height;
 }
 
-var Story = function(game){
-    this.id = game.util.createId();
-    this.name = "";
-    this.description = "";
+var Story = function (game) {
+	Entity.call(this);
     this.game = game;
     this.substories = new Array();
     this.game.stories.push(this);
 }
+Story.prototype = new Entity();
 
-var SubStory = function(game, story){
-    this.id = game.util.createId();
-    this.name = "";
-    this.description = "";
+var SubStory = function (game, story) {
+	Entity.call(this);
     this.story = story;
     this.game = game;
     this.levels = new Array();
     this.story.substories.push(this);
 }
-
+SubStory.prototype = new Entity();
+SubStory.constructor = SubStory;
 
 var Property = function (text) {
+	Entity.call(this);
     this.text = text;
-    this.name = null;
-    this.value = null;
-    this.valueType = null;
 }
+SubStory.prototype = new Entity();
+SubStory.constructor = SubStory;
 
 var Operation = function (text) {
+	Entity.call(this);
     this.text = text;
 }
+SubStory.prototype = new Entity();
+SubStory.constructor = SubStory;
 
-var Node = function (nodeName, identity) {
-    this.identity = identity;
-    this.nodeName = nodeName;
+var Node = function (name, id) {
+	Entity.call(this);
+    this.id = id;
+    this.name = name;
     this.properties = new Array();
     this.operations = new Array();
-    this.className = "";
 }
+SubStory.prototype = new Entity();
+SubStory.constructor = SubStory;
 
-var Edge = function (identity) {
-    this.identity = identity;
-    this.sourceIdentity = null;
-    this.targetIdentity = null;
+var Edge = function (id) {
+	Entity.call(this);
+    this.id = id;
+    this.sourceId = null;
+    this.targetId = null;
 }
+SubStory.prototype = new Entity();
+SubStory.constructor = SubStory;
 
-var Objective = function (game, level, objectiveName, description) {
-    this.objectiveName = objectiveName;
+var Objective = function (game, level, name, description) {
+	Entity.call(this);
+    this.name = name;
     this.level = level;
     this.game = game;
     this.description = description;
 }
+SubStory.prototype = new Entity();
+SubStory.constructor = SubStory;
 
 var DRAGGABLE_ITEM_TYPE = {
     OBJECT: "ObjectDraggableCaseItem",
@@ -67,15 +89,18 @@ var DRAGGABLE_ITEM_TYPE = {
 }
 
 var DraggableItem = function (levelCase, identity, text) {
-    this.identity = identity;
+	Entity.call(this);
+    this.id = identity;
     this.levelCase = levelCase;
     this.text = text;
     this.type = DRAGGABLE_ITEM_TYPE.OBJECT;
-    this.name = null;
-    this.value = null;
+    this.valueType = "";
 }
+DraggableItem.prototype = new Entity();
+DraggableItem.constructor = DraggableItem;
 
-var Case = function (game, level, name, description) {
+var LevelCase = function (game, level, name, description) {
+	Entity.call(this);
     this.level = level;
     this.game = game;
     this.description = description;
@@ -88,10 +113,13 @@ var Case = function (game, level, name, description) {
         return draggableItem;
     };
 }
+LevelCase.prototype = new Entity();
+LevelCase.constructor = LevelCase;
 
-var Level = function (game, levelId, levelName) {
-    this.levelId = levelId;
-    this.levelName = levelName;
+var Level = function (game, id, name) {
+	Entity.call(this);
+    this.id = id;
+    this.name = name;
     this.game = game;
     this.objectives = new Array();
     this.nodes = new Array();
@@ -120,7 +148,7 @@ var Level = function (game, levelId, levelName) {
 
     this.evaluateObjectives = function () {
         var data = game.util.convertModelsToJson(game.mode,
-            game.levels[game.currentLevel].levelId,
+            game.levels[game.currentLevel].id,
             game.levels[game.currentLevel].nodes,
             game.levels[game.currentLevel].edges);
         game.util
@@ -137,11 +165,11 @@ var Level = function (game, levelId, levelName) {
                     var objectives = game.levels[game.currentLevel].objectives;
                     for (var i = 0; i < objectives.length; i++) {
                         document
-                            .getElementById(objectives[i].objectiveName).style.color = "#007826";
+                            .getElementById(objectives[i].name).style.color = "#007826";
                         for (var j = 0; j < json["objectives"].length; j++) {
-                            if (objectives[i].objectiveName == json["objectives"][j].objectiveName) {
+                            if (objectives[i].name == json["objectives"][j].name) {
                                 document
-                                    .getElementById(objectives[i].objectiveName).style.color = "#000000";
+                                    .getElementById(objectives[i].name).style.color = "#000000";
                             }
                         }
                     }
@@ -155,7 +183,7 @@ var Level = function (game, levelId, levelName) {
     }
 
     this.initialize = function () {
-        document.getElementById("Title").innerHTML = this.levelName;
+        document.getElementById("Title").innerHTML = this.name;
         document.getElementById("Instruction").innerHTML = this.levelCase.description;
 
         game.stage.setDraggableItems(this);
@@ -166,9 +194,12 @@ var Level = function (game, levelId, levelName) {
     }
 
 }
+Level.prototype = new Entity();
+Level.constructor = Level;
 
 var Game = function () {
-
+	Entity.call(this);
+	
     this.util = new Util(this);
     this.stage = new Stage(this);
     this.stories = new Array();
@@ -181,7 +212,7 @@ var Game = function () {
     this.levels = new Array();
 
     this.run = function () {
-        //Setup Screens
+        // Setup Screens
         this.stage.setUpScreens();
 
         // First Level
@@ -217,3 +248,5 @@ var Game = function () {
     }.bind(this);
     document.getElementById("button-next").onclick = this.nextLevel;
 }
+Game.prototype = new Entity();
+Game.constructor = Game;

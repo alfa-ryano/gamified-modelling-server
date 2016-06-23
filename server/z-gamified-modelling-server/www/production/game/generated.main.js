@@ -9,7 +9,7 @@ try {
     
     game.levels[0] = new Level(game, "level_1",
             "Level 1: Create Two Objects");
-    game.levels[0].levelCase = new Case(game, game.levels[0], "[case_01",
+    game.levels[0].levelCase = new LevelCase(game, game.levels[0], "[case_01",
             "Create two objects with name 'A' and 'B' respectively"); 
        
 	       game.levels[0].levelCase.addDraggableItem("A");
@@ -26,7 +26,7 @@ try {
 	game.levels[0].initialize = function() {
 
         this.nodes.length = 0;
-        document.getElementById("Title").innerHTML = this.levelName;
+        document.getElementById("Title").innerHTML = this.name;
         document.getElementById("Instruction").innerHTML = this.levelCase.description;
 
         var div = document.getElementById("DraggableItems");
@@ -38,7 +38,7 @@ try {
             var newSpan = document.createElement("span");
 
             newSpan.className = "DraggableCaseItem";
-            newSpan.id = draggableItem.identity;
+            newSpan.id = draggableItem.id;
             newSpan.innerHTML = draggableItem.text;
             newSpan.style.color = "#0066cc";
             // newSpan.style.backgroundColor= "#f5f5f5";
@@ -71,7 +71,7 @@ try {
         for (var i = 0; i < game.levels[game.currentLevel].objectives.length; i++) {
             var li = document.createElement("li");
             li.style.color = "#000000";
-            li.id = game.levels[game.currentLevel].objectives[i].objectiveName;
+            li.id = game.levels[game.currentLevel].objectives[i].name;
             var text = document
                     .createTextNode(game.levels[game.currentLevel].objectives[i].description);
             li.appendChild(text);
@@ -87,7 +87,7 @@ try {
     
     game.levels[1] = new Level(game, "level_2",
             "Level 2: Create one Link");
-    game.levels[1].levelCase = new Case(game, game.levels[1], "[case_01",
+    game.levels[1].levelCase = new LevelCase(game, game.levels[1], "[case_01",
             "Create a link connecting object 'A' to object 'B'"); 
        
 	       game.levels[1].levelCase.addDraggableItem("A");
@@ -101,7 +101,7 @@ try {
 	game.levels[1].initialize = function() {
 
         this.nodes.length = 0;
-        document.getElementById("Title").innerHTML = this.levelName;
+        document.getElementById("Title").innerHTML = this.name;
         document.getElementById("Instruction").innerHTML = this.levelCase.description;
 
         var div = document.getElementById("DraggableItems");
@@ -113,7 +113,7 @@ try {
             var newSpan = document.createElement("span");
 
             newSpan.className = "DraggableCaseItem";
-            newSpan.id = draggableItem.identity;
+            newSpan.id = draggableItem.id;
             newSpan.innerHTML = draggableItem.text;
             newSpan.style.color = "#0066cc";
             // newSpan.style.backgroundColor= "#f5f5f5";
@@ -146,7 +146,7 @@ try {
         for (var i = 0; i < game.levels[game.currentLevel].objectives.length; i++) {
             var li = document.createElement("li");
             li.style.color = "#000000";
-            li.id = game.levels[game.currentLevel].objectives[i].objectiveName;
+            li.id = game.levels[game.currentLevel].objectives[i].name;
             var text = document
                     .createTextNode(game.levels[game.currentLevel].objectives[i].description);
             li.appendChild(text);

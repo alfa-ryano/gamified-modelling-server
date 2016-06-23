@@ -50,25 +50,16 @@ function getTime() {
         + formatLeadingZero(second);
 }
 
-function inherits(child, parent) {
-    child.parent = parent;
-    for (var attribute in parent) {
-        if (!(attribute in child)) {
-            child[attribute] = parent[attribute];
-        }
-    }
+var CreateId = function () {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
 }
 
 // UTIL
 var Util = function (game) {
-
-    this.createId = function () {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for (var i = 0; i < 5; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        return text;
-    }
 
     this.convertModelsToJson = function (mode, level, nodes, edges) {
         var model = new Object();
