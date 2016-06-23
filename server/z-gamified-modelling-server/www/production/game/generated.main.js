@@ -25,7 +25,7 @@ try {
 	      
 	game.levels[0].initialize = function() {
 
-        this.objects.length = 0;
+        this.nodes.length = 0;
         document.getElementById("Title").innerHTML = this.levelName;
         document.getElementById("Instruction").innerHTML = this.levelCase.description;
 
@@ -100,7 +100,7 @@ try {
 	      
 	game.levels[1].initialize = function() {
 
-        this.objects.length = 0;
+        this.nodes.length = 0;
         document.getElementById("Title").innerHTML = this.levelName;
         document.getElementById("Instruction").innerHTML = this.levelCase.description;
 

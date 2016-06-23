@@ -50,6 +50,15 @@ function getTime() {
         + formatLeadingZero(second);
 }
 
+function inherits(child, parent) {
+    child.parent = parent;
+    for (var attribute in parent) {
+        if (!(attribute in child)) {
+            child[attribute] = parent[attribute];
+        }
+    }
+}
+
 // UTIL
 var Util = function (game) {
 

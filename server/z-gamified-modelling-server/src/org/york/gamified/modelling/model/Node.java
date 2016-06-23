@@ -8,7 +8,7 @@ public class Node {
 	}
 
 	public String identity;
-	public String objectName;
+	public String nodeName;
 	public ArrayList<Property> properties;
 	public ArrayList<Operation> operations;
 	public String className;  

@@ -85,7 +85,7 @@ var Stage = function (game) {
             }
 
             this.$box.find('.HtmlObjectNameText')[0].innerHTML =
-                this.model.get('model').objectName + className;
+                this.model.get('model').nodeName + className;
 
             //set the attributes/slots
             if (this.model.get('model').properties.length > 0) {
@@ -152,34 +152,32 @@ var Stage = function (game) {
             var paperPoint = game.stage.paper.clientToLocalPoint({x: event.clientX, y: event.clientY});
 
             var elementId = ui.draggable.attr("id");
-            var objectName = document.getElementById(elementId).innerHTML;
+            var nodeName = document.getElementById(elementId).innerHTML;
 
             if (elementId == "ObjectIcon") {
 
-                var objectName = "";
-                var objectId = game.util.createId();
-                //var objectId = "element-" + (++game.stage.counter);
-                var objectModel = game.levels[game.currentLevel].addObject("", objectId);
+                var nodeName = "";
+                var nodeId = game.util.createId();
+                var node = game.levels[game.currentLevel].addNode("", nodeId);
 
                 var width = $(event.originalEvent.target)[0].clientWidth;
                 var height = $(event.originalEvent.target)[0].clientHeight;
 
-                var object = new joint.shapes.html.Element({
+                var element = new joint.shapes.html.Element({
                     position: {
                         x: paperPoint.x - width / 2,
                         y: paperPoint.y - height / 2
                     },
                     size: {width: width, height: height},
-                    span: "object",
-                    name: objectName,
-                    identity: objectId,
-                    model: objectModel
+                    name: nodeName,
+                    identity: nodeId,
+                    model: node
                 });
-                object.toFront(true);
+                element.toFront(true);
                 
-                game.stage.graph.addCell(object);
-                var view = object.findView(game.stage.paper);
-                view.$box[0].id = objectId;
+                game.stage.graph.addCell(element);
+                var view = element.findView(game.stage.paper);
+                view.$box[0].id = nodeId;
 
                 $(".HtmlIcon").droppable({
                     drop: function (event, ui) {
@@ -207,7 +205,7 @@ var Stage = function (game) {
                                 if (htmlIcon.context.id == cell.attributes.identity) {
                                     if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
                                         cell.attributes.text = text;
-                                        cell.attributes.model.objectName = text;
+                                        cell.attributes.model.nodeName = text;
                                         return true;
                                     }
                                     if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
@@ -360,9 +358,9 @@ var Stage = function (game) {
 
     this.graph.on("remove", function (cell) {
         if (cell instanceof joint.dia.Element) {
-            var index = game.levels[game.currentLevel].objects.indexOf(cell.attributes.model);
+            var index = game.levels[game.currentLevel].nodes.indexOf(cell.attributes.model);
             if (index != null) {
-                game.levels[game.currentLevel].objects.splice(index, 1);
+                game.levels[game.currentLevel].nodes.splice(index, 1);
             }
         } else if (cell instanceof joint.dia.Link) {
             var index = game.levels[game.currentLevel].edges.indexOf(cell.attributes.model);

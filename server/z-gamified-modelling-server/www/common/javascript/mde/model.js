@@ -1,9 +1,11 @@
 //-- MODEL  ----------------------------------------------------------------------------------
 var draggedId = null;
 
-var inheritsFrom = function (child, parent) {
-    child.prototype = Object.create(parent.prototype);
-};
+var Entity = {
+    passDown: function(child){
+        inherits(child, this);
+    }
+}
 
 var Story = function(game){
     this.id = game.util.createId();
@@ -36,15 +38,15 @@ var Operation = function (text) {
     this.text = text;
 }
 
-var ModelObject = function (objectName, identity) {
+var Node = function (nodeName, identity) {
     this.identity = identity;
-    this.objectName = objectName;
+    this.nodeName = nodeName;
     this.properties = new Array();
     this.operations = new Array();
     this.className = "";
 }
 
-var ModelEdge = function (identity) {
+var Edge = function (identity) {
     this.identity = identity;
     this.sourceIdentity = null;
     this.targetIdentity = null;
@@ -92,7 +94,7 @@ var Level = function (game, levelId, levelName) {
     this.levelName = levelName;
     this.game = game;
     this.objectives = new Array();
-    this.objects = new Array();
+    this.nodes = new Array();
     this.edges = new Array();
     this.levelCase = null;
     this.isSequel = false;
@@ -100,14 +102,14 @@ var Level = function (game, levelId, levelName) {
     this.points = 0;
     this.timeElapsed = "00:00:00";
 
-    this.addObject = function (objectName, identity) {
-        var modelObject = new ModelObject(objectName, identity);
-        this.objects.push(modelObject);
-        return modelObject;
+    this.addNode = function (nodeName, identity) {
+        var node = new Node(nodeName, identity);
+        this.nodes.push(node);
+        return node;
     }
 
     this.addEdge = function (identity) {
-        var modelEdge = new ModelEdge(identity);
+        var modelEdge = new Edge(identity);
         this.edges.push(modelEdge);
         return modelEdge;
     }
@@ -119,7 +121,7 @@ var Level = function (game, levelId, levelName) {
     this.evaluateObjectives = function () {
         var data = game.util.convertModelsToJson(game.mode,
             game.levels[game.currentLevel].levelId,
-            game.levels[game.currentLevel].objects,
+            game.levels[game.currentLevel].nodes,
             game.levels[game.currentLevel].edges);
         game.util
             .jsonSubmit(
@@ -204,11 +206,11 @@ var Game = function () {
         this.currentLevel += 1;
         this.levels[game.currentLevel].initialize();
         if (this.levels[game.currentLevel].isSequel == false) {
-            this.levels[game.currentLevel].objects.length = 0;
+            this.levels[game.currentLevel].nodes.length = 0;
             this.levels[game.currentLevel].edges.length = 0;
             this.stage.graph.clear();
         } else {
-            this.levels[game.currentLevel].objects = this.levels[game.currentLevel - 1].objects;
+            this.levels[game.currentLevel].nodes = this.levels[game.currentLevel - 1].nodes;
             this.levels[game.currentLevel].edges = this.levels[game.currentLevel - 1].edges;
         }
         this.stage.closeDialog();

@@ -113,9 +113,9 @@ body, html {
 
 #DrawingViewport {
 	left: 20%;
-	top: 10%;
+	top: 5%;
 	width: 60%;
-	height: 80%;
+	height: 90%;
 	z-index: 0;
 	border: thin none white;
 }
@@ -152,8 +152,6 @@ body, html {
 }
 
 .Icon {
-	width: 100px;
-	height: 90px;
 	text-align: center;
 	vertical-align: middle;
 	background-color: transparent;

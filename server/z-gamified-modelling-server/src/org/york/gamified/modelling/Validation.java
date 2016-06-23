@@ -95,7 +95,7 @@ public class Validation extends HttpServlet {
 				for (Node node : model.nodes) {
 					graphmodelling.Node Node = factory.createNode();
 					Node.setID(node.identity);
-					Node.setName(node.objectName);
+					Node.setName(node.nodeName);
 					Node.setEntityClass(node.className);
 
 					if (node.properties != null) {
