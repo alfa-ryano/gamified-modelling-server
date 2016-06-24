@@ -1366,7 +1366,7 @@ V = Vectorizer = (function() {
                 var attributes = this.node.attributes;
                 var attrs = {};
                 for (var i = 0; i < attributes.length; i++) {
-                    attrs[attributes[i].name] = attributes[i].nodeValue;
+                    attrs[attributes[i].nodeName] = attributes[i].nodeValue;
                 }
                 return attrs;
             }

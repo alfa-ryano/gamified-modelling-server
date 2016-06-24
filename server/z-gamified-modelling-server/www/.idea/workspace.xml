@@ -24,7 +24,7 @@
       <file leaf-file-name="model.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/javascript/mde/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2040817">
+            <state vertical-scroll-proportion="0.0">
               <caret line="98" column="13" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="13" />
               <folding />
             </state>
@@ -34,7 +34,7 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65384614">
+            <state vertical-scroll-proportion="0.0">
               <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
               <folding />
             </state>
@@ -44,7 +44,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/javascript/mde/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="9.5">
+            <state vertical-scroll-proportion="0.98073554">
               <caret line="530" column="30" selection-start-line="530" selection-start-column="30" selection-end-line="530" selection-end-column="30" />
               <folding />
             </state>
@@ -54,7 +54,7 @@
       <file leaf-file-name="presentation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/javascript/mde/presentation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8979592">
+            <state vertical-scroll-proportion="0.0">
               <caret line="425" column="71" selection-start-line="425" selection-start-column="71" selection-end-line="425" selection-end-column="71" />
               <folding />
             </state>
@@ -115,7 +115,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -208,6 +207,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -305,22 +305,22 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24907063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24907063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32663316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39865997" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32663316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39865997" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -348,21 +348,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/common/javascript/mde/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/javascript/mde/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/javascript/mde/presentation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="425" column="71" selection-start-line="425" selection-start-column="71" selection-end-line="425" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="18" selection-start-line="32" selection-start-column="12" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -378,7 +399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -402,7 +422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -418,17 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="18" selection-start-line="32" selection-start-column="12" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -444,7 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -468,7 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -484,17 +490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="18" selection-start-line="32" selection-start-column="12" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,17 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -552,17 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -570,17 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -588,17 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,17 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="18" selection-start-line="32" selection-start-column="12" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#1;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#2;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#3;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#4;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#5;n#svg#0;n#div#0;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#line#0;n#svg#0;n#div#1;n#div#1;n#div#6;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -624,7 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -632,13 +571,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614">
+        <state vertical-scroll-proportion="0.0">
           <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
           <folding />
         </state>
@@ -646,7 +584,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/javascript/mde/presentation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8979592">
+        <state vertical-scroll-proportion="0.0">
           <caret line="425" column="71" selection-start-line="425" selection-start-column="71" selection-end-line="425" selection-end-column="71" />
           <folding />
         </state>
@@ -654,7 +592,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/javascript/mde/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2040817">
+        <state vertical-scroll-proportion="0.0">
           <caret line="98" column="13" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="13" />
           <folding />
         </state>
@@ -662,7 +600,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/javascript/mde/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.5">
+        <state vertical-scroll-proportion="0.98073554">
           <caret line="530" column="30" selection-start-line="530" selection-start-column="30" selection-end-line="530" selection-end-column="30" />
           <folding />
         </state>
