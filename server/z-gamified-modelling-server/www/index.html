@@ -30,6 +30,12 @@
     <div id="PaletteViewport" class="Viewport">
         <div>PALETTE:</div>
         <div id="Icons">
+            <div id="LinkIcon" class="Icon" draggable="true">
+                <svg style='width: 90px; height: 90px; shape-rendering:geometricPrecision'>
+                    <line x1="0" y1="90" x2="90" y2="0"
+                          style="stroke:black;stroke-width:1"/>
+                </svg>
+            </div>
             <div id="ObjectIcon" class="Icon" draggable="true">
                 <svg style='width: 100px; height: 90px; shape-rendering:crispEdges'>
                     <line x1="0" y1="0" x2="99" y2="0"
@@ -46,22 +52,17 @@
                           style="stroke:black;stroke-width:1"/>
                 </svg>
             </div>
-            <div id="LinkIcon" class="Icon" draggable="true">
-                <svg style='width: 90px; height: 90px; shape-rendering:geometricPrecision'>
-                    <line x1="0" y1="90" x2="90" y2="0"
-                          style="stroke:black;stroke-width:1"/>
-                </svg>
-            </div>
         </div>
     </div>
     <div id="ProgressViewport" class="Viewport">
         <div>PROGRESS:</div>
-        <span id="ObjectiveProgress">Completed Objectives: </span><span
-            id="ObjectiveValue">0</span><br/> <span id="NodetProgress">Objects:
-			</span><span id="NodeValue">0</span><br/> <span id="EdgeProgress">Links:
-			</span><span id="EdgeValue">0</span><br/> <span id="PointProgress">Points:
-			</span><span id="PointValue">0</span><br/> <span id="TimeProgress">Time
-				Elapsed: </span><span id="TimeValue">00:00:00</span><br/>
+        <span id="ObjectiveProgress">Completed Objectives: </span><span id="ObjectiveValue">0</span><br/>
+        <span id="NodeProgress">Objects: </span><span id="NodeValue">0</span><br/>
+        <span id="EdgeProgress">Links:</span> <span id="EdgeValue">0</span><br/>
+        <span id="SlotProgress">Slots:</span><span id="SlotValue">0</span><br/>
+        <span id="OperationProgress">Operations:</span><span id="OperationValue">0</span><br/>
+        <span id="PointProgress">Points:</span><span id="PointValue">0</span><br/>
+        <span id="TimeProgress">Time Elapsed: </span><span id="TimeValue">00:00:00</span><br/>
     </div>
     <div id="FooterViewport" class="Viewport"></div>
 </div>

@@ -9,7 +9,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: graphmodelling,
  graphmodelling.impl,
- graphmodelling.util
+ graphmodelling.util,
+ editormodel,
+ editormodel.impl,
+ editormodel.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

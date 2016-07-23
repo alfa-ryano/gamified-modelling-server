@@ -51,4 +51,11 @@
             genModel="www/development/model/objectmodelling.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EditorModel -->
+      <package
+            uri="editormodel"
+            class="editormodel.EditormodelPackage"/>
+   </extension>
+
 </plugin>

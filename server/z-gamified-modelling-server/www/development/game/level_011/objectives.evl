@@ -1,20 +1,40 @@
 context Graph!Graph {
-    
-  // At least there is an node with name button
+   
   constraint objective_01 {
     check : 
         self.evaluationFunction_01()
     message : 
-        "Create two operations for greet label"
+        "Put TextBox class to its objects"
+  }
+   
+  constraint objective_02 {
+    check : 
+        self.evaluationFunction_02()
+    message : 
+        "Put Label class to its objects"
   }
 } 
 
 operation Graph evaluationFunction_01(): Boolean{
-    if (self.nodes.size() > 0){  
-        if (self.nodes.select(node | node.entityClass = "TextBox").size() >= 1
-            and
-            self.nodes.select(node | node.entityClass = "Label").size() >= 2){
-            return true;
+    if (self.nodes.size() > 0){
+        var nameTextBox = self.nodes.selectOne(node | node.name = "name textbox");
+        if (nameTextBox <> null){
+            if (nameTextBox.entityClass = "TextBox"){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+operation Graph evaluationFunction_02(): Boolean{
+    if (self.nodes.size() > 0){
+        var greetLabel = self.nodes.selectOne(node | node.name = "greet label");
+        var nameLabel = self.nodes.selectOne(node | node.name = "name label");
+        if (greetLabel <> null and nameLabel <> null){
+	        if (greetLabel.entityClass = "Label" and nameLabel.entityClass = "Label"){
+	            return true;
+	        }
         }
     }
     return false;

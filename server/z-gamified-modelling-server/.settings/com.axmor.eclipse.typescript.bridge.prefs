@@ -1,0 +1,12 @@
+declaration=false
+eclipse.preferences.version=1
+mapRoot=
+module=amd
+noImplicitAny=false
+noResolve=false
+removeComments=false
+source=www/common/javascript/typescript
+sourceMap=false
+target=www/common/javascript/mde
+targetRelativePathBasedOnSource=false
+targetVersion=ES5

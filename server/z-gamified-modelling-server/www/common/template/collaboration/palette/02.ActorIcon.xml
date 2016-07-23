@@ -1,0 +1,5 @@
+<div id="ActorIcon" class="Icon" draggable="true">
+	<svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
+		<circle cx="50px" cy="30px" r="29px" stroke="black" stroke-width="1" fill="white"/>
+	</svg>
+</div>

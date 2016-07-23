@@ -1,11 +1,11 @@
 rule GenerateMainJS
-transform game : GamifiedModelling!Game {
+transform game : EditorModel!Game {
   guard : true 
   template : "main.egl"
-  target : "../../web/javascript/gamified.mde/main.js"
+  target : "../javascript/mde/main.js"
 }
 
-rule GenerateModelJS
+/*rule GenerateModelJS
 transform game : GamifiedModelling!Game {
   guard : true 
   template : "model.egl"
@@ -24,4 +24,4 @@ transform game : GamifiedModelling!Game {
   guard : true 
   template : "util.egl"
   target : "../../web/javascript/gamified.mde/util.js"
-}
+}*/

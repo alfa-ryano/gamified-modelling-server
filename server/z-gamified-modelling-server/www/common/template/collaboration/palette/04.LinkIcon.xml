@@ -1,0 +1,5 @@
+<div id="LinkIcon" class="Icon" draggable="true">
+	<svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
+		<line x1="0" y1="60" x2="99" y2="0" style="stroke:black;stroke-width:1" />
+	</svg>
+</div>

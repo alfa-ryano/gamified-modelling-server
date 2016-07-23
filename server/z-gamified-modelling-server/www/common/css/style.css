@@ -36,7 +36,7 @@ body, html {
 	height: 40%;
 	z-index: 2;
 	border-right: thin solid black;
-	overflow-y: scroll;
+	overflow: auto;
 }
 
 #TitleCaseViewport {
@@ -51,14 +51,12 @@ body, html {
 	left: 0%;
 	top: 45%;
 	width: 20%;
-	height: 25%;
+	height: 50%;
 	z-index: 7;
 	padding-left: 1%;
 	padding-top: 1%;
 	border-top: thin solid black;
 	border-right: thin solid black;
-	border-bottom: thin solid black;
-	resize: both;
 	overflow: auto;
 }
 
@@ -99,32 +97,33 @@ body, html {
 	color: #CC0000;
 }
 
+#DrawingViewport {
+  left: 20%;
+  top: 5%;
+  width: 60%;
+  height: 90%;
+  z-index: 0;
+  border: thin none white;
+}
+
 #ObjectiveViewport {
-	left: 0%;
-	top: 70%;
+	left: 80%;
+	top: 65%;
 	width: 20%;
-	height: 25%;
+	height: 30%;
 	z-index: 3;
-	border-right: thin solid black;
+	border-left: thin solid black;
+	border-top: thin solid black;
 	padding-left: 1%;
 	padding-right: 1%;
 	overflow-y: scroll;
-}
-
-#DrawingViewport {
-	left: 20%;
-	top: 5%;
-	width: 60%;
-	height: 90%;
-	z-index: 0;
-	border: thin none white;
 }
 
 #PaletteViewport {
 	left: 80%;
 	top: 5%;
 	width: 20%;
-	height: 45%;
+	height: 30%;
 	display: block;
 	z-index: 4;
 	padding-left: 1%;
@@ -134,9 +133,9 @@ body, html {
 
 #ProgressViewport {
 	left: 80%;
-	top: 50%;
+	top: 35%;
 	width: 20%;
-	height: 45%;
+	height: 30%;
 	z-index: 5;
 	padding-left: 1%;
 	border-left: thin solid black;
@@ -157,13 +156,20 @@ body, html {
 	background-color: transparent;
 	border: thin none black;
 	float: left;
-	margin-right: 3%;
 	cursor: pointer;
+	margin-right: 2%;
+	margin-bottom: 2%;
 }
 
 #ObjectIcon {
 	
 }
+
+#LinkIcon {
+  border: thin none white;
+  background-color: transparent;
+}
+
 
 .ContainerIcon {
 	min-width: 100px;
@@ -199,11 +205,6 @@ body, html {
 	height: 29px;
 }
 
-#LinkIcon {
-	border: thin none white;
-	background-color: transparent;
-	margin: 0 0 0 0;
-}
 
 /*-------------------------------------*/
 .HtmlContainerIcon {

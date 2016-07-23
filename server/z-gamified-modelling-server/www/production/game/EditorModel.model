@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editormodel:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:editormodel="editormodel">
+  <levels name="Level 1: Single Object">
+    <objectives name="Objective_01" description="Create A Single Object"/>
+    <levelCase name="Create A Single Object" description="Create A Single Object">
+      <draggableItems>Item_01</draggableItems>
+    </levelCase>
+    <path prevLevel="//@levels.0" nextLevel="//@levels.1"/>
+  </levels>
+  <levels name="Level 2: Two Objects">
+    <objectives name="Objective_01" description="Create Object A"/>
+    <objectives name="Objective_02" description="Create Object B"/>
+    <levelCase name="Create Two Objects" description="Create Two Objects">
+      <draggableItems>Button A</draggableItems>
+      <draggableItems>Button B</draggableItems>
+    </levelCase>
+  </levels>
+</editormodel:Game>

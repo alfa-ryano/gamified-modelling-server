@@ -14,7 +14,24 @@ var Stage = function (game) {
         model: this.graph,
         gridSize: 1
     });
-
+    
+    //node
+    var nodeTemplates = new Object(); 
+    nodeTemplates["ObjectIcon"] = [
+                        '<div class="HtmlIcon">',
+                        '<button class="delete">x</button>',
+                        '<div id="HtmlNameObject" class="HtmlContainerIcon">',
+                        '<div class="HtmlObjectNameText"></div>',
+                        '</div>',
+                        '<div id="HtmlSlotObject" class="HtmlContainerIcon">',
+                        '<div class="HtmlObjectSlotText"></div>',
+                        '</div>',
+                        '<div id="HtmlOperationObject" class="HtmlContainerIcon">',
+                        '<div class="HtmlObjectOperationText"></div>',
+                        '</div>',
+                        '</div>'
+                    ].join('');
+    
     joint.shapes.html = {};
     joint.shapes.html.Element = joint.shapes.basic.Rect.extend({
         defaults: joint.util.deepSupplement({
@@ -27,20 +44,7 @@ var Stage = function (game) {
 
     joint.shapes.html.ElementView = joint.dia.ElementView.extend({
 
-        template: [
-            '<div class="HtmlIcon">',
-            '<button class="delete">x</button>',
-            '<div id="HtmlNameObject" class="HtmlContainerIcon">',
-            '<div class="HtmlObjectNameText"></div>',
-            '</div>',
-            '<div id="HtmlSlotObject" class="HtmlContainerIcon">',
-            '<div class="HtmlObjectSlotText"></div>',
-            '</div>',
-            '<div id="HtmlOperationObject" class="HtmlContainerIcon">',
-            '<div class="HtmlObjectOperationText"></div>',
-            '</div>',
-            '</div>'
-        ].join(''),
+        template: nodeTemplates["ObjectIcon"],
 
         initialize: function () {
             _.bindAll(this, 'updateBox');
@@ -133,6 +137,8 @@ var Stage = function (game) {
             this.$box.remove();
         }
     });
+    //end node
+    
 
     //JQuety Functions
     $('#ObjectIcon').draggable({
@@ -174,7 +180,7 @@ var Stage = function (game) {
                     model: node
                 });
                 element.toFront(true);
-                
+
                 game.stage.graph.addCell(element);
                 var view = element.findView(game.stage.paper);
                 view.$box[0].id = nodeId;
@@ -183,11 +189,11 @@ var Stage = function (game) {
                     drop: function (event, ui) {
                         //var elementId = $(event.target).attr('id');
                         var source = $(event.originalEvent.target)[0];
-                        
-                        if (source.className.indexOf("DraggableCaseItem") <= -1){
-                        	return false;
+
+                        if (source.className.indexOf("DraggableCaseItem") <= -1) {
+                            return false;
                         }
-                        
+
                         var text = source.innerHTML;
                         var name = source.getAttribute("name");
                         var type = source.getAttribute("type");
@@ -265,6 +271,7 @@ var Stage = function (game) {
 
                         //do evaluation if objectives are met
                         game.levels[game.currentLevel].evaluateObjectives();
+                        game.stage.updateProgress();
                     }
                 });
                 game.stage.updateProgress();
@@ -275,7 +282,7 @@ var Stage = function (game) {
 
                 var width = $(event.originalEvent.target)[0].clientWidth;
                 var height = $(event.originalEvent.target)[0].clientHeight;
-                
+
                 var link = new joint.dia.Link({
                     source: {x: paperPoint.x + width / 2, y: paperPoint.y - height / 2},
                     target: {x: paperPoint.x - width / 2, y: paperPoint.y + height / 2},
@@ -312,8 +319,8 @@ var Stage = function (game) {
                     }
                 });
                 game.stage.graph.addCell(link);
+                game.stage.updateProgress();
             }
-
         }
     });
 
@@ -369,8 +376,8 @@ var Stage = function (game) {
             }
         }
 
-        game.stage.updateProgress();
         game.levels[game.currentLevel].evaluateObjectives();
+        game.stage.updateProgress();
     });
 
 
@@ -398,11 +405,28 @@ var Stage = function (game) {
     document.getElementById("button-continue").onclick = this.closeDialog;
 
     this.updateProgress = function () {
-        //var objectValue = game.levels[game.currentLevel].objects.length;
         var nodeValue = game.stage.graph.getElements().length;
         document.getElementById("NodeValue").innerHTML = nodeValue;
         var edgeValue = game.stage.graph.getLinks().length;
         document.getElementById("EdgeValue").innerHTML = edgeValue;
+
+        if (game.levels[game.currentLevel].currentPoints > 0) {
+            game.levels[game.currentLevel].currentPoints -= 10;
+            var currentPoints = game.levels[game.currentLevel].currentPoints;
+            document.getElementById("PointValue").innerHTML = currentPoints;
+        }
+
+        var countSlot = 0;
+        var countOperation = 0;
+        for (var i = 0; i < game.levels[game.currentLevel].nodes.length; i++) {
+            var node = game.levels[game.currentLevel].nodes[i];
+            countSlot += node.properties.length;
+            countOperation += node.operations.length;
+        }
+        document.getElementById("SlotValue").innerHTML = countSlot.toString();
+        document.getElementById("OperationValue").innerHTML = countOperation.toString();
+
+
     }
 
 
@@ -475,6 +499,8 @@ var Stage = function (game) {
     }
 
     this.setUpScreens = function () {
+
+
         document.getElementById("ButtonPlay").onclick = function () {
             document.getElementById("PlayScreen").style.visibility = "collapse";
             document.getElementById("LevelSelectionScreen").style.visibility = "visible";
@@ -526,7 +552,76 @@ var Stage = function (game) {
 
 
         }
+    }
+    
+   
+    this.loadNodeTemplates = function () {
+    	var modellingType = game.levels[game.currentLevel].modellingType;
+		var request = new XMLHttpRequest;
+		request.onloadend =  function() {listFiles(modellingType)};
+		request.open("GET", "ListFiles?ModellingType=" + modellingType + "&Type=cell", false);
+		request.send();
+		function listFiles(modellingType) {
+			var files = JSON.parse(request.responseText);
+			for(var i = 0; i < files.length; i++){
+				
+				var path = "common/template/"+ modellingType + "/cell/";;
+    			var elementId = files[i].split(".")[1];
+    			var xmlFile = path + files[i];
+    			
+    			var loadXML = new XMLHttpRequest;
+    			loadXML.onloadend = function() {getSVG()};
+    			loadXML.open("GET", xmlFile, false);
+    			loadXML.send();
+    			
+    			function getSVG() {
+    				var xmlString = loadXML.responseText;
+    				//alert(xmlString);
+    			}
+				
+			}
+		}
+    }
 
+    this.loadPalette = function () {
+        var icons = document.getElementById("Icons");
+        var modellingType = game.levels[game.currentLevel].modellingType;
+        while (icons.hasChildNodes()) {
+            icons.removeChild(icons.lastChild);
+        }
 
+		var request = new XMLHttpRequest;
+		request.onloadend =  function() {listFiles(modellingType)};
+		request.open("GET", "ListFiles?ModellingType=" + modellingType + "&Type=palette", false);
+		request.send();
+		
+		function listFiles(modellingType) {
+			var files = JSON.parse(request.responseText);
+			for(var i = 0; i < files.length; i++){
+				
+				var path = "common/template/"+ modellingType + "/palette/";;
+    			var elementId = files[i].split(".")[1];
+    			var xmlFile = path + files[i];
+    			
+    			var loadXML = new XMLHttpRequest;
+    			loadXML.onloadend = function() {setSVG(elementId)};
+    			loadXML.open("GET", xmlFile, false);
+    			loadXML.send();
+    			
+    			function setSVG(elementId) {
+    				var xmlString = loadXML.responseText;
+    				document.getElementById("Icons").innerHTML += xmlString;
+    			}
+			}
+			for(var i = 0; i < files.length; i++){
+				var elementId = files[i].split(".")[1];
+				$("#" + elementId).draggable({
+			        opacity: 0.7, helper: "clone",
+			        start: function (event) {
+			        }
+			    });
+			}
+			
+		}
     }
 }  

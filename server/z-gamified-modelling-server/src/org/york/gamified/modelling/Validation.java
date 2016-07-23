@@ -186,7 +186,7 @@ public class Validation extends HttpServlet {
 			if (unsatisfiedConstraints.size() > 0) {
 				for (UnsatisfiedConstraint unsatisfied : unsatisfiedConstraints) {
 					Objective objective = new Objective();
-					objective.objectiveName = unsatisfied.getConstraint().getName();
+					objective.name = unsatisfied.getConstraint().getName();
 					objective.isCompleted = false;
 					objective.message = unsatisfied.getMessage();
 					validationResult.objectives.add(objective);
