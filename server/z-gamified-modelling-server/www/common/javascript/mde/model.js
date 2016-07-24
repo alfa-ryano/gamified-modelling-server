@@ -210,6 +210,8 @@ var Level = function (game, id, name) {
         game.stage.setObjectives(this);
         game.stage.loadPalette();
         game.stage.loadNodeTemplates();
+        game.stage.loadDrawingViewportEvent();
+        //game.stage.loadCustomEvents();
         
         resetTime();
         startTime("TimeValue");

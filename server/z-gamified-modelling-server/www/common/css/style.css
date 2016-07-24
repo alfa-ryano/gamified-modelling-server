@@ -161,16 +161,6 @@ body, html {
 	margin-bottom: 2%;
 }
 
-#ObjectIcon {
-	
-}
-
-#LinkIcon {
-  border: thin none white;
-  background-color: transparent;
-}
-
-
 .ContainerIcon {
 	min-width: 100px;
 	background-color: white;

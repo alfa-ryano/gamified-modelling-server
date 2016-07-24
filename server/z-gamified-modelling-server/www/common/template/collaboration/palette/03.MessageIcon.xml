@@ -1,4 +1,4 @@
-<div id="MessageIcon" class="Icon" draggable="true">
+<div id="MessageIcon" class="Icon" draggable="true"  type="Edge">
 	<svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
 		<defs>
 			<marker id="arrow" refX="10" refY="5"

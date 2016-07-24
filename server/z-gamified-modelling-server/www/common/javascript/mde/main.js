@@ -26,7 +26,8 @@ game.levels[iLevel].levelCase.addDraggableItem("button");
 var objectiveLevel01 = new Objective(game, game.levels[iLevel],
     "objective_01", "Create an object with name 'button'");
 
-game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
+//game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
+game.levels[iLevel].modellingType = MODELLING_TYPE.OBJECT;
 
 game.levels[iLevel].addObjective(objectiveLevel01);
 
@@ -43,14 +44,15 @@ game.levels[iLevel].levelCase = new LevelCase(game, game.levels[iLevel],
 game.levels[iLevel].levelCase.addDraggableItem("button 1");
 game.levels[iLevel].levelCase.addDraggableItem("button 2");
 
+game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
+//game.levels[iLevel].modellingType = MODELLING_TYPE.OBJECT;
+
 var objectiveLevel02_1 = new Objective(game, game.levels[iLevel],
     "objective_01", "Create an object named 'button 1'!");
-
-game.levels[iLevel].addObjective(objectiveLevel02_1);
-
 var objectiveLevel02_2 = new Objective(game, game.levels[iLevel],
     "objective_02", "Create an object named 'button 2'!");
 
+game.levels[iLevel].addObjective(objectiveLevel02_1);
 game.levels[iLevel].addObjective(objectiveLevel02_2);
 
 subStory.levels.push(game.levels[iLevel]);

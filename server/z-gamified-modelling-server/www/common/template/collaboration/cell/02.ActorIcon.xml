@@ -1,0 +1,14 @@
+<div id="ActorIcon" class="HtmlIcon" draggable="true">
+  <svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
+    <!-- head -->
+    <circle cx="50px" cy="10px" r="10px" stroke="black" stroke-width="1" fill="white"/>
+    <!-- body -->
+    <line x1="50px" y1="20px" x2="50px" y2="40px" style="stroke:black;stroke-width:1" />
+    <!--  hand -->
+    <line x1="50px" y1="20px" x2="25px" y2="30px" style="stroke:black;stroke-width:1" />
+    <line x1="50px" y1="20px" x2="75px" y2="30px" style="stroke:black;stroke-width:1" />
+    <!-- feet -->
+    <line x1="50px" y1="40px" x2="25px" y2="59px" style="stroke:black;stroke-width:1" />
+    <line x1="50px" y1="40px" x2="75px" y2="59px" style="stroke:black;stroke-width:1" />
+  </svg>
+</div>
