@@ -208,6 +208,7 @@ var Level = function (game, id, name) {
         
         game.stage.setDraggableItems(this);
         game.stage.setObjectives(this);
+        game.stage.loadCSS();
         game.stage.loadPalette();
         game.stage.loadNodeTemplates();
         game.stage.loadDrawingViewportEvent();

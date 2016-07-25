@@ -1,0 +1,6 @@
+<div class="HtmlIcon">
+	<button class="delete">x</button>
+	<div id="HtmlNameObject" class="HtmlContainerIcon">
+		<div class="HtmlObjectNameText"></div>
+	</div>
+</div>

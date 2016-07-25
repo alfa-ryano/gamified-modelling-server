@@ -1,4 +1,5 @@
 <div id="ActorIcon" class="HtmlIcon" draggable="true">
+  <button class="delete">x</button>
   <svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
     <!-- head -->
     <circle cx="50px" cy="10px" r="10px" stroke="black" stroke-width="1" fill="white"/>

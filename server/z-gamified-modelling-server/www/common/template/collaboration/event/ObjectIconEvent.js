@@ -1,4 +1,4 @@
-function ObjectIconEvent(event, ui) {
+function ObjectIconEvent(event, ui, elementId) {
 
 	// var elementId = $(event.target).attr('id');
 	var source = $(event.originalEvent.target)[0];
@@ -21,55 +21,17 @@ function ObjectIconEvent(event, ui) {
 	var element = game.stage.graph.get('cells').find(function(cell) {
 		if (cell instanceof joint.dia.Link)
 			return false;
-		if (cell instanceof joint.shapes.custom["ObjectIcon"]) {
+		if (cell instanceof joint.shapes.custom[elementId]) {
 			if (htmlIcon.context.id == cell.attributes.identity) {
 				if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
 					cell.attributes.text = text;
 					cell.attributes.model.name = text;
 					return true;
 				}
-				if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
+				else if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
 					cell.attributes.model.className = text;
 					return true;
-				} else if (type == DRAGGABLE_ITEM_TYPE.SLOT) {
-					var properties = cell.attributes.model.properties;
-					var alreadyExist = false;
-					for (var i = 0; i < properties.length; i++) {
-						if (properties[i].name == name) {
-							properties[i].text = text;
-							properties[i].value = value;
-							properties[i].type = valueType;
-							alreadyExist = true;
-							break;
-						}
-					}
-					if (alreadyExist == false) {
-						var property = new Property(text);
-						property.name = name;
-						property.value = value;
-						property.type = valueType;
-						properties.push(property);
-					}
-					return true;
-				} else if (type == DRAGGABLE_ITEM_TYPE.OPERATION) {
-					var operations = cell.attributes.model.operations;
-					var alreadyExist = false;
-					for (var i = 0; i < operations.length; i++) {
-						if (operations[i].name == name) {
-							operations[i].text = text;
-							alreadyExist = true;
-							console.log("Operation already exists");
-							break;
-						}
-					}
-					if (alreadyExist == false) {
-						console.log("New operation");
-						var operation = new Operation(text);
-						operation.name = name;
-						operations.push(operation);
-					}
-					return true;
-				}
+				} 
 			}
 		}
 		return false;

@@ -1,5 +1,4 @@
-function ObjectIconEvent(event, ui) {
-	alert("A");
+function ObjectIconEvent(event, ui, elementId) {
 
 	// var elementId = $(event.target).attr('id');
 	var source = $(event.originalEvent.target)[0];
@@ -22,7 +21,7 @@ function ObjectIconEvent(event, ui) {
 	var element = game.stage.graph.get('cells').find(function(cell) {
 		if (cell instanceof joint.dia.Link)
 			return false;
-		if (cell instanceof joint.shapes.custom["ObjectIcon"]) {
+		if (cell instanceof joint.shapes.custom[elementId]) {
 			if (htmlIcon.context.id == cell.attributes.identity) {
 				if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
 					cell.attributes.text = text;
