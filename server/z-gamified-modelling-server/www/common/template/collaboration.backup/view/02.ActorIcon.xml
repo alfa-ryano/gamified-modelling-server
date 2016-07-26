@@ -1,4 +1,4 @@
-<div id="ActorIcon" class="HtmlIcon" draggable="true">
+<div class="ActorIcon" draggable="true">
   <button class="delete">x</button>
   <svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
     <!-- head -->

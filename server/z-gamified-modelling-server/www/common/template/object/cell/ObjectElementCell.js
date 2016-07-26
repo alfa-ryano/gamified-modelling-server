@@ -1,4 +1,9 @@
-function ObjectIcon(elementId, responseText) {
+function ObjectElementCell(elementId, responseText) {
+	var elementName = "ObjectElement";
+	this.elementName = function(){
+		return elementName;
+	}
+	
 	var xmlString = responseText;
 
 	joint.shapes.custom[elementId] = joint.shapes.basic.Rect.extend({

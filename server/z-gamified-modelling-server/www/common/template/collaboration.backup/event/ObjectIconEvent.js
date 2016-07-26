@@ -15,14 +15,14 @@ function ObjectIconEvent(event, ui, elementId) {
 
 	// change text only first time/once on screen
 	var target = null;
-	var htmlIcon = $(event.target).find(".HtmlIcon");
+	var objectIcon = $(event.target).find(".ObjectIcon");
 
 	// Persist text change on screen and in model
 	var element = game.stage.graph.get('cells').find(function(cell) {
 		if (cell instanceof joint.dia.Link)
 			return false;
 		if (cell instanceof joint.shapes.custom[elementId]) {
-			if (htmlIcon.context.id == cell.attributes.identity) {
+			if (objectIcon.context.id == cell.attributes.identity) {
 				if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
 					cell.attributes.text = text;
 					cell.attributes.model.name = text;

@@ -1,4 +1,4 @@
-<div class="HtmlIcon">
+<div name="ObjectElement" class="ObjectElementView">
 	<button class="delete">x</button>
 	<div id="HtmlNameObject" class="HtmlContainerIcon">
 		<div class="HtmlObjectNameText"></div>

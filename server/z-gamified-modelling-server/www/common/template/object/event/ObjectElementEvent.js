@@ -1,6 +1,9 @@
-function ObjectIconEvent(event, ui, elementId) {
-
-	// var elementId = $(event.target).attr('id');
+function ObjectElementEvent(event, ui, elementId) {
+	var elementName = "ObjectElement";
+	this.elementName = function(){
+		return elementName;
+	}
+	
 	var source = $(event.originalEvent.target)[0];
 
 	if (source.className.indexOf("DraggableCaseItem") <= -1) {
@@ -15,7 +18,7 @@ function ObjectIconEvent(event, ui, elementId) {
 
 	// change text only first time/once on screen
 	var target = null;
-	var htmlIcon = $(event.target).find(".HtmlIcon");
+	var htmlIcon = $(event.target).find("." + elementId + "View");
 
 	// Persist text change on screen and in model
 	var element = game.stage.graph.get('cells').find(function(cell) {

@@ -1,0 +1,87 @@
+/*-----------------HTML ICON -----------------------------*/
+.HtmlContainerIcon {
+  vertical-align: middle;
+  display: inline-block;
+  min-width: 150px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.HtmlObjectNameText {
+  border: none;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.HtmlObjectSlotText {
+  text-align: left;
+  border: none;
+}
+
+.HtmlObjectOperationText {
+  text-align: left;
+  border: none;
+}
+
+#HtmlNameObject {
+  display: inline-block;
+  text-align: center;
+  border: thin solid black;
+  min-height: 30px;
+}
+
+#HtmlSlotObject {
+  display: inline-block;
+  border-left: thin solid black;
+  border-right: thin solid black;
+  border-bottom: thin solid black;
+  min-height: 29px;
+}
+
+#HtmlOperationObject {
+  display: inline-block;
+  border-left: thin solid black;
+  border-right: thin solid black;
+  border-bottom: thin solid black;
+  min-height: 29px;
+}
+
+.ObjectElementView {
+  display: table;
+  position: absolute;
+  background-color: white;
+  /* Make sure events are propagated to the JointJS element so, e.g. dragging works.*/
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.ObjectElementView button {
+  /* Enable interacting with inputs only. */
+  pointer-events: auto;
+}
+
+.ObjectElementView button.delete {
+  color: white;
+  border: none;
+  background-color: #C0392B;
+  border-radius: 20px;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ObjectElementView button.delete:hover {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+

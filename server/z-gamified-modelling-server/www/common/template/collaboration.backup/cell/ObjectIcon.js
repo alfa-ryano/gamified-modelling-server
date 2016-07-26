@@ -101,10 +101,10 @@ function ObjectIcon(elementId, responseText) {
 			});
 
 			var identifier = this.$box[0].id;
-			var htmlIcon = document.getElementById(identifier);
-			if (htmlIcon != null) {
-				this.model.resize(htmlIcon.offsetWidth - 2,
-						htmlIcon.offsetHeight - 2);
+			var objectIcon = document.getElementById(identifier);
+			if (objectIcon != null) {
+				this.model.resize(objectIcon.offsetWidth - 2,
+						objectIcon.offsetHeight - 2);
 			}
 		},
 

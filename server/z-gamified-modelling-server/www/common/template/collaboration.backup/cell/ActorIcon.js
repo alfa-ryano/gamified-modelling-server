@@ -49,10 +49,10 @@ function ActorIcon(elementId, responseText) {
 			});
 
 			var identifier = this.$box[0].id;
-			var htmlIcon = document.getElementById(identifier);
-			if (htmlIcon != null) {
-				this.model.resize(htmlIcon.offsetWidth - 2,
-						htmlIcon.offsetHeight - 2);
+			var actorIcon = document.getElementById(identifier);
+			if (actorIcon != null) {
+				this.model.resize(actorIcon.offsetWidth - 2,
+						actorIcon.offsetHeight - 2);
 			}
 		},
 
