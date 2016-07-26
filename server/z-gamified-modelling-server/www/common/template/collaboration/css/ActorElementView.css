@@ -1,5 +1,5 @@
 /*------------------------------ Actor Icon -----------------------------------*/
-.ActorIcon {
+.ActorElementView {
   display: table;
   position: absolute;
   background-color: white;
@@ -8,12 +8,12 @@
   z-index: 1;
 }
 
-.ActorIcon button {
+.ActorElementView button {
   /* Enable interacting with inputs only. */
   pointer-events: auto;
 }
 
-.ActorIcon button.delete {
+.ActorElementView button.delete {
   color: white;
   border: none;
   background-color: #C0392B;
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-.ActorIcon button.delete:hover {
+.ActorElementView button.delete:hover {
   width: 20px;
   height: 20px;
   line-height: 20px;

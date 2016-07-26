@@ -1,14 +1,10 @@
-function ObjectElementCell(elementId, responseText) {
-	var elementName = "ObjectElement";
-	this.elementName = function(){
-		return elementName;
-	}
+function ObjectElementCell(elementName, responseText) {
 	
 	var xmlString = responseText;
 
-	joint.shapes.custom[elementId] = joint.shapes.basic.Rect.extend({
+	joint.shapes.custom[elementName] = joint.shapes.basic.Rect.extend({
 		defaults : joint.util.deepSupplement({
-			type : "custom." + elementId,
+			type : "custom." + elementName,
 			attrs : {
 				rect : {
 					stroke : 'none',
@@ -18,7 +14,7 @@ function ObjectElementCell(elementId, responseText) {
 		}, joint.shapes.basic.Rect.prototype.defaults)
 	});
 
-	joint.shapes.custom[elementId + "View"] = joint.dia.ElementView.extend({
+	joint.shapes.custom[elementName + "View"] = joint.dia.ElementView.extend({
 
 		template : xmlString,
 

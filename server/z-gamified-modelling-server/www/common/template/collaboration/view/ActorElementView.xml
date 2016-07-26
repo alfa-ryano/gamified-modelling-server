@@ -1,4 +1,4 @@
-<div class="ActorIcon" draggable="true">
+<div name="ActorElement" class="ActorElementView" draggable="true">
   <button class="delete">x</button>
   <svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
     <!-- head -->

@@ -11,6 +11,7 @@ var iLevel = 0;
 var story = new Story(game);
 story.name = "Object Modelling";
 story.description = "Learn how to model instances or objects.";
+
 var subStory = new SubStory(game, story);
 subStory.name = "Hello World!!!";
 subStory.description = "Create a simple object model.";
@@ -26,7 +27,6 @@ game.levels[iLevel].levelCase.addDraggableItem("button");
 var objectiveLevel01 = new Objective(game, game.levels[iLevel],
     "objective_01", "Create an object with name 'button'");
 
-//game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
 game.levels[iLevel].modellingType = MODELLING_TYPE.OBJECT;
 
 game.levels[iLevel].addObjective(objectiveLevel01);
@@ -44,8 +44,7 @@ game.levels[iLevel].levelCase = new LevelCase(game, game.levels[iLevel],
 game.levels[iLevel].levelCase.addDraggableItem("button 1");
 game.levels[iLevel].levelCase.addDraggableItem("button 2");
 
-game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
-//game.levels[iLevel].modellingType = MODELLING_TYPE.OBJECT;
+game.levels[iLevel].modellingType = MODELLING_TYPE.OBJECT;
 
 var objectiveLevel02_1 = new Objective(game, game.levels[iLevel],
     "objective_01", "Create an object named 'button 1'!");
@@ -577,6 +576,8 @@ var subStory = new SubStory(game, story);
 subStory.name = "Create Login Screen (Coming Soon)";
 subStory.description = "Create Login Screen (Coming Soon).";
 
+//--- COLLABORATION MODELLING ----------------------------------------------
+
 var story = new Story(game);
 story.name = "Collaboration Modelling (Comming Soon)";
 story.description = "Learn how to model in Collaboration diagram.";
@@ -584,6 +585,45 @@ var subStory = new SubStory(game, story);
 subStory.name = "Collaborating \"Hello, World!!!\" (Coming Soon)";
 subStory.description = "Collaborating \"Hello, World!!!\"";
 
+//----Set Up Level 1----------------------------------------------------
+iLevel += 1;
+game.levels[iLevel] = new Level(game, "level_013",
+    "Level 13 - Collaboration Modelling: Create a Single Object");
+game.levels[iLevel].isSequel = false;
+game.levels[iLevel].levelCase = new LevelCase(game,
+    game.levels[iLevel], "Case_01", "Create a button!!!");
+game.levels[iLevel].levelCase.addDraggableItem("button");
 
+var objectiveLevel01 = new Objective(game, game.levels[iLevel],
+    "objective_01", "Create an object with name 'button'");
+
+game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
+
+game.levels[iLevel].addObjective(objectiveLevel01);
+
+subStory.levels.push(game.levels[iLevel]);
+
+//----Set Up Level 2----------------------------------------------------
+iLevel += 1;
+game.levels[iLevel] = new Level(game, "level_014",
+    "Level 02 - Collaboration Modelling: Create Two Objects");
+game.levels[iLevel].isSequel = false;
+game.levels[iLevel].levelCase = new LevelCase(game, game.levels[iLevel],
+    "Case_01", "Create two buttons: <br/> <strong>button 1</strong> and <strong>button 2</strong> !!!");
+
+game.levels[iLevel].levelCase.addDraggableItem("button 1");
+game.levels[iLevel].levelCase.addDraggableItem("button 2");
+
+game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
+
+var objectiveLevel02_1 = new Objective(game, game.levels[iLevel],
+    "objective_01", "Create an object named 'button 1'!");
+var objectiveLevel02_2 = new Objective(game, game.levels[iLevel],
+    "objective_02", "Create an object named 'button 2'!");
+
+game.levels[iLevel].addObjective(objectiveLevel02_1);
+game.levels[iLevel].addObjective(objectiveLevel02_2);
+
+subStory.levels.push(game.levels[iLevel]);
 // ---Execute Game---------------------------------------------------------
 game.run();

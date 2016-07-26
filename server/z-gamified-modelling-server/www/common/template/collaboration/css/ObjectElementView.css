@@ -23,7 +23,7 @@
 }
 
 
-.ObjectIcon {
+.ObjectElementView {
   display: table;
   position: absolute;
   background-color: white;
@@ -33,11 +33,11 @@
 }
 
 
-.ObjectIcon button {
+.ObjectElementView button {
   pointer-events: auto;
 }
 
-.ObjectIcon button.delete {
+.ObjectElementView button.delete {
   color: white;
   border: none;
   background-color: #C0392B;
@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 
-.ObjectIcon button.delete:hover {
+.ObjectElementView button.delete:hover {
   width: 20px;
   height: 20px;
   line-height: 20px;

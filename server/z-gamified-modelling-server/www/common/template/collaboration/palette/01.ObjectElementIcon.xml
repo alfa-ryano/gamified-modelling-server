@@ -1,4 +1,4 @@
-<div id="ObjectIcon" class="Icon" draggable="true"  type="Node">
+<div id="ObjectElementIcon" name="ObjectElement" class="Icon" draggable="true"  type="Node">
 	<svg style='width: 100px; height: 60px; shape-rendering: crispEdges'>
 		<line x1="0" y1="0" x2="99" y2="0" style="stroke:black;stroke-width:1" />
 		<line x1="0" y1="59" x2="99" y2="59" style="stroke:black;stroke-width:1" />

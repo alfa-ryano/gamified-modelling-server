@@ -1,9 +1,10 @@
-function ObjectIcon(elementId, responseText) {
+function ObjectElementCell(elementName, responseText) {
+	
 	var xmlString = responseText;
 
-	joint.shapes.custom[elementId] = joint.shapes.basic.Rect.extend({
+	joint.shapes.custom[elementName] = joint.shapes.basic.Rect.extend({
 		defaults : joint.util.deepSupplement({
-			type : "custom." + elementId,
+			type : "custom." + elementName,
 			attrs : {
 				rect : {
 					stroke : 'none',
@@ -13,7 +14,7 @@ function ObjectIcon(elementId, responseText) {
 		}, joint.shapes.basic.Rect.prototype.defaults)
 	});
 
-	joint.shapes.custom[elementId + "View"] = joint.dia.ElementView.extend({
+	joint.shapes.custom[elementName + "View"] = joint.dia.ElementView.extend({
 
 		template : xmlString,
 
@@ -101,10 +102,10 @@ function ObjectIcon(elementId, responseText) {
 			});
 
 			var identifier = this.$box[0].id;
-			var objectIcon = document.getElementById(identifier);
-			if (objectIcon != null) {
-				this.model.resize(objectIcon.offsetWidth - 2,
-						objectIcon.offsetHeight - 2);
+			var htmlIcon = document.getElementById(identifier);
+			if (htmlIcon != null) {
+				this.model.resize(htmlIcon.offsetWidth - 2,
+						htmlIcon.offsetHeight - 2);
 			}
 		},
 

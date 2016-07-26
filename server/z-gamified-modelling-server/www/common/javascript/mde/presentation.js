@@ -183,6 +183,7 @@ var Stage = function(game) {
 			stories.removeChild(stories.lastChild);
 		}
 
+		var level = 0;
 		for (var i = 0; i < game.stories.length; i++) {
 			var story = game.stories[i];
 			var storyHeader = document.createElement("div");
@@ -204,7 +205,8 @@ var Stage = function(game) {
 				for (var k = 0; k < subStory.levels.length; k++) {
 					var child = document.createElement("div");
 					child.className = "StoryLevel";
-					child.innerHTML = k + 1;
+					level = level + 1;
+					child.innerHTML = level;
 					child
 							.addEventListener(
 									"click",
@@ -234,28 +236,27 @@ var Stage = function(game) {
 			var files = JSON.parse(request.responseText);
 			for (var i = 0; i < files.length; i++) {
 
-				var path = "common/template/" + modellingType + "/view/";
-
-				var elementId = files[i].split(".")[0];
-				elementId = elementId.substring(0, elementId.search("View"));
-				
-				var xmlFile = path + files[i];
+			    var path = "common/template/" + modellingType + "/view/" + files[i];
 
 				var loadXML = new XMLHttpRequest;
 				loadXML.onloadend = function() {
-					loadCells(modellingType, elementId, loadXML)
+					loadCells(modellingType, loadXML)
 				};
-				loadXML.open("GET", xmlFile, false);
+				loadXML.open("GET", path, false);
 				loadXML.send();
 
-				function loadCells(modellingType, elementId, loadXML) {
-
-					// load internal cell function
+				function loadCells(modellingType, loadXML) {
+					var xmlString = loadXML.responseText;
+					var parser = new DOMParser();
+				    xmlDoc = parser.parseFromString(xmlString, "text/xml");
+				    var elementName = xmlDoc.firstChild.getAttribute("name"); 
+					
+				    // load internal cell function
 					var cellPath = "common/template/" + modellingType
-							+ "/cell/" + elementId + "Cell.js";
+							+ "/cell/" + elementName + "Cell.js";
 					$.getScript(cellPath, function(data, textStatus, jqxhr) {
 						// execute internal cell function
-						window[elementId + "Cell"](elementId, loadXML.responseText);
+						window[elementName + "Cell"](elementName, xmlString);
 					});
 				}
 			}
@@ -279,6 +280,7 @@ var Stage = function(game) {
 
 		function listFiles(modellingType) {
 			var files = JSON.parse(request.responseText);
+			var xmlString = "";
 			for (var i = 0; i < files.length; i++) {
 
 				var path = "common/template/" + modellingType + "/palette/";
@@ -293,12 +295,17 @@ var Stage = function(game) {
 				loadXML.send();
 
 				function setSVG(elementId) {
-					var xmlString = loadXML.responseText;
-					document.getElementById("Icons").innerHTML += xmlString;
+					xmlString += loadXML.responseText;
 				}
 			}
-			for (var i = 0; i < files.length; i++) {
-				var elementId = files[i].split(".")[1];
+			xmlString = "<div>" + xmlString + "</div>";
+			document.getElementById("Icons").innerHTML =  xmlString;
+			
+			var parser = new DOMParser();
+		    xmlDoc = parser.parseFromString(xmlString, "text/xml");
+		    
+			for (var i = 0; i < xmlDoc.firstChild.children.length; i++) {
+				var elementId = xmlDoc.firstChild.children[i].getAttribute("id");
 				$("#" + elementId).draggable({
 					opacity : 0.7,
 					helper : "clone",
@@ -310,15 +317,15 @@ var Stage = function(game) {
 		}
 	}
 
-	this.loadCustomEvent = function(elementId) {
+	this.loadCustomEvent = function(elementName) {
 		var modellingType = game.levels[game.currentLevel].modellingType;
-		var path = "common/template/" + modellingType + "/event/" + elementId
+		var path = "common/template/" + modellingType + "/event/" + elementName
 				+ "Event.js";
  
 		$.getScript(path, function() {
-			$("."+elementId + "View").droppable({
+			$("."+elementName + "View").droppable({
 				drop : function(event, ui) {
-					window[elementId + "Event"](event, ui, elementId);
+					window[elementName + "Event"](event, ui, elementName);
 				}
 			});
 		});
@@ -336,11 +343,8 @@ var Stage = function(game) {
 											y : event.clientY
 										});
 
-								var elementId = ui.draggable.attr("id");
-								elementId = elementId.substring(0, elementId.search("Icon"));
+								var elementName = ui.draggable.attr("name");
 								var type = ui.draggable.attr("type");
-//								var nodeName = document
-//										.getElementById(elementId).innerHTML;
 
 								// --------------------------------------------------------------------------------
 								if (type == "Node") {
@@ -353,7 +357,7 @@ var Stage = function(game) {
 									var width = $(event.originalEvent.target)[0].clientWidth;
 									var height = $(event.originalEvent.target)[0].clientHeight;
 
-									var element = new joint.shapes.custom[elementId](
+									var element = new joint.shapes.custom[elementName](
 											{
 												position : {
 													x : paperPoint.x - width
@@ -376,7 +380,7 @@ var Stage = function(game) {
 											.findView(game.stage.paper);
 									view.$box[0].id = nodeId;
 
-									game.stage.loadCustomEvent(elementId);
+									game.stage.loadCustomEvent(elementName);
 
 									game.stage.updateProgress();
 								}
