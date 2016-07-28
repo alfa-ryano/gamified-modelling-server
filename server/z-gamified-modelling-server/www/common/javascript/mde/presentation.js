@@ -395,12 +395,13 @@ var Stage = function(game) {
 									var width = $(event.originalEvent.target)[0].clientWidth;
 									var height = $(event.originalEvent.target)[0].clientHeight;
 
+									//var link = new joint.shapes.custom[elementName]({
 									var link = new joint.dia.Link({
-										source : {
+										target : {
 											x : paperPoint.x + width / 2,
 											y : paperPoint.y - height / 2
 										},
-										target : {
+										source : {
 											x : paperPoint.x - width / 2,
 											y : paperPoint.y + height / 2
 										},
@@ -450,7 +451,17 @@ var Stage = function(game) {
 																	.evaluateObjectives();
 														}
 													});
+									
+//									link.attr({
+//									    '.connection': { stroke: 'black' },
+//									    '.marker-source': { fill: 'black', d: 'M 0 0 L 0 0 L 0 0 z' },
+//									    '.marker-target': { fill: 'black', d: 'M 10 0 L 0 5 L 10 10 z' }
+//									});
+									var attributes = window[elementName + "Cell"]();
+									link.attr(attributes);
+									
 									game.stage.graph.addCell(link);
+									game.stage.loadCustomEvent(elementName);
 									game.stage.updateProgress();
 								}
 							}

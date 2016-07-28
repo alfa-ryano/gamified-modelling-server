@@ -49,6 +49,7 @@ public class Validation extends HttpServlet {
 
 	protected java.net.URI getFileURI(String fileName) throws URISyntaxException {
 		String path = "";
+		String temp = Validation.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		for (int i = 0; i < Validation.class.getName().split("\\.").length; i++) {
 			path = path + "../";
 		}
