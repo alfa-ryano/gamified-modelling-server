@@ -250,13 +250,19 @@ var Stage = function(game) {
 					var parser = new DOMParser();
 				    xmlDoc = parser.parseFromString(xmlString, "text/xml");
 				    var elementName = xmlDoc.firstChild.getAttribute("name"); 
+				    var elementType = xmlDoc.firstChild.getAttribute("type");
 					
 				    // load internal cell function
 					var cellPath = "common/template/" + modellingType
 							+ "/cell/" + elementName + "Cell.js";
+					
 					$.getScript(cellPath, function(data, textStatus, jqxhr) {
 						// execute internal cell function
-						window[elementName + "Cell"](elementName, xmlString);
+						if (elementType == "node"){ 
+							window[elementName + "Cell"](elementName, xmlString);
+						}else if (elementType == "edge"){
+							window[elementName + "Cell"]();
+						}
 					});
 				}
 			}

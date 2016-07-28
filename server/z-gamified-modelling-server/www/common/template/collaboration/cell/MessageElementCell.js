@@ -1,4 +1,4 @@
-function MessageElementCell(elementName, responseText) {
+function MessageElementCell() {
 	
 	return {
 		    '.connection': { stroke: 'black' },
