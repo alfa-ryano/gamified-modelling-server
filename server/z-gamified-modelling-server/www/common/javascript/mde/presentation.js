@@ -15,7 +15,8 @@ var Stage = function(game) {
 			y : 0
 		},
 		model : this.graph,
-		gridSize : 1
+		gridSize : 1,
+		//interactive: { labelMove: true, vertexAdd: false }
 	});
 
 	// initialize global custom object
@@ -42,6 +43,7 @@ var Stage = function(game) {
 			return false;
 		})
 	});
+	
 
 	this.graph.on("remove", function(cell) {
 		if (cell instanceof joint.dia.Element) {
@@ -246,7 +248,7 @@ var Stage = function(game) {
 				loadXML.send();
 
 				function loadCells(modellingType, loadXML) {
-					var xmlString = loadXML.responseText;
+					var xmlString = loadXML.responseText.replace(/(\r\n|\n|\r|\t)/gm,"");
 					var parser = new DOMParser();
 				    xmlDoc = parser.parseFromString(xmlString, "text/xml");
 				    var elementName = xmlDoc.firstChild.getAttribute("name"); 
@@ -261,7 +263,10 @@ var Stage = function(game) {
 						if (elementType == "node"){ 
 							window[elementName + "Cell"](elementName, xmlString);
 						}else if (elementType == "edge"){
-							window[elementName + "Cell"]();
+							var doc = new DOMParser();
+				    		doc = parser.parseFromString(xmlString, "text/xml");
+							xmlString = doc.firstChild.innerHTML.replace(/(\r\n|\n|\r|\t)/gm,"");;
+							window[elementName + "Cell"](elementName, xmlString);
 						}
 					});
 				}
@@ -334,7 +339,23 @@ var Stage = function(game) {
 					window[elementName + "Event"](event, ui, elementName);
 				}
 			});
+			$(".label").mouseup(function() {
+				   alert("mouseup");        
+			});
+			$("."+elementName + "View").mouseover(
+				function(event, ui) {
+					alert("mouseover");
+				
+			});
+			$("."+elementName + "View").hover(
+					function(event, ui) {
+						alert("hover 1");
+			},function(event, ui) {
+						alert("hover 2");
+			});
 		});
+		
+		
 	}
 
 	this.loadDrawingViewportEvent = function() {
@@ -401,8 +422,8 @@ var Stage = function(game) {
 									var width = $(event.originalEvent.target)[0].clientWidth;
 									var height = $(event.originalEvent.target)[0].clientHeight;
 
-									//var link = new joint.shapes.custom[elementName]({
-									var link = new joint.dia.Link({
+									var link = new joint.shapes.custom[elementName]({
+									//var link = new joint.dia.Link({
 										target : {
 											x : paperPoint.x + width / 2,
 											y : paperPoint.y - height / 2
@@ -463,8 +484,9 @@ var Stage = function(game) {
 //									    '.marker-source': { fill: 'black', d: 'M 0 0 L 0 0 L 0 0 z' },
 //									    '.marker-target': { fill: 'black', d: 'M 10 0 L 0 5 L 10 10 z' }
 //									});
-									var attributes = window[elementName + "Cell"]();
-									link.attr(attributes);
+									
+//									var attributes = window[elementName + "Cell"]();
+//									link.attr(attributes);
 									
 									game.stage.graph.addCell(link);
 									game.stage.loadCustomEvent(elementName);

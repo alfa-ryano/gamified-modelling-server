@@ -1,2 +1,8 @@
-<div name="MessageElement" class="MessageElementView" type="edge">
+<div name="MessageElement" class="MessageElementView" type="edge" style="background-color: green;">
+	<g class="label">
+		<rect />
+		<text />
+	</g>
 </div>
+
+
