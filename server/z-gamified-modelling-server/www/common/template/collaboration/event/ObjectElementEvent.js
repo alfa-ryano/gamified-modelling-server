@@ -1,10 +1,7 @@
-function ObjectElementEvent(event, ui, elementName) {
-	
-	var source = $(event.originalEvent.target)[0];
+function ObjectElementEvent(source, cellView) {
 
-	if (source.className.indexOf("DraggableCaseItem") <= -1) {
-		return false;
-	}
+	var elementName = cellView.model.attributes.type.split(".")[1];
+	var cell = cellView.model;
 
 	var text = source.innerHTML;
 	var name = source.getAttribute("name");
@@ -12,70 +9,51 @@ function ObjectElementEvent(event, ui, elementName) {
 	var value = source.getAttribute("value");
 	var valueType = source.getAttribute("valueType");
 
-	// change text only first time/once on screen
 	var target = null;
-	var htmlIcon = $(event.target).find("." + elementName + "View");
+	var identity = cellView.model.attributes.identity;
 
-	// Persist text change on screen and in model
-	var element = game.stage.graph.get('cells').find(function(cell) {
-		if (cell instanceof joint.dia.Link)
-			return false;
-		if (cell instanceof joint.shapes.custom[elementName]) {
-			if (htmlIcon.context.id == cell.attributes.identity) {
-				if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
-					cell.attributes.text = text;
-					cell.attributes.model.name = text;
-					return true;
-				}
-				if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
-					cell.attributes.model.className = text;
-					return true;
-				} else if (type == DRAGGABLE_ITEM_TYPE.SLOT) {
-					var properties = cell.attributes.model.properties;
-					var alreadyExist = false;
-					for (var i = 0; i < properties.length; i++) {
-						if (properties[i].name == name) {
-							properties[i].text = text;
-							properties[i].value = value;
-							properties[i].type = valueType;
-							alreadyExist = true;
-							break;
-						}
-					}
-					if (alreadyExist == false) {
-						var property = new Property(text);
-						property.name = name;
-						property.value = value;
-						property.type = valueType;
-						properties.push(property);
-					}
-					return true;
-				} else if (type == DRAGGABLE_ITEM_TYPE.OPERATION) {
-					var operations = cell.attributes.model.operations;
-					var alreadyExist = false;
-					for (var i = 0; i < operations.length; i++) {
-						if (operations[i].name == name) {
-							operations[i].text = text;
-							alreadyExist = true;
-							console.log("Operation already exists");
-							break;
-						}
-					}
-					if (alreadyExist == false) {
-						console.log("New operation");
-						var operation = new Operation(text);
-						operation.name = name;
-						operations.push(operation);
-					}
-					return true;
-				}
+	if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
+		cell.attributes.text = text;
+		cell.attributes.model.name = text;
+	}
+	if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
+		cell.attributes.model.className = text;
+	} else if (type == DRAGGABLE_ITEM_TYPE.SLOT) {
+		var properties = cell.attributes.model.properties;
+		var alreadyExist = false;
+		for (var i = 0; i < properties.length; i++) {
+			if (properties[i].name == name) {
+				properties[i].text = text;
+				properties[i].value = value;
+				properties[i].type = valueType;
+				alreadyExist = true;
 			}
 		}
-		return false;
-	});
+		if (alreadyExist == false) {
+			var property = new Property(text);
+			property.name = name;
+			property.value = value;
+			property.type = valueType;
+			properties.push(property);
+		}
+	} else if (type == DRAGGABLE_ITEM_TYPE.OPERATION) {
+		var operations = cell.attributes.model.operations;
+		var alreadyExist = false;
+		for (var i = 0; i < operations.length; i++) {
+			if (operations[i].name == name) {
+				operations[i].text = text;
+				alreadyExist = true;
+			}
+		}
+		if (alreadyExist == false) {
+			var operation = new Operation(text);
+			operation.name = name;
+			operations.push(operation);
+		}
+	}
 
 	// Update bounding box size
-	var view = element.findView(game.stage.paper);
+	var view = cell.findView(game.stage.paper);
 	if (view != null) {
 		view.updateBox();
 	}

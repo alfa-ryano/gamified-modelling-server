@@ -163,7 +163,7 @@ body, html {
 
 .ContainerIcon {
 	min-width: 100px;
-	background-color: white;
+	background-color: transparent;
 }
 
 .ObjectNameText {

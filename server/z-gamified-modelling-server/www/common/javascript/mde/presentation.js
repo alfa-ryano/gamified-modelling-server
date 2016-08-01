@@ -2,7 +2,7 @@
 var Stage = function(game) {
 	this.ICON_WIDTH = 100;
 	this.ICON_HEIGHT = 90;
-	this.counter = 0;
+	// this.counter = 0;
 
 	this.graph = new joint.dia.Graph;
 
@@ -16,34 +16,44 @@ var Stage = function(game) {
 		},
 		model : this.graph,
 		gridSize : 1,
-		//interactive: { labelMove: true, vertexAdd: false }
+	// interactive: { labelMove: true, vertexAdd: false }
 	});
 
 	// initialize global custom object
 	joint.shapes.custom = {};
 
 	// JointJS functions
-	this.paper
-			.on(
-					'blank:pointerup',
-					function(evt, x, y) {
-						if (document.activeElement instanceof HTMLInputElement) {
-							document.activeElement.parentNode.parentNode.style.pointerEvents = 'none';
-							document.activeElement.blur();
-						}
-					});
+	this.paper.on('blank:pointerup',function(evt, x, y){
+		if (document.activeElement instanceof HTMLInputElement) {
+			document.activeElement.parentNode.parentNode.style.pointerEvents = 'none';
+			document.activeElement.blur();
+		}
+	});
 
 	this.paper.on('cell:pointerdown', function(cellView, evt) {
 		var element = game.stage.graph.get('cells').find(function(cell) {
-			if (cell instanceof joint.dia.Link)
-				return false;
-			if (cell.id === cellView.model.id) {
+//			if (cell instanceof joint.dia.Link && cellView.model.id == cell.id){
+//				var selectedSource = document
+//				.getElementById(game.levels[game.currentLevel].selectedSourceId);
+//				if (selectedSource != null && selectedSource.getAttribute("class").split(" ")[0] == "DraggableCaseItem"){
+//					console.log("BBBBB");
+//					var elementName = cellView.model.attributes.type.split(".")[1];
+//					window[elementName + "Event"](selectedSource, cellView);
+//				}
+//				return true;
+//			}else 
+			if (cell instanceof joint.dia.Element && cellView.model.id == cell.id){
+				var selectedSource = document
+				.getElementById(game.levels[game.currentLevel].selectedSourceId);
+				if (selectedSource != null && selectedSource.getAttribute("class").split(" ")[0] == "DraggableCaseItem"){
+					var elementName = cellView.model.attributes.type.split(".")[1];
+					window[elementName + "Event"](selectedSource, cellView);
+				}
 				return true;
 			}
 			return false;
-		})
+		});
 	});
-	
 
 	this.graph.on("remove", function(cell) {
 		if (cell instanceof joint.dia.Element) {
@@ -117,6 +127,9 @@ var Stage = function(game) {
 			newSpan.setAttribute("name", draggableItem.name);
 			newSpan.setAttribute("value", draggableItem.value);
 			newSpan.setAttribute("valueType", draggableItem.valueType);
+
+			game.stage.setSelectedItem(newSpan);
+
 			// newSpan.style.zIndex = 99;
 			newSpan.ondragstart = function() {
 				// document.getElementsByTagName("body")[0].appendChild(newSpan);
@@ -139,14 +152,6 @@ var Stage = function(game) {
 				newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
 			}
 		}
-
-		$('.DraggableCaseItem').draggable({
-			opacity : 0.8,
-			helper : "clone",
-			start : function(event, ui) {
-				draggedId = $(event.target).attr('id');
-			}
-		});
 	}
 
 	this.setObjectives = function(level) {
@@ -238,7 +243,8 @@ var Stage = function(game) {
 			var files = JSON.parse(request.responseText);
 			for (var i = 0; i < files.length; i++) {
 
-			    var path = "common/template/" + modellingType + "/view/" + files[i];
+				var path = "common/template/" + modellingType + "/view/"
+						+ files[i];
 
 				var loadXML = new XMLHttpRequest;
 				loadXML.onloadend = function() {
@@ -248,27 +254,37 @@ var Stage = function(game) {
 				loadXML.send();
 
 				function loadCells(modellingType, loadXML) {
-					var xmlString = loadXML.responseText.replace(/(\r\n|\n|\r|\t)/gm,"");
+					var xmlString = loadXML.responseText.replace(
+							/(\r\n|\n|\r|\t)/gm, "");
 					var parser = new DOMParser();
-				    xmlDoc = parser.parseFromString(xmlString, "text/xml");
-				    var elementName = xmlDoc.firstChild.getAttribute("name"); 
-				    var elementType = xmlDoc.firstChild.getAttribute("type");
-					
-				    // load internal cell function
+					xmlDoc = parser.parseFromString(xmlString, "text/xml");
+					var elementName = xmlDoc.firstChild.getAttribute("name");
+					var elementType = xmlDoc.firstChild.getAttribute("type");
+
+					// load internal cell function
 					var cellPath = "common/template/" + modellingType
 							+ "/cell/" + elementName + "Cell.js";
-					
-					$.getScript(cellPath, function(data, textStatus, jqxhr) {
-						// execute internal cell function
-						if (elementType == "node"){ 
-							window[elementName + "Cell"](elementName, xmlString);
-						}else if (elementType == "edge"){
-							var doc = new DOMParser();
-				    		doc = parser.parseFromString(xmlString, "text/xml");
-							xmlString = doc.firstChild.innerHTML.replace(/(\r\n|\n|\r|\t)/gm,"");;
-							window[elementName + "Cell"](elementName, xmlString);
-						}
+
+					$.getScript(cellPath,
+							function(data, textStatus, jqxhr) {
+								// execute internal cell function
+								if (elementType == "node") {
+									window[elementName + "Cell"](elementName,
+											xmlString);
+								} else if (elementType == "edge") {
+									var doc = new DOMParser();
+									doc = parser.parseFromString(xmlString,
+											"text/xml");
+									xmlString = doc.firstChild.innerHTML
+											.replace(/(\r\n|\n|\r|\t)/gm, "");
+									;
+									window[elementName + "Cell"](elementName,
+											xmlString);
+								}
 					});
+					
+					//load customEvent
+					game.stage.loadCustomEvent(elementName);
 				}
 			}
 		}
@@ -310,20 +326,26 @@ var Stage = function(game) {
 				}
 			}
 			xmlString = "<div>" + xmlString + "</div>";
-			document.getElementById("Icons").innerHTML =  xmlString;
-			
-			var parser = new DOMParser();
-		    xmlDoc = parser.parseFromString(xmlString, "text/xml");
-		    
-			for (var i = 0; i < xmlDoc.firstChild.children.length; i++) {
-				var elementId = xmlDoc.firstChild.children[i].getAttribute("id");
-				$("#" + elementId).draggable({
-					opacity : 0.7,
-					helper : "clone",
-					start : function(event) {
-					}
-				});
+			document.getElementById("Icons").innerHTML = xmlString;
+			var div = document.getElementById("Icons").firstElementChild;
+			for (var i = 0; i < div.children.length; i++) {
+				var element = div.children[i];
+				game.stage.setSelectedItem(element);
 			}
+
+			// var parser = new DOMParser();
+			// xmlDoc = parser.parseFromString(xmlString, "text/xml");
+			//		    
+			// for (var i = 0; i < xmlDoc.firstChild.children.length; i++) {
+			// var elementId = xmlDoc.firstChild.children[i].getAttribute("id");
+			//				
+			// $("#" + elementId).draggable({
+			// opacity : 0.7,
+			// helper : "clone",
+			// start : function(event) {
+			// }
+			// });
+			// }
 
 		}
 	}
@@ -332,173 +354,164 @@ var Stage = function(game) {
 		var modellingType = game.levels[game.currentLevel].modellingType;
 		var path = "common/template/" + modellingType + "/event/" + elementName
 				+ "Event.js";
- 
-		$.getScript(path, function() {
-			$("."+elementName + "View").droppable({
-				drop : function(event, ui) {
-					window[elementName + "Event"](event, ui, elementName);
-				}
-			});
-			$(".label").mouseup(function() {
-				   alert("mouseup");        
-			});
-			$("."+elementName + "View").mouseover(
-				function(event, ui) {
-					alert("mouseover");
-				
-			});
-			$("."+elementName + "View").hover(
-					function(event, ui) {
-						alert("hover 1");
-			},function(event, ui) {
-						alert("hover 2");
-			});
-		});
+		$.getScript(path);
 		
-		
+//		$.getScript(path, 
+//				function() {
+//			var elements = document.getElementsByClassName(elementName + "View");
+//			
+//			for (var i = 0; i < elements.length; i++){
+//				var element = elements[i];
+//				element.onclick = function(event){
+//					window[elementName + "Event"](event, null, elementName);
+//				}
+//			}
+			
+			
+//			$("." + elementName + "View").droppable({
+//				drop : function(event, ui) {
+//					window[elementName + "Event"](event, ui, elementName);
+//				}
+//			});
+			// $(".label").mouseup(function() {
+			// alert("mouseup");
+			// });
+			// $("." + elementName + "View").mouseover(function(event, ui) {
+			// alert("mouseover");
+			//
+			// });
+			// $("." + elementName + "View").hover(function(event, ui) {
+			// alert("hover 1");
+			// }, function(event, ui) {
+			// alert("hover 2");
+			// });
+		//});
+
 	}
 
 	this.loadDrawingViewportEvent = function() {
-		$("#DrawingViewport")
-				.droppable(
-						{
-							drop : function(event, ui) {
+		document.getElementById("DrawingViewport").onclick = function(event) {
+			// alert("x : " + event.clientX + ", y : " + event.clientY);
 
-								var paperPoint = game.stage.paper
-										.clientToLocalPoint({
-											x : event.clientX,
-											y : event.clientY
-										});
+			var paperPoint = game.stage.paper.clientToLocalPoint({
+				x : event.clientX,
+				y : event.clientY
+			});
 
-								var elementName = ui.draggable.attr("name");
-								var type = ui.draggable.attr("type");
+			var selectedSource = document
+					.getElementById(game.levels[game.currentLevel].selectedSourceId);
 
-								// --------------------------------------------------------------------------------
-								if (type == "Node") {
+			if (selectedSource == null) {
+				return;
+			}
+			// ///-----------------------------------------------------
+			var elementName = selectedSource.getAttribute("name");
+			var type = selectedSource.getAttribute("type");
 
-									var nodeName = "";
-									var nodeId = CreateId();
-									var node = game.levels[game.currentLevel]
-											.addNode("", nodeId);
+			if (type == "Node") {
+				var nodeName = "";
+				var nodeId = CreateId();
+				var node = game.levels[game.currentLevel].addNode("", nodeId);
 
-									var width = $(event.originalEvent.target)[0].clientWidth;
-									var height = $(event.originalEvent.target)[0].clientHeight;
+				var width = selectedSource.clientWidth;
+				var height = selectedSource.clientHeight;
 
-									var element = new joint.shapes.custom[elementName](
-											{
-												position : {
-													x : paperPoint.x - width
-															/ 2,
-													y : paperPoint.y - height
-															/ 2
-												},
-												size : {
-													width : width,
-													height : height
-												},
-												name : nodeName,
-												identity : nodeId,
-												model : node
-											});
-									element.toFront(true);
+				var element = new joint.shapes.custom[elementName]({
+					position : {
+						x : paperPoint.x - width / 2,
+						y : paperPoint.y - height / 2
+					},
+					size : {
+						width : width,
+						height : height
+					},
+					name : nodeName,
+					identity : nodeId,
+					model : node
+				});
+				element.toFront(true);
 
-									game.stage.graph.addCell(element);
-									var view = element
-											.findView(game.stage.paper);
-									view.$box[0].id = nodeId;
+				game.stage.graph.addCell(element);
+				var view = element.findView(game.stage.paper);
+				view.$box[0].id = nodeId;
 
-									game.stage.loadCustomEvent(elementName);
+				game.stage.loadCustomEvent(elementName);
 
-									game.stage.updateProgress();
-								}
-								// -----------------------------------------------------
-								// else
-								if (type == "Edge") {
+				game.stage.updateProgress();
 
-									var edgeId = CreateId();
-									var edgeModel = game.levels[game.currentLevel]
-											.addEdge(edgeId);
+			} else if (type == "Edge") {
 
-									var width = $(event.originalEvent.target)[0].clientWidth;
-									var height = $(event.originalEvent.target)[0].clientHeight;
+				var edgeId = CreateId();
+				var edgeModel = game.levels[game.currentLevel].addEdge(edgeId);
 
-									var link = new joint.shapes.custom[elementName]({
-									//var link = new joint.dia.Link({
-										target : {
-											x : paperPoint.x + width / 2,
-											y : paperPoint.y - height / 2
-										},
-										source : {
-											x : paperPoint.x - width / 2,
-											y : paperPoint.y + height / 2
-										},
-										identity : edgeId,
-										model : edgeModel
-									});
+				var width = selectedSource.clientWidth;
+				var height = selectedSource.clientHeight;
 
-									link
-											.on(
-													'change:source',
-													function() {
-														var sourceElement = link
-																.getSourceElement();
-														var targetElement = link
-																.getTargetElement();
-														if (sourceElement != null) {
-															this.attributes.model.sourceId = sourceElement.attributes.identity;
-														} else {
-															this.attributes.model.sourceId = null;
-														}
+				var link = new joint.shapes.custom[elementName]({
+					// var link = new joint.dia.Link({
+					target : {
+						x : paperPoint.x + width / 2,
+						y : paperPoint.y - height / 2
+					},
+					source : {
+						x : paperPoint.x - width / 2,
+						y : paperPoint.y + height / 2
+					},
+					identity : edgeId,
+					model : edgeModel
+				});
 
-														if (targetElement != null
-																&& targetElement != null) {
-															game.levels[game.currentLevel]
-																	.evaluateObjectives();
-														}
-													});
+				link
+						.on(
+								'change:source',
+								function() {
+									var sourceElement = link.getSourceElement();
+									var targetElement = link.getTargetElement();
+									if (sourceElement != null) {
+										this.attributes.model.sourceId = sourceElement.attributes.identity;
+									} else {
+										this.attributes.model.sourceId = null;
+									}
 
-									link
-											.on(
-													'change:target',
-													function() {
-														var sourceElement = link
-																.getSourceElement();
-														var targetElement = link
-																.getTargetElement();
-														if (targetElement != null) {
-															this.attributes.model.targetId = targetElement.attributes.identity;
+									if (targetElement != null
+											&& targetElement != null) {
+										game.levels[game.currentLevel]
+												.evaluateObjectives();
+									}
+								});
 
-														} else {
-															this.attributes.model.targetId = null;
-														}
+				link
+						.on(
+								'change:target',
+								function() {
+									var sourceElement = link.getSourceElement();
+									var targetElement = link.getTargetElement();
+									if (targetElement != null) {
+										this.attributes.model.targetId = targetElement.attributes.identity;
 
-														if (targetElement != null
-																&& targetElement != null) {
-															game.levels[game.currentLevel]
-																	.evaluateObjectives();
-														}
-													});
-									
-//									link.attr({
-//									    '.connection': { stroke: 'black' },
-//									    '.marker-source': { fill: 'black', d: 'M 0 0 L 0 0 L 0 0 z' },
-//									    '.marker-target': { fill: 'black', d: 'M 10 0 L 0 5 L 10 10 z' }
-//									});
-									
-//									var attributes = window[elementName + "Cell"]();
-//									link.attr(attributes);
-									
-									game.stage.graph.addCell(link);
-									game.stage.loadCustomEvent(elementName);
-									game.stage.updateProgress();
-								}
-							}
-						});
+									} else {
+										this.attributes.model.targetId = null;
+									}
+
+									if (targetElement != null
+											&& targetElement != null) {
+										game.levels[game.currentLevel]
+												.evaluateObjectives();
+									}
+								});
+
+				game.stage.graph.addCell(link);
+				game.stage.loadCustomEvent(elementName);
+				game.stage.updateProgress();
+
+			}
+			game.stage.clearSelectedItem();
+		}
 	}
 
 	this.loadCSS = function() {
 		var modellingType = game.levels[game.currentLevel].modellingType;
-		
+
 		var request = new XMLHttpRequest;
 		request.onloadend = function() {
 			listFiles(modellingType)
@@ -509,21 +522,21 @@ var Stage = function(game) {
 
 		function listFiles(modellingType) {
 			var files = JSON.parse(request.responseText);
-			
+
 			for (var i = 0; i < files.length; i++) {
-				
+
 				var path = "common/template/" + modellingType + "/css/"
 						+ files[i];
 				var elementId = files[i].split(".")[1];
-				
-				//remove first
+
+				// remove first
 				var child = document.getElementById(path);
-				if (child != null){
+				if (child != null) {
 					var parent = document.getElementsByTagName('head')[0];
 					parent.removeChild(child);
 				}
-				
-				//add then				
+
+				// add then
 				var link = document.createElement('link');
 				link.setAttribute('id', path);
 				link.setAttribute('rel', 'stylesheet');
@@ -532,5 +545,30 @@ var Stage = function(game) {
 				document.getElementsByTagName('head')[0].appendChild(link);
 			}
 		}
+	}
+
+	this.setSelectedItem = function(element) {
+		element.onclick = function() {
+			var selectedSourceId = game.levels[game.currentLevel].selectedSourceId;
+			if (selectedSourceId == null) {
+				this.style.backgroundColor = "#E0E0E0";
+				game.levels[game.currentLevel].selectedSourceId = this.id;
+			} else if (selectedSourceId != this.id) {
+				document.getElementById(selectedSourceId).style.backgroundColor = "white";
+				this.style.backgroundColor = "#E0E0E0";
+				game.levels[game.currentLevel].selectedSourceId = this.id;
+			} else if (selectedSourceId == this.id) {
+				this.style.backgroundColor = "white";
+				game.levels[game.currentLevel].selectedSourceId = null;
+			}
+		}
+	}
+
+	this.clearSelectedItem = function() {
+		var selectedSourceId = game.levels[game.currentLevel].selectedSourceId;
+		if (selectedSourceId != null) {
+			document.getElementById(selectedSourceId).style.backgroundColor = "white";
+		}
+		game.levels[game.currentLevel].selectedSourceId = null;
 	}
 }

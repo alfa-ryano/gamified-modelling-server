@@ -111,9 +111,8 @@ var LevelCase = function (game, level, name, description) {
     this.description = description;
     this.draggableItems = new Array();
 
-
     this.addDraggableItem = function (text) {
-        var identity = "DraggableCaseItem_" + (this.draggableItems.length + 1);
+        var identity = "DraggableCaseItem_" + new Number(this.draggableItems.length + 1);
         var draggableItem = new DraggableItem(this, identity, text);
         this.draggableItems.push(draggableItem);
         return draggableItem;
@@ -136,6 +135,8 @@ var Level = function (game, id, name) {
     this.currentPoints = 0;
     this.completedObjectives = 0;
     this.modellingType = MODELLING_TYPE.OBJECT;
+    this.selectedSourceId = null;
+    this.selectedTargetId = null;
 
     this.timeElapsed = "00:00:00";
 

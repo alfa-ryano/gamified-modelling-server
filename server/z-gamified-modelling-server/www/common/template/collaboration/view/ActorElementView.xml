@@ -1,8 +1,8 @@
-<div name="ActorElement" class="ActorElementView"  type="node" draggable="true">
+<div name="ActorElement" class="ActorElementView"  type="node">
   <button class="delete">x</button>
   <svg style='width: 100px; height: 60px; shape-rendering: geometricPrecision'>
     <!-- head -->
-    <circle cx="50px" cy="10px" r="10px" stroke="black" stroke-width="1" fill="white"/>
+    <circle cx="50px" cy="10px" r="10px" stroke="black" stroke-width="1" fill="transparent"/>
     <!-- body -->
     <line x1="50px" y1="20px" x2="50px" y2="40px" style="stroke:black;stroke-width:1" />
     <!--  hand -->
