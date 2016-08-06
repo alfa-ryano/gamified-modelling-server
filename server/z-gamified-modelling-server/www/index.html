@@ -1,102 +1,113 @@
 <head>
-    <link rel="stylesheet" href="common/css/joint.css"/>
-    <link rel="stylesheet" href="common/css/style.css"/>
-    <script src="common/javascript/others/jquery.min.js"></script>
-    <script src="common/javascript/others/jquery-ui.min.js"></script>
-    <script src="common/javascript/others/jquery.ui.touch-punch.min.js"></script>
-    <script src="common/javascript/others/jquery.finger.min.js"></script>
-    <script src="common/javascript/others/lodash.min.js"></script>
-    <script src="common/javascript/others/backbone-min.js"></script>
-    <script src="common/javascript/others/joint.js"></script>
+<link rel="stylesheet" href="common/css/joint.css" />
+<link rel="stylesheet" href="common/css/style.css" />
+<script src="common/javascript/others/jquery.min.js"></script>
+<script src="common/javascript/others/jquery-ui.min.js"></script>
+<script src="common/javascript/others/jquery.ui.touch-punch.min.js"></script>
+<script src="common/javascript/others/jquery.finger.min.js"></script>
+<script src="common/javascript/others/lodash.min.js"></script>
+<script src="common/javascript/others/backbone-min.js"></script>
+<script src="common/javascript/others/joint.js"></script>
 </head>
 <body>
-<div id="LevelScreen">
-    <div id="LevelScreenBack" class="BackButton">Back</div>
-    <div id="HeaderViewport" class="Viewport">
-        <span id="Title"> </span>
-    </div>
-    <div id="CaseViewport" class="Viewport">
-        <div id="TitleCaseViewport">CASES:</div>
-        <div id="Instruction"></div>
-    </div>
-    <div id="DraggableItems" class="Viewport"></div>
-    <div id="ObjectiveViewport" class="Viewport">
-        <div>OBJECTIVES:</div>
-        <ol id="Objective" style="padding-left: 11%">
-            <li id="ObjectiveItem1" class="ObjectiveItem"></li>
-        </ol>
-    </div>
-    <div id="DrawingViewport" class="Viewport"></div>
-    <div id="PaletteViewport" class="Viewport">
-        <div>PALETTE:</div>
-        <div id="Icons">
-            <div id="LinkIcon" class="Icon" draggable="true">
-                <svg style='width: 90px; height: 90px; shape-rendering:geometricPrecision'>
+	<div id="LevelScreen">
+		<div id="LevelScreenBack" class="BackButton">Back</div>
+		<div id="HeaderViewport" class="Viewport">
+			<span id="Title"> </span>
+		</div>
+		<div id="CaseViewport" class="Viewport">
+			<div id="TitleCaseViewport">CASES:</div>
+			<div id="Instruction"></div>
+		</div>
+		<div id="DraggableItems" class="Viewport"></div>
+		<div id="ObjectiveViewport" class="Viewport">
+			<div>OBJECTIVES:</div>
+			<ol id="Objective" style="padding-left: 11%">
+				<li id="ObjectiveItem1" class="ObjectiveItem"></li>
+			</ol>
+		</div>
+		<div id="DrawingViewport" class="Viewport"></div>
+		<div id="PaletteViewport" class="Viewport">
+			<div>PALETTE:</div>
+			<div id="Icons">
+				<div id="LinkIcon" class="Icon" draggable="true">
+					<svg
+						style='width: 90px; height: 90px; shape-rendering: geometricPrecision'>
                     <line x1="0" y1="90" x2="90" y2="0"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                 </svg>
-            </div>
-            <div id="ObjectIcon" class="Icon" draggable="true">
-                <svg style='width: 100px; height: 90px; shape-rendering:crispEdges'>
+				</div>
+				<div id="ObjectIcon" class="Icon" draggable="true">
+					<svg
+						style='width: 100px; height: 90px; shape-rendering: crispEdges'>
                     <line x1="0" y1="0" x2="99" y2="0"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                     <line x1="0" y1="30" x2="99" y2="30"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                     <line x1="0" y1="60" x2="99" y2="60"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                     <line x1="0" y1="89" x2="99" y2="89"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                     <line x1="0" y1="0" x2="0" y2="89"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                     <line x1="99" y1="0" x2="99" y2="90"
-                          style="stroke:black;stroke-width:1"/>
+							style="stroke:black;stroke-width:1" />
                 </svg>
-            </div>
-        </div>
-    </div>
-    <div id="ProgressViewport" class="Viewport">
-        <div>PROGRESS:</div>
-        <span id="ObjectiveProgress">Completed Objectives: </span><span id="ObjectiveValue">0</span><br/>
-        <span id="NodeProgress">Objects: </span><span id="NodeValue">0</span><br/>
-        <span id="EdgeProgress">Links:</span> <span id="EdgeValue">0</span><br/>
-        <span id="SlotProgress">Slots:</span><span id="SlotValue">0</span><br/>
-        <span id="OperationProgress">Operations:</span><span id="OperationValue">0</span><br/>
-        <span id="PointProgress">Points:</span><span id="PointValue">0</span><br/>
-        <span id="TimeProgress">Time Elapsed: </span><span id="TimeValue">00:00:00</span><br/>
-    </div>
-    <div id="FooterViewport" class="Viewport"></div>
-</div>
+				</div>
+			</div>
+		</div>
+		<div id="ProgressViewport" class="Viewport">
+			<div>PROGRESS:</div>
+			<span id="ObjectiveProgress">Completed Objectives: </span><span
+				id="ObjectiveValue">0</span><br /> <span id="NodeProgress">Objects:
+			</span><span id="NodeValue">0</span><br /> <span id="EdgeProgress">Links:</span>
+			<span id="EdgeValue">0</span><br /> <span id="SlotProgress">Slots:</span><span
+				id="SlotValue">0</span><br /> <span id="OperationProgress">Operations:</span><span
+				id="OperationValue">0</span><br /> <span id="PointProgress">Points:</span><span
+				id="PointValue">0</span><br /> <span id="TimeProgress">Time
+				Elapsed: </span><span id="TimeValue">00:00:00</span><br />
+		</div>
+		<div id="FooterViewport" class="Viewport"></div>
+	</div>
 
-<div id="DialogScreen">
-    <div id="dialog-background" class="filler"></div>
-    <div id="dialog-next" class="dialog">
-        <p>CONGRATULATIONS!</p>
-        <br/>
-        <p>
-            You have completed the level! <br/> Press 'Next' to go to the next
-            level!
-        </p>
-        <br/>
-        <button id="button-continue" class="dialog-button">Continue</button>
-        <button id="button-replay" class="dialog-button">Replay</button>
-        <button id="button-next" class="dialog-button">Next</button>
-    </div>
-</div>
+	<div id="DialogScreen">
+		<div id="dialog-background" class="filler"></div>
+		<div id="dialog-next" class="dialog">
+			<p>CONGRATULATIONS!</p>
+			<br />
+			<p>
+				You have completed the level! <br /> Press 'Next' to go to the next
+				level!
+			</p>
+			<br />
+			<button id="button-continue" class="dialog-button">Continue</button>
+			<button id="button-replay" class="dialog-button">Replay</button>
+			<button id="button-next" class="dialog-button">Next</button>
+		</div>
+	</div>
 
-<div id="PlayScreen">
-    <div id="ButtonPlay" draggable="true">Play</div>
-</div>
+	<div id="PlayScreen">
+		<div id="ButtonPlay" draggable="true">Play</div>
+	</div>
 
-<div id="LevelSelectionScreen">
-    <div id="LevelSelectionTitle">Select Level</div>
-    <div id="LevelSelectionBack" class="BackButton">Back</div>
-    <div id="Stories"></div>
-</div>
+	<div id="LevelSelectionScreen">
+		<div id="LevelSelectionTitle">Select Level</div>
+		<div id="LevelSelectionBack" class="BackButton">Back</div>
+		<div id="Stories"></div>
+	</div>
 
-<script type="text/javascript" src="common/javascript/mde/util.js"></script>
-<script type="text/javascript" src="common/javascript/mde/model.js"></script>
-<script type="text/javascript"
-        src="common/javascript/mde/presentation.js"></script>
-<script type="text/javascript" src="common/javascript/mde/main.js"></script>
+	<div id="LoadingScreen">
+		<div id="Instruction"></div>
+		<div id="Bar">
+			<div id="LoadingBar">Loading...</div>
+			<div id="PlayBar">Click Here to Play!!!</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="common/javascript/mde/util.js"></script>
+	<script type="text/javascript" src="common/javascript/mde/model.js"></script>
+	<script type="text/javascript"
+		src="common/javascript/mde/presentation.js"></script>
+	<script type="text/javascript" src="common/javascript/mde/main.js"></script>
 </body>
 </html>

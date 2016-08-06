@@ -32,16 +32,6 @@ var Stage = function(game) {
 
 	this.paper.on('cell:pointerdown', function(cellView, evt) {
 		var element = game.stage.graph.get('cells').find(function(cell) {
-//			if (cell instanceof joint.dia.Link && cellView.model.id == cell.id){
-//				var selectedSource = document
-//				.getElementById(game.levels[game.currentLevel].selectedSourceId);
-//				if (selectedSource != null && selectedSource.getAttribute("class").split(" ")[0] == "DraggableCaseItem"){
-//					console.log("BBBBB");
-//					var elementName = cellView.model.attributes.type.split(".")[1];
-//					window[elementName + "Event"](selectedSource, cellView);
-//				}
-//				return true;
-//			}else 
 			if (cell instanceof joint.dia.Element && cellView.model.id == cell.id){
 				var selectedSource = document
 				.getElementById(game.levels[game.currentLevel].selectedSourceId);
@@ -218,10 +208,25 @@ var Stage = function(game) {
 							.addEventListener(
 									"click",
 									function() {
-										game.play(this.innerHTML - 1);
-										document.getElementById("LevelScreen").style.visibility = "visible";
-										document
-												.getElementById("LevelSelectionScreen").style.visibility = "collapse";
+										var level = this.innerHTML;
+										document.getElementById("PlayBar").style.visibility = "collapse";
+										document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
+										document.getElementById("LoadingScreen").style.visibility = "visible";
+										document.getElementById("LoadingBar").style.visibility = "visible";
+										
+										setTimeout(function(){
+											if (game.play(level - 1)){
+												document.getElementById("LoadingBar").style.visibility = "collapse";
+												document.getElementById("PlayBar").style.visibility = "visible";
+												document.getElementById("PlayBar").onclick = function(){
+													document.getElementById("PlayBar").style.visibility = "collapse";
+													document.getElementById("LoadingScreen").style.visibility = "collapse";
+													document.getElementById("LevelScreen").style.visibility = "visible";
+												}
+											}											
+										}, 500);
+//										document.getElementById("LevelScreen").style.visibility = "visible";
+//										document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
 									});
 					storyLevels.appendChild(child);
 				}
@@ -333,20 +338,6 @@ var Stage = function(game) {
 				game.stage.setSelectedItem(element);
 			}
 
-			// var parser = new DOMParser();
-			// xmlDoc = parser.parseFromString(xmlString, "text/xml");
-			//		    
-			// for (var i = 0; i < xmlDoc.firstChild.children.length; i++) {
-			// var elementId = xmlDoc.firstChild.children[i].getAttribute("id");
-			//				
-			// $("#" + elementId).draggable({
-			// opacity : 0.7,
-			// helper : "clone",
-			// start : function(event) {
-			// }
-			// });
-			// }
-
 		}
 	}
 
@@ -355,38 +346,6 @@ var Stage = function(game) {
 		var path = "common/template/" + modellingType + "/event/" + elementName
 				+ "Event.js";
 		$.getScript(path);
-		
-//		$.getScript(path, 
-//				function() {
-//			var elements = document.getElementsByClassName(elementName + "View");
-//			
-//			for (var i = 0; i < elements.length; i++){
-//				var element = elements[i];
-//				element.onclick = function(event){
-//					window[elementName + "Event"](event, null, elementName);
-//				}
-//			}
-			
-			
-//			$("." + elementName + "View").droppable({
-//				drop : function(event, ui) {
-//					window[elementName + "Event"](event, ui, elementName);
-//				}
-//			});
-			// $(".label").mouseup(function() {
-			// alert("mouseup");
-			// });
-			// $("." + elementName + "View").mouseover(function(event, ui) {
-			// alert("mouseover");
-			//
-			// });
-			// $("." + elementName + "View").hover(function(event, ui) {
-			// alert("hover 1");
-			// }, function(event, ui) {
-			// alert("hover 2");
-			// });
-		//});
-
 	}
 
 	this.loadDrawingViewportEvent = function() {

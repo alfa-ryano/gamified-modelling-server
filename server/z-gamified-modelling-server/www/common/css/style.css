@@ -98,12 +98,12 @@ body, html {
 }
 
 #DrawingViewport {
-  left: 20%;
-  top: 5%;
-  width: 60%;
-  height: 90%;
-  z-index: 0;
-  border: thin none white;
+	left: 20%;
+	top: 5%;
+	width: 60%;
+	height: 90%;
+	z-index: 0;
+	border: thin none white;
 }
 
 #ObjectiveViewport {
@@ -194,7 +194,6 @@ body, html {
 	border: thin solid black;
 	height: 29px;
 }
-
 
 #DialogScreen {
 	visibility: collapse;
@@ -331,4 +330,93 @@ body, html {
 	line-height: 50px;
 	margin: 5px;
 	cursor: pointer;
+}
+
+/*---------------------------------------------------------*/
+#LoadingScreen {
+	visibility: collapse;
+	position: absolute;
+	background-color: white;
+	z-index: 16;
+	left: 0%;
+	top: 0%;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+#Instruction {
+	margin: 0%;
+  padding:0%;
+  text-indent: 0;
+}
+
+#Bar {
+  font-weight:bolder;
+  position: absolute;
+  top: 90%;
+  left: 0%;
+  height: 10%;
+  width: 100%;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  text-align: center;
+}
+
+#PlayBar {
+	padding:0%;
+	margin:0%;
+	position: absolute;
+	visibility: collapse;
+	width: 30%;
+	left: 35%;
+	cursor: pointer;
+  font-size: 30px;
+  
+	-webkit-animation-name: example; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+  -webkit-animation-iteration-count: infinite;
+  /* Chrome, Safari, Opera */
+  -webkit-animation-timing-function: linear;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+	}
+	
+#LoadingBar {
+	
+	padding:0%;
+  margin:0%;
+  position: absolute;
+  visibility: collapse;
+  width: 30%;
+  left: 35%;
+  font-size: 30px;
+ 
+	-webkit-animation-name: example; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite;
+	/* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear;
+	animation-name: example;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example { 
+  0% {opacity: 0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+
+/* Standard syntax */
+@keyframes example { 
+  0% {opacity: 0;}
+  50% {opacity:1;}
+  100%{opacity:0;}
 }

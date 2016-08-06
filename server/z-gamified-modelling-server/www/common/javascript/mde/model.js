@@ -246,13 +246,13 @@ var Game = function () {
     }
 
     this.play = function (level) {
-        game.currentLevel = level;
+        this.currentLevel = level;
         this.stage.graph.clear();
         this.levels[game.currentLevel].initialize();
         this.levels[game.currentLevel].nodes.length = 0;
         this.levels[game.currentLevel].edges.length = 0;
         this.stage.closeDialog();
-        
+        return true;
     }.bind(this);
 
     this.replay = function () {
