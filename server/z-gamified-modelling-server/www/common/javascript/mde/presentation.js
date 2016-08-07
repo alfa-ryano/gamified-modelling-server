@@ -214,11 +214,97 @@ var Stage = function(game) {
 										document.getElementById("LoadingScreen").style.visibility = "visible";
 										document.getElementById("LoadingBar").style.visibility = "visible";
 										
+										// loading instruction content
+										var path = "";
+										var pathCSS = "";
+										if (level.length == 1){
+											level  = "00" + level;
+										}if (level.length == 2){
+											level  = "0" + level;
+										}
+										
+										if (game.mode == "DEVELOPMENT"){
+											path = "development/game/level_"+ level +"/instructions.xml";
+											pathCSS = "development/game/level_"+ level +"/instructions.css";
+										}else{
+											path = "production/game/level_"+ level +"/instructions.xml";
+											pathCSS = "production/game/level_"+ level +"/instructions.css";
+										}
+										
+										///begin css										
+										// remove first
+										var child = document.getElementById(path);
+										if (child != null) {
+											var parent = document.getElementsByTagName('head')[0];
+											parent.removeChild(child);
+										}
+		
+										// add then
+										var link = document.createElement('link');
+										link.setAttribute('id', pathCSS);
+										link.setAttribute('rel', 'stylesheet');
+										link.setAttribute('type', 'text/css');
+										link.setAttribute('href', pathCSS);
+										var head = document.getElementsByTagName('head')[0];
+										head.appendChild(link);
+										var text = head.innerHTML;
+										///end css
+										
+										
+										var loadXML = new XMLHttpRequest;
+										loadXML.onloadend = function() {
+											var xmlString = loadXML.responseText.replace(
+													/(\r\n|\n|\r|\t)/gm, "");
+											var instructions = document.getElementById("Instructions");
+											instructions.innerHTML = xmlString;
+											var instructionContent = instructions.firstElementChild;
+											if (instructionContent.children.length > 0){
+												instructionContent.children[0].style.visibility = "visible";
+											}
+											if (instructionContent.children.length > 1){
+												for(var i = 1; i < instructionContent.children.length; i++){
+													instructionContent.children[i].style.visibility = "collapse";
+												}
+												var currentPage = 1;
+												var totalPage = instructionContent.children.length;
+												document.getElementById("NextButton").onclick = function(){
+													currentPage += 1;
+													if (currentPage > totalPage){
+														currentPage = totalPage;
+													}
+													for(var i = 0; i < instructionContent.children.length; i++){
+														instructionContent.children[i].style.visibility = "collapse";
+													}
+													instructionContent.children[currentPage-1].style.visibility = "visible";
+												}
+												document.getElementById("BackButton").onclick = function(){
+													currentPage -= 1;
+													if (currentPage < 1){
+														currentPage = 1;
+													}
+													for(var i = 0; i < instructionContent.children.length; i++){
+														instructionContent.children[i].style.visibility = "collapse";
+													}
+													instructionContent.children[currentPage-1].style.visibility = "visible";
+												}
+											}
+											
+										};
+										loadXML.open("GET", path, false);
+										loadXML.send();
+
+										// loading stage
 										setTimeout(function(){
 											if (game.play(level - 1)){
 												document.getElementById("LoadingBar").style.visibility = "collapse";
 												document.getElementById("PlayBar").style.visibility = "visible";
 												document.getElementById("PlayBar").onclick = function(){
+													document.getElementById("Instructions").style.visibility = "collapse";
+													document.getElementById("InstructionContent").style.visibility = "collapse";
+													for(var x = 0; x < document.getElementById("InstructionContent").children.length; x++){
+														var element = document.getElementById("InstructionContent").children[x];
+														element.style.visibility = "collapse";
+													}
 													document.getElementById("PlayBar").style.visibility = "collapse";
 													document.getElementById("LoadingScreen").style.visibility = "collapse";
 													document.getElementById("LevelScreen").style.visibility = "visible";
@@ -262,7 +348,7 @@ var Stage = function(game) {
 					var xmlString = loadXML.responseText.replace(
 							/(\r\n|\n|\r|\t)/gm, "");
 					var parser = new DOMParser();
-					xmlDoc = parser.parseFromString(xmlString, "text/xml");
+					var xmlDoc = parser.parseFromString(xmlString, "text/xml");
 					var elementName = xmlDoc.firstChild.getAttribute("name");
 					var elementType = xmlDoc.firstChild.getAttribute("type");
 
@@ -277,8 +363,8 @@ var Stage = function(game) {
 									window[elementName + "Cell"](elementName,
 											xmlString);
 								} else if (elementType == "edge") {
-									var doc = new DOMParser();
-									doc = parser.parseFromString(xmlString,
+									var parser2 = new DOMParser();
+									var doc = parser2.parseFromString(xmlString,
 											"text/xml");
 									xmlString = doc.firstChild.innerHTML
 											.replace(/(\r\n|\n|\r|\t)/gm, "");
