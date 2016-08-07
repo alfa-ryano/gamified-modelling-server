@@ -251,19 +251,19 @@ var Game = function () {
         this.levels[game.currentLevel].initialize();
         this.levels[game.currentLevel].nodes.length = 0;
         this.levels[game.currentLevel].edges.length = 0;
-        this.stage.closeDialog();
         return true;
     }.bind(this);
 
-    this.replay = function () {
+    this.replay = function (level) {
         this.stage.graph.clear();
         this.levels[game.currentLevel].initialize();
-        this.stage.closeDialog();
+        return true;
     }.bind(this);
-    document.getElementById("button-replay").onclick = this.replay;
+    
 
-    this.nextLevel = function () {
-        this.currentLevel += 1;
+    this.nextLevel = function (level) {
+        //this.currentLevel += 1;
+    	this.currentLevel = level;
         if (this.levels[game.currentLevel].isSequel == false) {
             this.levels[game.currentLevel].nodes.length = 0;
             this.levels[game.currentLevel].edges.length = 0;
@@ -274,9 +274,9 @@ var Game = function () {
             this.levels[game.currentLevel].edges = this.levels[game.currentLevel - 1].edges;
         }
         this.levels[game.currentLevel].initialize();
-        this.stage.closeDialog();
+        return true;
     }.bind(this);
-    document.getElementById("button-next").onclick = this.nextLevel;
+    
 }
 Game.prototype = new Entity();
 Game.constructor = Game;
