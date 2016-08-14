@@ -7,9 +7,15 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: graphmodelling,
+Export-Package: collaborationmodelling,
+ collaborationmodelling.impl,
+ collaborationmodelling.util,
+ graphmodelling,
  graphmodelling.impl,
  graphmodelling.util,
+ objectmodelling,
+ objectmodelling.impl,
+ objectmodelling.util,
  editormodel,
  editormodel.impl,
  editormodel.util

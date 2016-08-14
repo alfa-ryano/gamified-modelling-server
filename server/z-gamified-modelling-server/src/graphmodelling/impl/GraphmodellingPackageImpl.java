@@ -2,6 +2,8 @@
  */
 package graphmodelling.impl;
 
+import collaborationmodelling.CollaborationmodellingPackage;
+import collaborationmodelling.impl.CollaborationmodellingPackageImpl;
 import graphmodelling.Edge;
 import graphmodelling.Entity;
 import graphmodelling.Graph;
@@ -11,6 +13,8 @@ import graphmodelling.Node;
 import graphmodelling.Operation;
 import graphmodelling.Property;
 
+import objectmodelling.ObjectmodellingPackage;
+import objectmodelling.impl.ObjectmodellingPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -113,11 +117,16 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		CollaborationmodellingPackageImpl theCollaborationmodellingPackage = (CollaborationmodellingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CollaborationmodellingPackage.eNS_URI) instanceof CollaborationmodellingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CollaborationmodellingPackage.eNS_URI) : CollaborationmodellingPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theGraphmodellingPackage.createPackageContents();
+		theCollaborationmodellingPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphmodellingPackage.initializePackageContents();
+		theCollaborationmodellingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGraphmodellingPackage.freeze();

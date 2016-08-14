@@ -1,0 +1,6 @@
+rule GenerateJavascriptModels
+transform modelling : objectmodelling!EPackage {
+  guard : true 
+  template : "template.egl"
+  target : "generated.js"
+}

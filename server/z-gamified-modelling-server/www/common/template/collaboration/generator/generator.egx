@@ -1,0 +1,6 @@
+rule GenerateJavascriptModels
+transform modelling : collaborationmodelling!EPackage {
+  guard : true 
+  template : "template.egl"
+  target : "generated.js"
+}

@@ -490,9 +490,11 @@ var Stage = function(game) {
 			var type = selectedSource.getAttribute("type");
 
 			if (type == "Node") {
-				var nodeName = "";
-				var nodeId = CreateId();
-				var node = game.levels[game.currentLevel].addNode("", nodeId);
+			
+				var node = new window[elementName]();
+				game.levels[game.currentLevel].addNode(node);
+				node.name = "";
+				var nodeId = node.id;
 
 				var width = selectedSource.clientWidth;
 				var height = selectedSource.clientHeight;
@@ -506,7 +508,6 @@ var Stage = function(game) {
 						width : width,
 						height : height
 					},
-					name : nodeName,
 					identity : nodeId,
 					model : node
 				});
@@ -522,8 +523,10 @@ var Stage = function(game) {
 
 			} else if (type == "Edge") {
 
-				var edgeId = CreateId();
-				var edgeModel = game.levels[game.currentLevel].addEdge(edgeId);
+				
+				var edge = new window[elementName];
+				game.levels[game.currentLevel].addEdge(edge);
+				var edgeId = edge.id;
 
 				var width = selectedSource.clientWidth;
 				var height = selectedSource.clientHeight;
@@ -539,7 +542,7 @@ var Stage = function(game) {
 						y : paperPoint.y + height / 2
 					},
 					identity : edgeId,
-					model : edgeModel
+					model : edge
 				});
 
 				link
@@ -574,8 +577,8 @@ var Stage = function(game) {
 								this.attributes.model.targetId = null;
 							}
 
-							if (targetElement != null
-								&& targetElement != null) {
+							if (sourceElement != null
+								&& sourceElement != null) {
 								game.levels[game.currentLevel]
 									.evaluateObjectives();
 							}

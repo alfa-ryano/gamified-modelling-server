@@ -1,0 +1,12 @@
+try{
+	[% for (element in modelling.eClassifiers){ %]
+	var [%= element.name %] = function() {
+	    [%= element.eSuperTypes[0].name %].call(this);
+	} 
+	[%= element.name %].prototype = new [%= element.eSuperTypes[0].name %]();
+	[%= element.name %].constructor = [%= element.name %];
+	
+	[% } %]
+} catch (err) {
+    alert(err.message);
+}

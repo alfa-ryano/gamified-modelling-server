@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="collaborationmodelling" nsURI="collaborationmodelling" nsPrefix="collaborationmodelling">
+  <eClassifiers xsi:type="ecore:EClass" name="CollaborationModelling" eSuperTypes="../../../model/graph.ecore#//Graph"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActorElement" eSuperTypes="../../../model/graph.ecore#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectElement" eSuperTypes="../../../model/graph.ecore#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageElement" eSuperTypes="../../../model/graph.ecore#//Edge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkElement" eSuperTypes="../../../model/graph.ecore#//Edge"/>
+</ecore:EPackage>
