@@ -557,7 +557,7 @@ var Stage = function(game) {
 								this.attributes.model.sourceId = null;
 							}
 
-							if (targetElement != null
+							if (sourceElement != null
 								&& targetElement != null) {
 								game.levels[game.currentLevel]
 									.evaluateObjectives();
@@ -578,7 +578,7 @@ var Stage = function(game) {
 							}
 
 							if (sourceElement != null
-								&& sourceElement != null) {
+								&& targetElement != null) {
 								game.levels[game.currentLevel]
 									.evaluateObjectives();
 							}

@@ -10,7 +10,7 @@ class Entity {
     attr String value;
     
     attr String type;
-    attr String entityClass;
+    attr String className;
     attr String group;
     attr String category;
     attr String accessModifier;

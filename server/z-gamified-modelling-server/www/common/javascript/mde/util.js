@@ -67,6 +67,7 @@ var Util = function(game) {
 		model["level"] = level;
 		model["nodes"] = nodes;
 		model["edges"] = edges;
+		
 		return model;
 	}
 

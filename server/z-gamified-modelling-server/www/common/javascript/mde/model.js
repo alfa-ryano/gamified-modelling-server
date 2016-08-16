@@ -162,7 +162,8 @@ var Level = function(game, id, name) {
 		game.util
 			.jsonSubmit(
 				"POST",
-				"Validation",
+				"Validation2",
+				//"Validation",
 				data,
 				// function to respond to the feedback response provided
 				// by the server
