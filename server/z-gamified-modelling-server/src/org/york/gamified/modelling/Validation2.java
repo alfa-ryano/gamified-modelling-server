@@ -103,7 +103,7 @@ public class Validation2 extends HttpServlet {
 					graphmodelling.Node node2 = factory.createNode();
 					node2.setID(node.id);
 					node2.setName(node.name);
-					node2.setEntityClass(node.className);
+					node2.setClassName(node.className);
 
 					if (node.properties != null) {
 						for (Property property : node.properties) {
@@ -135,10 +135,10 @@ public class Validation2 extends HttpServlet {
 					edge2.setID(edge.id);
 					if (graph.getNodes() != null && graph.getNodes().size() > 0) {
 						for (graphmodelling.Node node : graph.getNodes()) {
-							if (node.getID().equals(edge.sourceId)) {
+							if (edge.sourceId != null && node.getID() != null && node.getID().equals(edge.sourceId)) {
 								edge2.setSource(node);
 							}
-							if (node.getID().equals(edge.targetId)) {
+							if (edge.targetId != null && node.getID() != null && node.getID().equals(edge.targetId)) {
 								edge2.setTarget(node);
 							}
 						}

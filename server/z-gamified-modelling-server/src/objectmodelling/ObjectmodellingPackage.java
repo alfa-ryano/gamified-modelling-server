@@ -120,13 +120,13 @@ public interface ObjectmodellingPackage extends EPackage {
 	int OBJECT_MODELLING__TYPE = GraphmodellingPackage.GRAPH__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__ENTITY_CLASS = GraphmodellingPackage.GRAPH__ENTITY_CLASS;
+	int OBJECT_MODELLING__CLASS_NAME = GraphmodellingPackage.GRAPH__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -283,13 +283,13 @@ public interface ObjectmodellingPackage extends EPackage {
 	int OBJECT_ELEMENT__TYPE = GraphmodellingPackage.NODE__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_ELEMENT__ENTITY_CLASS = GraphmodellingPackage.NODE__ENTITY_CLASS;
+	int OBJECT_ELEMENT__CLASS_NAME = GraphmodellingPackage.NODE__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -464,13 +464,13 @@ public interface ObjectmodellingPackage extends EPackage {
 	int LINK_ELEMENT__TYPE = GraphmodellingPackage.EDGE__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_ELEMENT__ENTITY_CLASS = GraphmodellingPackage.EDGE__ENTITY_CLASS;
+	int LINK_ELEMENT__CLASS_NAME = GraphmodellingPackage.EDGE__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.

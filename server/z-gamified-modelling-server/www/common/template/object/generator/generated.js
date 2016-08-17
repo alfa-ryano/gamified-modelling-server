@@ -1,22 +1,28 @@
 try{
-	var ObjectModelling = function() {
-	    Graph.call(this);
-	} 
-	ObjectModelling.prototype = new Graph();
-	ObjectModelling.constructor = ObjectModelling;
-	
-	var ObjectElement = function() {
-	    Node.call(this);
-	} 
-	ObjectElement.prototype = new Node();
-	ObjectElement.constructor = ObjectElement;
-	
-	var LinkElement = function() {
-	    Edge.call(this);
-	} 
-	LinkElement.prototype = new Edge();
-	LinkElement.constructor = LinkElement;
-	
+    // ObjectModelling --------------------------------------------------
+    var ObjectModelling = function() {
+        Graph.call(this);
+        this.eClass = "objectmodelling#//ObjectModelling"
+    } 
+    ObjectModelling.prototype = new Graph();
+    ObjectModelling.constructor = ObjectModelling;
+ 
+    // ObjectElement --------------------------------------------------
+    var ObjectElement = function() {
+        Node.call(this);
+        this.eClass = "objectmodelling#//ObjectElement"
+    } 
+    ObjectElement.prototype = new Node();
+    ObjectElement.constructor = ObjectElement;
+ 
+    // LinkElement --------------------------------------------------
+    var LinkElement = function() {
+        Edge.call(this);
+        this.eClass = "objectmodelling#//LinkElement"
+    } 
+    LinkElement.prototype = new Edge();
+    LinkElement.constructor = LinkElement;
+ 
 } catch (err) {
-    alert(err.message);
+    alert("objectmodelling: generated.js: " + err.message);
 }

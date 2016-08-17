@@ -120,13 +120,13 @@ public interface GraphmodellingPackage extends EPackage {
 	int ENTITY__TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__ENTITY_CLASS = 6;
+	int ENTITY__CLASS_NAME = 6;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -265,13 +265,13 @@ public interface GraphmodellingPackage extends EPackage {
 	int GRAPH__TYPE = ENTITY__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__ENTITY_CLASS = ENTITY__ENTITY_CLASS;
+	int GRAPH__CLASS_NAME = ENTITY__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -428,13 +428,13 @@ public interface GraphmodellingPackage extends EPackage {
 	int NODE__TYPE = ENTITY__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__ENTITY_CLASS = ENTITY__ENTITY_CLASS;
+	int NODE__CLASS_NAME = ENTITY__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -609,13 +609,13 @@ public interface GraphmodellingPackage extends EPackage {
 	int PROPERTY__TYPE = ENTITY__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ENTITY_CLASS = ENTITY__ENTITY_CLASS;
+	int PROPERTY__CLASS_NAME = ENTITY__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -754,13 +754,13 @@ public interface GraphmodellingPackage extends EPackage {
 	int OPERATION__TYPE = ENTITY__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__ENTITY_CLASS = ENTITY__ENTITY_CLASS;
+	int OPERATION__CLASS_NAME = ENTITY__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -899,13 +899,13 @@ public interface GraphmodellingPackage extends EPackage {
 	int EDGE__TYPE = ENTITY__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Entity Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__ENTITY_CLASS = ENTITY__ENTITY_CLASS;
+	int EDGE__CLASS_NAME = ENTITY__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -1075,15 +1075,15 @@ public interface GraphmodellingPackage extends EPackage {
 	EAttribute getEntity_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link graphmodelling.Entity#getEntityClass <em>Entity Class</em>}'.
+	 * Returns the meta object for the attribute '{@link graphmodelling.Entity#getClassName <em>Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Entity Class</em>'.
-	 * @see graphmodelling.Entity#getEntityClass()
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see graphmodelling.Entity#getClassName()
 	 * @see #getEntity()
 	 * @generated
 	 */
-	EAttribute getEntity_EntityClass();
+	EAttribute getEntity_ClassName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link graphmodelling.Entity#getGroup <em>Group</em>}'.
@@ -1381,12 +1381,12 @@ public interface GraphmodellingPackage extends EPackage {
 		EAttribute ENTITY__TYPE = eINSTANCE.getEntity_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Entity Class</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ENTITY__ENTITY_CLASS = eINSTANCE.getEntity_EntityClass();
+		EAttribute ENTITY__CLASS_NAME = eINSTANCE.getEntity_ClassName();
 
 		/**
 		 * The meta object literal for the '<em><b>Group</b></em>' attribute feature.

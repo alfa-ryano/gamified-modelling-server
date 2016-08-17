@@ -110,7 +110,7 @@ var Stage = function(game) {
 			var newSpan = document.createElement("span");
 
 			newSpan.className = "DraggableCaseItem";
-			newSpan.id = draggableItem.id;
+			newSpan.id = draggableItem.ID;
 			newSpan.innerHTML = "";
 			newSpan.innerHTML = draggableItem.text;
 			newSpan.setAttribute("type", draggableItem.type);
@@ -494,7 +494,7 @@ var Stage = function(game) {
 				var node = new window[elementName]();
 				game.levels[game.currentLevel].addNode(node);
 				node.name = "";
-				var nodeId = node.id;
+				var nodeId = node.ID;
 
 				var width = selectedSource.clientWidth;
 				var height = selectedSource.clientHeight;
@@ -526,7 +526,7 @@ var Stage = function(game) {
 				
 				var edge = new window[elementName];
 				game.levels[game.currentLevel].addEdge(edge);
-				var edgeId = edge.id;
+				var edgeId = edge.ID;
 
 				var width = selectedSource.clientWidth;
 				var height = selectedSource.clientHeight;
@@ -552,9 +552,9 @@ var Stage = function(game) {
 							var sourceElement = link.getSourceElement();
 							var targetElement = link.getTargetElement();
 							if (sourceElement != null) {
-								this.attributes.model.sourceId = sourceElement.attributes.identity;
+								this.attributes.model.source = sourceElement.attributes.model;
 							} else {
-								this.attributes.model.sourceId = null;
+								this.attributes.model.source = null;
 							}
 
 							if (sourceElement != null
@@ -571,10 +571,10 @@ var Stage = function(game) {
 							var sourceElement = link.getSourceElement();
 							var targetElement = link.getTargetElement();
 							if (targetElement != null) {
-								this.attributes.model.targetId = targetElement.attributes.identity;
+								this.attributes.model.target = targetElement.attributes.model;
 
 							} else {
-								this.attributes.model.targetId = null;
+								this.attributes.model.target = null;
 							}
 
 							if (sourceElement != null

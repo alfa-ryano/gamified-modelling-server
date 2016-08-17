@@ -24,7 +24,7 @@ class Entity {
 
 class Graph extends Entity {
     val Node[*] nodes;
-    val Edge[*] Edges;
+    val Edge[*] edges;
 }
 
 class Node extends Entity {

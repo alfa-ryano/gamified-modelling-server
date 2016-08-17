@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link graphmodelling.impl.EntityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link graphmodelling.impl.EntityImpl#getValue <em>Value</em>}</li>
  *   <li>{@link graphmodelling.impl.EntityImpl#getType <em>Type</em>}</li>
- *   <li>{@link graphmodelling.impl.EntityImpl#getEntityClass <em>Entity Class</em>}</li>
+ *   <li>{@link graphmodelling.impl.EntityImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link graphmodelling.impl.EntityImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link graphmodelling.impl.EntityImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link graphmodelling.impl.EntityImpl#getAccessModifier <em>Access Modifier</em>}</li>
@@ -160,24 +160,24 @@ public class EntityImpl extends EObjectImpl implements Entity {
 	protected String type = TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEntityClass() <em>Entity Class</em>}' attribute.
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntityClass()
+	 * @see #getClassName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ENTITY_CLASS_EDEFAULT = null;
+	protected static final String CLASS_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getEntityClass() <em>Entity Class</em>}' attribute.
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntityClass()
+	 * @see #getClassName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String entityClass = ENTITY_CLASS_EDEFAULT;
+	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getGroup() <em>Group</em>}' attribute.
@@ -469,8 +469,8 @@ public class EntityImpl extends EObjectImpl implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEntityClass() {
-		return entityClass;
+	public String getClassName() {
+		return className;
 	}
 
 	/**
@@ -478,11 +478,11 @@ public class EntityImpl extends EObjectImpl implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEntityClass(String newEntityClass) {
-		String oldEntityClass = entityClass;
-		entityClass = newEntityClass;
+	public void setClassName(String newClassName) {
+		String oldClassName = className;
+		className = newClassName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphmodellingPackage.ENTITY__ENTITY_CLASS, oldEntityClass, entityClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphmodellingPackage.ENTITY__CLASS_NAME, oldClassName, className));
 	}
 
 	/**
@@ -652,8 +652,8 @@ public class EntityImpl extends EObjectImpl implements Entity {
 				return getValue();
 			case GraphmodellingPackage.ENTITY__TYPE:
 				return getType();
-			case GraphmodellingPackage.ENTITY__ENTITY_CLASS:
-				return getEntityClass();
+			case GraphmodellingPackage.ENTITY__CLASS_NAME:
+				return getClassName();
 			case GraphmodellingPackage.ENTITY__GROUP:
 				return getGroup();
 			case GraphmodellingPackage.ENTITY__CATEGORY:
@@ -698,8 +698,8 @@ public class EntityImpl extends EObjectImpl implements Entity {
 			case GraphmodellingPackage.ENTITY__TYPE:
 				setType((String)newValue);
 				return;
-			case GraphmodellingPackage.ENTITY__ENTITY_CLASS:
-				setEntityClass((String)newValue);
+			case GraphmodellingPackage.ENTITY__CLASS_NAME:
+				setClassName((String)newValue);
 				return;
 			case GraphmodellingPackage.ENTITY__GROUP:
 				setGroup((String)newValue);
@@ -752,8 +752,8 @@ public class EntityImpl extends EObjectImpl implements Entity {
 			case GraphmodellingPackage.ENTITY__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case GraphmodellingPackage.ENTITY__ENTITY_CLASS:
-				setEntityClass(ENTITY_CLASS_EDEFAULT);
+			case GraphmodellingPackage.ENTITY__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
 				return;
 			case GraphmodellingPackage.ENTITY__GROUP:
 				setGroup(GROUP_EDEFAULT);
@@ -800,8 +800,8 @@ public class EntityImpl extends EObjectImpl implements Entity {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case GraphmodellingPackage.ENTITY__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case GraphmodellingPackage.ENTITY__ENTITY_CLASS:
-				return ENTITY_CLASS_EDEFAULT == null ? entityClass != null : !ENTITY_CLASS_EDEFAULT.equals(entityClass);
+			case GraphmodellingPackage.ENTITY__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
 			case GraphmodellingPackage.ENTITY__GROUP:
 				return GROUP_EDEFAULT == null ? group != null : !GROUP_EDEFAULT.equals(group);
 			case GraphmodellingPackage.ENTITY__CATEGORY:
@@ -842,8 +842,8 @@ public class EntityImpl extends EObjectImpl implements Entity {
 		result.append(value);
 		result.append(", type: ");
 		result.append(type);
-		result.append(", entityClass: ");
-		result.append(entityClass);
+		result.append(", className: ");
+		result.append(className);
 		result.append(", group: ");
 		result.append(group);
 		result.append(", category: ");

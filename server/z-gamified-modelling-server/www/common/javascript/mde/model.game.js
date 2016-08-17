@@ -13,25 +13,6 @@ var DRAGGABLE_ITEM_TYPE = {
 	OPERATION : "OperationDraggableCaseItem"
 }
 
-var Entity = function() {
-	this.id = CreateId();
-	this.name;
-	this.text;
-	this.description;
-	this.value;
-
-	this.type;
-	this.className;
-	this.group;
-	this.category;
-	this.accessModifier;
-
-	this.x;
-	this.y;
-	this.width;
-	this.height;
-}
-
 var Story = function(game) {
 	Entity.call(this);
 	this.game = game;
@@ -51,36 +32,6 @@ var SubStory = function(game, story) {
 SubStory.prototype = new Entity();
 SubStory.constructor = SubStory;
 
-var Property = function(text) {
-	Entity.call(this);
-	this.text = text;
-}
-Property.prototype = new Entity();
-Property.constructor = Property;
-
-var Operation = function(text) {
-	Entity.call(this);
-	this.text = text;
-}
-Operation.prototype = new Entity();
-Operation.constructor = Operation;
-
-var Node = function() {
-	Entity.call(this);
-	this.properties = new Array();
-	this.operations = new Array();
-}
-Node.prototype = new Entity();
-Node.constructor = Node;
-
-var Edge = function(id) {
-	Entity.call(this);
-	this.sourceId = null;
-	this.targetId = null;
-}
-Edge.prototype = new Entity();
-Edge.constructor = Edge;
-
 var Objective = function(game, level, name, description) {
 	Entity.call(this);
 	this.name = name;
@@ -93,7 +44,7 @@ Objective.constructor = Objective;
 
 var DraggableItem = function(levelCase, identity, text) {
 	Entity.call(this);
-	this.id = identity;
+	this.ID = identity;
 	this.levelCase = levelCase;
 	this.text = text;
 	this.type = DRAGGABLE_ITEM_TYPE.OBJECT;
@@ -119,10 +70,10 @@ var LevelCase = function(game, level, name, description) {
 LevelCase.prototype = new Entity();
 LevelCase.constructor = LevelCase;
 
-var Level = function(game, id, name) {
+var Level = function(game, ID, name) {
 	Entity.call(this);
 
-	this.id = id;
+	this.ID = ID;
 	this.name = name;
 	this.game = game;
 	this.objectives = new Array();
@@ -137,7 +88,11 @@ var Level = function(game, id, name) {
 	this.selectedSourceId = null;
 	this.selectedTargetId = null;
 	this.timeElapsed = "00:00:00";
-	this.graph = new Graph(this);
+	
+	this.graph = new Graph();
+	this.graph.level = this;
+	this.graph.nodes = this.nodes;
+	this.graph.edges = this.edges;
 
 
 	this.addNode = function(node) {
@@ -156,7 +111,7 @@ var Level = function(game, id, name) {
 
 	this.evaluateObjectives = function() {
 		var data = game.util.convertModelsToJson(game.mode,
-			game.levels[game.currentLevel].id,
+			game.levels[game.currentLevel].ID,
 			game.levels[game.currentLevel].nodes,
 			game.levels[game.currentLevel].edges);
 		game.util
@@ -285,14 +240,3 @@ var Game = function() {
 Game.prototype = new Entity();
 Game.constructor = Game;
 
-var Graph = function(level) {
-	Entity.call(this);
-	if (level == null){
-		level = game.levels[game.currentLevel];
-	}
-	this.level = level;
-	this.nodes = level.nodes;
-	this.edges = level.edges;
-}
-Graph.prototype = new Entity();
-Graph.constructor = Graph;

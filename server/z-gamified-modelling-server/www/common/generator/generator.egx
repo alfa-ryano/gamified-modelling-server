@@ -1,0 +1,6 @@
+rule GenerateJavascriptModels
+transform modelling : graphmodelling!EPackage {
+  guard : true 
+  template : "template.egl"
+  target : "../javascript/mde/model.entity.js"
+}
