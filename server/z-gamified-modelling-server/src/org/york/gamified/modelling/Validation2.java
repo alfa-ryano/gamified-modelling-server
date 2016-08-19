@@ -95,6 +95,7 @@ public class Validation2 extends HttpServlet {
 
 			//// -------------------------------------------------------------------------------------------
 
+			//
 			if (model.graph.edges != null) {
 				for (Edge edge : model.graph.edges) {
 					for (int i = 0; i < model.graph.nodes.size(); i++) {
@@ -114,14 +115,20 @@ public class Validation2 extends HttpServlet {
 			}
 			String graphOnlyJsonString = gson.toJson(model.graph);
 
+			//Put Modelling Package or EPackage Dynamically
+			String packageName = model.graph.eClass.split("#")[0];
+			String fullClassName = packageName + "." 
+					+ packageName.substring(0, 1).toUpperCase() 
+					+ packageName.substring(1, packageName.length())
+					+ "Package";
+			
 			ClassLoader classLoader = Validation2.class.getClassLoader();
-			Class modellingPackage =  classLoader.loadClass("objectmodelling.ObjectmodellingPackage");
+			Class modellingPackage =  classLoader.loadClass(fullClassName);
 			Object eInstance = modellingPackage.getField("eINSTANCE").get(modellingPackage);
-			Class noparams[] = {};
-			Method method = eInstance.getClass().getMethod("getNsURI", noparams);
+			Method method = eInstance.getClass().getMethod("getNsURI", new Class[]{});
 			
 			ResourceSet res = new ResourceSetImpl();
-			res.getPackageRegistry().put(method.invoke(eInstance, null).toString(), eInstance);
+			res.getPackageRegistry().put(method.invoke(eInstance, new Object[]{}).toString(), eInstance);
 			//res.getPackageRegistry().put(ObjectmodellingPackage.eINSTANCE.getNsURI(), ObjectmodellingPackage.eINSTANCE);
 			res.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new JsonResourceFactory());
 
@@ -145,7 +152,7 @@ public class Validation2 extends HttpServlet {
 
 			// create in memory Emf Model and add the model to Validation EVL
 			InMemoryEmfModel inMemoryEmfModel = new InMemoryEmfModel(r);
-			inMemoryEmfModel.setName("ObjectModelling");
+			inMemoryEmfModel.setName(packageName);
 			module.getContext().getModelRepository().addModel(inMemoryEmfModel);
 
 			// excute the module

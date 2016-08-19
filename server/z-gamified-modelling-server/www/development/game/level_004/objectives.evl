@@ -1,4 +1,4 @@
-context ObjectModelling!ObjectModelling {
+context objectmodelling!ObjectModelling {
    
   constraint objective_01 {
     check : 
