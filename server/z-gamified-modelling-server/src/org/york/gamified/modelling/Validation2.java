@@ -30,6 +30,10 @@ import org.york.gamified.modelling.model.RefNode;
 import org.york.gamified.modelling.model.Result;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import objectmodelling.ObjectmodellingPackage;
 
@@ -91,32 +95,39 @@ public class Validation2 extends HttpServlet {
 
 			// convert json from client to pojo
 			Gson gson = new Gson();
-			Model model = gson.fromJson(json, Model.class);
+//			Model model = gson.fromJson(json, Model.class);
+//
+//			//// -------------------------------------------------------------------------------------------
+//
+//			//
+//			if (model.graph.edges != null) {
+//				for (Edge edge : model.graph.edges) {
+//					for (int i = 0; i < model.graph.nodes.size(); i++) {
+//						Node node = model.graph.nodes.get(i);
+//						if (edge.source != null && edge.source.ID != null && edge.source.ID.equals(node.ID)) {
+//							RefNode refNode = new RefNode();
+//							refNode.$ref = "//@nodes." + i;
+//							edge.source = refNode;
+//						}
+//						if (edge.target != null && edge.target.ID != null && edge.target.ID.equals(node.ID)) {
+//							RefNode refNode = new RefNode();
+//							refNode.$ref = "//@nodes." + i;
+//							edge.target = refNode;
+//						}
+//					}
+//				}
+//			}
+//			String graphOnlyJsonString = gson.toJson(model.graph);
 
-			//// -------------------------------------------------------------------------------------------
-
-			//
-			if (model.graph.edges != null) {
-				for (Edge edge : model.graph.edges) {
-					for (int i = 0; i < model.graph.nodes.size(); i++) {
-						Node node = model.graph.nodes.get(i);
-						if (edge.source != null && edge.source.ID != null && edge.source.ID.equals(node.ID)) {
-							RefNode refNode = new RefNode();
-							refNode.$ref = "//@nodes." + i;
-							edge.source = refNode;
-						}
-						if (edge.target != null && edge.target.ID != null && edge.target.ID.equals(node.ID)) {
-							RefNode refNode = new RefNode();
-							refNode.$ref = "//@nodes." + i;
-							edge.target = refNode;
-						}
-					}
-				}
-			}
-			String graphOnlyJsonString = gson.toJson(model.graph);
-
+			////----------------------------------------------------------------------------
+			JsonElement root = new JsonParser().parse(json);
+			JsonObject graph = root.getAsJsonObject().get("graph").getAsJsonObject();
+			String graphOnlyJsonString = graph.toString();
+			
+			////---------------------------------------------------------------------------
 			//Put Modelling Package or EPackage Dynamically
-			String packageName = model.graph.eClass.split("#")[0];
+			String packageName = graph.get("eClass").getAsString().split("#")[0];
+			//String packageName = model.graph.eClass.split("#")[0];
 			String fullClassName = packageName + "." 
 					+ packageName.substring(0, 1).toUpperCase() 
 					+ packageName.substring(1, packageName.length())
@@ -142,10 +153,11 @@ public class Validation2 extends HttpServlet {
 			// Load EVL module
 			IEvlModule module = new EvlModule();
 			String source = "";
-			if (model.mode.equals("PRODUCTION")) {
-				source = "../production/game/" + model.level + "/objectives.evl";
+			if (root.getAsJsonObject().get("mode").getAsString().equals("PRODUCTION")){
+			//if (model.mode.equals("PRODUCTION")) {
+				source = "../production/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl";
 			} else {
-				source = "../development/game/" + model.level + "/objectives.evl";
+				source = "../development/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl";
 			}
 			java.net.URI binUri = getFileURI(source);
 			module.parse(binUri);

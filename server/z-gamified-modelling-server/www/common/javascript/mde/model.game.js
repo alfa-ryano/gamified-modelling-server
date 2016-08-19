@@ -103,8 +103,39 @@ var Level = function(game, ID, name) {
 		this.objectives.push(objective);
 	}
 
+	this.compactingModel = function(mode, level, inputGraph) {
+
+		var graph = JSON.parse(JSON.stringify(inputGraph));
+		var edges = graph.edges;
+		var nodes = graph.nodes;
+		
+		for (var i = 0; i < edges.length; i++){
+			for (var j = 0; j < nodes.length; j++){
+				if (edges[i].source != null && edges[i].source.ID == nodes[j].ID){
+					edges[i].source = {};
+					edges[i].source["$ref"] = "//@nodes." + j;
+				}
+				if (edges[i].target != null && edges[i].target.ID == nodes[j].ID){
+					edges[i].target = {};
+					edges[i].target["$ref"] = "//@nodes." + j;
+				}
+			}
+		}
+		
+		var model = new Object();
+		model["mode"] = mode;
+		model["level"] = level;
+		model["graph"] = graph;
+		
+		return model;
+	}
+	
 	this.evaluateObjectives = function() {
-		var data = game.util.convertModelsToJson(game.mode,
+		if (game.levels[game.currentLevel].graph == null){
+			return;
+		}
+		
+		var data = this.compactingModel(game.mode,
 			game.levels[game.currentLevel].ID,
 			game.levels[game.currentLevel].graph);
 		game.util

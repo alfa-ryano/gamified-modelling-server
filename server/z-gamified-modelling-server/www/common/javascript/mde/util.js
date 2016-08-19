@@ -61,15 +61,6 @@ var CreateId = function() {
 // UTIL
 var Util = function(game) {
 
-	this.convertModelsToJson = function(mode, level, graph) {
-		var model = new Object();
-		model["mode"] = mode;
-		model["level"] = level;
-		model["graph"] = graph;
-		
-		return model;
-	}
-
 	this.jsonSubmit = function(method, address, data, response) {
 		var xmlhttp;
 		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera,
