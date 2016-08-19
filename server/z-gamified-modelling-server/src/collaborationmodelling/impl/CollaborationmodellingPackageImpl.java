@@ -8,12 +8,14 @@ import collaborationmodelling.CollaborationmodellingFactory;
 import collaborationmodelling.CollaborationmodellingPackage;
 import collaborationmodelling.LinkElement;
 import collaborationmodelling.MessageElement;
+import collaborationmodelling.ModellingType;
 import collaborationmodelling.ObjectElement;
 
 import graphmodelling.GraphmodellingPackage;
 
 import graphmodelling.impl.GraphmodellingPackageImpl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -26,6 +28,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class CollaborationmodellingPackageImpl extends EPackageImpl implements CollaborationmodellingPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modellingTypeEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +141,24 @@ public class CollaborationmodellingPackageImpl extends EPackageImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getModellingType() {
+		return modellingTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModellingType_Name() {
+		return (EAttribute)modellingTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCollaborationModelling() {
 		return collaborationModellingEClass;
 	}
@@ -200,6 +227,9 @@ public class CollaborationmodellingPackageImpl extends EPackageImpl implements C
 		isCreated = true;
 
 		// Create classes and their features
+		modellingTypeEClass = createEClass(MODELLING_TYPE);
+		createEAttribute(modellingTypeEClass, MODELLING_TYPE__NAME);
+
 		collaborationModellingEClass = createEClass(COLLABORATION_MODELLING);
 
 		actorElementEClass = createEClass(ACTOR_ELEMENT);
@@ -249,6 +279,9 @@ public class CollaborationmodellingPackageImpl extends EPackageImpl implements C
 		linkElementEClass.getESuperTypes().add(theGraphmodellingPackage.getEdge());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(modellingTypeEClass, ModellingType.class, "ModellingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModellingType_Name(), ecorePackage.getEString(), "name", "CollaborationModelling", 0, 1, ModellingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(collaborationModellingEClass, CollaborationModelling.class, "CollaborationModelling", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actorElementEClass, ActorElement.class, "ActorElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

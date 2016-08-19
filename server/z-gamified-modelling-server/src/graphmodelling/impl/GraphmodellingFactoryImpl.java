@@ -56,6 +56,7 @@ public class GraphmodellingFactoryImpl extends EFactoryImpl implements Graphmode
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case GraphmodellingPackage.MODELLING_TYPE: return createModellingType();
 			case GraphmodellingPackage.ENTITY: return createEntity();
 			case GraphmodellingPackage.GRAPH: return createGraph();
 			case GraphmodellingPackage.NODE: return createNode();
@@ -65,6 +66,16 @@ public class GraphmodellingFactoryImpl extends EFactoryImpl implements Graphmode
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModellingType createModellingType() {
+		ModellingTypeImpl modellingType = new ModellingTypeImpl();
+		return modellingType;
 	}
 
 	/**

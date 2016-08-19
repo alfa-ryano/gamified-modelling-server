@@ -61,12 +61,11 @@ var CreateId = function() {
 // UTIL
 var Util = function(game) {
 
-	this.convertModelsToJson = function(mode, level, nodes, edges) {
+	this.convertModelsToJson = function(mode, level, graph) {
 		var model = new Object();
 		model["mode"] = mode;
 		model["level"] = level;
-		model["nodes"] = nodes;
-		model["edges"] = edges;
+		model["graph"] = graph;
 		
 		return model;
 	}

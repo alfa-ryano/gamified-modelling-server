@@ -73,6 +73,10 @@ public class ObjectmodellingAdapterFactory extends AdapterFactoryImpl {
 	protected ObjectmodellingSwitch<Adapter> modelSwitch =
 		new ObjectmodellingSwitch<Adapter>() {
 			@Override
+			public Adapter caseModellingType(ModellingType object) {
+				return createModellingTypeAdapter();
+			}
+			@Override
 			public Adapter caseObjectModelling(ObjectModelling object) {
 				return createObjectModellingAdapter();
 			}
@@ -119,6 +123,20 @@ public class ObjectmodellingAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link objectmodelling.ModellingType <em>Modelling Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see objectmodelling.ModellingType
+	 * @generated
+	 */
+	public Adapter createModellingTypeAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link objectmodelling.ObjectModelling <em>Object Modelling</em>}'.

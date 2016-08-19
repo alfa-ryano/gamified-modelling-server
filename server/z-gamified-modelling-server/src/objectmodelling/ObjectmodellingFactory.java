@@ -22,6 +22,15 @@ public interface ObjectmodellingFactory extends EFactory {
 	ObjectmodellingFactory eINSTANCE = objectmodelling.impl.ObjectmodellingFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Modelling Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modelling Type</em>'.
+	 * @generated
+	 */
+	ModellingType createModellingType();
+
+	/**
 	 * Returns a new object of class '<em>Object Modelling</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

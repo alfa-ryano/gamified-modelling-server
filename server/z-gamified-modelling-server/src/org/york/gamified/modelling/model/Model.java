@@ -8,6 +8,5 @@ public class Model {
 
 	public String mode;
 	public String level;
-	public ArrayList<Node> nodes;
-	public ArrayList<Edge> edges;
+	public Graph graph;
 }

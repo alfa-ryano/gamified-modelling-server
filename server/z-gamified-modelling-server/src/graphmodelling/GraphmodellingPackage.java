@@ -56,6 +56,34 @@ public interface GraphmodellingPackage extends EPackage {
 	GraphmodellingPackage eINSTANCE = graphmodelling.impl.GraphmodellingPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link graphmodelling.impl.ModellingTypeImpl <em>Modelling Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see graphmodelling.impl.ModellingTypeImpl
+	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getModellingType()
+	 * @generated
+	 */
+	int MODELLING_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELLING_TYPE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Modelling Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELLING_TYPE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link graphmodelling.impl.EntityImpl <em>Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,7 +91,7 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getEntity()
 	 * @generated
 	 */
-	int ENTITY = 0;
+	int ENTITY = 1;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -208,7 +236,7 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getGraph()
 	 * @generated
 	 */
-	int GRAPH = 1;
+	int GRAPH = 2;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -371,7 +399,7 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 2;
+	int NODE = 3;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -552,7 +580,7 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 3;
+	int PROPERTY = 4;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -697,7 +725,7 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 4;
+	int OPERATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -842,7 +870,7 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @see graphmodelling.impl.GraphmodellingPackageImpl#getEdge()
 	 * @generated
 	 */
-	int EDGE = 5;
+	int EDGE = 6;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -997,6 +1025,27 @@ public interface GraphmodellingPackage extends EPackage {
 	 */
 	int EDGE_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
 
+
+	/**
+	 * Returns the meta object for class '{@link graphmodelling.ModellingType <em>Modelling Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Modelling Type</em>'.
+	 * @see graphmodelling.ModellingType
+	 * @generated
+	 */
+	EClass getModellingType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphmodelling.ModellingType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see graphmodelling.ModellingType#getName()
+	 * @see #getModellingType()
+	 * @generated
+	 */
+	EAttribute getModellingType_Name();
 
 	/**
 	 * Returns the meta object for class '{@link graphmodelling.Entity <em>Entity</em>}'.
@@ -1322,6 +1371,24 @@ public interface GraphmodellingPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link graphmodelling.impl.ModellingTypeImpl <em>Modelling Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see graphmodelling.impl.ModellingTypeImpl
+		 * @see graphmodelling.impl.GraphmodellingPackageImpl#getModellingType()
+		 * @generated
+		 */
+		EClass MODELLING_TYPE = eINSTANCE.getModellingType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODELLING_TYPE__NAME = eINSTANCE.getModellingType_Name();
+
 		/**
 		 * The meta object literal for the '{@link graphmodelling.impl.EntityImpl <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->

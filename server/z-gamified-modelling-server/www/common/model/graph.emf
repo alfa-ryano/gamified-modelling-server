@@ -2,6 +2,10 @@
 
 package graphmodelling;
 
+class ModellingType {
+    attr String name = "Graph"; 
+}
+
 class Entity {
 	attr String ID;
     attr String name;

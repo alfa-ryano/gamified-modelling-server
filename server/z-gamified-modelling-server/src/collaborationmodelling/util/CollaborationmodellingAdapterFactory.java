@@ -73,6 +73,10 @@ public class CollaborationmodellingAdapterFactory extends AdapterFactoryImpl {
 	protected CollaborationmodellingSwitch<Adapter> modelSwitch =
 		new CollaborationmodellingSwitch<Adapter>() {
 			@Override
+			public Adapter caseModellingType(ModellingType object) {
+				return createModellingTypeAdapter();
+			}
+			@Override
 			public Adapter caseCollaborationModelling(CollaborationModelling object) {
 				return createCollaborationModellingAdapter();
 			}
@@ -127,6 +131,20 @@ public class CollaborationmodellingAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link collaborationmodelling.ModellingType <em>Modelling Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see collaborationmodelling.ModellingType
+	 * @generated
+	 */
+	public Adapter createModellingTypeAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link collaborationmodelling.CollaborationModelling <em>Collaboration Modelling</em>}'.

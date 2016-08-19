@@ -7,8 +7,9 @@ public class Node {
 
 	}
 
-	public String id;
+	public String ID;
 	public String name;
+	public String eClass;
 	public ArrayList<Property> properties;
 	public ArrayList<Operation> operations;
 	public String className;  

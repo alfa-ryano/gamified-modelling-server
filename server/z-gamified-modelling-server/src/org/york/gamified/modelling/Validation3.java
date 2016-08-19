@@ -1,8 +1,8 @@
 package org.york.gamified.modelling;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.IEvlModule;
@@ -26,24 +29,28 @@ import org.york.gamified.modelling.model.Edge;
 import org.york.gamified.modelling.model.Model;
 import org.york.gamified.modelling.model.Node;
 import org.york.gamified.modelling.model.Objective;
+import org.york.gamified.modelling.model.Operation;
+import org.york.gamified.modelling.model.Property;
 import org.york.gamified.modelling.model.RefNode;
 import org.york.gamified.modelling.model.Result;
 
 import com.google.gson.Gson;
 
+import graphmodelling.Graph;
+import graphmodelling.GraphmodellingFactory;
 import objectmodelling.ObjectmodellingPackage;
 
 /**
  * Servlet implementation class Validation2
  */
-@WebServlet(description = "Validation2", urlPatterns = { "/Validation2" })
-public class Validation2 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet(description = "Validation3", urlPatterns = { "/Validation3" })
+public class Validation3 extends HttpServlet {
+	private static final long serialVersionUID = 2L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Validation2() {
+	public Validation3() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -54,12 +61,12 @@ public class Validation2 extends HttpServlet {
 	 */
 	protected java.net.URI getFileURI(String fileName) throws URISyntaxException {
 		String path = "";
-		String temp = Validation2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		for (int i = 0; i < Validation2.class.getName().split("\\.").length; i++) {
+		String temp = Validation3.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		for (int i = 0; i < Validation3.class.getName().split("\\.").length; i++) {
 			path = path + "../";
 		}
 		path = path + fileName;
-		java.net.URL url = Validation2.class.getResource(path);
+		java.net.URL url = Validation3.class.getResource(path);
 		java.net.URI binUri = url.toURI();
 		java.net.URI uri = null;
 
@@ -93,6 +100,72 @@ public class Validation2 extends HttpServlet {
 			Gson gson = new Gson();
 			Model model = gson.fromJson(json, Model.class);
 
+//			// map pojo to EMF model
+//			GraphmodellingFactory factory = GraphmodellingFactory.eINSTANCE;
+//			Graph graph = factory.createGraph();
+//
+//			if (model.graph.nodes != null && model.graph.nodes.size() > 0) {
+//				for (Node node : model.graph.nodes) {
+//					graphmodelling.Node node2 = factory.createNode();
+//					node2.setID(node.ID);
+//					node2.setName(node.name);
+//					node2.setClassName(node.className);
+//
+//					if (node.properties != null) {
+//						for (Property property : node.properties) {
+//							graphmodelling.Property Property = factory.createProperty();
+//							Property.setText(property.text);
+//							Property.setName(property.name);
+//							Property.setValue(property.value);
+//							Property.setType(property.valueType);
+//							node2.getProperties().add(Property);
+//						}
+//					}
+//
+//					if (node.operations != null) {
+//						for (Operation operation : node.operations) {
+//							graphmodelling.Operation operation2 = factory.createOperation();
+//							operation2.setText(operation.text);
+//							operation2.setName(operation.name);
+//							node2.getOperations().add(operation2);
+//						}
+//					}
+//
+//					graph.getNodes().add(node2);
+//				}
+//			}
+//
+//			if (model.graph.edges != null && model.graph.edges.size() > 0) {
+//				for (Edge edge : model.graph.edges) {
+//					graphmodelling.Edge edge2 = factory.createEdge();
+//					edge2.setID(edge.ID);
+//					if (graph.getNodes() != null && graph.getNodes().size() > 0) {
+//						for (graphmodelling.Node node : graph.getNodes()) {
+//							if (edge.source != null && node.getID() != null && node.getID().equals(edge.source.ID)) {
+//								edge2.setSource(node);
+//							}
+//							if (edge.target != null && node.getID() != null && node.getID().equals(edge.target.ID)) {
+//								edge2.setTarget(node);
+//							}
+//						}
+//					}
+//					graph.getEdges().add(edge2);
+//				}
+//			}
+
+			///// -------------------------------------------------------------------------------------------
+
+//			ResourceSet resourceSet2 = new ResourceSetImpl();
+//			resourceSet2.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new JsonResourceFactory());
+//			resourceSet2.getPackageRegistry().put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
+//
+//			Resource resource2 = resourceSet2.createResource(URI.createURI("file:///D:/MyJson.json"));
+//			resource2.getContents().add(graph);
+//			ByteArrayOutputStream output = new ByteArrayOutputStream();
+//			resource2.save(null);
+//			resource2.save(output, null);
+//			String MyJson = output.toString();
+
 			//// -------------------------------------------------------------------------------------------
 
 			if (model.graph.edges != null) {
@@ -113,24 +186,36 @@ public class Validation2 extends HttpServlet {
 				}
 			}
 			String graphOnlyJsonString = gson.toJson(model.graph);
-
-			ClassLoader classLoader = Validation2.class.getClassLoader();
-			Class modellingPackage =  classLoader.loadClass("objectmodelling.ObjectmodellingPackage");
-			Object eInstance = modellingPackage.getField("eINSTANCE").get(modellingPackage);
-			Class noparams[] = {};
-			Method method = eInstance.getClass().getMethod("getNsURI", noparams);
 			
 			ResourceSet res = new ResourceSetImpl();
-			res.getPackageRegistry().put(method.invoke(eInstance, null).toString(), eInstance);
-			//res.getPackageRegistry().put(ObjectmodellingPackage.eINSTANCE.getNsURI(), ObjectmodellingPackage.eINSTANCE);
+			res.getPackageRegistry().put(ObjectmodellingPackage.eINSTANCE.getNsURI(), ObjectmodellingPackage.eINSTANCE);
 			res.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new JsonResourceFactory());
 
 			Resource r = res.createResource(URI.createURI("file:///D:/MyJson2.json"));
 			r.load(new ByteArrayInputStream(graphOnlyJsonString.getBytes()), null);
 			r.save(null);
-			// EList<EObject> list = r.getContents();
+			//EList<EObject> list = r.getContents();
 
 			///// --------------------------------------------------------------------------------------------
+
+//			// create resource set and resource
+//			ResourceSet resourceSet = new ResourceSetImpl();
+//			// Register XML resource factory
+//			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi",
+//					new XMIResourceFactoryImpl());
+//
+//			// save XMI of the model
+//			String path = "";
+//			if (model.mode.equals("PRODUCTION")) {
+//				path = Validation2.class.getProtectionDomain().getCodeSource().getLocation().getPath()
+//						+ "../../production/game/" + model.level + "/Graph.xmi";
+//			} else {
+//				path = Validation2.class.getProtectionDomain().getCodeSource().getLocation().getPath()
+//						+ "../../development/game/" + model.level + "/Graph.xmi";
+//			}
+//			Resource resource = resourceSet.createResource(URI.createFileURI(path));
+//			resource.getContents().add(graph);
+//			resource.save(null);
 
 			// Load EVL module
 			IEvlModule module = new EvlModule();
@@ -144,6 +229,7 @@ public class Validation2 extends HttpServlet {
 			module.parse(binUri);
 
 			// create in memory Emf Model and add the model to Validation EVL
+			//InMemoryEmfModel inMemoryEmfModel = new InMemoryEmfModel(resource);
 			InMemoryEmfModel inMemoryEmfModel = new InMemoryEmfModel(r);
 			inMemoryEmfModel.setName("ObjectModelling");
 			module.getContext().getModelRepository().addModel(inMemoryEmfModel);

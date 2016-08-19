@@ -1,4 +1,7 @@
 try{
+    // ModellingType --------------------------------------------------
+    var ModellingType = "CollaborationModelling";
+ 
     // CollaborationModelling --------------------------------------------------
     var CollaborationModelling = function() {
         Graph.call(this);

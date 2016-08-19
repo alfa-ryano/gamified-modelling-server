@@ -5,7 +5,8 @@ public class Edge {
 	public Edge() {
 	}
 	
-	public String id;
-	public String sourceId;
-	public String targetId;
+	public String ID;
+	public String eClass;
+	public Node source;
+	public Node target;
 }

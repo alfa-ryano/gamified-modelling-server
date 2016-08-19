@@ -1,7 +1,11 @@
-try{
+try{    
 [% for (element in modelling.eClassifiers){ %]
     // [%= element.name %] --------------------------------------------------
-	[% if (element.name = "Entity"){ %]
+    [% if (element.name = "ModellingType"){ %]
+        [% for (feature in element.eStructuralFeatures){ %]
+    var [%= element.name %] = "[%= feature.defaultValueLiteral %]";
+        [% } %]
+	[% } else if (element.name = "Entity"){ %]
 	var [%= element.name %] = function() {
 	   this.eClass = "[%= modelling.nsURI %]#//[%= element.name %]"
 	   [% for (feature in element.eStructuralFeatures){ %]

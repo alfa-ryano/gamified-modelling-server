@@ -71,6 +71,12 @@ public class ObjectmodellingSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ObjectmodellingPackage.MODELLING_TYPE: {
+				ModellingType modellingType = (ModellingType)theEObject;
+				T result = caseModellingType(modellingType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ObjectmodellingPackage.OBJECT_MODELLING: {
 				ObjectModelling objectModelling = (ObjectModelling)theEObject;
 				T result = caseObjectModelling(objectModelling);
@@ -97,6 +103,21 @@ public class ObjectmodellingSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Modelling Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Modelling Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModellingType(ModellingType object) {
+		return null;
 	}
 
 	/**

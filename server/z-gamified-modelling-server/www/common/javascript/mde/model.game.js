@@ -89,12 +89,6 @@ var Level = function(game, ID, name) {
 	this.selectedTargetId = null;
 	this.timeElapsed = "00:00:00";
 	
-	this.graph = new Graph();
-	this.graph.level = this;
-	this.graph.nodes = this.nodes;
-	this.graph.edges = this.edges;
-
-
 	this.addNode = function(node) {
 		this.nodes.push(node);
 		return node;
@@ -112,8 +106,7 @@ var Level = function(game, ID, name) {
 	this.evaluateObjectives = function() {
 		var data = game.util.convertModelsToJson(game.mode,
 			game.levels[game.currentLevel].ID,
-			game.levels[game.currentLevel].nodes,
-			game.levels[game.currentLevel].edges);
+			game.levels[game.currentLevel].graph);
 		game.util
 			.jsonSubmit(
 				"POST",
@@ -156,7 +149,11 @@ var Level = function(game, ID, name) {
 	this.loadModels = function() {
 		var modellingType = this.modellingType;
 		var path = "common/template/" + modellingType + "/generator/generated.js";
-		$.getScript(path);
+		$.getScript(path, function(){
+			game.levels[game.currentLevel].graph = new window[window["ModellingType"]];
+			game.levels[game.currentLevel].graph.nodes = game.levels[game.currentLevel].nodes;
+			game.levels[game.currentLevel].graph.edges = game.levels[game.currentLevel].edges;
+		});
 	}
 
 	this.initialize = function() {

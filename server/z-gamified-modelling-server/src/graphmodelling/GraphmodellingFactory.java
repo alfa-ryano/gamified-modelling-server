@@ -22,6 +22,15 @@ public interface GraphmodellingFactory extends EFactory {
 	GraphmodellingFactory eINSTANCE = graphmodelling.impl.GraphmodellingFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Modelling Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modelling Type</em>'.
+	 * @generated
+	 */
+	ModellingType createModellingType();
+
+	/**
 	 * Returns a new object of class '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

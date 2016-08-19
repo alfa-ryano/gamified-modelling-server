@@ -5,6 +5,9 @@
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>graph.ecore</foreignModel>
   <genPackages prefix="Graphmodelling" disposableProviderFactory="true" ecorePackage="graph.ecore#/">
+    <genClasses ecoreClass="graph.ecore#//ModellingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//ModellingType/name"/>
+    </genClasses>
     <genClasses ecoreClass="graph.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/ID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/name"/>

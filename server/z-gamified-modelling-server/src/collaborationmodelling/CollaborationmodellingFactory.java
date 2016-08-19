@@ -22,6 +22,15 @@ public interface CollaborationmodellingFactory extends EFactory {
 	CollaborationmodellingFactory eINSTANCE = collaborationmodelling.impl.CollaborationmodellingFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Modelling Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modelling Type</em>'.
+	 * @generated
+	 */
+	ModellingType createModellingType();
+
+	/**
 	 * Returns a new object of class '<em>Collaboration Modelling</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

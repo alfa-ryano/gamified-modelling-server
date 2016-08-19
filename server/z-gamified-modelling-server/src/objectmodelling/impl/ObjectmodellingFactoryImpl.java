@@ -56,12 +56,23 @@ public class ObjectmodellingFactoryImpl extends EFactoryImpl implements Objectmo
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ObjectmodellingPackage.MODELLING_TYPE: return createModellingType();
 			case ObjectmodellingPackage.OBJECT_MODELLING: return createObjectModelling();
 			case ObjectmodellingPackage.OBJECT_ELEMENT: return createObjectElement();
 			case ObjectmodellingPackage.LINK_ELEMENT: return createLinkElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModellingType createModellingType() {
+		ModellingTypeImpl modellingType = new ModellingTypeImpl();
+		return modellingType;
 	}
 
 	/**

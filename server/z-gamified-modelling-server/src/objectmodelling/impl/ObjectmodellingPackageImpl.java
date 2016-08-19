@@ -7,11 +7,13 @@ import graphmodelling.GraphmodellingPackage;
 import graphmodelling.impl.GraphmodellingPackageImpl;
 
 import objectmodelling.LinkElement;
+import objectmodelling.ModellingType;
 import objectmodelling.ObjectElement;
 import objectmodelling.ObjectModelling;
 import objectmodelling.ObjectmodellingFactory;
 import objectmodelling.ObjectmodellingPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -24,6 +26,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class ObjectmodellingPackageImpl extends EPackageImpl implements ObjectmodellingPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modellingTypeEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +125,24 @@ public class ObjectmodellingPackageImpl extends EPackageImpl implements Objectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getModellingType() {
+		return modellingTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModellingType_Name() {
+		return (EAttribute)modellingTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getObjectModelling() {
 		return objectModellingEClass;
 	}
@@ -166,6 +193,9 @@ public class ObjectmodellingPackageImpl extends EPackageImpl implements Objectmo
 		isCreated = true;
 
 		// Create classes and their features
+		modellingTypeEClass = createEClass(MODELLING_TYPE);
+		createEAttribute(modellingTypeEClass, MODELLING_TYPE__NAME);
+
 		objectModellingEClass = createEClass(OBJECT_MODELLING);
 
 		objectElementEClass = createEClass(OBJECT_ELEMENT);
@@ -209,6 +239,9 @@ public class ObjectmodellingPackageImpl extends EPackageImpl implements Objectmo
 		linkElementEClass.getESuperTypes().add(theGraphmodellingPackage.getEdge());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(modellingTypeEClass, ModellingType.class, "ModellingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModellingType_Name(), ecorePackage.getEString(), "name", "ObjectModelling", 0, 1, ModellingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(objectModellingEClass, ObjectModelling.class, "ObjectModelling", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(objectElementEClass, ObjectElement.class, "ObjectElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

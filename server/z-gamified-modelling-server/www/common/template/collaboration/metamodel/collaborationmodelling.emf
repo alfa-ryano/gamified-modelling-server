@@ -4,6 +4,9 @@ package collaborationmodelling;
 
 import "../../../../common/model/graph.ecore";
 
+class ModellingType {
+    attr String name = "CollaborationModelling"; 
+}
 
 class CollaborationModelling extends graphmodelling.Graph {
     

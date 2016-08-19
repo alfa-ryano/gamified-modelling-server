@@ -1,4 +1,7 @@
-try{
+try{    
+    // ModellingType --------------------------------------------------
+    var ModellingType = "Graph";
+	
     // Entity --------------------------------------------------
 	var Entity = function() {
 	   this.eClass = "graphmodelling#//Entity"

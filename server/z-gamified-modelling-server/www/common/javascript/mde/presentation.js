@@ -490,7 +490,7 @@ var Stage = function(game) {
 			var type = selectedSource.getAttribute("type");
 
 			if (type == "Node") {
-			
+
 				var node = new window[elementName]();
 				game.levels[game.currentLevel].addNode(node);
 				node.name = "";
@@ -523,7 +523,7 @@ var Stage = function(game) {
 
 			} else if (type == "Edge") {
 
-				
+
 				var edge = new window[elementName];
 				game.levels[game.currentLevel].addEdge(edge);
 				var edgeId = edge.ID;
@@ -552,7 +552,14 @@ var Stage = function(game) {
 							var sourceElement = link.getSourceElement();
 							var targetElement = link.getTargetElement();
 							if (sourceElement != null) {
-								this.attributes.model.source = sourceElement.attributes.model;
+//								var tempNodes = game.levels[game.currentLevel].nodes;
+//								for (var i = 0; i < tempNodes.length; i++) {
+//									if (tempNodes[i] == sourceElement.attributes.model) {
+//										this.attributes.model.source = tempNodes[i];
+//										this.attributes.model.source["$ref"] = "//@nodes." + i;
+//									}
+//								}
+							this.attributes.model.source = sourceElement.attributes.model;
 							} else {
 								this.attributes.model.source = null;
 							}
@@ -571,8 +578,14 @@ var Stage = function(game) {
 							var sourceElement = link.getSourceElement();
 							var targetElement = link.getTargetElement();
 							if (targetElement != null) {
-								this.attributes.model.target = targetElement.attributes.model;
-
+//								var tempNodes = game.levels[game.currentLevel].nodes;
+//								for (var i = 0; i < tempNodes.length; i++) {
+//									if (tempNodes[i] == targetElement.attributes.model) {
+//										this.attributes.model.target = tempNodes[i];
+//										this.attributes.model.target["$ref"] = "//@nodes." + i;
+//									}
+//								}
+							this.attributes.model.target = targetElement.attributes.model;
 							} else {
 								this.attributes.model.target = null;
 							}

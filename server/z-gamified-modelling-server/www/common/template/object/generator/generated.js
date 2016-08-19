@@ -1,4 +1,7 @@
 try{
+    // ModellingType --------------------------------------------------
+    var ModellingType = "ObjectModelling";
+ 
     // ObjectModelling --------------------------------------------------
     var ObjectModelling = function() {
         Graph.call(this);

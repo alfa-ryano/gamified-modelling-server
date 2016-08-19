@@ -4,6 +4,9 @@ package objectmodelling;
 
 import "../../../../common/model/graph.ecore";
 
+class ModellingType {
+    attr String name = "ObjectModelling"; 
+}
 
 class ObjectModelling extends graphmodelling.Graph {
     

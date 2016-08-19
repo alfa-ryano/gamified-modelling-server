@@ -56,6 +56,7 @@ public class CollaborationmodellingFactoryImpl extends EFactoryImpl implements C
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case CollaborationmodellingPackage.MODELLING_TYPE: return createModellingType();
 			case CollaborationmodellingPackage.COLLABORATION_MODELLING: return createCollaborationModelling();
 			case CollaborationmodellingPackage.ACTOR_ELEMENT: return createActorElement();
 			case CollaborationmodellingPackage.OBJECT_ELEMENT: return createObjectElement();
@@ -64,6 +65,16 @@ public class CollaborationmodellingFactoryImpl extends EFactoryImpl implements C
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModellingType createModellingType() {
+		ModellingTypeImpl modellingType = new ModellingTypeImpl();
+		return modellingType;
 	}
 
 	/**

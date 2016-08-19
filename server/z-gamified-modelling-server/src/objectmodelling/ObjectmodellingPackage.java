@@ -4,6 +4,7 @@ package objectmodelling;
 
 import graphmodelling.GraphmodellingPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -56,6 +57,34 @@ public interface ObjectmodellingPackage extends EPackage {
 	ObjectmodellingPackage eINSTANCE = objectmodelling.impl.ObjectmodellingPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link objectmodelling.impl.ModellingTypeImpl <em>Modelling Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see objectmodelling.impl.ModellingTypeImpl
+	 * @see objectmodelling.impl.ObjectmodellingPackageImpl#getModellingType()
+	 * @generated
+	 */
+	int MODELLING_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELLING_TYPE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Modelling Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELLING_TYPE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link objectmodelling.impl.ObjectModellingImpl <em>Object Modelling</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,7 +92,7 @@ public interface ObjectmodellingPackage extends EPackage {
 	 * @see objectmodelling.impl.ObjectmodellingPackageImpl#getObjectModelling()
 	 * @generated
 	 */
-	int OBJECT_MODELLING = 0;
+	int OBJECT_MODELLING = 1;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -226,7 +255,7 @@ public interface ObjectmodellingPackage extends EPackage {
 	 * @see objectmodelling.impl.ObjectmodellingPackageImpl#getObjectElement()
 	 * @generated
 	 */
-	int OBJECT_ELEMENT = 1;
+	int OBJECT_ELEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -407,7 +436,7 @@ public interface ObjectmodellingPackage extends EPackage {
 	 * @see objectmodelling.impl.ObjectmodellingPackageImpl#getLinkElement()
 	 * @generated
 	 */
-	int LINK_ELEMENT = 2;
+	int LINK_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -564,6 +593,27 @@ public interface ObjectmodellingPackage extends EPackage {
 
 
 	/**
+	 * Returns the meta object for class '{@link objectmodelling.ModellingType <em>Modelling Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Modelling Type</em>'.
+	 * @see objectmodelling.ModellingType
+	 * @generated
+	 */
+	EClass getModellingType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link objectmodelling.ModellingType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see objectmodelling.ModellingType#getName()
+	 * @see #getModellingType()
+	 * @generated
+	 */
+	EAttribute getModellingType_Name();
+
+	/**
 	 * Returns the meta object for class '{@link objectmodelling.ObjectModelling <em>Object Modelling</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -615,6 +665,24 @@ public interface ObjectmodellingPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link objectmodelling.impl.ModellingTypeImpl <em>Modelling Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see objectmodelling.impl.ModellingTypeImpl
+		 * @see objectmodelling.impl.ObjectmodellingPackageImpl#getModellingType()
+		 * @generated
+		 */
+		EClass MODELLING_TYPE = eINSTANCE.getModellingType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODELLING_TYPE__NAME = eINSTANCE.getModellingType_Name();
+
 		/**
 		 * The meta object literal for the '{@link objectmodelling.impl.ObjectModellingImpl <em>Object Modelling</em>}' class.
 		 * <!-- begin-user-doc -->

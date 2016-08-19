@@ -4,6 +4,7 @@ package collaborationmodelling;
 
 import graphmodelling.GraphmodellingPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -56,6 +57,34 @@ public interface CollaborationmodellingPackage extends EPackage {
 	CollaborationmodellingPackage eINSTANCE = collaborationmodelling.impl.CollaborationmodellingPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link collaborationmodelling.impl.ModellingTypeImpl <em>Modelling Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see collaborationmodelling.impl.ModellingTypeImpl
+	 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getModellingType()
+	 * @generated
+	 */
+	int MODELLING_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELLING_TYPE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Modelling Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELLING_TYPE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link collaborationmodelling.impl.CollaborationModellingImpl <em>Collaboration Modelling</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,7 +92,7 @@ public interface CollaborationmodellingPackage extends EPackage {
 	 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getCollaborationModelling()
 	 * @generated
 	 */
-	int COLLABORATION_MODELLING = 0;
+	int COLLABORATION_MODELLING = 1;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -226,7 +255,7 @@ public interface CollaborationmodellingPackage extends EPackage {
 	 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getActorElement()
 	 * @generated
 	 */
-	int ACTOR_ELEMENT = 1;
+	int ACTOR_ELEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -407,7 +436,7 @@ public interface CollaborationmodellingPackage extends EPackage {
 	 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getObjectElement()
 	 * @generated
 	 */
-	int OBJECT_ELEMENT = 2;
+	int OBJECT_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -588,7 +617,7 @@ public interface CollaborationmodellingPackage extends EPackage {
 	 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 3;
+	int MESSAGE_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -751,7 +780,7 @@ public interface CollaborationmodellingPackage extends EPackage {
 	 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getLinkElement()
 	 * @generated
 	 */
-	int LINK_ELEMENT = 4;
+	int LINK_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -908,6 +937,27 @@ public interface CollaborationmodellingPackage extends EPackage {
 
 
 	/**
+	 * Returns the meta object for class '{@link collaborationmodelling.ModellingType <em>Modelling Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Modelling Type</em>'.
+	 * @see collaborationmodelling.ModellingType
+	 * @generated
+	 */
+	EClass getModellingType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link collaborationmodelling.ModellingType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see collaborationmodelling.ModellingType#getName()
+	 * @see #getModellingType()
+	 * @generated
+	 */
+	EAttribute getModellingType_Name();
+
+	/**
 	 * Returns the meta object for class '{@link collaborationmodelling.CollaborationModelling <em>Collaboration Modelling</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -979,6 +1029,24 @@ public interface CollaborationmodellingPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link collaborationmodelling.impl.ModellingTypeImpl <em>Modelling Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see collaborationmodelling.impl.ModellingTypeImpl
+		 * @see collaborationmodelling.impl.CollaborationmodellingPackageImpl#getModellingType()
+		 * @generated
+		 */
+		EClass MODELLING_TYPE = eINSTANCE.getModellingType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODELLING_TYPE__NAME = eINSTANCE.getModellingType_Name();
+
 		/**
 		 * The meta object literal for the '{@link collaborationmodelling.impl.CollaborationModellingImpl <em>Collaboration Modelling</em>}' class.
 		 * <!-- begin-user-doc -->

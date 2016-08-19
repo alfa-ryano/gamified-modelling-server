@@ -92,10 +92,10 @@ public class Validation extends HttpServlet {
 			GraphmodellingFactory factory = GraphmodellingFactory.eINSTANCE;
 			Graph Graph = factory.createGraph();
 
-			if (model.nodes != null && model.nodes.size() > 0) {
-				for (Node node : model.nodes) {
+			if (model.graph.nodes != null && model.graph.nodes.size() > 0) {
+				for (Node node : model.graph.nodes) {
 					graphmodelling.Node node2 = factory.createNode();
-					node2.setID(node.id);
+					node2.setID(node.ID);
 					node2.setName(node.name);
 					node2.setClassName(node.className);
 
@@ -123,16 +123,16 @@ public class Validation extends HttpServlet {
 				}
 			}
 
-			if (model.edges != null && model.edges.size() > 0) {
-				for (Edge edge : model.edges) {
+			if (model.graph.edges != null && model.graph.edges.size() > 0) {
+				for (Edge edge : model.graph.edges) {
 					graphmodelling.Edge edge2 = factory.createEdge();
-					edge2.setID(edge.id);
+					edge2.setID(edge.ID);
 					if (Graph.getNodes() != null && Graph.getNodes().size() > 0) {
 						for (graphmodelling.Node node : Graph.getNodes()) {
-							if (node.getID().equals(edge.sourceId)) {
+							if (node.getID().equals(edge.source)) {
 								edge2.setSource(node);
 							}
-							if (node.getID().equals(edge.targetId)) {
+							if (node.getID().equals(edge.target)) {
 								edge2.setTarget(node);
 							}
 						}
