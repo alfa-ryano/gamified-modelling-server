@@ -18,8 +18,6 @@ function MessageElementCell(elementName, responseText) {
 			     ]
 		}, joint.dia.Link.prototype.defaults)
 	});
-
-	//joint.shapes.custom[elementName + "View"] = joint.dia.LinkView.extend();
 	
 	joint.shapes.custom[elementName + "View"] = joint.dia.LinkView.extend({
 		pointerdown: function(evt, x, y){
@@ -34,35 +32,4 @@ function MessageElementCell(elementName, responseText) {
 			}
 		}
 	});
-	
-//	joint.shapes.custom[elementName + "View"] = joint.dia.LinkView.extend({
-//		
-//		format : responseText,
-//		
-//		initialize: function() {
-//			this.model.labelMarkup = responseText;
-//			joint.dia.LinkView.prototype.initialize.apply(this, arguments);
-//			return this;
-//			
-//		},
-//		pointerdown: function(evt, x, y){
-//			var className = evt.target.getAttribute('class');
-//	        var parentClassName = evt.target.parentNode.getAttribute('class');	        
-//			console.log(
-//					"className: " + className + ", parentClassName: " + parentClassName + 
-//					", coordinate: " + x + ", " + y);
-//			if (className == "v-line"){
-//				alert("AAAAAAAAAAAAAAAA");
-//			}else{
-//				joint.dia.LinkView.prototype.pointerdown.apply(this, arguments);
-//			}
-//			return this;
-//		}
-////		pointermove: function(evt, x, y){
-////			joint.dia.LinkView.prototype.pointermove.apply(this, arguments);
-////			console.log(x + ", " + y);
-////			return this;
-////		}
-//
-//	});
 }

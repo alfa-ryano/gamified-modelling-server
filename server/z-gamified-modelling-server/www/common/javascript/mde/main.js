@@ -579,7 +579,7 @@ subStory.description = "Create Login Screen (Coming Soon).";
 //--- COLLABORATION MODELLING ----------------------------------------------
 
 var story = new Story(game);
-story.name = "Collaboration Modelling (Comming Soon)";
+story.name = "Collaboration Modelling";
 story.description = "Learn how to model in Collaboration diagram.";
 var subStory = new SubStory(game, story);
 subStory.name = "Collaborating \"Hello, World!!!\" (Coming Soon)";
@@ -606,7 +606,7 @@ subStory.levels.push(game.levels[iLevel]);
 //----Set Up Level 2----------------------------------------------------
 iLevel += 1;
 game.levels[iLevel] = new Level(game, "level_014",
-    "Level 02 - Collaboration Modelling: Create Two Objects");
+    "Level 14 - Collaboration Modelling: Create Two Objects");
 game.levels[iLevel].isSequel = false;
 game.levels[iLevel].levelCase = new LevelCase(game, game.levels[iLevel],
     "Case_01", "Create two buttons: <br/> <strong>button 1</strong> and <strong>button 2</strong> !!!");
@@ -625,5 +625,49 @@ game.levels[iLevel].addObjective(objectiveLevel02_1);
 game.levels[iLevel].addObjective(objectiveLevel02_2);
 
 subStory.levels.push(game.levels[iLevel]);
+
+//--- COLLABORATION MODELLING ----------------------------------------------
+
+var story = new Story(game);
+story.name = "Object and Collaboration Modelling";
+story.description = "Learn how to model collaboration diagram that satisfies object diagram.";
+var subStory = new SubStory(game, story);
+subStory.name = "Collaboration that Satisfy Object Models";
+subStory.description = "Collaboration that Satisfy Object Models";
+
+//----Set Up Level 1----------------------------------------------------
+iLevel += 1;
+game.levels[iLevel] = new Level(game, "level_015",
+ "Level 15 - Collaboration that Satisfy Object Models");
+game.levels[iLevel].isSequel = true;
+game.levels[iLevel].levelCase = new LevelCase(
+ game,
+ game.levels[iLevel],
+ "Case_01",
+ "If <strong>greet button</strong> is pressed then <strong>greet label</strong> " +
+ "will display 'Hello!'. Create a message between objects that probably have a relationship and satisfy the object diagram below!<br/><br/>" +
+ "<img src='common/resource/level_015.png' alt='object diagram' style='width:240px'>");
+
+game.levels[iLevel].levelCase.addDraggableItem("greet button");
+game.levels[iLevel].levelCase.addDraggableItem("greet label");
+item = game.levels[iLevel].levelCase.addDraggableItem("greet");
+item.type = DRAGGABLE_ITEM_TYPE.OPERATION;
+item.name = "greet";
+
+game.levels[iLevel].modellingType = MODELLING_TYPE.COLLABORATION;
+
+var objectiveLevel04_1 = new Objective(game, game.levels[iLevel],
+ "objective_01", "Greet button must exist");
+var objectiveLevel04_2 = new Objective(game, game.levels[iLevel],
+ "objective_02", "Greet label must exist");
+var objectiveLevel04_3 = new Objective(game, game.levels[iLevel],
+ "objective_03", "Create a message between the intended objects");
+
+game.levels[iLevel].addObjective(objectiveLevel04_1);
+game.levels[iLevel].addObjective(objectiveLevel04_2);
+game.levels[iLevel].addObjective(objectiveLevel04_3);
+
+subStory.levels.push(game.levels[iLevel]);
+
 // ---Execute Game---------------------------------------------------------
 game.run();
