@@ -5,6 +5,9 @@
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>graph.ecore</foreignModel>
   <genPackages prefix="Graphmodelling" disposableProviderFactory="true" ecorePackage="graph.ecore#/">
+    <genClasses ecoreClass="graph.ecore#//ModellingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//ModellingType/name"/>
+    </genClasses>
     <genClasses ecoreClass="graph.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/ID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/name"/>
@@ -12,7 +15,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/entityClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/className"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/group"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/category"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Entity/accessModifier"/>
@@ -23,7 +26,7 @@
     </genClasses>
     <genClasses ecoreClass="graph.ecore#//Graph">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Graph/nodes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Graph/Edges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Graph/edges"/>
     </genClasses>
     <genClasses ecoreClass="graph.ecore#//Node">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Node/parentNode"/>

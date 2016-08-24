@@ -1,4 +1,4 @@
-context Graph!Graph {
+context objectmodelling!ObjectModelling {
    
   constraint objective_01 {
     check : 
@@ -23,7 +23,7 @@ context Graph!Graph {
   
 } 
 
-operation Graph evaluationFunction_02(nodeName1, nodeName2): Boolean{
+operation ObjectModelling evaluationFunction_02(nodeName1, nodeName2): Boolean{
     if (self.edges.size() > 0){  
 	    for (edge in self.edges){
 	       if(edge.source <> null and edge.target <> null){

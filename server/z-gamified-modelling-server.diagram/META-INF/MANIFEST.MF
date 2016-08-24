@@ -37,7 +37,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.draw2d;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  z-gamified-modelling-server;visibility:=reexport,
- z-gamified-modelling-server.edit;visibility:=reexport,
  org.eclipse.emf.validation;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport
 Bundle-ActivationPolicy: lazy

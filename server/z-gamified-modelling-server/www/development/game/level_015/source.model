@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<objectmodelling:ObjectModelling xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:objectmodelling="objectmodelling" xmi:id="_aO0tYGgIEea0FNyXlWS-iQ">
+  <nodes xsi:type="objectmodelling:ObjectElement" xmi:id="_eMSogGgIEea0FNyXlWS-iQ" name="greet button" text="" className="Button" category="">
+    <properties xmi:id="_21mEEGgJEea0FNyXlWS-iQ" name="text" text="Greet" type=""/>
+    <operations xmi:id="_pMKPYGgIEea0FNyXlWS-iQ" name="greet" text="" className=""/>
+  </nodes>
+  <nodes xsi:type="objectmodelling:ObjectElement" xmi:id="_fm_r8GgIEea0FNyXlWS-iQ" name="greet label" className="Label">
+    <properties xmi:id="_zIGeoGgJEea0FNyXlWS-iQ" name="text"/>
+    <operations xmi:id="_2R5WkGgIEea0FNyXlWS-iQ" name="Clear" text=""/>
+  </nodes>
+  <edges xsi:type="objectmodelling:LinkElement" xmi:id="_f_OlwGgIEea0FNyXlWS-iQ" name="" source="_eMSogGgIEea0FNyXlWS-iQ" target="_fm_r8GgIEea0FNyXlWS-iQ"/>
+</objectmodelling:ObjectModelling>

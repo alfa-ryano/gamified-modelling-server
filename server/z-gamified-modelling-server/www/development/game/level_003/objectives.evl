@@ -1,4 +1,4 @@
-context Graph!Graph {
+context objectmodelling!ObjectModelling {
     
   // At least there is an node with name button
   constraint objective_01 {
@@ -23,7 +23,7 @@ context Graph!Graph {
   }
 } 
 
-operation Graph evaluationFunction_01(typeName: String, limit: Integer): Boolean{
+operation ObjectModelling evaluationFunction_01(typeName: String, limit: Integer): Boolean{
     var count : Integer = 0;
     if (self.nodes.size() > 0){  
 	    for (node in self.nodes){

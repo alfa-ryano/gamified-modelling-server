@@ -1,0 +1,37 @@
+try{
+[% for (element in modelling.eClassifiers){ %]
+    // [%= element.name %] --------------------------------------------------
+    [% if (element.name = "ModellingType"){ %]
+        [% for (feature in element.eStructuralFeatures){ %]
+    var [%= element.name %] = "[%= feature.defaultValueLiteral %]";
+        [% } %]
+    [% } else if (element.name = "Entity"){ %]
+    var [%= element.name %] = function() {
+       this.eClass = "[%= modelling.nsURI %]#//[%= element.name %]"
+       [% for (feature in element.eStructuralFeatures){ %]
+       [% if (feature.name = "ID"){ %]
+       this.[%= feature.name %] = CreateId();   
+       [% } else { %]
+       this.[%= feature.name %];
+       [% }%]
+       [% } %]
+    } 
+    [% } else { %]
+    var [%= element.name %] = function() {
+        [%= element.eSuperTypes[0].name %].call(this);
+        this.eClass = "[%= modelling.nsURI %]#//[%= element.name %]"
+        [% for (feature in element.eStructuralFeatures){ %]
+        [% if (feature.upperBound = -1) { %]
+        this.[%= feature.name %] = new Array();
+        [% } else { %]
+        this.[%= feature.name %];
+        [% } %]
+        [% } %]
+    } 
+    [%= element.name %].prototype = new [%= element.eSuperTypes[0].name %]();
+    [%= element.name %].constructor = [%= element.name %];
+    [% } %] 
+[% } %]
+} catch (err) {
+    alert("objectmodelling: generated.js: " + err.message);
+}

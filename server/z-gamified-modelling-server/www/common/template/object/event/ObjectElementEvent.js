@@ -30,7 +30,8 @@ function ObjectElementEvent(source, cellView) {
 			}
 		}
 		if (alreadyExist == false) {
-			var property = new Property(text);
+			var property = new Property();
+			property.text = text;
 			property.name = name;
 			property.value = value;
 			property.type = valueType;
@@ -46,7 +47,8 @@ function ObjectElementEvent(source, cellView) {
 			}
 		}
 		if (alreadyExist == false) {
-			var operation = new Operation(text);
+			var operation = new Operation();
+			operation.text = text;
 			operation.name = name;
 			operations.push(operation);
 		}

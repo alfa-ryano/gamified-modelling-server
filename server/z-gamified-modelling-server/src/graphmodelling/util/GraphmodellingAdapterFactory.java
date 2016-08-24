@@ -68,6 +68,10 @@ public class GraphmodellingAdapterFactory extends AdapterFactoryImpl {
 	protected GraphmodellingSwitch<Adapter> modelSwitch =
 		new GraphmodellingSwitch<Adapter>() {
 			@Override
+			public Adapter caseModellingType(ModellingType object) {
+				return createModellingTypeAdapter();
+			}
+			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
 			}
@@ -110,6 +114,20 @@ public class GraphmodellingAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link graphmodelling.ModellingType <em>Modelling Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see graphmodelling.ModellingType
+	 * @generated
+	 */
+	public Adapter createModellingTypeAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link graphmodelling.Entity <em>Entity</em>}'.

@@ -40,7 +40,15 @@
       <package
             uri="objectmodelling"
             class="objectmodelling.ObjectmodellingPackage"
-            genModel="www/development/model/objectmodelling.genmodel"/>
+            genModel="www/common/template/object/metamodel/objectmodelling.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated collaborationmodelling -->
+      <package
+            uri="collaborationmodelling"
+            class="collaborationmodelling.CollaborationmodellingPackage"
+            genModel="www/common/template/collaboration/metamodel/collaborationmodelling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -48,7 +56,7 @@
       <package
             uri="graphmodelling"
             class="graphmodelling.GraphmodellingPackage"
-            genModel="www/development/model/objectmodelling.genmodel"/>
+            genModel="www/common/template/object/metamodel/objectmodelling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">

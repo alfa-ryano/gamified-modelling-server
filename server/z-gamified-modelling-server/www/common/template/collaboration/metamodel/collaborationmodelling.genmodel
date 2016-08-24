@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/z-gamified-modelling-server/src"
+    modelPluginID="z-gamified-modelling-server" modelName="Collaborationmodelling"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>collaborationmodelling.ecore</foreignModel>
+  <genPackages prefix="Collaborationmodelling" disposableProviderFactory="true" ecorePackage="collaborationmodelling.ecore#/">
+    <genClasses ecoreClass="collaborationmodelling.ecore#//ModellingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaborationmodelling.ecore#//ModellingType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="collaborationmodelling.ecore#//CollaborationModelling"/>
+    <genClasses ecoreClass="collaborationmodelling.ecore#//ActorElement"/>
+    <genClasses ecoreClass="collaborationmodelling.ecore#//ObjectElement"/>
+    <genClasses ecoreClass="collaborationmodelling.ecore#//MessageElement"/>
+    <genClasses ecoreClass="collaborationmodelling.ecore#//LinkElement"/>
+  </genPackages>
+</genmodel:GenModel>

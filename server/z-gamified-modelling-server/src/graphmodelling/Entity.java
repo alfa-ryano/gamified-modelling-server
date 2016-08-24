@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link graphmodelling.Entity#getDescription <em>Description</em>}</li>
  *   <li>{@link graphmodelling.Entity#getValue <em>Value</em>}</li>
  *   <li>{@link graphmodelling.Entity#getType <em>Type</em>}</li>
- *   <li>{@link graphmodelling.Entity#getEntityClass <em>Entity Class</em>}</li>
+ *   <li>{@link graphmodelling.Entity#getClassName <em>Class Name</em>}</li>
  *   <li>{@link graphmodelling.Entity#getGroup <em>Group</em>}</li>
  *   <li>{@link graphmodelling.Entity#getCategory <em>Category</em>}</li>
  *   <li>{@link graphmodelling.Entity#getAccessModifier <em>Access Modifier</em>}</li>
@@ -191,30 +191,30 @@ public interface Entity extends EObject {
 	void setType(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Entity Class</b></em>' attribute.
+	 * Returns the value of the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Entity Class</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Class Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entity Class</em>' attribute.
-	 * @see #setEntityClass(String)
-	 * @see graphmodelling.GraphmodellingPackage#getEntity_EntityClass()
+	 * @return the value of the '<em>Class Name</em>' attribute.
+	 * @see #setClassName(String)
+	 * @see graphmodelling.GraphmodellingPackage#getEntity_ClassName()
 	 * @model
 	 * @generated
 	 */
-	String getEntityClass();
+	String getClassName();
 
 	/**
-	 * Sets the value of the '{@link graphmodelling.Entity#getEntityClass <em>Entity Class</em>}' attribute.
+	 * Sets the value of the '{@link graphmodelling.Entity#getClassName <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Entity Class</em>' attribute.
-	 * @see #getEntityClass()
+	 * @param value the new value of the '<em>Class Name</em>' attribute.
+	 * @see #getClassName()
 	 * @generated
 	 */
-	void setEntityClass(String value);
+	void setClassName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' attribute.

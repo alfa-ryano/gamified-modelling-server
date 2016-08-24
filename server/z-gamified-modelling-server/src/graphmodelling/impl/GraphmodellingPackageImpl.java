@@ -2,15 +2,20 @@
  */
 package graphmodelling.impl;
 
+import collaborationmodelling.CollaborationmodellingPackage;
+import collaborationmodelling.impl.CollaborationmodellingPackageImpl;
 import graphmodelling.Edge;
 import graphmodelling.Entity;
 import graphmodelling.Graph;
 import graphmodelling.GraphmodellingFactory;
 import graphmodelling.GraphmodellingPackage;
+import graphmodelling.ModellingType;
 import graphmodelling.Node;
 import graphmodelling.Operation;
 import graphmodelling.Property;
 
+import objectmodelling.ObjectmodellingPackage;
+import objectmodelling.impl.ObjectmodellingPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -25,6 +30,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class GraphmodellingPackageImpl extends EPackageImpl implements GraphmodellingPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modellingTypeEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,11 +125,16 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		CollaborationmodellingPackageImpl theCollaborationmodellingPackage = (CollaborationmodellingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CollaborationmodellingPackage.eNS_URI) instanceof CollaborationmodellingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CollaborationmodellingPackage.eNS_URI) : CollaborationmodellingPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theGraphmodellingPackage.createPackageContents();
+		theCollaborationmodellingPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphmodellingPackage.initializePackageContents();
+		theCollaborationmodellingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGraphmodellingPackage.freeze();
@@ -126,6 +143,24 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(GraphmodellingPackage.eNS_URI, theGraphmodellingPackage);
 		return theGraphmodellingPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModellingType() {
+		return modellingTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModellingType_Name() {
+		return (EAttribute)modellingTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -196,7 +231,7 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEntity_EntityClass() {
+	public EAttribute getEntity_ClassName() {
 		return (EAttribute)entityEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -408,6 +443,9 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 		isCreated = true;
 
 		// Create classes and their features
+		modellingTypeEClass = createEClass(MODELLING_TYPE);
+		createEAttribute(modellingTypeEClass, MODELLING_TYPE__NAME);
+
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__ID);
 		createEAttribute(entityEClass, ENTITY__NAME);
@@ -415,7 +453,7 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 		createEAttribute(entityEClass, ENTITY__DESCRIPTION);
 		createEAttribute(entityEClass, ENTITY__VALUE);
 		createEAttribute(entityEClass, ENTITY__TYPE);
-		createEAttribute(entityEClass, ENTITY__ENTITY_CLASS);
+		createEAttribute(entityEClass, ENTITY__CLASS_NAME);
 		createEAttribute(entityEClass, ENTITY__GROUP);
 		createEAttribute(entityEClass, ENTITY__CATEGORY);
 		createEAttribute(entityEClass, ENTITY__ACCESS_MODIFIER);
@@ -478,6 +516,9 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 		edgeEClass.getESuperTypes().add(this.getEntity());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(modellingTypeEClass, ModellingType.class, "ModellingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModellingType_Name(), ecorePackage.getEString(), "name", "Graph", 0, 1, ModellingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntity_ID(), ecorePackage.getEString(), "ID", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -485,7 +526,7 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 		initEAttribute(getEntity_Description(), ecorePackage.getEString(), "description", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_Value(), ecorePackage.getEString(), "value", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_Type(), ecorePackage.getEString(), "type", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEntity_EntityClass(), ecorePackage.getEString(), "entityClass", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntity_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_Group(), ecorePackage.getEString(), "group", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_Category(), ecorePackage.getEString(), "category", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_AccessModifier(), ecorePackage.getEString(), "accessModifier", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -496,7 +537,7 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGraph_Edges(), this.getEdge(), null, "Edges", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraph_Edges(), this.getEdge(), null, "edges", null, 0, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNode_ParentNode(), this.getNode(), null, "parentNode", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
