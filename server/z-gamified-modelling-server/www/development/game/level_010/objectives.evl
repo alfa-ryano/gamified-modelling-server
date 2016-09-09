@@ -1,4 +1,4 @@
-context Graph!Graph {
+context  objectmodelling!ObjectModelling {
     
   // At least there is an node with name button
   constraint objective_01 {

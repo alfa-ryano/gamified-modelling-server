@@ -280,6 +280,7 @@ var Stage = function(game) {
 
 	this.setUpScreens = function() {
 
+
 		document.getElementById("ButtonPlay").onclick = function() {
 			document.getElementById("PlayScreen").style.visibility = "collapse";
 			document.getElementById("LevelSelectionScreen").style.visibility = "visible";
@@ -304,6 +305,18 @@ var Stage = function(game) {
 					element.style.visibility = "collapse";
 				}
 			}
+		}
+
+		document.getElementById("LevelScreenExport").onclick = function() {
+			var model = game.levels[game.currentLevel].compactingModel(game.mode,
+				game.levels[game.currentLevel].ID,
+				game.levels[game.currentLevel].graph);
+
+			var data = JSON.stringify(model["graph"]);
+			var link = 'data:text/json;charset=utf8,' + encodeURIComponent(data);
+			window.open(link, '_blank');
+			window.focus();
+
 		}
 
 		document.getElementById("button-replay").onclick = function() {
@@ -552,14 +565,14 @@ var Stage = function(game) {
 							var sourceElement = link.getSourceElement();
 							var targetElement = link.getTargetElement();
 							if (sourceElement != null) {
-//								var tempNodes = game.levels[game.currentLevel].nodes;
-//								for (var i = 0; i < tempNodes.length; i++) {
-//									if (tempNodes[i] == sourceElement.attributes.model) {
-//										this.attributes.model.source = tempNodes[i];
-//										this.attributes.model.source["$ref"] = "//@nodes." + i;
-//									}
-//								}
-							this.attributes.model.source = sourceElement.attributes.model;
+								//								var tempNodes = game.levels[game.currentLevel].nodes;
+								//								for (var i = 0; i < tempNodes.length; i++) {
+								//									if (tempNodes[i] == sourceElement.attributes.model) {
+								//										this.attributes.model.source = tempNodes[i];
+								//										this.attributes.model.source["$ref"] = "//@nodes." + i;
+								//									}
+								//								}
+								this.attributes.model.source = sourceElement.attributes.model;
 							} else {
 								this.attributes.model.source = null;
 							}
@@ -578,14 +591,14 @@ var Stage = function(game) {
 							var sourceElement = link.getSourceElement();
 							var targetElement = link.getTargetElement();
 							if (targetElement != null) {
-//								var tempNodes = game.levels[game.currentLevel].nodes;
-//								for (var i = 0; i < tempNodes.length; i++) {
-//									if (tempNodes[i] == targetElement.attributes.model) {
-//										this.attributes.model.target = tempNodes[i];
-//										this.attributes.model.target["$ref"] = "//@nodes." + i;
-//									}
-//								}
-							this.attributes.model.target = targetElement.attributes.model;
+								//								var tempNodes = game.levels[game.currentLevel].nodes;
+								//								for (var i = 0; i < tempNodes.length; i++) {
+								//									if (tempNodes[i] == targetElement.attributes.model) {
+								//										this.attributes.model.target = tempNodes[i];
+								//										this.attributes.model.target["$ref"] = "//@nodes." + i;
+								//									}
+								//								}
+								this.attributes.model.target = targetElement.attributes.model;
 							} else {
 								this.attributes.model.target = null;
 							}

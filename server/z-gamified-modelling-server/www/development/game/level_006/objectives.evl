@@ -1,4 +1,4 @@
-context Graph!Graph {
+context  objectmodelling!ObjectModelling {
     
   // At least there is an node with name button
   constraint objective_01 {
@@ -9,7 +9,7 @@ context Graph!Graph {
   }
 } 
 
-operation Graph evaluationFunction_01(): Boolean{
+operation ObjectModelling evaluationFunction_01(): Boolean{
     if (self.nodes.size() > 0){  
         for (node in self.nodes){
             if (node.name = "name label"){

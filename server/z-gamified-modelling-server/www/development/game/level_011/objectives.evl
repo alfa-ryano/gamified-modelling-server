@@ -1,4 +1,4 @@
-context Graph!Graph {
+context  objectmodelling!ObjectModelling {
    
   constraint objective_01 {
     check : 
@@ -15,7 +15,7 @@ context Graph!Graph {
   }
 } 
 
-operation Graph evaluationFunction_01(): Boolean{
+operation ObjectModelling evaluationFunction_01(): Boolean{
     if (self.nodes.size() > 0){
         var nameTextBox = self.nodes.selectOne(node | node.name = "name textbox");
         if (nameTextBox <> null){
@@ -27,7 +27,7 @@ operation Graph evaluationFunction_01(): Boolean{
     return false;
 }
 
-operation Graph evaluationFunction_02(): Boolean{
+operation ObjectModelling evaluationFunction_02(): Boolean{
     if (self.nodes.size() > 0){
         var greetLabel = self.nodes.selectOne(node | node.name = "greet label");
         var nameLabel = self.nodes.selectOne(node | node.name = "name label");
