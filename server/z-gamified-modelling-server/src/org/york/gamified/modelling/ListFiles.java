@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -38,7 +40,11 @@ public class ListFiles extends HttpServlet {
 		String modellingType = request.getParameter("ModellingType");
 		String type = request.getParameter("Type");
 		
-		File file = new File(request.getSession().getServletContext().getRealPath("./common/template/" + modellingType + "/" + type));
+		HttpSession session = request.getSession();
+		ServletContext context = session.getServletContext();
+		String path = context.getRealPath("./common/template/" + modellingType + "/" + type);
+		
+		File file = new File(path);
 
 		if (file.exists() && file.isDirectory()) {
 

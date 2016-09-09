@@ -126,15 +126,15 @@ public class GraphmodellingPackageImpl extends EPackageImpl implements Graphmode
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		CollaborationmodellingPackageImpl theCollaborationmodellingPackage = (CollaborationmodellingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CollaborationmodellingPackage.eNS_URI) instanceof CollaborationmodellingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CollaborationmodellingPackage.eNS_URI) : CollaborationmodellingPackage.eINSTANCE);
+		ObjectmodellingPackageImpl theObjectmodellingPackage = (ObjectmodellingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ObjectmodellingPackage.eNS_URI) instanceof ObjectmodellingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ObjectmodellingPackage.eNS_URI) : ObjectmodellingPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGraphmodellingPackage.createPackageContents();
-		theCollaborationmodellingPackage.createPackageContents();
+		theObjectmodellingPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphmodellingPackage.initializePackageContents();
-		theCollaborationmodellingPackage.initializePackageContents();
+		theObjectmodellingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGraphmodellingPackage.freeze();

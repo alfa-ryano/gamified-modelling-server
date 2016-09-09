@@ -97,34 +97,7 @@ public class Validation2 extends HttpServlet {
 
 			// convert json from client to pojo
 			Gson gson = new Gson();
-			// Model model = gson.fromJson(json, Model.class);
-			//
-			// ////
-			// -------------------------------------------------------------------------------------------
-			//
-			// //
-			// if (model.graph.edges != null) {
-			// for (Edge edge : model.graph.edges) {
-			// for (int i = 0; i < model.graph.nodes.size(); i++) {
-			// Node node = model.graph.nodes.get(i);
-			// if (edge.source != null && edge.source.ID != null &&
-			// edge.source.ID.equals(node.ID)) {
-			// RefNode refNode = new RefNode();
-			// refNode.$ref = "//@nodes." + i;
-			// edge.source = refNode;
-			// }
-			// if (edge.target != null && edge.target.ID != null &&
-			// edge.target.ID.equals(node.ID)) {
-			// RefNode refNode = new RefNode();
-			// refNode.$ref = "//@nodes." + i;
-			// edge.target = refNode;
-			// }
-			// }
-			// }
-			// }
-			// String graphOnlyJsonString = gson.toJson(model.graph);
 
-			//// ----------------------------------------------------------------------------
 			JsonElement root = new JsonParser().parse(json);
 			JsonObject graph = root.getAsJsonObject().get("graph").getAsJsonObject();
 			String graphOnlyJsonString = graph.toString();
@@ -142,26 +115,31 @@ public class Validation2 extends HttpServlet {
 			Method method = eInstance.getClass().getMethod("getNsURI", new Class[] {});
 
 			ResourceSet currentResourceSet = new ResourceSetImpl();
-			currentResourceSet.getPackageRegistry().put(method.invoke(eInstance, new Object[] {}).toString(), eInstance);
+			currentResourceSet.getPackageRegistry().put(method.invoke(eInstance, new Object[] {}).toString(),
+					eInstance);
 			// res.getPackageRegistry().put(ObjectmodellingPackage.eINSTANCE.getNsURI(),
 			// ObjectmodellingPackage.eINSTANCE);
-			currentResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new JsonResourceFactory());
+			currentResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*",
+					new JsonResourceFactory());
 
-			Resource currentResource = currentResourceSet.createResource(URI.createURI("file:///D:/MyJson2.json"));
+			Resource currentResource = currentResourceSet.createResource(URI.createURI("model.json"));
 			currentResource.load(new ByteArrayInputStream(graphOnlyJsonString.getBytes()), null);
 			currentResource.save(null);
 			// EList<EObject> list = r.getContents();
 
 			///// --------------------------------------------------------------------------------------------
- 
+
 			// Load EVL module
 			IEvlModule evlModule = new EvlModule();
 			String source = "";
 			if (root.getAsJsonObject().get("mode").getAsString().equals("PRODUCTION")) {
 				// if (model.mode.equals("PRODUCTION")) {
-				source = "../production/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl";
+				source = ("../production/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl")
+						.replace("/", File.separator);
 			} else {
-				source = "../development/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl";
+				source = ("../development/game/" + root.getAsJsonObject().get("level").getAsString()
+						+ "/objectives.evl").replace("/", File.separator);
+				;
 			}
 			java.net.URI binUri = getFileURI(source);
 			evlModule.parse(binUri);
@@ -210,12 +188,12 @@ public class Validation2 extends HttpServlet {
 					mode = "development";
 				}
 
-				filePath = "../" + mode + "/game/" + root.getAsJsonObject().get("level").getAsString()
-						+ "/objectives.ecl";
-				eclFilePath = ("\\" + mode + "\\game\\" + root.getAsJsonObject().get("level").getAsString()
-						+ "\\objectives.ecl").replace("\\", File.separator);
-				xmiFilePath = ("\\" + mode + "\\game\\" + root.getAsJsonObject().get("level").getAsString()
-						+ "\\source.model").replace("\\", File.separator);
+				filePath = ("../" + mode + "/game/" + root.getAsJsonObject().get("level").getAsString()
+						+ "/objectives.ecl").replace("/", File.separator);
+				eclFilePath = ("/" + mode + "/game/" + root.getAsJsonObject().get("level").getAsString()
+						+ "/objectives.ecl").replace("/", File.separator);
+				xmiFilePath = ("/" + mode + "/game/" + root.getAsJsonObject().get("level").getAsString()
+						+ "/source.model").replace("/", File.separator);
 
 				pathToEcl = pathToEcl + eclFilePath;
 				File f = new File(pathToEcl);
@@ -234,10 +212,10 @@ public class Validation2 extends HttpServlet {
 					ResourceSet refResourceSet = new ResourceSetImpl();
 					refResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi",
 							new XMIResourceFactoryImpl());
-					Resource refResource = refResourceSet.createResource(URI.createURI("file:///D:/test.xmi"));
+					Resource refResource = refResourceSet.createResource(URI.createURI("model.xmi"));
 					refResource.load(new ByteArrayInputStream(text.getBytes()), null);
-					refResource.save(null);
-					
+					// refResource.save(null);
+
 					InMemoryEmfModel refModel = new InMemoryEmfModel(refResource);
 					refModel.setName("source");
 					InMemoryEmfModel currentModel = new InMemoryEmfModel(currentResource);
@@ -245,7 +223,7 @@ public class Validation2 extends HttpServlet {
 					/// End XMI
 
 					java.net.URI eclBinUri = getFileURI(filePath);
-					
+
 					IEclModule eclModule = new EclModule();
 					eclModule.parse(eclBinUri);
 					eclModule.getContext().getModelRepository().addModel(refModel);
@@ -254,12 +232,13 @@ public class Validation2 extends HttpServlet {
 					List<Match> matchList = eclModule.getContext().getMatchTrace().getMatches();
 					System.out.println();
 					for (Match match : matchList) {
-//						System.out.println(match.getLeft().toString() + " vs " + match.getRight().toString());
-//						System.out.println(match.getRule().getBasename());
+						// System.out.println(match.getLeft().toString() + " vs
+						// " + match.getRight().toString());
+						// System.out.println(match.getRule().getBasename());
 						System.out.println("######## Result: " + match.isMatching());
 						validationResult.isLevelCompleted = validationResult.isLevelCompleted && match.isMatching();
 					}
-				} 
+				}
 
 			} catch (Exception ex) {
 				ex.printStackTrace();
