@@ -42,7 +42,7 @@ public class ListFiles extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		ServletContext context = session.getServletContext();
-		String path = context.getRealPath("./common/template/" + modellingType + "/" + type);
+		String path = context.getRealPath(("./common/template/" + modellingType + "/" + type).replace("/", File.separator));
 		
 		File file = new File(path);
 
