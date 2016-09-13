@@ -1,0 +1,70 @@
+@namespace(uri="editormodel",prefix="editormodel")
+
+package editormodel;
+
+@gmf.diagram(foo="bar")
+class Game {
+    
+	val Story[*] stories;
+}
+
+@gmf.node(label="description")
+class Story {
+    attr String name;
+    attr String description;
+    
+    @gmf.compartment(layout="free")
+	val SubStory[*] subStories;
+}
+
+@gmf.node(label="description")
+class SubStory {
+    attr String name;
+    attr String description;
+    
+    @gmf.compartment(layout="free")
+	val Level[*] levels;
+}
+
+@gmf.node(label="name")
+class Level {
+	attr String name;
+	
+	@gmf.compartment(layout="list")
+	val Objective[*] objectives;
+	
+	@gmf.compartment(layout="list")
+	val LevelCase levelCase;		
+	
+	val Path path; 
+}
+
+@gmf.node(label="name")
+class Objective {
+	attr String name;   
+	attr String description;
+}
+
+@gmf.node(label="name")
+class LevelCase {
+	attr String name;
+	attr String description;
+	val DraggableItem[*] draggableItems;
+	
+}
+
+@gmf.node(label="description")
+class DraggableItem {
+	attr String name;
+	attr String description;
+	attr String type;
+}
+
+@gmf.link(source="prevLevel", target="nextLevel")
+class Path {
+	ref Level prevLevel;
+   	ref Level nextLevel;
+}
+
+
+
