@@ -2,38 +2,42 @@
  */
 package editormodel.impl;
 
-import editormodel.Case;
 import editormodel.EditormodelPackage;
+import editormodel.Level;
+import editormodel.SubStory;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Case</b></em>'.
+ * An implementation of the model object '<em><b>Sub Story</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link editormodel.impl.CaseImpl#getName <em>Name</em>}</li>
- *   <li>{@link editormodel.impl.CaseImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link editormodel.impl.CaseImpl#getDraggableItems <em>Draggable Items</em>}</li>
+ *   <li>{@link editormodel.impl.SubStoryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link editormodel.impl.SubStoryImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link editormodel.impl.SubStoryImpl#getLevels <em>Levels</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CaseImpl extends EObjectImpl implements Case {
+public class SubStoryImpl extends EObjectImpl implements SubStory {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,21 +79,21 @@ public class CaseImpl extends EObjectImpl implements Case {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDraggableItems() <em>Draggable Items</em>}' attribute list.
+	 * The cached value of the '{@link #getLevels() <em>Levels</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDraggableItems()
+	 * @see #getLevels()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> draggableItems;
+	protected EList<Level> levels;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CaseImpl() {
+	protected SubStoryImpl() {
 		super();
 	}
 
@@ -100,7 +104,7 @@ public class CaseImpl extends EObjectImpl implements Case {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EditormodelPackage.Literals.CASE;
+		return EditormodelPackage.Literals.SUB_STORY;
 	}
 
 	/**
@@ -121,7 +125,7 @@ public class CaseImpl extends EObjectImpl implements Case {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.CASE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.SUB_STORY__NAME, oldName, name));
 	}
 
 	/**
@@ -142,7 +146,7 @@ public class CaseImpl extends EObjectImpl implements Case {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.CASE__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.SUB_STORY__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -150,11 +154,25 @@ public class CaseImpl extends EObjectImpl implements Case {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getDraggableItems() {
-		if (draggableItems == null) {
-			draggableItems = new EDataTypeUniqueEList<String>(String.class, this, EditormodelPackage.CASE__DRAGGABLE_ITEMS);
+	public EList<Level> getLevels() {
+		if (levels == null) {
+			levels = new EObjectContainmentEList<Level>(Level.class, this, EditormodelPackage.SUB_STORY__LEVELS);
 		}
-		return draggableItems;
+		return levels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EditormodelPackage.SUB_STORY__LEVELS:
+				return ((InternalEList<?>)getLevels()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -165,12 +183,12 @@ public class CaseImpl extends EObjectImpl implements Case {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EditormodelPackage.CASE__NAME:
+			case EditormodelPackage.SUB_STORY__NAME:
 				return getName();
-			case EditormodelPackage.CASE__DESCRIPTION:
+			case EditormodelPackage.SUB_STORY__DESCRIPTION:
 				return getDescription();
-			case EditormodelPackage.CASE__DRAGGABLE_ITEMS:
-				return getDraggableItems();
+			case EditormodelPackage.SUB_STORY__LEVELS:
+				return getLevels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,15 +202,15 @@ public class CaseImpl extends EObjectImpl implements Case {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EditormodelPackage.CASE__NAME:
+			case EditormodelPackage.SUB_STORY__NAME:
 				setName((String)newValue);
 				return;
-			case EditormodelPackage.CASE__DESCRIPTION:
+			case EditormodelPackage.SUB_STORY__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case EditormodelPackage.CASE__DRAGGABLE_ITEMS:
-				getDraggableItems().clear();
-				getDraggableItems().addAll((Collection<? extends String>)newValue);
+			case EditormodelPackage.SUB_STORY__LEVELS:
+				getLevels().clear();
+				getLevels().addAll((Collection<? extends Level>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,14 +224,14 @@ public class CaseImpl extends EObjectImpl implements Case {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EditormodelPackage.CASE__NAME:
+			case EditormodelPackage.SUB_STORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case EditormodelPackage.CASE__DESCRIPTION:
+			case EditormodelPackage.SUB_STORY__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case EditormodelPackage.CASE__DRAGGABLE_ITEMS:
-				getDraggableItems().clear();
+			case EditormodelPackage.SUB_STORY__LEVELS:
+				getLevels().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,12 +245,12 @@ public class CaseImpl extends EObjectImpl implements Case {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EditormodelPackage.CASE__NAME:
+			case EditormodelPackage.SUB_STORY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EditormodelPackage.CASE__DESCRIPTION:
+			case EditormodelPackage.SUB_STORY__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case EditormodelPackage.CASE__DRAGGABLE_ITEMS:
-				return draggableItems != null && !draggableItems.isEmpty();
+			case EditormodelPackage.SUB_STORY__LEVELS:
+				return levels != null && !levels.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -251,10 +269,8 @@ public class CaseImpl extends EObjectImpl implements Case {
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", draggableItems: ");
-		result.append(draggableItems);
 		result.append(')');
 		return result.toString();
 	}
 
-} //CaseImpl
+} //SubStoryImpl

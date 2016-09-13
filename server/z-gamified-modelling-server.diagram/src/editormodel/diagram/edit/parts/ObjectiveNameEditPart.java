@@ -295,7 +295,7 @@ public class ObjectiveNameEditPart extends CompartmentEditPart implements ITextA
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Objective_3001, getParserElement(),
+			parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Objective_3003, getParserElement(),
 					EditormodelVisualIDRegistry
 							.getType(editormodel.diagram.edit.parts.ObjectiveNameEditPart.VISUAL_ID));
 		}

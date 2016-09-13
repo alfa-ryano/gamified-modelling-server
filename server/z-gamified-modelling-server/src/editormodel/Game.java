@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link editormodel.Game#getLevels <em>Levels</em>}</li>
+ *   <li>{@link editormodel.Game#getStories <em>Stories</em>}</li>
  * </ul>
  *
  * @see editormodel.EditormodelPackage#getGame()
@@ -24,19 +24,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Game extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Levels</b></em>' containment reference list.
-	 * The list contents are of type {@link editormodel.Level}.
+	 * Returns the value of the '<em><b>Stories</b></em>' containment reference list.
+	 * The list contents are of type {@link editormodel.Story}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Levels</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Stories</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Levels</em>' containment reference list.
-	 * @see editormodel.EditormodelPackage#getGame_Levels()
+	 * @return the value of the '<em>Stories</em>' containment reference list.
+	 * @see editormodel.EditormodelPackage#getGame_Stories()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Level> getLevels();
+	EList<Story> getStories();
 
 } // Game

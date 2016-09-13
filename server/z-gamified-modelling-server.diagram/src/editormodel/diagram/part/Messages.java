@@ -256,12 +256,12 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String Case1CreationTool_title;
+	public static String DraggableItem1CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Case1CreationTool_desc;
+	public static String DraggableItem1CreationTool_desc;
 
 	/**
 	* @generated
@@ -276,12 +276,42 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String Objective3CreationTool_title;
+	public static String LevelCase3CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Objective3CreationTool_desc;
+	public static String LevelCase3CreationTool_desc;
+
+	/**
+	* @generated
+	*/
+	public static String Objective4CreationTool_title;
+
+	/**
+	* @generated
+	*/
+	public static String Objective4CreationTool_desc;
+
+	/**
+	* @generated
+	*/
+	public static String Story5CreationTool_title;
+
+	/**
+	* @generated
+	*/
+	public static String Story5CreationTool_desc;
+
+	/**
+	* @generated
+	*/
+	public static String SubStory6CreationTool_title;
+
+	/**
+	* @generated
+	*/
+	public static String SubStory6CreationTool_desc;
 
 	/**
 	* @generated
@@ -296,12 +326,27 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
+	public static String StoryStorySubStoriesCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String SubStorySubStoryLevelsCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
 	public static String LevelLevelObjectivesCompartmentEditPart_title;
 
 	/**
 	* @generated
 	*/
 	public static String LevelLevelLevelCaseCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String LevelCaseLevelCaseDraggableItemsCompartmentEditPart_title;
 
 	/**
 	* @generated
@@ -316,12 +361,12 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Level_2001_incominglinks;
+	public static String NavigatorGroupName_Level_3002_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Level_2001_outgoinglinks;
+	public static String NavigatorGroupName_Level_3002_outgoinglinks;
 
 	/**
 	* @generated

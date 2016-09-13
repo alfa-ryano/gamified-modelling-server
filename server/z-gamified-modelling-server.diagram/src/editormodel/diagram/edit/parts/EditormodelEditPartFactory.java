@@ -28,6 +28,18 @@ public class EditormodelEditPartFactory implements EditPartFactory {
 			case GameEditPart.VISUAL_ID:
 				return new GameEditPart(view);
 
+			case StoryEditPart.VISUAL_ID:
+				return new StoryEditPart(view);
+
+			case StoryDescriptionEditPart.VISUAL_ID:
+				return new StoryDescriptionEditPart(view);
+
+			case SubStoryEditPart.VISUAL_ID:
+				return new SubStoryEditPart(view);
+
+			case SubStoryDescriptionEditPart.VISUAL_ID:
+				return new SubStoryDescriptionEditPart(view);
+
 			case LevelEditPart.VISUAL_ID:
 				return new LevelEditPart(view);
 
@@ -40,17 +52,32 @@ public class EditormodelEditPartFactory implements EditPartFactory {
 			case ObjectiveNameEditPart.VISUAL_ID:
 				return new ObjectiveNameEditPart(view);
 
-			case CaseEditPart.VISUAL_ID:
-				return new CaseEditPart(view);
+			case LevelCaseEditPart.VISUAL_ID:
+				return new LevelCaseEditPart(view);
 
-			case CaseNameEditPart.VISUAL_ID:
-				return new CaseNameEditPart(view);
+			case LevelCaseNameEditPart.VISUAL_ID:
+				return new LevelCaseNameEditPart(view);
+
+			case DraggableItemEditPart.VISUAL_ID:
+				return new DraggableItemEditPart(view);
+
+			case DraggableItemDescriptionEditPart.VISUAL_ID:
+				return new DraggableItemDescriptionEditPart(view);
+
+			case StoryStorySubStoriesCompartmentEditPart.VISUAL_ID:
+				return new StoryStorySubStoriesCompartmentEditPart(view);
+
+			case SubStorySubStoryLevelsCompartmentEditPart.VISUAL_ID:
+				return new SubStorySubStoryLevelsCompartmentEditPart(view);
 
 			case LevelLevelObjectivesCompartmentEditPart.VISUAL_ID:
 				return new LevelLevelObjectivesCompartmentEditPart(view);
 
 			case LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID:
 				return new LevelLevelLevelCaseCompartmentEditPart(view);
+
+			case LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID:
+				return new LevelCaseLevelCaseDraggableItemsCompartmentEditPart(view);
 
 			case PathEditPart.VISUAL_ID:
 				return new PathEditPart(view);

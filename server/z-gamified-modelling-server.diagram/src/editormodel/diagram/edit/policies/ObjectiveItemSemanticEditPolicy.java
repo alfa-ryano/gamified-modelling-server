@@ -22,7 +22,7 @@ public class ObjectiveItemSemanticEditPolicy extends EditormodelBaseItemSemantic
 	* @generated
 	*/
 	public ObjectiveItemSemanticEditPolicy() {
-		super(EditormodelElementTypes.Objective_3001);
+		super(EditormodelElementTypes.Objective_3003);
 	}
 
 	/**

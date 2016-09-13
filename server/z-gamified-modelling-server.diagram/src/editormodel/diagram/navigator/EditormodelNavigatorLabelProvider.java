@@ -20,14 +20,20 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import editormodel.diagram.edit.parts.CaseEditPart;
-import editormodel.diagram.edit.parts.CaseNameEditPart;
+import editormodel.diagram.edit.parts.DraggableItemDescriptionEditPart;
+import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
+import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.LevelNameEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
+import editormodel.diagram.edit.parts.StoryDescriptionEditPart;
+import editormodel.diagram.edit.parts.StoryEditPart;
+import editormodel.diagram.edit.parts.SubStoryDescriptionEditPart;
+import editormodel.diagram.edit.parts.SubStoryEditPart;
 import editormodel.diagram.part.EditormodelDiagramEditorPlugin;
 import editormodel.diagram.part.EditormodelVisualIDRegistry;
 import editormodel.diagram.providers.EditormodelElementTypes;
@@ -96,12 +102,18 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 		switch (EditormodelVisualIDRegistry.getVisualID(view)) {
 		case GameEditPart.VISUAL_ID:
 			return getImage("Navigator?Diagram?editormodel?Game", EditormodelElementTypes.Game_1000); //$NON-NLS-1$
+		case StoryEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?editormodel?Story", EditormodelElementTypes.Story_2001); //$NON-NLS-1$
+		case SubStoryEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?editormodel?SubStory", EditormodelElementTypes.SubStory_3001); //$NON-NLS-1$
 		case LevelEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?editormodel?Level", EditormodelElementTypes.Level_2001); //$NON-NLS-1$
+			return getImage("Navigator?Node?editormodel?Level", EditormodelElementTypes.Level_3002); //$NON-NLS-1$
 		case ObjectiveEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?editormodel?Objective", EditormodelElementTypes.Objective_3001); //$NON-NLS-1$
-		case CaseEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?editormodel?Case", EditormodelElementTypes.Case_3002); //$NON-NLS-1$
+			return getImage("Navigator?Node?editormodel?Objective", EditormodelElementTypes.Objective_3003); //$NON-NLS-1$
+		case LevelCaseEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?editormodel?LevelCase", EditormodelElementTypes.LevelCase_3004); //$NON-NLS-1$
+		case DraggableItemEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?editormodel?DraggableItem", EditormodelElementTypes.DraggableItem_3005); //$NON-NLS-1$
 		case PathEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?editormodel?Path", EditormodelElementTypes.Path_4001); //$NON-NLS-1$
 		}
@@ -164,12 +176,18 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 		switch (EditormodelVisualIDRegistry.getVisualID(view)) {
 		case GameEditPart.VISUAL_ID:
 			return getGame_1000Text(view);
+		case StoryEditPart.VISUAL_ID:
+			return getStory_2001Text(view);
+		case SubStoryEditPart.VISUAL_ID:
+			return getSubStory_3001Text(view);
 		case LevelEditPart.VISUAL_ID:
-			return getLevel_2001Text(view);
+			return getLevel_3002Text(view);
 		case ObjectiveEditPart.VISUAL_ID:
-			return getObjective_3001Text(view);
-		case CaseEditPart.VISUAL_ID:
-			return getCase_3002Text(view);
+			return getObjective_3003Text(view);
+		case LevelCaseEditPart.VISUAL_ID:
+			return getLevelCase_3004Text(view);
+		case DraggableItemEditPart.VISUAL_ID:
+			return getDraggableItem_3005Text(view);
 		case PathEditPart.VISUAL_ID:
 			return getPath_4001Text(view);
 		}
@@ -186,8 +204,40 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getLevel_2001Text(View view) {
-		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Level_2001,
+	private String getStory_2001Text(View view) {
+		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Story_2001,
+				view.getElement() != null ? view.getElement() : view,
+				EditormodelVisualIDRegistry.getType(StoryDescriptionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	* @generated
+	*/
+	private String getSubStory_3001Text(View view) {
+		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.SubStory_3001,
+				view.getElement() != null ? view.getElement() : view,
+				EditormodelVisualIDRegistry.getType(SubStoryDescriptionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5004); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	* @generated
+	*/
+	private String getLevel_3002Text(View view) {
+		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Level_3002,
 				view.getElement() != null ? view.getElement() : view,
 				EditormodelVisualIDRegistry.getType(LevelNameEditPart.VISUAL_ID));
 		if (parser != null) {
@@ -202,8 +252,8 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getObjective_3001Text(View view) {
-		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Objective_3001,
+	private String getObjective_3003Text(View view) {
+		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Objective_3003,
 				view.getElement() != null ? view.getElement() : view,
 				EditormodelVisualIDRegistry.getType(ObjectiveNameEditPart.VISUAL_ID));
 		if (parser != null) {
@@ -218,15 +268,31 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getCase_3002Text(View view) {
-		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Case_3002,
+	private String getLevelCase_3004Text(View view) {
+		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.LevelCase_3004,
 				view.getElement() != null ? view.getElement() : view,
-				EditormodelVisualIDRegistry.getType(CaseNameEditPart.VISUAL_ID));
+				EditormodelVisualIDRegistry.getType(LevelCaseNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	* @generated
+	*/
+	private String getDraggableItem_3005Text(View view) {
+		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.DraggableItem_3005,
+				view.getElement() != null ? view.getElement() : view,
+				EditormodelVisualIDRegistry.getType(DraggableItemDescriptionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

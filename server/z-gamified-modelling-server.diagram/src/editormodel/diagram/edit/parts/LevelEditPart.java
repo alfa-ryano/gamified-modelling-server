@@ -10,8 +10,6 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -46,7 +44,7 @@ public class LevelEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 3002;
 
 	/**
 	* @generated
@@ -294,28 +292,16 @@ public class LevelEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == EditormodelElementTypes.Objective_3001) {
+			if (type == EditormodelElementTypes.Objective_3003) {
 				return getChildBySemanticHint(
 						EditormodelVisualIDRegistry.getType(LevelLevelObjectivesCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == EditormodelElementTypes.Case_3002) {
+			if (type == EditormodelElementTypes.LevelCase_3004) {
 				return getChildBySemanticHint(
 						EditormodelVisualIDRegistry.getType(LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
-	}
-
-	/**
-	* @generated
-	*/
-	protected void handleNotificationEvent(Notification event) {
-		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
-			handleMajorSemanticChange();
-		} else {
-			super.handleNotificationEvent(event);
-		}
 	}
 
 	/**

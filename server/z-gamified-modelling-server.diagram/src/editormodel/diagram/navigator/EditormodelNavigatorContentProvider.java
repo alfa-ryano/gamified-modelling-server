@@ -28,13 +28,19 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
-import editormodel.diagram.edit.parts.CaseEditPart;
+import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
+import editormodel.diagram.edit.parts.LevelCaseLevelCaseDraggableItemsCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.LevelLevelLevelCaseCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelLevelObjectivesCompartmentEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
+import editormodel.diagram.edit.parts.StoryEditPart;
+import editormodel.diagram.edit.parts.StoryStorySubStoriesCompartmentEditPart;
+import editormodel.diagram.edit.parts.SubStoryEditPart;
+import editormodel.diagram.edit.parts.SubStorySubStoryLevelsCompartmentEditPart;
 import editormodel.diagram.part.EditormodelVisualIDRegistry;
 import editormodel.diagram.part.Messages;
 
@@ -237,7 +243,7 @@ public class EditormodelNavigatorContentProvider implements ICommonContentProvid
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EditormodelVisualIDRegistry.getType(LevelEditPart.VISUAL_ID));
+					EditormodelVisualIDRegistry.getType(StoryEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					EditormodelVisualIDRegistry.getType(PathEditPart.VISUAL_ID));
@@ -248,14 +254,38 @@ public class EditormodelNavigatorContentProvider implements ICommonContentProvid
 			return result.toArray();
 		}
 
+		case StoryEditPart.VISUAL_ID: {
+			LinkedList<EditormodelAbstractNavigatorItem> result = new LinkedList<EditormodelAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EditormodelVisualIDRegistry.getType(StoryStorySubStoriesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EditormodelVisualIDRegistry.getType(SubStoryEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			return result.toArray();
+		}
+
+		case SubStoryEditPart.VISUAL_ID: {
+			LinkedList<EditormodelAbstractNavigatorItem> result = new LinkedList<EditormodelAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EditormodelVisualIDRegistry.getType(SubStorySubStoryLevelsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EditormodelVisualIDRegistry.getType(LevelEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			return result.toArray();
+		}
+
 		case LevelEditPart.VISUAL_ID: {
 			LinkedList<EditormodelAbstractNavigatorItem> result = new LinkedList<EditormodelAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EditormodelNavigatorGroup incominglinks = new EditormodelNavigatorGroup(
-					Messages.NavigatorGroupName_Level_2001_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_Level_3002_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			EditormodelNavigatorGroup outgoinglinks = new EditormodelNavigatorGroup(
-					Messages.NavigatorGroupName_Level_2001_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_Level_3002_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -266,7 +296,7 @@ public class EditormodelNavigatorContentProvider implements ICommonContentProvid
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					EditormodelVisualIDRegistry.getType(LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					EditormodelVisualIDRegistry.getType(CaseEditPart.VISUAL_ID));
+					EditormodelVisualIDRegistry.getType(LevelCaseEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EditormodelVisualIDRegistry.getType(PathEditPart.VISUAL_ID));
@@ -280,6 +310,18 @@ public class EditormodelNavigatorContentProvider implements ICommonContentProvid
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
 			}
+			return result.toArray();
+		}
+
+		case LevelCaseEditPart.VISUAL_ID: {
+			LinkedList<EditormodelAbstractNavigatorItem> result = new LinkedList<EditormodelAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EditormodelVisualIDRegistry.getType(LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EditormodelVisualIDRegistry.getType(DraggableItemEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			return result.toArray();
 		}
 

@@ -63,7 +63,7 @@ public class LevelLevelObjectivesCompartmentCanonicalEditPolicy extends Canonica
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EditormodelNodeDescriptor> childDescriptors = EditormodelDiagramUpdater
-				.getLevelLevelObjectivesCompartment_7001SemanticChildren(viewObject);
+				.getLevelLevelObjectivesCompartment_7003SemanticChildren(viewObject);
 		for (EditormodelNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -93,7 +93,7 @@ public class LevelLevelObjectivesCompartmentCanonicalEditPolicy extends Canonica
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EditormodelNodeDescriptor> childDescriptors = EditormodelDiagramUpdater
-				.getLevelLevelObjectivesCompartment_7001SemanticChildren((View) getHost().getModel());
+				.getLevelLevelObjectivesCompartment_7003SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

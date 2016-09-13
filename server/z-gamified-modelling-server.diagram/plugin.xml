@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Editormodel"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
@@ -271,16 +271,16 @@
             <method name="getType()" value="Editormodel"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3002"/>
+            <method name="getType()" value="2001,3001,3002,3003,3004,3005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5003,5001,5002"/>
+            <method name="getType()" value="5005,5004,5003,5001,5002,5006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002"/>
+            <method name="getType()" value="7001,7002,7003,7004,7005"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -294,20 +294,35 @@
          <object class="editormodel.diagram.edit.parts.GameEditPart" id="Game_1000"/>
          <context elements="Game_1000"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfStoryEditPart">
+         <Priority name="Lowest"/>
+         <object class="editormodel.diagram.edit.parts.StoryEditPart" id="Story_2001"/>
+         <context elements="Story_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfSubStoryEditPart">
+         <Priority name="Lowest"/>
+         <object class="editormodel.diagram.edit.parts.SubStoryEditPart" id="SubStory_3001"/>
+         <context elements="SubStory_3001"/>
+      </modelingAssistantProvider>
             <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfLevelEditPart">
          <Priority name="Lowest"/>
-         <object class="editormodel.diagram.edit.parts.LevelEditPart" id="Level_2001"/>
-         <context elements="Level_2001"/>
+         <object class="editormodel.diagram.edit.parts.LevelEditPart" id="Level_3002"/>
+         <context elements="Level_3002"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfObjectiveEditPart">
          <Priority name="Lowest"/>
-         <object class="editormodel.diagram.edit.parts.ObjectiveEditPart" id="Objective_3001"/>
-         <context elements="Objective_3001"/>
+         <object class="editormodel.diagram.edit.parts.ObjectiveEditPart" id="Objective_3003"/>
+         <context elements="Objective_3003"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfCaseEditPart">
+            <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfLevelCaseEditPart">
          <Priority name="Lowest"/>
-         <object class="editormodel.diagram.edit.parts.CaseEditPart" id="Case_3002"/>
-         <context elements="Case_3002"/>
+         <object class="editormodel.diagram.edit.parts.LevelCaseEditPart" id="LevelCase_3004"/>
+         <context elements="LevelCase_3004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="editormodel.diagram.providers.assistants.EditormodelModelingAssistantProviderOfDraggableItemEditPart">
+         <Priority name="Lowest"/>
+         <object class="editormodel.diagram.edit.parts.DraggableItemEditPart" id="DraggableItem_3005"/>
+         <context elements="DraggableItem_3005"/>
       </modelingAssistantProvider>
       
    </extension>
@@ -352,32 +367,62 @@
       </metamodel>
       <metamodel nsURI="editormodel">
          <metamodelType
-               id="z-gamified-modelling-server.diagram.Level_2001"
-               name="%metatype.name.Level_2001"
+               id="z-gamified-modelling-server.diagram.Story_2001"
+               name="%metatype.name.Story_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Level"
-               edithelper="editormodel.diagram.edit.helpers.LevelEditHelper">
+               eclass="Story"
+               edithelper="editormodel.diagram.edit.helpers.StoryEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="editormodel">
          <metamodelType
-               id="z-gamified-modelling-server.diagram.Objective_3001"
-               name="%metatype.name.Objective_3001"
+               id="z-gamified-modelling-server.diagram.SubStory_3001"
+               name="%metatype.name.SubStory_3001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Objective"
-               edithelper="editormodel.diagram.edit.helpers.ObjectiveEditHelper">
+               eclass="SubStory"
+               edithelper="editormodel.diagram.edit.helpers.SubStoryEditHelper">
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="editormodel">
          <metamodelType
-               id="z-gamified-modelling-server.diagram.Case_3002"
-               name="%metatype.name.Case_3002"
+               id="z-gamified-modelling-server.diagram.Level_3002"
+               name="%metatype.name.Level_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Case"
-               edithelper="editormodel.diagram.edit.helpers.CaseEditHelper">
+               eclass="Level"
+               edithelper="editormodel.diagram.edit.helpers.LevelEditHelper">
             <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="editormodel">
+         <metamodelType
+               id="z-gamified-modelling-server.diagram.Objective_3003"
+               name="%metatype.name.Objective_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Objective"
+               edithelper="editormodel.diagram.edit.helpers.ObjectiveEditHelper">
+            <param name="semanticHint" value="3003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="editormodel">
+         <metamodelType
+               id="z-gamified-modelling-server.diagram.LevelCase_3004"
+               name="%metatype.name.LevelCase_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LevelCase"
+               edithelper="editormodel.diagram.edit.helpers.LevelCaseEditHelper">
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="editormodel">
+         <metamodelType
+               id="z-gamified-modelling-server.diagram.DraggableItem_3005"
+               name="%metatype.name.DraggableItem_3005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DraggableItem"
+               edithelper="editormodel.diagram.edit.helpers.DraggableItemEditHelper">
+            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="editormodel">
@@ -403,9 +448,12 @@
       </clientContext> 
       <binding context="z-gamified-modelling-server.diagram.TypeContext">
          <elementType ref="z-gamified-modelling-server.diagram.Game_1000"/>
-         <elementType ref="z-gamified-modelling-server.diagram.Level_2001"/>
-         <elementType ref="z-gamified-modelling-server.diagram.Objective_3001"/>
-         <elementType ref="z-gamified-modelling-server.diagram.Case_3002"/>
+         <elementType ref="z-gamified-modelling-server.diagram.Story_2001"/>
+         <elementType ref="z-gamified-modelling-server.diagram.SubStory_3001"/>
+         <elementType ref="z-gamified-modelling-server.diagram.Level_3002"/>
+         <elementType ref="z-gamified-modelling-server.diagram.Objective_3003"/>
+         <elementType ref="z-gamified-modelling-server.diagram.LevelCase_3004"/>
+         <elementType ref="z-gamified-modelling-server.diagram.DraggableItem_3005"/>
          <elementType ref="z-gamified-modelling-server.diagram.Path_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

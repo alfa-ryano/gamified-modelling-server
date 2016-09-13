@@ -31,6 +31,24 @@ public interface EditormodelFactory extends EFactory {
 	Game createGame();
 
 	/**
+	 * Returns a new object of class '<em>Story</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Story</em>'.
+	 * @generated
+	 */
+	Story createStory();
+
+	/**
+	 * Returns a new object of class '<em>Sub Story</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sub Story</em>'.
+	 * @generated
+	 */
+	SubStory createSubStory();
+
+	/**
 	 * Returns a new object of class '<em>Level</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,13 +67,22 @@ public interface EditormodelFactory extends EFactory {
 	Objective createObjective();
 
 	/**
-	 * Returns a new object of class '<em>Case</em>'.
+	 * Returns a new object of class '<em>Level Case</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Case</em>'.
+	 * @return a new object of class '<em>Level Case</em>'.
 	 * @generated
 	 */
-	Case createCase();
+	LevelCase createLevelCase();
+
+	/**
+	 * Returns a new object of class '<em>Draggable Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Draggable Item</em>'.
+	 * @generated
+	 */
+	DraggableItem createDraggableItem();
 
 	/**
 	 * Returns a new object of class '<em>Path</em>'.

@@ -57,9 +57,12 @@ public class EditormodelFactoryImpl extends EFactoryImpl implements EditormodelF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EditormodelPackage.GAME: return createGame();
+			case EditormodelPackage.STORY: return createStory();
+			case EditormodelPackage.SUB_STORY: return createSubStory();
 			case EditormodelPackage.LEVEL: return createLevel();
 			case EditormodelPackage.OBJECTIVE: return createObjective();
-			case EditormodelPackage.CASE: return createCase();
+			case EditormodelPackage.LEVEL_CASE: return createLevelCase();
+			case EditormodelPackage.DRAGGABLE_ITEM: return createDraggableItem();
 			case EditormodelPackage.PATH: return createPath();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -74,6 +77,26 @@ public class EditormodelFactoryImpl extends EFactoryImpl implements EditormodelF
 	public Game createGame() {
 		GameImpl game = new GameImpl();
 		return game;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Story createStory() {
+		StoryImpl story = new StoryImpl();
+		return story;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubStory createSubStory() {
+		SubStoryImpl subStory = new SubStoryImpl();
+		return subStory;
 	}
 
 	/**
@@ -101,9 +124,19 @@ public class EditormodelFactoryImpl extends EFactoryImpl implements EditormodelF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Case createCase() {
-		CaseImpl case_ = new CaseImpl();
-		return case_;
+	public LevelCase createLevelCase() {
+		LevelCaseImpl levelCase = new LevelCaseImpl();
+		return levelCase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DraggableItem createDraggableItem() {
+		DraggableItemImpl draggableItem = new DraggableItemImpl();
+		return draggableItem;
 	}
 
 	/**

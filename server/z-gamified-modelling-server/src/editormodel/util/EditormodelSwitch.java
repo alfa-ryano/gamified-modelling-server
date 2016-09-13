@@ -72,6 +72,18 @@ public class EditormodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EditormodelPackage.STORY: {
+				Story story = (Story)theEObject;
+				T result = caseStory(story);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EditormodelPackage.SUB_STORY: {
+				SubStory subStory = (SubStory)theEObject;
+				T result = caseSubStory(subStory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EditormodelPackage.LEVEL: {
 				Level level = (Level)theEObject;
 				T result = caseLevel(level);
@@ -84,9 +96,15 @@ public class EditormodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EditormodelPackage.CASE: {
-				Case case_ = (Case)theEObject;
-				T result = caseCase(case_);
+			case EditormodelPackage.LEVEL_CASE: {
+				LevelCase levelCase = (LevelCase)theEObject;
+				T result = caseLevelCase(levelCase);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EditormodelPackage.DRAGGABLE_ITEM: {
+				DraggableItem draggableItem = (DraggableItem)theEObject;
+				T result = caseDraggableItem(draggableItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,6 +130,36 @@ public class EditormodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGame(Game object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Story</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Story</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStory(Story object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sub Story</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sub Story</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubStory(SubStory object) {
 		return null;
 	}
 
@@ -146,17 +194,32 @@ public class EditormodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Case</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Level Case</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Case</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Level Case</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCase(Case object) {
+	public T caseLevelCase(LevelCase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Draggable Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Draggable Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDraggableItem(DraggableItem object) {
 		return null;
 	}
 

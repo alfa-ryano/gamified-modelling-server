@@ -55,12 +55,12 @@ import editormodel.diagram.providers.EditormodelParserProvider;
 /**
  * @generated
  */
-public class CaseNameEditPart extends CompartmentEditPart implements ITextAwareEditPart {
+public class StoryDescriptionEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	* @generated
@@ -90,7 +90,7 @@ public class CaseNameEditPart extends CompartmentEditPart implements ITextAwareE
 	/**
 	* @generated
 	*/
-	public CaseNameEditPart(View view) {
+	public StoryDescriptionEditPart(View view) {
 		super(view);
 	}
 
@@ -295,8 +295,9 @@ public class CaseNameEditPart extends CompartmentEditPart implements ITextAwareE
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Case_3002, getParserElement(),
-					EditormodelVisualIDRegistry.getType(editormodel.diagram.edit.parts.CaseNameEditPart.VISUAL_ID));
+			parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Story_2001, getParserElement(),
+					EditormodelVisualIDRegistry
+							.getType(editormodel.diagram.edit.parts.StoryDescriptionEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

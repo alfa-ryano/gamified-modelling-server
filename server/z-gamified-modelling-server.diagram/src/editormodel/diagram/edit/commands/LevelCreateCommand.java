@@ -16,8 +16,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import editormodel.EditormodelFactory;
-import editormodel.Game;
 import editormodel.Level;
+import editormodel.SubStory;
 
 /**
  * @generated
@@ -57,7 +57,7 @@ public class LevelCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		Level newElement = EditormodelFactory.eINSTANCE.createLevel();
 
-		Game owner = (Game) getElementToEdit();
+		SubStory owner = (SubStory) getElementToEdit();
 		owner.getLevels().add(newElement);
 
 		doConfigure(newElement, monitor, info);

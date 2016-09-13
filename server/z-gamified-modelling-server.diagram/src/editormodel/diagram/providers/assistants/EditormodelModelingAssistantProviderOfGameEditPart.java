@@ -24,7 +24,7 @@ public class EditormodelModelingAssistantProviderOfGameEditPart extends Editormo
 
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(EditormodelElementTypes.Level_2001);
+		types.add(EditormodelElementTypes.Story_2001);
 		return types;
 	}
 

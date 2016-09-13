@@ -6,7 +6,7 @@ package editormodel.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import editormodel.diagram.edit.commands.CaseCreateCommand;
+import editormodel.diagram.edit.commands.LevelCaseCreateCommand;
 import editormodel.diagram.providers.EditormodelElementTypes;
 
 /**
@@ -18,15 +18,15 @@ public class LevelLevelLevelCaseCompartmentItemSemanticEditPolicy extends Editor
 	* @generated
 	*/
 	public LevelLevelLevelCaseCompartmentItemSemanticEditPolicy() {
-		super(EditormodelElementTypes.Level_2001);
+		super(EditormodelElementTypes.Level_3002);
 	}
 
 	/**
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EditormodelElementTypes.Case_3002 == req.getElementType()) {
-			return getGEFWrapper(new CaseCreateCommand(req));
+		if (EditormodelElementTypes.LevelCase_3004 == req.getElementType()) {
+			return getGEFWrapper(new LevelCaseCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

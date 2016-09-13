@@ -16,13 +16,13 @@ import editormodel.diagram.providers.EditormodelElementTypes;
 /**
  * @generated
  */
-public class CaseItemSemanticEditPolicy extends EditormodelBaseItemSemanticEditPolicy {
+public class DraggableItemItemSemanticEditPolicy extends EditormodelBaseItemSemanticEditPolicy {
 
 	/**
 	* @generated
 	*/
-	public CaseItemSemanticEditPolicy() {
-		super(EditormodelElementTypes.Case_3002);
+	public DraggableItemItemSemanticEditPolicy() {
+		super(EditormodelElementTypes.DraggableItem_3005);
 	}
 
 	/**

@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Case</b></em>'.
+ * A representation of the model object '<em><b>Sub Story</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link editormodel.Case#getName <em>Name</em>}</li>
- *   <li>{@link editormodel.Case#getDescription <em>Description</em>}</li>
- *   <li>{@link editormodel.Case#getDraggableItems <em>Draggable Items</em>}</li>
+ *   <li>{@link editormodel.SubStory#getName <em>Name</em>}</li>
+ *   <li>{@link editormodel.SubStory#getDescription <em>Description</em>}</li>
+ *   <li>{@link editormodel.SubStory#getLevels <em>Levels</em>}</li>
  * </ul>
  *
- * @see editormodel.EditormodelPackage#getCase()
- * @model annotation="gmf.node label='name'"
+ * @see editormodel.EditormodelPackage#getSubStory()
+ * @model annotation="gmf.node label='description'"
  * @generated
  */
-public interface Case extends EObject {
+public interface SubStory extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,14 +35,14 @@ public interface Case extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see editormodel.EditormodelPackage#getCase_Name()
+	 * @see editormodel.EditormodelPackage#getSubStory_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link editormodel.Case#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link editormodel.SubStory#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -61,14 +61,14 @@ public interface Case extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see editormodel.EditormodelPackage#getCase_Description()
+	 * @see editormodel.EditormodelPackage#getSubStory_Description()
 	 * @model
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link editormodel.Case#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link editormodel.SubStory#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
@@ -78,19 +78,20 @@ public interface Case extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Draggable Items</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Levels</b></em>' containment reference list.
+	 * The list contents are of type {@link editormodel.Level}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Draggable Items</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Levels</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Draggable Items</em>' attribute list.
-	 * @see editormodel.EditormodelPackage#getCase_DraggableItems()
-	 * @model
+	 * @return the value of the '<em>Levels</em>' containment reference list.
+	 * @see editormodel.EditormodelPackage#getSubStory_Levels()
+	 * @model containment="true"
+	 *        annotation="gmf.compartment layout='free'"
 	 * @generated
 	 */
-	EList<String> getDraggableItems();
+	EList<Level> getLevels();
 
-} // Case
+} // SubStory

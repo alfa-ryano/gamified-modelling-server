@@ -2,13 +2,16 @@
  */
 package editormodel.impl;
 
-import editormodel.Case;
+import editormodel.DraggableItem;
 import editormodel.EditormodelFactory;
 import editormodel.EditormodelPackage;
 import editormodel.Game;
 import editormodel.Level;
+import editormodel.LevelCase;
 import editormodel.Objective;
 import editormodel.Path;
+import editormodel.Story;
+import editormodel.SubStory;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -36,6 +39,20 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass storyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subStoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass levelEClass = null;
 
 	/**
@@ -50,7 +67,14 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass caseEClass = null;
+	private EClass levelCaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass draggableItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,8 +158,80 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_Levels() {
+	public EReference getGame_Stories() {
 		return (EReference)gameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStory() {
+		return storyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStory_Name() {
+		return (EAttribute)storyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStory_Description() {
+		return (EAttribute)storyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStory_SubStories() {
+		return (EReference)storyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSubStory() {
+		return subStoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubStory_Name() {
+		return (EAttribute)subStoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubStory_Description() {
+		return (EAttribute)subStoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubStory_Levels() {
+		return (EReference)subStoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -215,8 +311,8 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCase() {
-		return caseEClass;
+	public EClass getLevelCase() {
+		return levelCaseEClass;
 	}
 
 	/**
@@ -224,8 +320,8 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCase_Name() {
-		return (EAttribute)caseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLevelCase_Name() {
+		return (EAttribute)levelCaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -233,8 +329,8 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCase_Description() {
-		return (EAttribute)caseEClass.getEStructuralFeatures().get(1);
+	public EAttribute getLevelCase_Description() {
+		return (EAttribute)levelCaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -242,8 +338,44 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCase_DraggableItems() {
-		return (EAttribute)caseEClass.getEStructuralFeatures().get(2);
+	public EReference getLevelCase_DraggableItems() {
+		return (EReference)levelCaseEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDraggableItem() {
+		return draggableItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDraggableItem_Name() {
+		return (EAttribute)draggableItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDraggableItem_Description() {
+		return (EAttribute)draggableItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDraggableItem_Type() {
+		return (EAttribute)draggableItemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -302,7 +434,17 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 
 		// Create classes and their features
 		gameEClass = createEClass(GAME);
-		createEReference(gameEClass, GAME__LEVELS);
+		createEReference(gameEClass, GAME__STORIES);
+
+		storyEClass = createEClass(STORY);
+		createEAttribute(storyEClass, STORY__NAME);
+		createEAttribute(storyEClass, STORY__DESCRIPTION);
+		createEReference(storyEClass, STORY__SUB_STORIES);
+
+		subStoryEClass = createEClass(SUB_STORY);
+		createEAttribute(subStoryEClass, SUB_STORY__NAME);
+		createEAttribute(subStoryEClass, SUB_STORY__DESCRIPTION);
+		createEReference(subStoryEClass, SUB_STORY__LEVELS);
 
 		levelEClass = createEClass(LEVEL);
 		createEAttribute(levelEClass, LEVEL__NAME);
@@ -314,10 +456,15 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 		createEAttribute(objectiveEClass, OBJECTIVE__NAME);
 		createEAttribute(objectiveEClass, OBJECTIVE__DESCRIPTION);
 
-		caseEClass = createEClass(CASE);
-		createEAttribute(caseEClass, CASE__NAME);
-		createEAttribute(caseEClass, CASE__DESCRIPTION);
-		createEAttribute(caseEClass, CASE__DRAGGABLE_ITEMS);
+		levelCaseEClass = createEClass(LEVEL_CASE);
+		createEAttribute(levelCaseEClass, LEVEL_CASE__NAME);
+		createEAttribute(levelCaseEClass, LEVEL_CASE__DESCRIPTION);
+		createEReference(levelCaseEClass, LEVEL_CASE__DRAGGABLE_ITEMS);
+
+		draggableItemEClass = createEClass(DRAGGABLE_ITEM);
+		createEAttribute(draggableItemEClass, DRAGGABLE_ITEM__NAME);
+		createEAttribute(draggableItemEClass, DRAGGABLE_ITEM__DESCRIPTION);
+		createEAttribute(draggableItemEClass, DRAGGABLE_ITEM__TYPE);
 
 		pathEClass = createEClass(PATH);
 		createEReference(pathEClass, PATH__PREV_LEVEL);
@@ -355,22 +502,37 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGame_Levels(), this.getLevel(), null, "levels", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_Stories(), this.getStory(), null, "stories", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(storyEClass, Story.class, "Story", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStory_Name(), ecorePackage.getEString(), "name", null, 0, 1, Story.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStory_Description(), ecorePackage.getEString(), "description", null, 0, 1, Story.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStory_SubStories(), this.getSubStory(), null, "subStories", null, 0, -1, Story.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(subStoryEClass, SubStory.class, "SubStory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSubStory_Name(), ecorePackage.getEString(), "name", null, 0, 1, SubStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubStory_Description(), ecorePackage.getEString(), "description", null, 0, 1, SubStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubStory_Levels(), this.getLevel(), null, "levels", null, 0, -1, SubStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLevel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Objectives(), this.getObjective(), null, "objectives", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLevel_LevelCase(), this.getCase(), null, "levelCase", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLevel_LevelCase(), this.getLevelCase(), null, "levelCase", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Path(), this.getPath(), null, "path", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectiveEClass, Objective.class, "Objective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObjective_Name(), ecorePackage.getEString(), "name", null, 0, 1, Objective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObjective_Description(), ecorePackage.getEString(), "description", null, 0, 1, Objective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(caseEClass, Case.class, "Case", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCase_Description(), ecorePackage.getEString(), "description", null, 0, 1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCase_DraggableItems(), ecorePackage.getEString(), "draggableItems", null, 0, -1, Case.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(levelCaseEClass, LevelCase.class, "LevelCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLevelCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, LevelCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevelCase_Description(), ecorePackage.getEString(), "description", null, 0, 1, LevelCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLevelCase_DraggableItems(), this.getDraggableItem(), null, "draggableItems", null, 0, -1, LevelCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(draggableItemEClass, DraggableItem.class, "DraggableItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDraggableItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, DraggableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDraggableItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, DraggableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDraggableItem_Type(), ecorePackage.getEString(), "type", null, 0, 1, DraggableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPath_PrevLevel(), this.getLevel(), null, "prevLevel", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -415,6 +577,18 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	protected void createGmf_1Annotations() {
 		String source = "gmf.node";	
 		addAnnotation
+		  (storyEClass, 
+		   source, 
+		   new String[] {
+			 "label", "description"
+		   });	
+		addAnnotation
+		  (subStoryEClass, 
+		   source, 
+		   new String[] {
+			 "label", "description"
+		   });	
+		addAnnotation
 		  (levelEClass, 
 		   source, 
 		   new String[] {
@@ -427,10 +601,16 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 			 "label", "name"
 		   });	
 		addAnnotation
-		  (caseEClass, 
+		  (levelCaseEClass, 
 		   source, 
 		   new String[] {
 			 "label", "name"
+		   });	
+		addAnnotation
+		  (draggableItemEClass, 
+		   source, 
+		   new String[] {
+			 "label", "description"
 		   });
 	}
 
@@ -443,6 +623,18 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	protected void createGmf_2Annotations() {
 		String source = "gmf.compartment";	
 		addAnnotation
+		  (getStory_SubStories(), 
+		   source, 
+		   new String[] {
+			 "layout", "free"
+		   });	
+		addAnnotation
+		  (getSubStory_Levels(), 
+		   source, 
+		   new String[] {
+			 "layout", "free"
+		   });	
+		addAnnotation
 		  (getLevel_Objectives(), 
 		   source, 
 		   new String[] {
@@ -450,6 +642,12 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 		   });	
 		addAnnotation
 		  (getLevel_LevelCase(), 
+		   source, 
+		   new String[] {
+			 "layout", "list"
+		   });	
+		addAnnotation
+		  (getLevelCase_DraggableItems(), 
 		   source, 
 		   new String[] {
 			 "layout", "list"

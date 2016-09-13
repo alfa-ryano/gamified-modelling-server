@@ -5,6 +5,7 @@ package editormodel.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -16,28 +17,34 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
-import editormodel.diagram.edit.policies.CaseItemSemanticEditPolicy;
+import editormodel.diagram.edit.policies.LevelCaseItemSemanticEditPolicy;
+import editormodel.diagram.edit.policies.OpenDiagramEditPolicy;
 import editormodel.diagram.part.EditormodelVisualIDRegistry;
+import editormodel.diagram.providers.EditormodelElementTypes;
 
 /**
  * @generated
  */
-public class CaseEditPart extends ShapeNodeEditPart {
+public class LevelCaseEditPart extends ShapeNodeEditPart {
 
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 3002;
+	public static final int VISUAL_ID = 3004;
 
 	/**
 	* @generated
@@ -52,7 +59,7 @@ public class CaseEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public CaseEditPart(View view) {
+	public LevelCaseEditPart(View view) {
 		super(view);
 	}
 
@@ -60,10 +67,12 @@ public class CaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(EditormodelVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CaseItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new LevelCaseItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -96,22 +105,28 @@ public class CaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure createNodeShape() {
-		return primaryShape = new CaseFigure();
+		return primaryShape = new LevelCaseFigure();
 	}
 
 	/**
 	* @generated
 	*/
-	public CaseFigure getPrimaryShape() {
-		return (CaseFigure) primaryShape;
+	public LevelCaseFigure getPrimaryShape() {
+		return (LevelCaseFigure) primaryShape;
 	}
 
 	/**
 	* @generated
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CaseNameEditPart) {
-			((CaseNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureCaseLabelFigure());
+		if (childEditPart instanceof LevelCaseNameEditPart) {
+			((LevelCaseNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureLevelCaseLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof LevelCaseLevelCaseDraggableItemsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getLevelCaseDraggableItemsCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((LevelCaseLevelCaseDraggableItemsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -121,7 +136,12 @@ public class CaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CaseNameEditPart) {
+		if (childEditPart instanceof LevelCaseNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof LevelCaseLevelCaseDraggableItemsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getLevelCaseDraggableItemsCompartmentFigure();
+			pane.remove(((LevelCaseLevelCaseDraggableItemsCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -151,6 +171,9 @@ public class CaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof LevelCaseLevelCaseDraggableItemsCompartmentEditPart) {
+			return getPrimaryShape().getLevelCaseDraggableItemsCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -244,23 +267,44 @@ public class CaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EditormodelVisualIDRegistry.getType(CaseNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EditormodelVisualIDRegistry.getType(LevelCaseNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	* @generated
+	*/
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			if (type == EditormodelElementTypes.DraggableItem_3005) {
+				return getChildBySemanticHint(EditormodelVisualIDRegistry
+						.getType(LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
 	}
 
 	/**
 	 * @generated
 	 */
-	public class CaseFigure extends RoundedRectangle {
+	public class LevelCaseFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureCaseLabelFigure;
+		private WrappingLabel fFigureLevelCaseLabelFigure;
 
 		/**
-		 * @generated
-		 */
-		public CaseFigure() {
+		* @generated
+		*/
+		private RectangleFigure fLevelCaseDraggableItemsCompartmentFigure;
+
+		/**
+			 * @generated
+			 */
+		public LevelCaseFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
@@ -272,19 +316,34 @@ public class CaseEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureCaseLabelFigure = new WrappingLabel();
+			fFigureLevelCaseLabelFigure = new WrappingLabel();
 
-			fFigureCaseLabelFigure.setText("Case");
+			fFigureLevelCaseLabelFigure.setText("LevelCase");
+			fFigureLevelCaseLabelFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
-			this.add(fFigureCaseLabelFigure);
+			this.add(fFigureLevelCaseLabelFigure);
+
+			fLevelCaseDraggableItemsCompartmentFigure = new RectangleFigure();
+
+			fLevelCaseDraggableItemsCompartmentFigure.setOutline(false);
+
+			this.add(fLevelCaseDraggableItemsCompartmentFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureCaseLabelFigure() {
-			return fFigureCaseLabelFigure;
+		public WrappingLabel getFigureLevelCaseLabelFigure() {
+			return fFigureLevelCaseLabelFigure;
+		}
+
+		/**
+		* @generated
+		*/
+		public RectangleFigure getLevelCaseDraggableItemsCompartmentFigure() {
+			return fLevelCaseDraggableItemsCompartmentFigure;
 		}
 
 	}

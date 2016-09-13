@@ -18,14 +18,14 @@ public class LevelLevelObjectivesCompartmentItemSemanticEditPolicy extends Edito
 	* @generated
 	*/
 	public LevelLevelObjectivesCompartmentItemSemanticEditPolicy() {
-		super(EditormodelElementTypes.Level_2001);
+		super(EditormodelElementTypes.Level_3002);
 	}
 
 	/**
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EditormodelElementTypes.Objective_3001 == req.getElementType()) {
+		if (EditormodelElementTypes.Objective_3003 == req.getElementType()) {
 			return getGEFWrapper(new ObjectiveCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

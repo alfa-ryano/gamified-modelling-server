@@ -78,13 +78,13 @@ public interface Level extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Level Case</em>' containment reference.
-	 * @see #setLevelCase(Case)
+	 * @see #setLevelCase(LevelCase)
 	 * @see editormodel.EditormodelPackage#getLevel_LevelCase()
 	 * @model containment="true"
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-	Case getLevelCase();
+	LevelCase getLevelCase();
 
 	/**
 	 * Sets the value of the '{@link editormodel.Level#getLevelCase <em>Level Case</em>}' containment reference.
@@ -94,7 +94,7 @@ public interface Level extends EObject {
 	 * @see #getLevelCase()
 	 * @generated
 	 */
-	void setLevelCase(Case value);
+	void setLevelCase(LevelCase value);
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.

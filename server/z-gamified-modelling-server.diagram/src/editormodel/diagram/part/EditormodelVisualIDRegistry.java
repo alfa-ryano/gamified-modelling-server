@@ -12,9 +12,12 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import editormodel.EditormodelPackage;
 import editormodel.Game;
-import editormodel.diagram.edit.parts.CaseEditPart;
-import editormodel.diagram.edit.parts.CaseNameEditPart;
+import editormodel.diagram.edit.parts.DraggableItemDescriptionEditPart;
+import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
+import editormodel.diagram.edit.parts.LevelCaseLevelCaseDraggableItemsCompartmentEditPart;
+import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.LevelLevelLevelCaseCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelLevelObjectivesCompartmentEditPart;
@@ -22,6 +25,12 @@ import editormodel.diagram.edit.parts.LevelNameEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
+import editormodel.diagram.edit.parts.StoryDescriptionEditPart;
+import editormodel.diagram.edit.parts.StoryEditPart;
+import editormodel.diagram.edit.parts.StoryStorySubStoriesCompartmentEditPart;
+import editormodel.diagram.edit.parts.SubStoryDescriptionEditPart;
+import editormodel.diagram.edit.parts.SubStoryEditPart;
+import editormodel.diagram.edit.parts.SubStorySubStoryLevelsCompartmentEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -125,6 +134,16 @@ public class EditormodelVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case GameEditPart.VISUAL_ID:
+			if (EditormodelPackage.eINSTANCE.getStory().isSuperTypeOf(domainElement.eClass())) {
+				return StoryEditPart.VISUAL_ID;
+			}
+			break;
+		case StoryStorySubStoriesCompartmentEditPart.VISUAL_ID:
+			if (EditormodelPackage.eINSTANCE.getSubStory().isSuperTypeOf(domainElement.eClass())) {
+				return SubStoryEditPart.VISUAL_ID;
+			}
+			break;
+		case SubStorySubStoryLevelsCompartmentEditPart.VISUAL_ID:
 			if (EditormodelPackage.eINSTANCE.getLevel().isSuperTypeOf(domainElement.eClass())) {
 				return LevelEditPart.VISUAL_ID;
 			}
@@ -135,8 +154,13 @@ public class EditormodelVisualIDRegistry {
 			}
 			break;
 		case LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID:
-			if (EditormodelPackage.eINSTANCE.getCase().isSuperTypeOf(domainElement.eClass())) {
-				return CaseEditPart.VISUAL_ID;
+			if (EditormodelPackage.eINSTANCE.getLevelCase().isSuperTypeOf(domainElement.eClass())) {
+				return LevelCaseEditPart.VISUAL_ID;
+			}
+			break;
+		case LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID:
+			if (EditormodelPackage.eINSTANCE.getDraggableItem().isSuperTypeOf(domainElement.eClass())) {
+				return DraggableItemEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -163,7 +187,23 @@ public class EditormodelVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case GameEditPart.VISUAL_ID:
-			if (LevelEditPart.VISUAL_ID == nodeVisualID) {
+			if (StoryEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case StoryEditPart.VISUAL_ID:
+			if (StoryDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StoryStorySubStoriesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SubStoryEditPart.VISUAL_ID:
+			if (SubStoryDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SubStorySubStoryLevelsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -183,8 +223,26 @@ public class EditormodelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case CaseEditPart.VISUAL_ID:
-			if (CaseNameEditPart.VISUAL_ID == nodeVisualID) {
+		case LevelCaseEditPart.VISUAL_ID:
+			if (LevelCaseNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DraggableItemEditPart.VISUAL_ID:
+			if (DraggableItemDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case StoryStorySubStoriesCompartmentEditPart.VISUAL_ID:
+			if (SubStoryEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SubStorySubStoryLevelsCompartmentEditPart.VISUAL_ID:
+			if (LevelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -194,7 +252,12 @@ public class EditormodelVisualIDRegistry {
 			}
 			break;
 		case LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID:
-			if (CaseEditPart.VISUAL_ID == nodeVisualID) {
+			if (LevelCaseEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID:
+			if (DraggableItemEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -242,8 +305,11 @@ public class EditormodelVisualIDRegistry {
 	*/
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
+		case StoryStorySubStoriesCompartmentEditPart.VISUAL_ID:
+		case SubStorySubStoryLevelsCompartmentEditPart.VISUAL_ID:
 		case LevelLevelObjectivesCompartmentEditPart.VISUAL_ID:
 		case LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID:
+		case LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -259,7 +325,7 @@ public class EditormodelVisualIDRegistry {
 		case GameEditPart.VISUAL_ID:
 			return false;
 		case ObjectiveEditPart.VISUAL_ID:
-		case CaseEditPart.VISUAL_ID:
+		case DraggableItemEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -15,19 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import editormodel.Case;
+import editormodel.DraggableItem;
 import editormodel.EditormodelFactory;
-import editormodel.Level;
+import editormodel.LevelCase;
 
 /**
  * @generated
  */
-public class CaseCreateCommand extends EditElementCommand {
+public class DraggableItemCreateCommand extends EditElementCommand {
 
 	/**
 	* @generated
 	*/
-	public CaseCreateCommand(CreateElementRequest req) {
+	public DraggableItemCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -47,10 +47,6 @@ public class CaseCreateCommand extends EditElementCommand {
 	* @generated
 	*/
 	public boolean canExecute() {
-		Level container = (Level) getElementToEdit();
-		if (container.getLevelCase() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -59,10 +55,10 @@ public class CaseCreateCommand extends EditElementCommand {
 	* @generated
 	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		Case newElement = EditormodelFactory.eINSTANCE.createCase();
+		DraggableItem newElement = EditormodelFactory.eINSTANCE.createDraggableItem();
 
-		Level owner = (Level) getElementToEdit();
-		owner.setLevelCase(newElement);
+		LevelCase owner = (LevelCase) getElementToEdit();
+		owner.getDraggableItems().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 
@@ -73,7 +69,8 @@ public class CaseCreateCommand extends EditElementCommand {
 	/**
 	* @generated
 	*/
-	protected void doConfigure(Case newElement, IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	protected void doConfigure(DraggableItem newElement, IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());

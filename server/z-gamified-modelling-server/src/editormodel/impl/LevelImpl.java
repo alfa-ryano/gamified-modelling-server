@@ -2,9 +2,9 @@
  */
 package editormodel.impl;
 
-import editormodel.Case;
 import editormodel.EditormodelPackage;
 import editormodel.Level;
+import editormodel.LevelCase;
 import editormodel.Objective;
 import editormodel.Path;
 
@@ -79,7 +79,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * @generated
 	 * @ordered
 	 */
-	protected Case levelCase;
+	protected LevelCase levelCase;
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -148,7 +148,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Case getLevelCase() {
+	public LevelCase getLevelCase() {
 		return levelCase;
 	}
 
@@ -157,8 +157,8 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLevelCase(Case newLevelCase, NotificationChain msgs) {
-		Case oldLevelCase = levelCase;
+	public NotificationChain basicSetLevelCase(LevelCase newLevelCase, NotificationChain msgs) {
+		LevelCase oldLevelCase = levelCase;
 		levelCase = newLevelCase;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__LEVEL_CASE, oldLevelCase, newLevelCase);
@@ -172,7 +172,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLevelCase(Case newLevelCase) {
+	public void setLevelCase(LevelCase newLevelCase) {
 		if (newLevelCase != levelCase) {
 			NotificationChain msgs = null;
 			if (levelCase != null)
@@ -284,7 +284,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 				getObjectives().addAll((Collection<? extends Objective>)newValue);
 				return;
 			case EditormodelPackage.LEVEL__LEVEL_CASE:
-				setLevelCase((Case)newValue);
+				setLevelCase((LevelCase)newValue);
 				return;
 			case EditormodelPackage.LEVEL__PATH:
 				setPath((Path)newValue);
@@ -308,7 +308,7 @@ public class LevelImpl extends EObjectImpl implements Level {
 				getObjectives().clear();
 				return;
 			case EditormodelPackage.LEVEL__LEVEL_CASE:
-				setLevelCase((Case)null);
+				setLevelCase((LevelCase)null);
 				return;
 			case EditormodelPackage.LEVEL__PATH:
 				setPath((Path)null);

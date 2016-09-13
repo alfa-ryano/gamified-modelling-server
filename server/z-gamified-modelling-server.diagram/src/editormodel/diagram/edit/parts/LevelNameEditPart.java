@@ -295,7 +295,7 @@ public class LevelNameEditPart extends CompartmentEditPart implements ITextAware
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Level_2001, getParserElement(),
+			parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Level_3002, getParserElement(),
 					EditormodelVisualIDRegistry.getType(editormodel.diagram.edit.parts.LevelNameEditPart.VISUAL_ID));
 		}
 		return parser;

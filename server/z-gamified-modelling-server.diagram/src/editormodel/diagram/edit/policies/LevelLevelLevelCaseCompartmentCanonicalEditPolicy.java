@@ -25,7 +25,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import editormodel.EditormodelPackage;
-import editormodel.diagram.edit.parts.CaseEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.part.EditormodelDiagramUpdater;
 import editormodel.diagram.part.EditormodelNodeDescriptor;
 import editormodel.diagram.part.EditormodelVisualIDRegistry;
@@ -63,7 +63,7 @@ public class LevelLevelLevelCaseCompartmentCanonicalEditPolicy extends Canonical
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EditormodelNodeDescriptor> childDescriptors = EditormodelDiagramUpdater
-				.getLevelLevelLevelCaseCompartment_7002SemanticChildren(viewObject);
+				.getLevelLevelLevelCaseCompartment_7004SemanticChildren(viewObject);
 		for (EditormodelNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -81,7 +81,7 @@ public class LevelLevelLevelCaseCompartmentCanonicalEditPolicy extends Canonical
 	* @generated
 	*/
 	private boolean isMyDiagramElement(View view) {
-		return CaseEditPart.VISUAL_ID == EditormodelVisualIDRegistry.getVisualID(view);
+		return LevelCaseEditPart.VISUAL_ID == EditormodelVisualIDRegistry.getVisualID(view);
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class LevelLevelLevelCaseCompartmentCanonicalEditPolicy extends Canonical
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EditormodelNodeDescriptor> childDescriptors = EditormodelDiagramUpdater
-				.getLevelLevelLevelCaseCompartment_7002SemanticChildren((View) getHost().getModel());
+				.getLevelLevelLevelCaseCompartment_7004SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

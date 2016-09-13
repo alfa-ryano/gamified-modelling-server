@@ -35,7 +35,7 @@ public class LevelLevelLevelCaseCompartmentEditPart extends ListCompartmentEditP
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7002;
+	public static final int VISUAL_ID = 7004;
 
 	/**
 	* @generated
@@ -97,7 +97,7 @@ public class LevelLevelLevelCaseCompartmentEditPart extends ListCompartmentEditP
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == EditormodelElementTypes.Case_3002) {
+			if (type == EditormodelElementTypes.LevelCase_3004) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);

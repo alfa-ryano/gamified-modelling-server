@@ -18,11 +18,14 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
 import editormodel.EditormodelPackage;
-import editormodel.diagram.edit.parts.CaseEditPart;
+import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
+import editormodel.diagram.edit.parts.StoryEditPart;
+import editormodel.diagram.edit.parts.SubStoryEditPart;
 import editormodel.diagram.part.EditormodelDiagramEditorPlugin;
 
 /**
@@ -59,16 +62,32 @@ public class EditormodelElementTypes {
 	/**
 	* @generated
 	*/
-	public static final IElementType Level_2001 = getElementType("z-gamified-modelling-server.diagram.Level_2001"); //$NON-NLS-1$
+	public static final IElementType Story_2001 = getElementType("z-gamified-modelling-server.diagram.Story_2001"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
-	public static final IElementType Objective_3001 = getElementType(
-			"z-gamified-modelling-server.diagram.Objective_3001"); //$NON-NLS-1$
+	public static final IElementType SubStory_3001 = getElementType(
+			"z-gamified-modelling-server.diagram.SubStory_3001"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
-	public static final IElementType Case_3002 = getElementType("z-gamified-modelling-server.diagram.Case_3002"); //$NON-NLS-1$
+	public static final IElementType Level_3002 = getElementType("z-gamified-modelling-server.diagram.Level_3002"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
+	public static final IElementType Objective_3003 = getElementType(
+			"z-gamified-modelling-server.diagram.Objective_3003"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
+	public static final IElementType LevelCase_3004 = getElementType(
+			"z-gamified-modelling-server.diagram.LevelCase_3004"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
+	public static final IElementType DraggableItem_3005 = getElementType(
+			"z-gamified-modelling-server.diagram.DraggableItem_3005"); //$NON-NLS-1$
+
 	/**
 	* @generated
 	*/
@@ -114,11 +133,17 @@ public class EditormodelElementTypes {
 
 			elements.put(Game_1000, EditormodelPackage.eINSTANCE.getGame());
 
-			elements.put(Level_2001, EditormodelPackage.eINSTANCE.getLevel());
+			elements.put(Story_2001, EditormodelPackage.eINSTANCE.getStory());
 
-			elements.put(Objective_3001, EditormodelPackage.eINSTANCE.getObjective());
+			elements.put(SubStory_3001, EditormodelPackage.eINSTANCE.getSubStory());
 
-			elements.put(Case_3002, EditormodelPackage.eINSTANCE.getCase());
+			elements.put(Level_3002, EditormodelPackage.eINSTANCE.getLevel());
+
+			elements.put(Objective_3003, EditormodelPackage.eINSTANCE.getObjective());
+
+			elements.put(LevelCase_3004, EditormodelPackage.eINSTANCE.getLevelCase());
+
+			elements.put(DraggableItem_3005, EditormodelPackage.eINSTANCE.getDraggableItem());
 
 			elements.put(Path_4001, EditormodelPackage.eINSTANCE.getPath());
 		}
@@ -139,9 +164,12 @@ public class EditormodelElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Game_1000);
-			KNOWN_ELEMENT_TYPES.add(Level_2001);
-			KNOWN_ELEMENT_TYPES.add(Objective_3001);
-			KNOWN_ELEMENT_TYPES.add(Case_3002);
+			KNOWN_ELEMENT_TYPES.add(Story_2001);
+			KNOWN_ELEMENT_TYPES.add(SubStory_3001);
+			KNOWN_ELEMENT_TYPES.add(Level_3002);
+			KNOWN_ELEMENT_TYPES.add(Objective_3003);
+			KNOWN_ELEMENT_TYPES.add(LevelCase_3004);
+			KNOWN_ELEMENT_TYPES.add(DraggableItem_3005);
 			KNOWN_ELEMENT_TYPES.add(Path_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -154,12 +182,18 @@ public class EditormodelElementTypes {
 		switch (visualID) {
 		case GameEditPart.VISUAL_ID:
 			return Game_1000;
+		case StoryEditPart.VISUAL_ID:
+			return Story_2001;
+		case SubStoryEditPart.VISUAL_ID:
+			return SubStory_3001;
 		case LevelEditPart.VISUAL_ID:
-			return Level_2001;
+			return Level_3002;
 		case ObjectiveEditPart.VISUAL_ID:
-			return Objective_3001;
-		case CaseEditPart.VISUAL_ID:
-			return Case_3002;
+			return Objective_3003;
+		case LevelCaseEditPart.VISUAL_ID:
+			return LevelCase_3004;
+		case DraggableItemEditPart.VISUAL_ID:
+			return DraggableItem_3005;
 		case PathEditPart.VISUAL_ID:
 			return Path_4001;
 		}

@@ -72,6 +72,14 @@ public class EditormodelAdapterFactory extends AdapterFactoryImpl {
 				return createGameAdapter();
 			}
 			@Override
+			public Adapter caseStory(Story object) {
+				return createStoryAdapter();
+			}
+			@Override
+			public Adapter caseSubStory(SubStory object) {
+				return createSubStoryAdapter();
+			}
+			@Override
 			public Adapter caseLevel(Level object) {
 				return createLevelAdapter();
 			}
@@ -80,8 +88,12 @@ public class EditormodelAdapterFactory extends AdapterFactoryImpl {
 				return createObjectiveAdapter();
 			}
 			@Override
-			public Adapter caseCase(Case object) {
-				return createCaseAdapter();
+			public Adapter caseLevelCase(LevelCase object) {
+				return createLevelCaseAdapter();
+			}
+			@Override
+			public Adapter caseDraggableItem(DraggableItem object) {
+				return createDraggableItemAdapter();
 			}
 			@Override
 			public Adapter casePath(Path object) {
@@ -122,6 +134,34 @@ public class EditormodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link editormodel.Story <em>Story</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see editormodel.Story
+	 * @generated
+	 */
+	public Adapter createStoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link editormodel.SubStory <em>Sub Story</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see editormodel.SubStory
+	 * @generated
+	 */
+	public Adapter createSubStoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link editormodel.Level <em>Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -150,16 +190,30 @@ public class EditormodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link editormodel.Case <em>Case</em>}'.
+	 * Creates a new adapter for an object of class '{@link editormodel.LevelCase <em>Level Case</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see editormodel.Case
+	 * @see editormodel.LevelCase
 	 * @generated
 	 */
-	public Adapter createCaseAdapter() {
+	public Adapter createLevelCaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link editormodel.DraggableItem <em>Draggable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see editormodel.DraggableItem
+	 * @generated
+	 */
+	public Adapter createDraggableItemAdapter() {
 		return null;
 	}
 

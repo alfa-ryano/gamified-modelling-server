@@ -15,12 +15,12 @@ public class EditormodelNavigatorSorter extends ViewerSorter {
 	/**
 	* @generated
 	*/
-	private static final int GROUP_CATEGORY = 7004;
+	private static final int GROUP_CATEGORY = 7007;
 
 	/**
 	* @generated
 	*/
-	private static final int SHORTCUTS_CATEGORY = 7003;
+	private static final int SHORTCUTS_CATEGORY = 7006;
 
 	/**
 	* @generated

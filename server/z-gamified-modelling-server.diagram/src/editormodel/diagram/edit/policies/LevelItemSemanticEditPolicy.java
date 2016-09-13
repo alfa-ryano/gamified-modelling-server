@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import editormodel.diagram.edit.commands.PathCreateCommand;
 import editormodel.diagram.edit.commands.PathReorientCommand;
-import editormodel.diagram.edit.parts.CaseEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.edit.parts.LevelLevelLevelCaseCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelLevelObjectivesCompartmentEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
@@ -37,7 +37,7 @@ public class LevelItemSemanticEditPolicy extends EditormodelBaseItemSemanticEdit
 	* @generated
 	*/
 	public LevelItemSemanticEditPolicy() {
-		super(EditormodelElementTypes.Level_2001);
+		super(EditormodelElementTypes.Level_3002);
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class LevelItemSemanticEditPolicy extends EditormodelBaseItemSemanticEdit
 				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (EditormodelVisualIDRegistry.getVisualID(cnode)) {
-					case CaseEditPart.VISUAL_ID:
+					case LevelCaseEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 

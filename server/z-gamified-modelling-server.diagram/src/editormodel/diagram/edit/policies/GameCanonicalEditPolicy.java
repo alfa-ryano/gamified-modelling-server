@@ -33,11 +33,14 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import editormodel.EditormodelPackage;
-import editormodel.diagram.edit.parts.CaseEditPart;
+import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
+import editormodel.diagram.edit.parts.StoryEditPart;
+import editormodel.diagram.edit.parts.SubStoryEditPart;
 import editormodel.diagram.part.EditormodelDiagramUpdater;
 import editormodel.diagram.part.EditormodelLinkDescriptor;
 import editormodel.diagram.part.EditormodelNodeDescriptor;
@@ -64,7 +67,7 @@ public class GameCanonicalEditPolicy extends CanonicalEditPolicy {
 	* @generated
 	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return EditormodelPackage.eINSTANCE.getGame_Levels();
+		return EditormodelPackage.eINSTANCE.getGame_Stories();
 	}
 
 	/**
@@ -97,7 +100,7 @@ public class GameCanonicalEditPolicy extends CanonicalEditPolicy {
 	* @generated
 	*/
 	private boolean isMyDiagramElement(View view) {
-		return LevelEditPart.VISUAL_ID == EditormodelVisualIDRegistry.getVisualID(view);
+		return StoryEditPart.VISUAL_ID == EditormodelVisualIDRegistry.getVisualID(view);
 	}
 
 	/**
@@ -254,23 +257,44 @@ public class GameCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case StoryEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EditormodelDiagramUpdater.getStory_2001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SubStoryEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EditormodelDiagramUpdater.getSubStory_3001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case LevelEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EditormodelDiagramUpdater.getLevel_2001ContainedLinks(view));
+				result.addAll(EditormodelDiagramUpdater.getLevel_3002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ObjectiveEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EditormodelDiagramUpdater.getObjective_3001ContainedLinks(view));
+				result.addAll(EditormodelDiagramUpdater.getObjective_3003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case CaseEditPart.VISUAL_ID: {
+		case LevelCaseEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EditormodelDiagramUpdater.getCase_3002ContainedLinks(view));
+				result.addAll(EditormodelDiagramUpdater.getLevelCase_3004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DraggableItemEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EditormodelDiagramUpdater.getDraggableItem_3005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

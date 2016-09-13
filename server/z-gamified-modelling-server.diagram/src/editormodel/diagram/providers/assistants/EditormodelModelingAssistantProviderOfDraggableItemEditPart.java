@@ -8,6 +8,6 @@ import editormodel.diagram.providers.EditormodelModelingAssistantProvider;
 /**
  * @generated
  */
-public class EditormodelModelingAssistantProviderOfCaseEditPart extends EditormodelModelingAssistantProvider {
+public class EditormodelModelingAssistantProviderOfDraggableItemEditPart extends EditormodelModelingAssistantProvider {
 
 }

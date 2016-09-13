@@ -27,8 +27,8 @@ public class EditormodelModelingAssistantProviderOfLevelEditPart extends Editorm
 
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(EditormodelElementTypes.Objective_3001);
-		types.add(EditormodelElementTypes.Case_3002);
+		types.add(EditormodelElementTypes.Objective_3003);
+		types.add(EditormodelElementTypes.LevelCase_3004);
 		return types;
 	}
 
@@ -89,7 +89,7 @@ public class EditormodelModelingAssistantProviderOfLevelEditPart extends Editorm
 	public List<IElementType> doGetTypesForTarget(LevelEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == EditormodelElementTypes.Path_4001) {
-			types.add(EditormodelElementTypes.Level_2001);
+			types.add(EditormodelElementTypes.Level_3002);
 		}
 		return types;
 	}
@@ -129,7 +129,7 @@ public class EditormodelModelingAssistantProviderOfLevelEditPart extends Editorm
 	public List<IElementType> doGetTypesForSource(LevelEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == EditormodelElementTypes.Path_4001) {
-			types.add(EditormodelElementTypes.Level_2001);
+			types.add(EditormodelElementTypes.Level_3002);
 		}
 		return types;
 	}

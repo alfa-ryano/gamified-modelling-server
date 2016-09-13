@@ -4,7 +4,7 @@ package editormodel.impl;
 
 import editormodel.EditormodelPackage;
 import editormodel.Game;
-import editormodel.Level;
+import editormodel.Story;
 
 import java.util.Collection;
 
@@ -28,21 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link editormodel.impl.GameImpl#getLevels <em>Levels</em>}</li>
+ *   <li>{@link editormodel.impl.GameImpl#getStories <em>Stories</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GameImpl extends EObjectImpl implements Game {
 	/**
-	 * The cached value of the '{@link #getLevels() <em>Levels</em>}' containment reference list.
+	 * The cached value of the '{@link #getStories() <em>Stories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLevels()
+	 * @see #getStories()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Level> levels;
+	protected EList<Story> stories;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,11 +68,11 @@ public class GameImpl extends EObjectImpl implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Level> getLevels() {
-		if (levels == null) {
-			levels = new EObjectContainmentEList<Level>(Level.class, this, EditormodelPackage.GAME__LEVELS);
+	public EList<Story> getStories() {
+		if (stories == null) {
+			stories = new EObjectContainmentEList<Story>(Story.class, this, EditormodelPackage.GAME__STORIES);
 		}
-		return levels;
+		return stories;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class GameImpl extends EObjectImpl implements Game {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EditormodelPackage.GAME__LEVELS:
-				return ((InternalEList<?>)getLevels()).basicRemove(otherEnd, msgs);
+			case EditormodelPackage.GAME__STORIES:
+				return ((InternalEList<?>)getStories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public class GameImpl extends EObjectImpl implements Game {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EditormodelPackage.GAME__LEVELS:
-				return getLevels();
+			case EditormodelPackage.GAME__STORIES:
+				return getStories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public class GameImpl extends EObjectImpl implements Game {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EditormodelPackage.GAME__LEVELS:
-				getLevels().clear();
-				getLevels().addAll((Collection<? extends Level>)newValue);
+			case EditormodelPackage.GAME__STORIES:
+				getStories().clear();
+				getStories().addAll((Collection<? extends Story>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public class GameImpl extends EObjectImpl implements Game {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EditormodelPackage.GAME__LEVELS:
-				getLevels().clear();
+			case EditormodelPackage.GAME__STORIES:
+				getStories().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,8 +143,8 @@ public class GameImpl extends EObjectImpl implements Game {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EditormodelPackage.GAME__LEVELS:
-				return levels != null && !levels.isEmpty();
+			case EditormodelPackage.GAME__STORIES:
+				return stories != null && !stories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

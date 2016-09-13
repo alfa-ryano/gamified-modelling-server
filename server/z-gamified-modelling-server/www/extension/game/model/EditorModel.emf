@@ -49,6 +49,8 @@ class Objective {
 class LevelCase {
 	attr String name;
 	attr String description;
+	
+	@gmf.compartment(layout="list")
 	val DraggableItem[*] draggableItems;
 	
 }

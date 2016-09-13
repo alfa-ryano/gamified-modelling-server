@@ -66,13 +66,13 @@ public interface EditormodelPackage extends EPackage {
 	int GAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Levels</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Stories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__LEVELS = 0;
+	int GAME__STORIES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Game</em>' class.
@@ -84,6 +84,98 @@ public interface EditormodelPackage extends EPackage {
 	int GAME_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link editormodel.impl.StoryImpl <em>Story</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see editormodel.impl.StoryImpl
+	 * @see editormodel.impl.EditormodelPackageImpl#getStory()
+	 * @generated
+	 */
+	int STORY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORY__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Sub Stories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORY__SUB_STORIES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Story</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORY_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link editormodel.impl.SubStoryImpl <em>Sub Story</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see editormodel.impl.SubStoryImpl
+	 * @see editormodel.impl.EditormodelPackageImpl#getSubStory()
+	 * @generated
+	 */
+	int SUB_STORY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_STORY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_STORY__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Levels</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_STORY__LEVELS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Sub Story</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_STORY_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link editormodel.impl.LevelImpl <em>Level</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,7 +183,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @see editormodel.impl.EditormodelPackageImpl#getLevel()
 	 * @generated
 	 */
-	int LEVEL = 1;
+	int LEVEL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -146,7 +238,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @see editormodel.impl.EditormodelPackageImpl#getObjective()
 	 * @generated
 	 */
-	int OBJECTIVE = 2;
+	int OBJECTIVE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,14 +268,14 @@ public interface EditormodelPackage extends EPackage {
 	int OBJECTIVE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link editormodel.impl.CaseImpl <em>Case</em>}' class.
+	 * The meta object id for the '{@link editormodel.impl.LevelCaseImpl <em>Level Case</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see editormodel.impl.CaseImpl
-	 * @see editormodel.impl.EditormodelPackageImpl#getCase()
+	 * @see editormodel.impl.LevelCaseImpl
+	 * @see editormodel.impl.EditormodelPackageImpl#getLevelCase()
 	 * @generated
 	 */
-	int CASE = 3;
+	int LEVEL_CASE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -192,7 +284,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CASE__NAME = 0;
+	int LEVEL_CASE__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -201,25 +293,71 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CASE__DESCRIPTION = 1;
+	int LEVEL_CASE__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Draggable Items</b></em>' attribute list.
+	 * The feature id for the '<em><b>Draggable Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASE__DRAGGABLE_ITEMS = 2;
+	int LEVEL_CASE__DRAGGABLE_ITEMS = 2;
 
 	/**
-	 * The number of structural features of the '<em>Case</em>' class.
+	 * The number of structural features of the '<em>Level Case</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASE_FEATURE_COUNT = 3;
+	int LEVEL_CASE_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link editormodel.impl.DraggableItemImpl <em>Draggable Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see editormodel.impl.DraggableItemImpl
+	 * @see editormodel.impl.EditormodelPackageImpl#getDraggableItem()
+	 * @generated
+	 */
+	int DRAGGABLE_ITEM = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRAGGABLE_ITEM__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRAGGABLE_ITEM__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRAGGABLE_ITEM__TYPE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Draggable Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRAGGABLE_ITEM_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link editormodel.impl.PathImpl <em>Path</em>}' class.
@@ -229,7 +367,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @see editormodel.impl.EditormodelPackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 4;
+	int PATH = 7;
 
 	/**
 	 * The feature id for the '<em><b>Prev Level</b></em>' reference.
@@ -270,15 +408,101 @@ public interface EditormodelPackage extends EPackage {
 	EClass getGame();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link editormodel.Game#getLevels <em>Levels</em>}'.
+	 * Returns the meta object for the containment reference list '{@link editormodel.Game#getStories <em>Stories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Levels</em>'.
-	 * @see editormodel.Game#getLevels()
+	 * @return the meta object for the containment reference list '<em>Stories</em>'.
+	 * @see editormodel.Game#getStories()
 	 * @see #getGame()
 	 * @generated
 	 */
-	EReference getGame_Levels();
+	EReference getGame_Stories();
+
+	/**
+	 * Returns the meta object for class '{@link editormodel.Story <em>Story</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Story</em>'.
+	 * @see editormodel.Story
+	 * @generated
+	 */
+	EClass getStory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Story#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see editormodel.Story#getName()
+	 * @see #getStory()
+	 * @generated
+	 */
+	EAttribute getStory_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Story#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see editormodel.Story#getDescription()
+	 * @see #getStory()
+	 * @generated
+	 */
+	EAttribute getStory_Description();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link editormodel.Story#getSubStories <em>Sub Stories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Stories</em>'.
+	 * @see editormodel.Story#getSubStories()
+	 * @see #getStory()
+	 * @generated
+	 */
+	EReference getStory_SubStories();
+
+	/**
+	 * Returns the meta object for class '{@link editormodel.SubStory <em>Sub Story</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sub Story</em>'.
+	 * @see editormodel.SubStory
+	 * @generated
+	 */
+	EClass getSubStory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.SubStory#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see editormodel.SubStory#getName()
+	 * @see #getSubStory()
+	 * @generated
+	 */
+	EAttribute getSubStory_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.SubStory#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see editormodel.SubStory#getDescription()
+	 * @see #getSubStory()
+	 * @generated
+	 */
+	EAttribute getSubStory_Description();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link editormodel.SubStory#getLevels <em>Levels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Levels</em>'.
+	 * @see editormodel.SubStory#getLevels()
+	 * @see #getSubStory()
+	 * @generated
+	 */
+	EReference getSubStory_Levels();
 
 	/**
 	 * Returns the meta object for class '{@link editormodel.Level <em>Level</em>}'.
@@ -367,47 +591,90 @@ public interface EditormodelPackage extends EPackage {
 	EAttribute getObjective_Description();
 
 	/**
-	 * Returns the meta object for class '{@link editormodel.Case <em>Case</em>}'.
+	 * Returns the meta object for class '{@link editormodel.LevelCase <em>Level Case</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Case</em>'.
-	 * @see editormodel.Case
+	 * @return the meta object for class '<em>Level Case</em>'.
+	 * @see editormodel.LevelCase
 	 * @generated
 	 */
-	EClass getCase();
+	EClass getLevelCase();
 
 	/**
-	 * Returns the meta object for the attribute '{@link editormodel.Case#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link editormodel.LevelCase#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see editormodel.Case#getName()
-	 * @see #getCase()
+	 * @see editormodel.LevelCase#getName()
+	 * @see #getLevelCase()
 	 * @generated
 	 */
-	EAttribute getCase_Name();
+	EAttribute getLevelCase_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link editormodel.Case#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link editormodel.LevelCase#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see editormodel.Case#getDescription()
-	 * @see #getCase()
+	 * @see editormodel.LevelCase#getDescription()
+	 * @see #getLevelCase()
 	 * @generated
 	 */
-	EAttribute getCase_Description();
+	EAttribute getLevelCase_Description();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link editormodel.Case#getDraggableItems <em>Draggable Items</em>}'.
+	 * Returns the meta object for the containment reference list '{@link editormodel.LevelCase#getDraggableItems <em>Draggable Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Draggable Items</em>'.
-	 * @see editormodel.Case#getDraggableItems()
-	 * @see #getCase()
+	 * @return the meta object for the containment reference list '<em>Draggable Items</em>'.
+	 * @see editormodel.LevelCase#getDraggableItems()
+	 * @see #getLevelCase()
 	 * @generated
 	 */
-	EAttribute getCase_DraggableItems();
+	EReference getLevelCase_DraggableItems();
+
+	/**
+	 * Returns the meta object for class '{@link editormodel.DraggableItem <em>Draggable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Draggable Item</em>'.
+	 * @see editormodel.DraggableItem
+	 * @generated
+	 */
+	EClass getDraggableItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.DraggableItem#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see editormodel.DraggableItem#getName()
+	 * @see #getDraggableItem()
+	 * @generated
+	 */
+	EAttribute getDraggableItem_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.DraggableItem#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see editormodel.DraggableItem#getDescription()
+	 * @see #getDraggableItem()
+	 * @generated
+	 */
+	EAttribute getDraggableItem_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.DraggableItem#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see editormodel.DraggableItem#getType()
+	 * @see #getDraggableItem()
+	 * @generated
+	 */
+	EAttribute getDraggableItem_Type();
 
 	/**
 	 * Returns the meta object for class '{@link editormodel.Path <em>Path</em>}'.
@@ -474,12 +741,80 @@ public interface EditormodelPackage extends EPackage {
 		EClass GAME = eINSTANCE.getGame();
 
 		/**
+		 * The meta object literal for the '<em><b>Stories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GAME__STORIES = eINSTANCE.getGame_Stories();
+
+		/**
+		 * The meta object literal for the '{@link editormodel.impl.StoryImpl <em>Story</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see editormodel.impl.StoryImpl
+		 * @see editormodel.impl.EditormodelPackageImpl#getStory()
+		 * @generated
+		 */
+		EClass STORY = eINSTANCE.getStory();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STORY__NAME = eINSTANCE.getStory_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STORY__DESCRIPTION = eINSTANCE.getStory_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Stories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STORY__SUB_STORIES = eINSTANCE.getStory_SubStories();
+
+		/**
+		 * The meta object literal for the '{@link editormodel.impl.SubStoryImpl <em>Sub Story</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see editormodel.impl.SubStoryImpl
+		 * @see editormodel.impl.EditormodelPackageImpl#getSubStory()
+		 * @generated
+		 */
+		EClass SUB_STORY = eINSTANCE.getSubStory();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUB_STORY__NAME = eINSTANCE.getSubStory_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUB_STORY__DESCRIPTION = eINSTANCE.getSubStory_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Levels</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GAME__LEVELS = eINSTANCE.getGame_Levels();
+		EReference SUB_STORY__LEVELS = eINSTANCE.getSubStory_Levels();
 
 		/**
 		 * The meta object literal for the '{@link editormodel.impl.LevelImpl <em>Level</em>}' class.
@@ -550,14 +885,14 @@ public interface EditormodelPackage extends EPackage {
 		EAttribute OBJECTIVE__DESCRIPTION = eINSTANCE.getObjective_Description();
 
 		/**
-		 * The meta object literal for the '{@link editormodel.impl.CaseImpl <em>Case</em>}' class.
+		 * The meta object literal for the '{@link editormodel.impl.LevelCaseImpl <em>Level Case</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see editormodel.impl.CaseImpl
-		 * @see editormodel.impl.EditormodelPackageImpl#getCase()
+		 * @see editormodel.impl.LevelCaseImpl
+		 * @see editormodel.impl.EditormodelPackageImpl#getLevelCase()
 		 * @generated
 		 */
-		EClass CASE = eINSTANCE.getCase();
+		EClass LEVEL_CASE = eINSTANCE.getLevelCase();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -565,7 +900,7 @@ public interface EditormodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CASE__NAME = eINSTANCE.getCase_Name();
+		EAttribute LEVEL_CASE__NAME = eINSTANCE.getLevelCase_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -573,15 +908,49 @@ public interface EditormodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CASE__DESCRIPTION = eINSTANCE.getCase_Description();
+		EAttribute LEVEL_CASE__DESCRIPTION = eINSTANCE.getLevelCase_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Draggable Items</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Draggable Items</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CASE__DRAGGABLE_ITEMS = eINSTANCE.getCase_DraggableItems();
+		EReference LEVEL_CASE__DRAGGABLE_ITEMS = eINSTANCE.getLevelCase_DraggableItems();
+
+		/**
+		 * The meta object literal for the '{@link editormodel.impl.DraggableItemImpl <em>Draggable Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see editormodel.impl.DraggableItemImpl
+		 * @see editormodel.impl.EditormodelPackageImpl#getDraggableItem()
+		 * @generated
+		 */
+		EClass DRAGGABLE_ITEM = eINSTANCE.getDraggableItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DRAGGABLE_ITEM__NAME = eINSTANCE.getDraggableItem_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DRAGGABLE_ITEM__DESCRIPTION = eINSTANCE.getDraggableItem_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DRAGGABLE_ITEM__TYPE = eINSTANCE.getDraggableItem_Type();
 
 		/**
 		 * The meta object literal for the '{@link editormodel.impl.PathImpl <em>Path</em>}' class.

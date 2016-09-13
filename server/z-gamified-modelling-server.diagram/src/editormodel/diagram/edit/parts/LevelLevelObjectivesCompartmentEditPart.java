@@ -35,7 +35,7 @@ public class LevelLevelObjectivesCompartmentEditPart extends ListCompartmentEdit
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7001;
+	public static final int VISUAL_ID = 7003;
 
 	/**
 	* @generated
@@ -97,7 +97,7 @@ public class LevelLevelObjectivesCompartmentEditPart extends ListCompartmentEdit
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == EditormodelElementTypes.Objective_3001) {
+			if (type == EditormodelElementTypes.Objective_3003) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);
