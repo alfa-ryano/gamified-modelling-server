@@ -177,12 +177,12 @@ var Stage = function(game) {
 			level = "0" + level;
 		}
 
-		if (game.mode == "DEVELOPMENT") {
-			path = "development/game/level_" + level + "/instructions.xml";
-			pathCSS = "development/game/level_" + level + "/instructions.css";
+		if (game.levels[game.currentLevel].levelMode == "core") {
+			path = "core/game/level_" + level + "/instructions.xml";
+			pathCSS = "core/game/level_" + level + "/instructions.css";
 		} else {
-			path = "production/game/level_" + level + "/instructions.xml";
-			pathCSS = "production/game/level_" + level + "/instructions.css";
+			path = "extension/game/level_" + level + "/instructions.xml";
+			pathCSS = "extension/game/level_" + level + "/instructions.css";
 		}
 
 

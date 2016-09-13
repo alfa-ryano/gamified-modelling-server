@@ -2,7 +2,7 @@
 try {
 	var game = new Game();
 	
-	game.mode = "PRODUCTION"
+	game.mode = "CORE"
 
     [% var levelIndex := 0; %]
     [% for (level in game.levels){ %]

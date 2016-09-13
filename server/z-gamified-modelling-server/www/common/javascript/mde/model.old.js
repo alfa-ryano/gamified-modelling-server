@@ -157,7 +157,7 @@ var Level = function (game, id, name) {
     }
 
     this.evaluateObjectives = function () {
-        var data = game.util.convertModelsToJson(game.mode,
+        var data = game.util.convertModelsToJson(game.levels[game.currentLevel].levelMode,
             game.levels[game.currentLevel].id,
             game.levels[game.currentLevel].nodes,
             game.levels[game.currentLevel].edges);
@@ -233,7 +233,7 @@ var Game = function () {
     // SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
     this.currentLevel = 0;
 
-    this.mode = "DEVELOPMENT"
+    this.mode = "CORE"
 
     this.levels = new Array();
 

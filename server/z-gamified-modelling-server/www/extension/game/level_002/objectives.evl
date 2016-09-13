@@ -1,0 +1,28 @@
+context objectmodelling!ObjectModelling {
+    
+  // At least there is an node with name button
+  constraint objective_01 {
+    check : 
+        self.evaluationFunction_01("button 1")
+    message : 
+        "At least one node named 'button 1' must exist"
+  }
+  
+  constraint objective_02 {
+    check : 
+        self.evaluationFunction_01("button 2")
+    message : 
+        "At least one node named 'button 2' must exist"
+  }
+} 
+
+operation ObjectModelling evaluationFunction_01(name: String): Boolean{
+    if (self.nodes.size() > 0){  
+	    for (node in self.nodes){
+	        if (node.name = name){
+	        return true;
+	        }
+	    }
+    }
+    return false;
+}

@@ -88,6 +88,7 @@ var Level = function(game, ID, name) {
 	this.selectedSourceId = null;
 	this.selectedTargetId = null;
 	this.timeElapsed = "00:00:00";
+	this.levelMode = "core";
 	
 	this.addNode = function(node) {
 		this.nodes.push(node);
@@ -135,7 +136,7 @@ var Level = function(game, ID, name) {
 			return;
 		}
 		
-		var data = this.compactingModel(game.mode,
+		var data = this.compactingModel(game.levels[game.currentLevel].levelMode,
 			game.levels[game.currentLevel].ID,
 			game.levels[game.currentLevel].graph);
 		game.util
@@ -220,7 +221,7 @@ var Game = function() {
 	// SET THE DEFAULT LEVEL 0 = level 1, 1 = level 2
 	this.currentLevel = 0;
 
-	this.mode = "DEVELOPMENT"
+	this.mode = "CORE"
 
 	this.levels = new Array();
 

@@ -32,7 +32,7 @@
       <package
             uri="GamifiedModelling"
             class="ObjectModelling.ObjectModellingPackage"
-            genModel="www/development/model/ObjectModelling.genmodel"/>
+            genModel="www/core/model.old/ObjectModelling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">

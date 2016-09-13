@@ -132,12 +132,12 @@ public class Validation2 extends HttpServlet {
 			// Load EVL module
 			IEvlModule evlModule = new EvlModule();
 			String source = "";
-			if (root.getAsJsonObject().get("mode").getAsString().equals("PRODUCTION")) {
+			if (root.getAsJsonObject().get("mode").getAsString().equals("core")) {
 				// if (model.mode.equals("PRODUCTION")) {
-				source = ("../production/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl")
+				source = ("../core/game/" + root.getAsJsonObject().get("level").getAsString() + "/objectives.evl")
 						.replace("/", File.separator);
 			} else {
-				source = ("../development/game/" + root.getAsJsonObject().get("level").getAsString()
+				source = ("../extension/game/" + root.getAsJsonObject().get("level").getAsString()
 						+ "/objectives.evl").replace("/", File.separator);
 				;
 			}
@@ -182,10 +182,10 @@ public class Validation2 extends HttpServlet {
 				String mode = "";
 				String pathToEcl = getServletContext().getRealPath(File.separator);
 				String pathToXmi = getServletContext().getRealPath(File.separator);
-				if (root.getAsJsonObject().get("mode").getAsString().equals("PRODUCTION")) {
-					mode = "production";
+				if (root.getAsJsonObject().get("mode").getAsString().equals("CORE")) {
+					mode = "core";
 				} else {
-					mode = "development";
+					mode = "extension";
 				}
 
 				filePath = ("../" + mode + "/game/" + root.getAsJsonObject().get("level").getAsString()

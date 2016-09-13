@@ -2,11 +2,8 @@
 try {
 	var game = new Game();
 	
-	game.mode = "PRODUCTION"
+	game.mode = "CORE"
 
-    
-   
-    
     game.levels[0] = new Level(game, "level_1",
             "Level 1: Create Two Objects");
     game.levels[0].levelCase = new LevelCase(game, game.levels[0], "[case_01",
