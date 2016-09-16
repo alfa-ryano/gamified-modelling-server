@@ -43,20 +43,20 @@ public class EditormodelEditPartFactory implements EditPartFactory {
 			case LevelEditPart.VISUAL_ID:
 				return new LevelEditPart(view);
 
-			case LevelNameEditPart.VISUAL_ID:
-				return new LevelNameEditPart(view);
+			case LevelDescriptionEditPart.VISUAL_ID:
+				return new LevelDescriptionEditPart(view);
 
 			case ObjectiveEditPart.VISUAL_ID:
 				return new ObjectiveEditPart(view);
 
-			case ObjectiveNameEditPart.VISUAL_ID:
-				return new ObjectiveNameEditPart(view);
+			case ObjectiveDescriptionEditPart.VISUAL_ID:
+				return new ObjectiveDescriptionEditPart(view);
 
 			case LevelCaseEditPart.VISUAL_ID:
 				return new LevelCaseEditPart(view);
 
-			case LevelCaseNameEditPart.VISUAL_ID:
-				return new LevelCaseNameEditPart(view);
+			case LevelCaseDescriptionEditPart.VISUAL_ID:
+				return new LevelCaseDescriptionEditPart(view);
 
 			case DraggableItemEditPart.VISUAL_ID:
 				return new DraggableItemEditPart(view);

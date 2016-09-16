@@ -257,8 +257,35 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLevel_Description() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLevel_ModelType() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLevel_IsSequel() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getLevel_Objectives() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(1);
+		return (EReference)levelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -267,7 +294,7 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * @generated
 	 */
 	public EReference getLevel_LevelCase() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(2);
+		return (EReference)levelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -276,7 +303,7 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * @generated
 	 */
 	public EReference getLevel_Path() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(3);
+		return (EReference)levelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -448,6 +475,9 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 
 		levelEClass = createEClass(LEVEL);
 		createEAttribute(levelEClass, LEVEL__NAME);
+		createEAttribute(levelEClass, LEVEL__DESCRIPTION);
+		createEAttribute(levelEClass, LEVEL__MODEL_TYPE);
+		createEAttribute(levelEClass, LEVEL__IS_SEQUEL);
 		createEReference(levelEClass, LEVEL__OBJECTIVES);
 		createEReference(levelEClass, LEVEL__LEVEL_CASE);
 		createEReference(levelEClass, LEVEL__PATH);
@@ -516,6 +546,9 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 
 		initEClass(levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLevel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_Description(), ecorePackage.getEString(), "description", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_ModelType(), ecorePackage.getEString(), "modelType", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_IsSequel(), ecorePackage.getEBoolean(), "isSequel", "false", 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Objectives(), this.getObjective(), null, "objectives", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_LevelCase(), this.getLevelCase(), null, "levelCase", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Path(), this.getPath(), null, "path", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -592,19 +625,19 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 		  (levelEClass, 
 		   source, 
 		   new String[] {
-			 "label", "name"
+			 "label", "description"
 		   });	
 		addAnnotation
 		  (objectiveEClass, 
 		   source, 
 		   new String[] {
-			 "label", "name"
+			 "label", "description"
 		   });	
 		addAnnotation
 		  (levelCaseEClass, 
 		   source, 
 		   new String[] {
-			 "label", "name"
+			 "label", "description"
 		   });	
 		addAnnotation
 		  (draggableItemEClass, 

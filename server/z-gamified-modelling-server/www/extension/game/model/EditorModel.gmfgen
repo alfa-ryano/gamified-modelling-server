@@ -35,11 +35,11 @@
         <containmentMetaFeature href="EditorModel.genmodel#//editormodel/SubStory/levels"/>
         <childMetaFeature href="EditorModel.genmodel#//editormodel/SubStory/levels"/>
       </modelFacet>
-      <labels visualID="5003" editPartClassName="LevelNameEditPart" itemSemanticEditPolicyClassName="LevelNameItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5003" editPartClassName="LevelDescriptionEditPart" itemSemanticEditPolicyClassName="LevelDescriptionItemSemanticEditPolicy" elementIcon="true">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureLevelLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="EditorModel.genmodel#//editormodel/Level/name"/>
+          <metaFeatures href="EditorModel.genmodel#//editormodel/Level/description"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -52,11 +52,11 @@
         <containmentMetaFeature href="EditorModel.genmodel#//editormodel/Level/objectives"/>
         <childMetaFeature href="EditorModel.genmodel#//editormodel/Level/objectives"/>
       </modelFacet>
-      <labels visualID="5001" editPartClassName="ObjectiveNameEditPart" itemSemanticEditPolicyClassName="ObjectiveNameItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5001" editPartClassName="ObjectiveDescriptionEditPart" itemSemanticEditPolicyClassName="ObjectiveDescriptionItemSemanticEditPolicy" elementIcon="true">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureObjectiveLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="EditorModel.genmodel#//editormodel/Objective/name"/>
+          <metaFeatures href="EditorModel.genmodel#//editormodel/Objective/description"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -70,11 +70,11 @@
         <containmentMetaFeature href="EditorModel.genmodel#//editormodel/Level/levelCase"/>
         <childMetaFeature href="EditorModel.genmodel#//editormodel/Level/levelCase"/>
       </modelFacet>
-      <labels visualID="5002" editPartClassName="LevelCaseNameEditPart" itemSemanticEditPolicyClassName="LevelCaseNameItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5002" editPartClassName="LevelCaseDescriptionEditPart" itemSemanticEditPolicyClassName="LevelCaseDescriptionItemSemanticEditPolicy" elementIcon="true">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureLevelCaseLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="EditorModel.genmodel#//editormodel/LevelCase/name"/>
+          <metaFeatures href="EditorModel.genmodel#//editormodel/LevelCase/description"/>
         </modelFacet>
       </labels>
     </childNodes>

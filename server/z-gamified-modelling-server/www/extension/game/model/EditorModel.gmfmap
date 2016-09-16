@@ -58,7 +58,7 @@
                 <diagramLabel
                     href="EditorModel.gmfgraph#LevelLabel"/>
                 <features
-                    href="EditorModel.ecore#//Level/name"/>
+                    href="EditorModel.ecore#//Level/description"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -77,7 +77,7 @@
                     <diagramLabel
                         href="EditorModel.gmfgraph#ObjectiveLabel"/>
                     <features
-                        href="EditorModel.ecore#//Objective/name"/>
+                        href="EditorModel.ecore#//Objective/description"/>
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
@@ -99,7 +99,7 @@
                     <diagramLabel
                         href="EditorModel.gmfgraph#LevelCaseLabel"/>
                     <features
-                        href="EditorModel.ecore#//LevelCase/name"/>
+                        href="EditorModel.ecore#//LevelCase/description"/>
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"

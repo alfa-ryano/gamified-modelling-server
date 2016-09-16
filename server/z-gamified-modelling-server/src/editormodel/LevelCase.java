@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see editormodel.EditormodelPackage#getLevelCase()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='description'"
  * @generated
  */
 public interface LevelCase extends EObject {

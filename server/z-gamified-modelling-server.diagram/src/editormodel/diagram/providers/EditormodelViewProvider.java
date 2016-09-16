@@ -48,13 +48,16 @@ import org.eclipse.swt.graphics.FontData;
 import editormodel.diagram.edit.parts.DraggableItemDescriptionEditPart;
 import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.edit.parts.LevelCaseLevelCaseDraggableItemsCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
+import editormodel.diagram.edit.parts.LevelDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.LevelLevelLevelCaseCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelLevelObjectivesCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelNameEditPart;
+import editormodel.diagram.edit.parts.ObjectiveDescriptionEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
@@ -361,7 +364,7 @@ public class EditormodelViewProvider extends AbstractProvider implements IViewPr
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node, EditormodelVisualIDRegistry.getType(LevelNameEditPart.VISUAL_ID));
+		Node label5003 = createLabel(node, EditormodelVisualIDRegistry.getType(LevelDescriptionEditPart.VISUAL_ID));
 		createCompartment(node, EditormodelVisualIDRegistry.getType(LevelLevelObjectivesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		createCompartment(node, EditormodelVisualIDRegistry.getType(LevelLevelLevelCaseCompartmentEditPart.VISUAL_ID),
@@ -401,7 +404,7 @@ public class EditormodelViewProvider extends AbstractProvider implements IViewPr
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node, EditormodelVisualIDRegistry.getType(ObjectiveNameEditPart.VISUAL_ID));
+		Node label5001 = createLabel(node, EditormodelVisualIDRegistry.getType(ObjectiveDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -438,7 +441,7 @@ public class EditormodelViewProvider extends AbstractProvider implements IViewPr
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node, EditormodelVisualIDRegistry.getType(LevelCaseNameEditPart.VISUAL_ID));
+		Node label5002 = createLabel(node, EditormodelVisualIDRegistry.getType(LevelCaseDescriptionEditPart.VISUAL_ID));
 		createCompartment(node,
 				EditormodelVisualIDRegistry.getType(LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);

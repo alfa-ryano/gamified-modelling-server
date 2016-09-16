@@ -23,10 +23,13 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 import editormodel.diagram.edit.parts.DraggableItemDescriptionEditPart;
 import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
+import editormodel.diagram.edit.parts.LevelDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.LevelNameEditPart;
+import editormodel.diagram.edit.parts.ObjectiveDescriptionEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
@@ -239,7 +242,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 	private String getLevel_3002Text(View view) {
 		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Level_3002,
 				view.getElement() != null ? view.getElement() : view,
-				EditormodelVisualIDRegistry.getType(LevelNameEditPart.VISUAL_ID));
+				EditormodelVisualIDRegistry.getType(LevelDescriptionEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
@@ -255,7 +258,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 	private String getObjective_3003Text(View view) {
 		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.Objective_3003,
 				view.getElement() != null ? view.getElement() : view,
-				EditormodelVisualIDRegistry.getType(ObjectiveNameEditPart.VISUAL_ID));
+				EditormodelVisualIDRegistry.getType(ObjectiveDescriptionEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
@@ -271,7 +274,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 	private String getLevelCase_3004Text(View view) {
 		IParser parser = EditormodelParserProvider.getParser(EditormodelElementTypes.LevelCase_3004,
 				view.getElement() != null ? view.getElement() : view,
-				EditormodelVisualIDRegistry.getType(LevelCaseNameEditPart.VISUAL_ID));
+				EditormodelVisualIDRegistry.getType(LevelCaseDescriptionEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());

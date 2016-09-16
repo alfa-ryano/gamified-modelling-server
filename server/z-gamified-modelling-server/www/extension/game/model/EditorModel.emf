@@ -26,9 +26,12 @@ class SubStory {
 	val Level[*] levels;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="description")
 class Level {
 	attr String name;
+	attr String description;
+	attr String modelType;
+	attr boolean isSequel = false;
 	
 	@gmf.compartment(layout="list")
 	val Objective[*] objectives;
@@ -39,13 +42,13 @@ class Level {
 	val Path path; 
 }
 
-@gmf.node(label="name")
+@gmf.node(label="description")
 class Objective {
 	attr String name;   
 	attr String description;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="description")
 class LevelCase {
 	attr String name;
 	attr String description;

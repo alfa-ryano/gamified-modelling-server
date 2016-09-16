@@ -33,6 +33,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link editormodel.impl.LevelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link editormodel.impl.LevelImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link editormodel.impl.LevelImpl#getModelType <em>Model Type</em>}</li>
+ *   <li>{@link editormodel.impl.LevelImpl#isIsSequel <em>Is Sequel</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getObjectives <em>Objectives</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getLevelCase <em>Level Case</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getPath <em>Path</em>}</li>
@@ -60,6 +63,66 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getModelType() <em>Model Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MODEL_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getModelType() <em>Model Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String modelType = MODEL_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsSequel() <em>Is Sequel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsSequel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_SEQUEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsSequel() <em>Is Sequel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsSequel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isSequel = IS_SEQUEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getObjectives() <em>Objectives</em>}' containment reference list.
@@ -129,6 +192,69 @@ public class LevelImpl extends EObjectImpl implements Level {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getModelType() {
+		return modelType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModelType(String newModelType) {
+		String oldModelType = modelType;
+		modelType = newModelType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__MODEL_TYPE, oldModelType, modelType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsSequel() {
+		return isSequel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsSequel(boolean newIsSequel) {
+		boolean oldIsSequel = isSequel;
+		isSequel = newIsSequel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__IS_SEQUEL, oldIsSequel, isSequel));
 	}
 
 	/**
@@ -257,6 +383,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 		switch (featureID) {
 			case EditormodelPackage.LEVEL__NAME:
 				return getName();
+			case EditormodelPackage.LEVEL__DESCRIPTION:
+				return getDescription();
+			case EditormodelPackage.LEVEL__MODEL_TYPE:
+				return getModelType();
+			case EditormodelPackage.LEVEL__IS_SEQUEL:
+				return isIsSequel();
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				return getObjectives();
 			case EditormodelPackage.LEVEL__LEVEL_CASE:
@@ -278,6 +410,15 @@ public class LevelImpl extends EObjectImpl implements Level {
 		switch (featureID) {
 			case EditormodelPackage.LEVEL__NAME:
 				setName((String)newValue);
+				return;
+			case EditormodelPackage.LEVEL__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EditormodelPackage.LEVEL__MODEL_TYPE:
+				setModelType((String)newValue);
+				return;
+			case EditormodelPackage.LEVEL__IS_SEQUEL:
+				setIsSequel((Boolean)newValue);
 				return;
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
@@ -304,6 +445,15 @@ public class LevelImpl extends EObjectImpl implements Level {
 			case EditormodelPackage.LEVEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case EditormodelPackage.LEVEL__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EditormodelPackage.LEVEL__MODEL_TYPE:
+				setModelType(MODEL_TYPE_EDEFAULT);
+				return;
+			case EditormodelPackage.LEVEL__IS_SEQUEL:
+				setIsSequel(IS_SEQUEL_EDEFAULT);
+				return;
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
 				return;
@@ -327,6 +477,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 		switch (featureID) {
 			case EditormodelPackage.LEVEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EditormodelPackage.LEVEL__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EditormodelPackage.LEVEL__MODEL_TYPE:
+				return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
+			case EditormodelPackage.LEVEL__IS_SEQUEL:
+				return isSequel != IS_SEQUEL_EDEFAULT;
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				return objectives != null && !objectives.isEmpty();
 			case EditormodelPackage.LEVEL__LEVEL_CASE:
@@ -349,6 +505,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", modelType: ");
+		result.append(modelType);
+		result.append(", isSequel: ");
+		result.append(isSequel);
 		result.append(')');
 		return result.toString();
 	}

@@ -119,8 +119,8 @@ public class LevelEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LevelNameEditPart) {
-			((LevelNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureLevelLabelFigure());
+		if (childEditPart instanceof LevelDescriptionEditPart) {
+			((LevelDescriptionEditPart) childEditPart).setLabel(getPrimaryShape().getFigureLevelLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof LevelLevelObjectivesCompartmentEditPart) {
@@ -142,7 +142,7 @@ public class LevelEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LevelNameEditPart) {
+		if (childEditPart instanceof LevelDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof LevelLevelObjectivesCompartmentEditPart) {
@@ -281,7 +281,7 @@ public class LevelEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EditormodelVisualIDRegistry.getType(LevelNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EditormodelVisualIDRegistry.getType(LevelDescriptionEditPart.VISUAL_ID));
 	}
 
 	/**

@@ -65,5 +65,13 @@
             uri="editormodel"
             class="editormodel.EditormodelPackage"/>
    </extension>
+   <extension
+         point="org.eclipse.epsilon.evl.emf.validation">
+      <constraintsBinding
+            compose="true"
+            constraints="www/extension/game/model/EditorModel.evl"
+            namespaceURI="EditorModel">
+      </constraintsBinding>
+   </extension>
 
 </plugin>

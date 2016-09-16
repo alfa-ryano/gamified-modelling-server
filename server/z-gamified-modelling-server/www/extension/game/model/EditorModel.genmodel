@@ -20,6 +20,9 @@
     </genClasses>
     <genClasses ecoreClass="EditorModel.ecore#//Level">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/modelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/isSequel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EditorModel.ecore#//Level/objectives"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EditorModel.ecore#//Level/levelCase"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EditorModel.ecore#//Level/path"/>

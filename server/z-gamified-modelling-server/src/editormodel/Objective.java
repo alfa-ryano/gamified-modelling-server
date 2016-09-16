@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see editormodel.EditormodelPackage#getObjective()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='description'"
  * @generated
  */
 public interface Objective extends EObject {

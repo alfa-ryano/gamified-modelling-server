@@ -195,13 +195,40 @@ public interface EditormodelPackage extends EPackage {
 	int LEVEL__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Model Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__MODEL_TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Is Sequel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__IS_SEQUEL = 3;
+
+	/**
 	 * The feature id for the '<em><b>Objectives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL__OBJECTIVES = 1;
+	int LEVEL__OBJECTIVES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Level Case</b></em>' containment reference.
@@ -210,7 +237,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL__LEVEL_CASE = 2;
+	int LEVEL__LEVEL_CASE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -219,7 +246,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL__PATH = 3;
+	int LEVEL__PATH = 6;
 
 	/**
 	 * The number of structural features of the '<em>Level</em>' class.
@@ -228,7 +255,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_FEATURE_COUNT = 4;
+	int LEVEL_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link editormodel.impl.ObjectiveImpl <em>Objective</em>}' class.
@@ -524,6 +551,39 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLevel_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Level#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see editormodel.Level#getDescription()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Level#getModelType <em>Model Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model Type</em>'.
+	 * @see editormodel.Level#getModelType()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_ModelType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Level#isIsSequel <em>Is Sequel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Sequel</em>'.
+	 * @see editormodel.Level#isIsSequel()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_IsSequel();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link editormodel.Level#getObjectives <em>Objectives</em>}'.
@@ -833,6 +893,30 @@ public interface EditormodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LEVEL__NAME = eINSTANCE.getLevel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__DESCRIPTION = eINSTANCE.getLevel_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__MODEL_TYPE = eINSTANCE.getLevel_ModelType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Sequel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__IS_SEQUEL = eINSTANCE.getLevel_IsSequel();
 
 		/**
 		 * The meta object literal for the '<em><b>Objectives</b></em>' containment reference list feature.

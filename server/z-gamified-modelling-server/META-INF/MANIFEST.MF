@@ -20,5 +20,7 @@ Export-Package: collaborationmodelling,
  editormodel.impl,
  editormodel.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.epsilon.evl.emf.validation,
+ org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy

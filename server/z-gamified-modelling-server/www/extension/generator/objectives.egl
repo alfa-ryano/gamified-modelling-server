@@ -1,0 +1,22 @@
+context objectmodelling!ObjectModelling {
+
+//--[%= level.name %]
+[% var i : Integer = 1; %] 
+[% for (objective in level.objectives){ %]
+  constraint [%=objective.name%] {
+    check : 
+        self.evaluationFunction_[%=i%]()
+    message : 
+        "[%= objective.description %]"
+  }  
+  [% i = i + 1; %]
+[% } %]
+} 
+
+[% i = 1; %]
+[% for (objective in level.objectives){ %]
+operation ObjectModelling evaluationFunction_[%=i%](): Boolean{
+    return true;
+}
+  [% i = i + 1; %]
+[% } %]

@@ -1,0 +1,51 @@
+context objectmodelling!ObjectModelling {
+
+//--FirstLevel
+ 
+  constraint FirstObjective {
+    check : 
+        self.evaluationFunction_1()
+    message : 
+        "Create Front Left Wheel"
+  }  
+  constraint SecondObjective {
+    check : 
+        self.evaluationFunction_2()
+    message : 
+        "Create Front Right Wheel"
+  }  
+  constraint ThirdObjective {
+    check : 
+        self.evaluationFunction_3()
+    message : 
+        "Create Back Left Wheel"
+  }  
+  constraint FourthObjective {
+    check : 
+        self.evaluationFunction_4()
+    message : 
+        "Create Back Right Wheel"
+  }  
+  constraint FifthObjective {
+    check : 
+        self.evaluationFunction_5()
+    message : 
+        "Create Car"
+  }  
+} 
+
+operation ObjectModelling evaluationFunction_1(): Boolean{
+    return true;
+}
+operation ObjectModelling evaluationFunction_2(): Boolean{
+    return true;
+}
+operation ObjectModelling evaluationFunction_3(): Boolean{
+    return true;
+}
+operation ObjectModelling evaluationFunction_4(): Boolean{
+    return true;
+}
+operation ObjectModelling evaluationFunction_5(): Boolean{
+    return true;
+}

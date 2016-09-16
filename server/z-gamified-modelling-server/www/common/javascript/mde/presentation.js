@@ -160,8 +160,8 @@ var Stage = function(game) {
 		}
 	}
 
-	this.setLoadingScreen = function(level, theFunction) {
-		level = level.toString();
+	this.setLoadingScreen = function(level, theFunction, levelName, levelMode) {
+		level = "" + level;
 		document.getElementById("PlayBar").style.visibility = "collapse";
 		document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
 		document.getElementById("LoadingScreen").style.visibility = "visible";
@@ -177,16 +177,13 @@ var Stage = function(game) {
 			level = "0" + level;
 		}
 
-		if (game.levels[game.currentLevel].levelMode == "core") {
-			path = "core/game/level_" + level + "/instructions.xml";
-			pathCSS = "core/game/level_" + level + "/instructions.css";
+		if ( levelMode == "core") {
+			path = "core/game/" + levelName + "/instructions.xml";
+			pathCSS = "core/game/" + levelName + "/instructions.css";
 		} else {
-			path = "extension/game/level_" + level + "/instructions.xml";
-			pathCSS = "extension/game/level_" + level + "/instructions.css";
+			path = "extension/game/" + levelName + "/instructions.xml";
+			pathCSS = "extension/game/" + levelName + "/instructions.css";
 		}
-
-
-
 
 		var loadXML = new XMLHttpRequest;
 		loadXML.onload = function() {
@@ -335,19 +332,19 @@ var Stage = function(game) {
 			stories.removeChild(stories.lastChild);
 		}
 
-		var level = 0;
+		var levelNumber = 0;
 		for (var i = 0; i < game.stories.length; i++) {
 			var story = game.stories[i];
 			var storyHeader = document.createElement("div");
 			storyHeader.className = "StoryHeader";
-			storyHeader.innerHTML = story.name;
+			storyHeader.innerHTML = story.description;
 			stories.appendChild(storyHeader);
 
 			for (var j = 0; j < story.substories.length; j++) {
 				var subStory = story.substories[j];
 				var storySubHeader = document.createElement("div");
 				storySubHeader.className = "StorySubHeader";
-				storySubHeader.innerHTML = subStory.name;
+				storySubHeader.innerHTML = subStory.description;
 				stories.appendChild(storySubHeader);
 
 				var storyLevels = document.createElement("div");
@@ -356,12 +353,15 @@ var Stage = function(game) {
 
 				for (var k = 0; k < subStory.levels.length; k++) {
 					var child = document.createElement("div");
+					
 					child.className = "StoryLevel";
-					level = level + 1;
-					child.innerHTML = level;
+					levelNumber = levelNumber + 1;
+					child.innerHTML = levelNumber;
+					child.levelName = subStory.levels[k].ID;
+					child.levelMode = subStory.levels[k].levelMode
 					child.onclick = function() {
 						game.stage.closeDialog();
-						game.stage.setLoadingScreen(this.innerHTML, game.play);
+						game.stage.setLoadingScreen(this.innerHTML, game.play, this.levelName, this.levelMode);
 					}
 					storyLevels.appendChild(child);
 				}
@@ -474,7 +474,7 @@ var Stage = function(game) {
 			}
 
 		}
-	}
+	} 
 
 	this.loadCustomEvent = function(elementName) {
 		var modellingType = game.levels[game.currentLevel].modellingType;

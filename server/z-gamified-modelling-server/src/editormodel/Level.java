@@ -16,13 +16,16 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link editormodel.Level#getName <em>Name</em>}</li>
+ *   <li>{@link editormodel.Level#getDescription <em>Description</em>}</li>
+ *   <li>{@link editormodel.Level#getModelType <em>Model Type</em>}</li>
+ *   <li>{@link editormodel.Level#isIsSequel <em>Is Sequel</em>}</li>
  *   <li>{@link editormodel.Level#getObjectives <em>Objectives</em>}</li>
  *   <li>{@link editormodel.Level#getLevelCase <em>Level Case</em>}</li>
  *   <li>{@link editormodel.Level#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see editormodel.EditormodelPackage#getLevel()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node label='description'"
  * @generated
  */
 public interface Level extends EObject {
@@ -51,6 +54,85 @@ public interface Level extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see editormodel.EditormodelPackage#getLevel_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link editormodel.Level#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Model Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model Type</em>' attribute.
+	 * @see #setModelType(String)
+	 * @see editormodel.EditormodelPackage#getLevel_ModelType()
+	 * @model
+	 * @generated
+	 */
+	String getModelType();
+
+	/**
+	 * Sets the value of the '{@link editormodel.Level#getModelType <em>Model Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model Type</em>' attribute.
+	 * @see #getModelType()
+	 * @generated
+	 */
+	void setModelType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Sequel</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Sequel</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Sequel</em>' attribute.
+	 * @see #setIsSequel(boolean)
+	 * @see editormodel.EditormodelPackage#getLevel_IsSequel()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsSequel();
+
+	/**
+	 * Sets the value of the '{@link editormodel.Level#isIsSequel <em>Is Sequel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Sequel</em>' attribute.
+	 * @see #isIsSequel()
+	 * @generated
+	 */
+	void setIsSequel(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Objectives</b></em>' containment reference list.

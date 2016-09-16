@@ -119,8 +119,8 @@ public class LevelCaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LevelCaseNameEditPart) {
-			((LevelCaseNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureLevelCaseLabelFigure());
+		if (childEditPart instanceof LevelCaseDescriptionEditPart) {
+			((LevelCaseDescriptionEditPart) childEditPart).setLabel(getPrimaryShape().getFigureLevelCaseLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof LevelCaseLevelCaseDraggableItemsCompartmentEditPart) {
@@ -136,7 +136,7 @@ public class LevelCaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LevelCaseNameEditPart) {
+		if (childEditPart instanceof LevelCaseDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof LevelCaseLevelCaseDraggableItemsCompartmentEditPart) {
@@ -267,7 +267,7 @@ public class LevelCaseEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EditormodelVisualIDRegistry.getType(LevelCaseNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EditormodelVisualIDRegistry.getType(LevelCaseDescriptionEditPart.VISUAL_ID));
 	}
 
 	/**

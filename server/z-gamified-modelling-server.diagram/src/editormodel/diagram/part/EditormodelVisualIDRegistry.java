@@ -15,13 +15,16 @@ import editormodel.Game;
 import editormodel.diagram.edit.parts.DraggableItemDescriptionEditPart;
 import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
+import editormodel.diagram.edit.parts.LevelCaseDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelCaseEditPart;
 import editormodel.diagram.edit.parts.LevelCaseLevelCaseDraggableItemsCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
+import editormodel.diagram.edit.parts.LevelDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
 import editormodel.diagram.edit.parts.LevelLevelLevelCaseCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelLevelObjectivesCompartmentEditPart;
 import editormodel.diagram.edit.parts.LevelNameEditPart;
+import editormodel.diagram.edit.parts.ObjectiveDescriptionEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
 import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
@@ -208,7 +211,7 @@ public class EditormodelVisualIDRegistry {
 			}
 			break;
 		case LevelEditPart.VISUAL_ID:
-			if (LevelNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (LevelDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (LevelLevelObjectivesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -219,12 +222,12 @@ public class EditormodelVisualIDRegistry {
 			}
 			break;
 		case ObjectiveEditPart.VISUAL_ID:
-			if (ObjectiveNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (ObjectiveDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case LevelCaseEditPart.VISUAL_ID:
-			if (LevelCaseNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (LevelCaseDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (LevelCaseLevelCaseDraggableItemsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
