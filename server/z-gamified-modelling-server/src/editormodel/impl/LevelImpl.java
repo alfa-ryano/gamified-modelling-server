@@ -36,6 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link editormodel.impl.LevelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getModelType <em>Model Type</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#isIsSequel <em>Is Sequel</em>}</li>
+ *   <li>{@link editormodel.impl.LevelImpl#getContextMetamodel <em>Context Metamodel</em>}</li>
+ *   <li>{@link editormodel.impl.LevelImpl#getSourceMetamodel <em>Source Metamodel</em>}</li>
+ *   <li>{@link editormodel.impl.LevelImpl#getTargetMetamodel <em>Target Metamodel</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getObjectives <em>Objectives</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getLevelCase <em>Level Case</em>}</li>
  *   <li>{@link editormodel.impl.LevelImpl#getPath <em>Path</em>}</li>
@@ -123,6 +126,66 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * @ordered
 	 */
 	protected boolean isSequel = IS_SEQUEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getContextMetamodel() <em>Context Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTEXT_METAMODEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContextMetamodel() <em>Context Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String contextMetamodel = CONTEXT_METAMODEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSourceMetamodel() <em>Source Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_METAMODEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceMetamodel() <em>Source Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceMetamodel = SOURCE_METAMODEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetMetamodel() <em>Target Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_METAMODEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetMetamodel() <em>Target Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetMetamodel = TARGET_METAMODEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getObjectives() <em>Objectives</em>}' containment reference list.
@@ -262,6 +325,69 @@ public class LevelImpl extends EObjectImpl implements Level {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getContextMetamodel() {
+		return contextMetamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContextMetamodel(String newContextMetamodel) {
+		String oldContextMetamodel = contextMetamodel;
+		contextMetamodel = newContextMetamodel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__CONTEXT_METAMODEL, oldContextMetamodel, contextMetamodel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSourceMetamodel() {
+		return sourceMetamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceMetamodel(String newSourceMetamodel) {
+		String oldSourceMetamodel = sourceMetamodel;
+		sourceMetamodel = newSourceMetamodel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__SOURCE_METAMODEL, oldSourceMetamodel, sourceMetamodel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTargetMetamodel() {
+		return targetMetamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetMetamodel(String newTargetMetamodel) {
+		String oldTargetMetamodel = targetMetamodel;
+		targetMetamodel = newTargetMetamodel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EditormodelPackage.LEVEL__TARGET_METAMODEL, oldTargetMetamodel, targetMetamodel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Objective> getObjectives() {
 		if (objectives == null) {
 			objectives = new EObjectContainmentEList<Objective>(Objective.class, this, EditormodelPackage.LEVEL__OBJECTIVES);
@@ -389,6 +515,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 				return getModelType();
 			case EditormodelPackage.LEVEL__IS_SEQUEL:
 				return isIsSequel();
+			case EditormodelPackage.LEVEL__CONTEXT_METAMODEL:
+				return getContextMetamodel();
+			case EditormodelPackage.LEVEL__SOURCE_METAMODEL:
+				return getSourceMetamodel();
+			case EditormodelPackage.LEVEL__TARGET_METAMODEL:
+				return getTargetMetamodel();
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				return getObjectives();
 			case EditormodelPackage.LEVEL__LEVEL_CASE:
@@ -419,6 +551,15 @@ public class LevelImpl extends EObjectImpl implements Level {
 				return;
 			case EditormodelPackage.LEVEL__IS_SEQUEL:
 				setIsSequel((Boolean)newValue);
+				return;
+			case EditormodelPackage.LEVEL__CONTEXT_METAMODEL:
+				setContextMetamodel((String)newValue);
+				return;
+			case EditormodelPackage.LEVEL__SOURCE_METAMODEL:
+				setSourceMetamodel((String)newValue);
+				return;
+			case EditormodelPackage.LEVEL__TARGET_METAMODEL:
+				setTargetMetamodel((String)newValue);
 				return;
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
@@ -454,6 +595,15 @@ public class LevelImpl extends EObjectImpl implements Level {
 			case EditormodelPackage.LEVEL__IS_SEQUEL:
 				setIsSequel(IS_SEQUEL_EDEFAULT);
 				return;
+			case EditormodelPackage.LEVEL__CONTEXT_METAMODEL:
+				setContextMetamodel(CONTEXT_METAMODEL_EDEFAULT);
+				return;
+			case EditormodelPackage.LEVEL__SOURCE_METAMODEL:
+				setSourceMetamodel(SOURCE_METAMODEL_EDEFAULT);
+				return;
+			case EditormodelPackage.LEVEL__TARGET_METAMODEL:
+				setTargetMetamodel(TARGET_METAMODEL_EDEFAULT);
+				return;
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				getObjectives().clear();
 				return;
@@ -483,6 +633,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 				return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
 			case EditormodelPackage.LEVEL__IS_SEQUEL:
 				return isSequel != IS_SEQUEL_EDEFAULT;
+			case EditormodelPackage.LEVEL__CONTEXT_METAMODEL:
+				return CONTEXT_METAMODEL_EDEFAULT == null ? contextMetamodel != null : !CONTEXT_METAMODEL_EDEFAULT.equals(contextMetamodel);
+			case EditormodelPackage.LEVEL__SOURCE_METAMODEL:
+				return SOURCE_METAMODEL_EDEFAULT == null ? sourceMetamodel != null : !SOURCE_METAMODEL_EDEFAULT.equals(sourceMetamodel);
+			case EditormodelPackage.LEVEL__TARGET_METAMODEL:
+				return TARGET_METAMODEL_EDEFAULT == null ? targetMetamodel != null : !TARGET_METAMODEL_EDEFAULT.equals(targetMetamodel);
 			case EditormodelPackage.LEVEL__OBJECTIVES:
 				return objectives != null && !objectives.isEmpty();
 			case EditormodelPackage.LEVEL__LEVEL_CASE:
@@ -511,6 +667,12 @@ public class LevelImpl extends EObjectImpl implements Level {
 		result.append(modelType);
 		result.append(", isSequel: ");
 		result.append(isSequel);
+		result.append(", contextMetamodel: ");
+		result.append(contextMetamodel);
+		result.append(", sourceMetamodel: ");
+		result.append(sourceMetamodel);
+		result.append(", targetMetamodel: ");
+		result.append(targetMetamodel);
 		result.append(')');
 		return result.toString();
 	}

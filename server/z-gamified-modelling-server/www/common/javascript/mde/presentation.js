@@ -177,7 +177,7 @@ var Stage = function(game) {
 			level = "0" + level;
 		}
 
-		if ( levelMode == "core") {
+		if (levelMode == "core") {
 			path = "core/game/" + levelName + "/instructions.xml";
 			pathCSS = "core/game/" + levelName + "/instructions.css";
 		} else {
@@ -353,7 +353,7 @@ var Stage = function(game) {
 
 				for (var k = 0; k < subStory.levels.length; k++) {
 					var child = document.createElement("div");
-					
+
 					child.className = "StoryLevel";
 					levelNumber = levelNumber + 1;
 					child.innerHTML = levelNumber;
@@ -474,7 +474,7 @@ var Stage = function(game) {
 			}
 
 		}
-	} 
+	}
 
 	this.loadCustomEvent = function(elementName) {
 		var modellingType = game.levels[game.currentLevel].modellingType;

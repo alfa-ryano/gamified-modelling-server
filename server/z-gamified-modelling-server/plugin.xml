@@ -69,7 +69,7 @@
          point="org.eclipse.epsilon.evl.emf.validation">
       <constraintsBinding
             compose="true"
-            constraints="www/extension/game/model/EditorModel.evl"
+            constraints="www/extension/model/EditorModel.evl"
             namespaceURI="EditorModel">
       </constraintsBinding>
    </extension>

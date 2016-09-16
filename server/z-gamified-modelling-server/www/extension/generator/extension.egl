@@ -13,14 +13,22 @@ subStory.name = "[%=subStory.name%]";
 subStory.description = "[%=subStory.description%]";
         [% for (level in subStory.levels){ %]
 		    [% TemplateFactory.setOutputRoot("../game/"); %]
-		    [% var t : Template = TemplateFactory.load("objectives.egl"); %]   
+		    [% var t : Template = TemplateFactory.load("objectives.evl.egl"); %]   
 		    [% t.populate("level", level); %]
 		    [% t.generate(level.name + "/objectives.evl"); %]
 		    
+		    [% t = TemplateFactory.load("source.model.egl"); %]   
+            [% t.populate("level", level); %]
+            [% t.generate(level.name + "/source.model"); %]
+
+		    [% t = TemplateFactory.load("objectives.ecl.egl"); %]   
+            [% t.populate("level", level); %]
+            [% t.generate(level.name + "/objectives.ecl"); %]
+
 		    [% t = TemplateFactory.load("instructions.css.egl"); %]   
             [% t.populate("level", level); %]
             [% t.generate(level.name + "/instructions.css"); %]
-            
+
             [% t = TemplateFactory.load("instructions.xml.egl"); %]   
             [% t.populate("level", level); %]
             [% t.generate(level.name + "/instructions.xml"); %]    

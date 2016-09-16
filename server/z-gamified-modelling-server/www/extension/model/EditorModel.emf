@@ -33,6 +33,10 @@ class Level {
 	attr String modelType;
 	attr boolean isSequel = false;
 	
+    attr String contextMetamodel;
+    attr String sourceMetamodel;
+    attr String targetMetamodel;
+	
 	@gmf.compartment(layout="list")
 	val Objective[*] objectives;
 	

@@ -9,9 +9,9 @@ rule CompareModels
                 if (node <> null and edge.source <> null ){
 	                if (node.name = edge.source.name){
 	                    for (iOperation in node.operations){
-	                        if(edge.name = iOperation.name){
-	                        "Success".println();
-	                        return true;
+	                        if(edge.name = iOperation.name and edge.name = "greet"){
+		                        "Success".println();
+		                        return true;
 	                        }
 	                    }
 	                }

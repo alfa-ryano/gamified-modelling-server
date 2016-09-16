@@ -1,4 +1,4 @@
-context objectmodelling!ObjectModelling {
+context [%= level.contextMetamodel %] {
 
 //--[%= level.name %]
 [% var i : Integer = 1; %] 

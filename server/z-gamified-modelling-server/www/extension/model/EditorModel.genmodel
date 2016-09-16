@@ -23,6 +23,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/modelType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/isSequel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/contextMetamodel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/sourceMetamodel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EditorModel.ecore#//Level/targetMetamodel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EditorModel.ecore#//Level/objectives"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EditorModel.ecore#//Level/levelCase"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EditorModel.ecore#//Level/path"/>

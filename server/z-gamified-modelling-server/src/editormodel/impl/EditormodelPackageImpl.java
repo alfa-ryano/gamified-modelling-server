@@ -284,8 +284,35 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLevel_ContextMetamodel() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLevel_SourceMetamodel() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLevel_TargetMetamodel() {
+		return (EAttribute)levelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getLevel_Objectives() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(4);
+		return (EReference)levelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -294,7 +321,7 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * @generated
 	 */
 	public EReference getLevel_LevelCase() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(5);
+		return (EReference)levelEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -303,7 +330,7 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 	 * @generated
 	 */
 	public EReference getLevel_Path() {
-		return (EReference)levelEClass.getEStructuralFeatures().get(6);
+		return (EReference)levelEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -478,6 +505,9 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 		createEAttribute(levelEClass, LEVEL__DESCRIPTION);
 		createEAttribute(levelEClass, LEVEL__MODEL_TYPE);
 		createEAttribute(levelEClass, LEVEL__IS_SEQUEL);
+		createEAttribute(levelEClass, LEVEL__CONTEXT_METAMODEL);
+		createEAttribute(levelEClass, LEVEL__SOURCE_METAMODEL);
+		createEAttribute(levelEClass, LEVEL__TARGET_METAMODEL);
 		createEReference(levelEClass, LEVEL__OBJECTIVES);
 		createEReference(levelEClass, LEVEL__LEVEL_CASE);
 		createEReference(levelEClass, LEVEL__PATH);
@@ -549,6 +579,9 @@ public class EditormodelPackageImpl extends EPackageImpl implements EditormodelP
 		initEAttribute(getLevel_Description(), ecorePackage.getEString(), "description", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLevel_ModelType(), ecorePackage.getEString(), "modelType", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLevel_IsSequel(), ecorePackage.getEBoolean(), "isSequel", "false", 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_ContextMetamodel(), ecorePackage.getEString(), "contextMetamodel", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_SourceMetamodel(), ecorePackage.getEString(), "sourceMetamodel", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLevel_TargetMetamodel(), ecorePackage.getEString(), "targetMetamodel", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Objectives(), this.getObjective(), null, "objectives", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_LevelCase(), this.getLevelCase(), null, "levelCase", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLevel_Path(), this.getPath(), null, "path", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

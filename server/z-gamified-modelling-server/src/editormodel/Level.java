@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link editormodel.Level#getDescription <em>Description</em>}</li>
  *   <li>{@link editormodel.Level#getModelType <em>Model Type</em>}</li>
  *   <li>{@link editormodel.Level#isIsSequel <em>Is Sequel</em>}</li>
+ *   <li>{@link editormodel.Level#getContextMetamodel <em>Context Metamodel</em>}</li>
+ *   <li>{@link editormodel.Level#getSourceMetamodel <em>Source Metamodel</em>}</li>
+ *   <li>{@link editormodel.Level#getTargetMetamodel <em>Target Metamodel</em>}</li>
  *   <li>{@link editormodel.Level#getObjectives <em>Objectives</em>}</li>
  *   <li>{@link editormodel.Level#getLevelCase <em>Level Case</em>}</li>
  *   <li>{@link editormodel.Level#getPath <em>Path</em>}</li>
@@ -133,6 +136,84 @@ public interface Level extends EObject {
 	 * @generated
 	 */
 	void setIsSequel(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Context Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Context Metamodel</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Context Metamodel</em>' attribute.
+	 * @see #setContextMetamodel(String)
+	 * @see editormodel.EditormodelPackage#getLevel_ContextMetamodel()
+	 * @model
+	 * @generated
+	 */
+	String getContextMetamodel();
+
+	/**
+	 * Sets the value of the '{@link editormodel.Level#getContextMetamodel <em>Context Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context Metamodel</em>' attribute.
+	 * @see #getContextMetamodel()
+	 * @generated
+	 */
+	void setContextMetamodel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Metamodel</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Metamodel</em>' attribute.
+	 * @see #setSourceMetamodel(String)
+	 * @see editormodel.EditormodelPackage#getLevel_SourceMetamodel()
+	 * @model
+	 * @generated
+	 */
+	String getSourceMetamodel();
+
+	/**
+	 * Sets the value of the '{@link editormodel.Level#getSourceMetamodel <em>Source Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Metamodel</em>' attribute.
+	 * @see #getSourceMetamodel()
+	 * @generated
+	 */
+	void setSourceMetamodel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Metamodel</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Metamodel</em>' attribute.
+	 * @see #setTargetMetamodel(String)
+	 * @see editormodel.EditormodelPackage#getLevel_TargetMetamodel()
+	 * @model
+	 * @generated
+	 */
+	String getTargetMetamodel();
+
+	/**
+	 * Sets the value of the '{@link editormodel.Level#getTargetMetamodel <em>Target Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Metamodel</em>' attribute.
+	 * @see #getTargetMetamodel()
+	 * @generated
+	 */
+	void setTargetMetamodel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Objectives</b></em>' containment reference list.

@@ -2,7 +2,7 @@
 <editormodel:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:editormodel="editormodel">
   <stories name="MoreObjects" description="More About Object Modelling">
     <subStories name="Car" description="Objectification of a Car">
-      <levels name="FirstLevel" description="Create All the Objects" modelType="object">
+      <levels name="FirstLevel" description="Create All the Objects" modelType="object" contextMetamodel="objectmodelling!ObjectModelling" sourceMetamodel="ObjectModelling" targetMetamodel="ObjectModelling">
         <objectives name="FirstObjective" description="Create Front Left Wheel"/>
         <objectives name="SecondObjective" description="Create Front Right Wheel"/>
         <objectives name="ThirdObjective" description="Create Back Left Wheel"/>
@@ -17,7 +17,7 @@
         </levelCase>
         <path prevLevel="//@stories.0/@subStories.0/@levels.0" nextLevel="//@stories.0/@subStories.0/@levels.1"/>
       </levels>
-      <levels name="SecondLevel" description="Determine the Relationships" modelType="object" isSequel="true">
+      <levels name="SecondLevel" description="Determine the Relationships" modelType="object" isSequel="true" contextMetamodel="objectmodelling!ObjectModelling" sourceMetamodel="ObjectModelling" targetMetamodel="ObjectModelling">
         <objectives name="Objective01" description="A Relationship between Car and FrontLeftWheel"/>
         <objectives name="Objective02" description="A Relationship between Car and FrontRightWheel"/>
         <objectives name="Objective03" description="A Relationship between Car and BackLeftWheel"/>

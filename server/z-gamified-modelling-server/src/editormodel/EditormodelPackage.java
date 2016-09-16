@@ -222,13 +222,40 @@ public interface EditormodelPackage extends EPackage {
 	int LEVEL__IS_SEQUEL = 3;
 
 	/**
+	 * The feature id for the '<em><b>Context Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__CONTEXT_METAMODEL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Source Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__SOURCE_METAMODEL = 5;
+
+	/**
+	 * The feature id for the '<em><b>Target Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEVEL__TARGET_METAMODEL = 6;
+
+	/**
 	 * The feature id for the '<em><b>Objectives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL__OBJECTIVES = 4;
+	int LEVEL__OBJECTIVES = 7;
 
 	/**
 	 * The feature id for the '<em><b>Level Case</b></em>' containment reference.
@@ -237,7 +264,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL__LEVEL_CASE = 5;
+	int LEVEL__LEVEL_CASE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -246,7 +273,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL__PATH = 6;
+	int LEVEL__PATH = 9;
 
 	/**
 	 * The number of structural features of the '<em>Level</em>' class.
@@ -255,7 +282,7 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_FEATURE_COUNT = 7;
+	int LEVEL_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link editormodel.impl.ObjectiveImpl <em>Objective</em>}' class.
@@ -584,6 +611,39 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLevel_IsSequel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Level#getContextMetamodel <em>Context Metamodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context Metamodel</em>'.
+	 * @see editormodel.Level#getContextMetamodel()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_ContextMetamodel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Level#getSourceMetamodel <em>Source Metamodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Metamodel</em>'.
+	 * @see editormodel.Level#getSourceMetamodel()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_SourceMetamodel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link editormodel.Level#getTargetMetamodel <em>Target Metamodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Metamodel</em>'.
+	 * @see editormodel.Level#getTargetMetamodel()
+	 * @see #getLevel()
+	 * @generated
+	 */
+	EAttribute getLevel_TargetMetamodel();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link editormodel.Level#getObjectives <em>Objectives</em>}'.
@@ -917,6 +977,30 @@ public interface EditormodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LEVEL__IS_SEQUEL = eINSTANCE.getLevel_IsSequel();
+
+		/**
+		 * The meta object literal for the '<em><b>Context Metamodel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__CONTEXT_METAMODEL = eINSTANCE.getLevel_ContextMetamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Metamodel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__SOURCE_METAMODEL = eINSTANCE.getLevel_SourceMetamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Metamodel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEVEL__TARGET_METAMODEL = eINSTANCE.getLevel_TargetMetamodel();
 
 		/**
 		 * The meta object literal for the '<em><b>Objectives</b></em>' containment reference list feature.

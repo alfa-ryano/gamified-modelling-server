@@ -1,0 +1,8 @@
+rule CompareModels
+  match source : source![%= level.sourceMetamodel %]
+  with target : target![%= level.targetMetamodel %] {
+  
+  compare {
+    return true;  
+  }
+}

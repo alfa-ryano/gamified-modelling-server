@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<collaborationmodelling:CollaborationModelling xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:collaborationmodelling="collaborationmodelling" xmi:id="_QX1ksGgJEea0FNyXlWS-iQ">
-  <nodes xsi:type="collaborationmodelling:ObjectElement" xmi:id="_SSGR8GgJEea0FNyXlWS-iQ" name="Greet Button" text="" className="Button"/>
-  <nodes xsi:type="collaborationmodelling:ObjectElement" xmi:id="_SwgFMGgJEea0FNyXlWS-iQ" name="Greet Label" text="" description="" type="" className="Label" category=""/>
-  <edges xsi:type="collaborationmodelling:MessageElement" xmi:id="_c747IGgJEea0FNyXlWS-iQ" ID="" name="greet" text="" description="" source="_SSGR8GgJEea0FNyXlWS-iQ" target="_SwgFMGgJEea0FNyXlWS-iQ"/>
-</collaborationmodelling:CollaborationModelling>

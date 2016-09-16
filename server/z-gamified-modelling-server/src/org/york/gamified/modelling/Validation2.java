@@ -1,10 +1,8 @@
 package org.york.gamified.modelling;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URISyntaxException;
@@ -24,7 +22,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.epsilon.ecl.EclModule;
 import org.eclipse.epsilon.ecl.IEclModule;
 import org.eclipse.epsilon.ecl.trace.Match;
-import org.eclipse.epsilon.ecl.trace.MatchTrace;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.IEvlModule;
@@ -182,7 +179,7 @@ public class Validation2 extends HttpServlet {
 				String mode = "";
 				String pathToEcl = getServletContext().getRealPath(File.separator);
 				String pathToXmi = getServletContext().getRealPath(File.separator);
-				if (root.getAsJsonObject().get("mode").getAsString().equals("CORE")) {
+				if (root.getAsJsonObject().get("mode").getAsString().equals("core")) {
 					mode = "core";
 				} else {
 					mode = "extension";
