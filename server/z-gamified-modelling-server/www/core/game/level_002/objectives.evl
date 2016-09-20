@@ -1,4 +1,4 @@
-context objectmodelling!ObjectModelling {
+context objectmodel!ObjectModel {
     
   // At least there is an node with name button
   constraint objective_01 {
@@ -16,7 +16,7 @@ context objectmodelling!ObjectModelling {
   }
 } 
 
-operation ObjectModelling evaluationFunction_01(name: String): Boolean{
+operation ObjectModel evaluationFunction_01(name: String): Boolean{
     if (self.nodes.size() > 0){  
 	    for (node in self.nodes){
 	        if (node.name = name){

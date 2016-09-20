@@ -1,4 +1,4 @@
-context [%= level.contextMetamodel %] {
+context objectmodel!ObjectModel {
 
 //--[%= level.name %]
 [% var i : Integer = 1; %] 
@@ -15,7 +15,7 @@ context [%= level.contextMetamodel %] {
 
 [% i = 1; %]
 [% for (objective in level.objectives){ %]
-operation ObjectModelling evaluationFunction_[%=i%](): Boolean{
+operation ObjectModel evaluationFunction_[%=i%](): Boolean{
     return true;
 }
   [% i = i + 1; %]

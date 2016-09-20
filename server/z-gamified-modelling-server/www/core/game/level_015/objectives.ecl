@@ -1,6 +1,6 @@
 rule CompareModels
-  match source : source!ObjectModelling
-  with target : target!CollaborationModelling {
+  match source : source!ObjectModel
+  with target : target!CollaborationModel {
   
   compare {
     for (edge in target.edges){

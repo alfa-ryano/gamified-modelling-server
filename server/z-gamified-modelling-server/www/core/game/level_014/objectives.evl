@@ -1,4 +1,4 @@
-context collaborationmodelling!CollaborationModelling {
+context collaborationmodel!CollaborationModel {
     
   // At least there is an node with name button
   constraint objective_01 {
@@ -16,7 +16,7 @@ context collaborationmodelling!CollaborationModelling {
   }
 } 
 
-operation CollaborationModelling evaluationFunction_01(name: String): Boolean{
+operation CollaborationModel evaluationFunction_01(name: String): Boolean{
     if (self.nodes.size() > 0){  
 	    for (node in self.nodes){
 	        if (node.name = name){

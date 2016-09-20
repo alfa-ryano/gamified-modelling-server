@@ -1,19 +1,19 @@
 try{
     // ModellingType --------------------------------------------------
-    var ModellingType = "CollaborationModelling";
+    var ModellingType = "CollaborationModel";
  
-    // CollaborationModelling --------------------------------------------------
-    var CollaborationModelling = function() {
+    // CollaborationModel --------------------------------------------------
+    var CollaborationModel = function() {
         Graph.call(this);
-        this.eClass = "collaborationmodelling#//CollaborationModelling"
+        this.eClass = "collaborationmodel#//CollaborationModel"
     } 
-    CollaborationModelling.prototype = new Graph();
-    CollaborationModelling.constructor = CollaborationModelling;
+    CollaborationModel.prototype = new Graph();
+    CollaborationModel.constructor = CollaborationModel;
  
     // ActorElement --------------------------------------------------
     var ActorElement = function() {
         Node.call(this);
-        this.eClass = "collaborationmodelling#//ActorElement"
+        this.eClass = "collaborationmodel#//ActorElement"
     } 
     ActorElement.prototype = new Node();
     ActorElement.constructor = ActorElement;
@@ -21,7 +21,7 @@ try{
     // ObjectElement --------------------------------------------------
     var ObjectElement = function() {
         Node.call(this);
-        this.eClass = "collaborationmodelling#//ObjectElement"
+        this.eClass = "collaborationmodel#//ObjectElement"
     } 
     ObjectElement.prototype = new Node();
     ObjectElement.constructor = ObjectElement;
@@ -29,7 +29,7 @@ try{
     // MessageElement --------------------------------------------------
     var MessageElement = function() {
         Edge.call(this);
-        this.eClass = "collaborationmodelling#//MessageElement"
+        this.eClass = "collaborationmodel#//MessageElement"
     } 
     MessageElement.prototype = new Edge();
     MessageElement.constructor = MessageElement;
@@ -37,11 +37,11 @@ try{
     // LinkElement --------------------------------------------------
     var LinkElement = function() {
         Edge.call(this);
-        this.eClass = "collaborationmodelling#//LinkElement"
+        this.eClass = "collaborationmodel#//LinkElement"
     } 
     LinkElement.prototype = new Edge();
     LinkElement.constructor = LinkElement;
  
 } catch (err) {
-    alert("collaborationmodelling: generated.js: " + err.message);
+    alert("collaborationmodel: generated.js: " + err.message);
 }

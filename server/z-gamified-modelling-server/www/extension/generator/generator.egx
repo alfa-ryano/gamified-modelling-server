@@ -1,5 +1,7 @@
+import "modeltype.eol";
+
 rule GenerateMainJS
-transform game : GamifiedModelling!Game {
+transform game : editormodel!Game {
   guard : true 
   template : "extension.egl"
   target : "../javascript/extension.js"

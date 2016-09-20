@@ -60,7 +60,7 @@ public class DraggableItemDescriptionEditPart extends CompartmentEditPart implem
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	* @generated

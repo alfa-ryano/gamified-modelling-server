@@ -4,7 +4,7 @@ try{
 	
     // Entity --------------------------------------------------
 	var Entity = function() {
-	   this.eClass = "graphmodelling#//Entity"
+	   this.eClass = "graphmodel#//Entity"
 	   this.ID = CreateId();   
 	   this.name;
 	   this.text;
@@ -24,7 +24,7 @@ try{
     // Graph --------------------------------------------------
     var Graph = function() {
         Entity.call(this);
-        this.eClass = "graphmodelling#//Graph"
+        this.eClass = "graphmodel#//Graph"
 	    this.nodes = new Array();
 	    this.edges = new Array();
     } 
@@ -34,7 +34,7 @@ try{
     // Node --------------------------------------------------
     var Node = function() {
         Entity.call(this);
-        this.eClass = "graphmodelling#//Node"
+        this.eClass = "graphmodel#//Node"
 	    this.parentNode;
 	    this.subNodes = new Array();
 	    this.properties = new Array();
@@ -46,7 +46,7 @@ try{
     // Property --------------------------------------------------
     var Property = function() {
         Entity.call(this);
-        this.eClass = "graphmodelling#//Property"
+        this.eClass = "graphmodel#//Property"
     } 
     Property.prototype = new Entity();
     Property.constructor = Property;
@@ -54,7 +54,7 @@ try{
     // Operation --------------------------------------------------
     var Operation = function() {
         Entity.call(this);
-        this.eClass = "graphmodelling#//Operation"
+        this.eClass = "graphmodel#//Operation"
     } 
     Operation.prototype = new Entity();
     Operation.constructor = Operation;
@@ -62,7 +62,7 @@ try{
     // Edge --------------------------------------------------
     var Edge = function() {
         Entity.call(this);
-        this.eClass = "graphmodelling#//Edge"
+        this.eClass = "graphmodel#//Edge"
 	    this.source;
 	    this.target;
     } 

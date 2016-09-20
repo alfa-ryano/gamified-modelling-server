@@ -295,15 +295,14 @@ public class LevelCaseEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureLevelCaseLabelFigure;
-
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		private RectangleFigure fLevelCaseDraggableItemsCompartmentFigure;
 
 		/**
-			 * @generated
-			 */
+		 * @generated
+		 */
 		public LevelCaseFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
@@ -340,8 +339,8 @@ public class LevelCaseEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		* @generated
-		*/
+		 * @generated
+		 */
 		public RectangleFigure getLevelCaseDraggableItemsCompartmentFigure() {
 			return fLevelCaseDraggableItemsCompartmentFigure;
 		}

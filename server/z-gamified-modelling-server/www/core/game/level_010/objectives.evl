@@ -1,4 +1,4 @@
-context  objectmodelling!ObjectModelling {
+context  objectmodel!ObjectModel {
     
   // At least there is an node with name button
   constraint objective_01 {

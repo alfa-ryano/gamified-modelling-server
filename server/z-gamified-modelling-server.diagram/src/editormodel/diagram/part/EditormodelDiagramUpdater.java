@@ -330,8 +330,8 @@ public class EditormodelDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<EditormodelLinkDescriptor> getDraggableItem_3005ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -384,8 +384,8 @@ public class EditormodelDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<EditormodelLinkDescriptor> getDraggableItem_3005IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -436,8 +436,8 @@ public class EditormodelDiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
+	 * @generated
+	 */
 	public static List<EditormodelLinkDescriptor> getDraggableItem_3005OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}

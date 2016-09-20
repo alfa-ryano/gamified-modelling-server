@@ -1,30 +1,30 @@
-@namespace(uri="collaborationmodelling",prefix="collaborationmodelling")
+@namespace(uri="collaborationmodel",prefix="collaborationmodel")
 
-package collaborationmodelling;
+package collaborationmodel;
 
-import "../../../../common/model/graph.ecore";
+import "../../../../common/metamodel/graph.ecore";
 
 class ModellingType {
-    attr String name = "CollaborationModelling"; 
+    attr String name = "CollaborationModel"; 
 }
 
-class CollaborationModelling extends graphmodelling.Graph {
+class CollaborationModel extends graphmodel.Graph {
     
 }
 
-class ActorElement extends graphmodelling.Node {
+class ActorElement extends graphmodel.Node {
     
 } 
 
-class ObjectElement extends graphmodelling.Node {
+class ObjectElement extends graphmodel.Node {
     
 }
 
-class MessageElement extends graphmodelling.Edge {
+class MessageElement extends graphmodel.Edge {
     
 }
 
-class LinkElement extends graphmodelling.Edge {
+class LinkElement extends graphmodel.Edge {
 
 }
 

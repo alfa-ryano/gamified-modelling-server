@@ -1,4 +1,4 @@
-context collaborationmodelling!CollaborationModelling {
+context collaborationmodel!CollaborationModel {
    
   constraint objective_01 {
     check : 
@@ -23,7 +23,8 @@ context collaborationmodelling!CollaborationModelling {
   
 } 
 
-operation CollaborationModelling evaluationFunction_02(nodeName1, nodeName2): Boolean{
+
+operation CollaborationModel evaluationFunction_02(nodeName1, nodeName2): Boolean{
     if (self.edges.size() > 0){  
 	    for (edge in self.edges){
 	       if(edge.source <> null and edge.target <> null and edge.type().name = "MessageElement"){

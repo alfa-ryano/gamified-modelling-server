@@ -33,5 +33,5 @@ try{
     [% } %] 
 [% } %]
 } catch (err) {
-    alert("objectmodelling: generated.js: " + err.message);
+    alert("objectmodel: generated.js: " + err.message);
 }

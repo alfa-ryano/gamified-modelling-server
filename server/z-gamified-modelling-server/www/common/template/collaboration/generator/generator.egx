@@ -1,5 +1,5 @@
 rule GenerateJavascriptModels
-transform modelling : collaborationmodelling!EPackage {
+transform modelling : collaborationmodel!EPackage {
   guard : true 
   template : "template.egl"
   target : "generated.js"

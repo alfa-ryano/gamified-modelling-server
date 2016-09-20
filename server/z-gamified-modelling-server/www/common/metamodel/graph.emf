@@ -1,6 +1,6 @@
-@namespace(uri="graphmodelling",prefix="graphmodelling")
+@namespace(uri="graphmodel",prefix="graphmodel")
 
-package graphmodelling;
+package graphmodel;
 
 class ModellingType {
     attr String name = "Graph"; 

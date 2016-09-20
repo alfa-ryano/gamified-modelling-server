@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="editormodel" nsURI="editormodel" nsPrefix="editormodel">
+  <eClassifiers xsi:type="ecore:EEnum" name="MODELTYPE">
+    <eLiterals name="object"/>
+    <eLiterals name="collaboration" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DRAGGABLE_ITEM_TYPE">
+    <eLiterals name="ObjectDraggableCaseItem"/>
+    <eLiterals name="ClassDraggableCaseItem" value="1"/>
+    <eLiterals name="SlotDraggableCaseItem" value="2"/>
+    <eLiterals name="OperationDraggableCaseItem" value="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Game">
     <eAnnotations source="gmf.diagram">
       <details key="foo" value="bar"/>
@@ -40,12 +50,9 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelType" eType="#//MODELTYPE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSequel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextMetamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceMetamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetMetamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectives" upperBound="-1"
         eType="#//Objective" containment="true">
       <eAnnotations source="gmf.compartment">
@@ -86,7 +93,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DRAGGABLE_ITEM_TYPE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path">
     <eAnnotations source="gmf.link">

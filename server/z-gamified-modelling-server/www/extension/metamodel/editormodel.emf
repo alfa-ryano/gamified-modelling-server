@@ -2,6 +2,19 @@
 
 package editormodel;
 
+enum MODELTYPE {
+    object = 0;
+    collaboration = 1;
+}
+
+enum DRAGGABLE_ITEM_TYPE {
+    ObjectDraggableCaseItem = 0;
+    ClassDraggableCaseItem = 1;
+    SlotDraggableCaseItem = 2;
+    OperationDraggableCaseItem = 3;	
+}
+
+
 @gmf.diagram(foo="bar")
 class Game {
     
@@ -30,12 +43,8 @@ class SubStory {
 class Level {
 	attr String name;
 	attr String description;
-	attr String modelType;
+	attr MODELTYPE modelType;
 	attr boolean isSequel = false;
-	
-    attr String contextMetamodel;
-    attr String sourceMetamodel;
-    attr String targetMetamodel;
 	
 	@gmf.compartment(layout="list")
 	val Objective[*] objectives;
@@ -66,7 +75,7 @@ class LevelCase {
 class DraggableItem {
 	attr String name;
 	attr String description;
-	attr String type;
+	attr DRAGGABLE_ITEM_TYPE type;
 }
 
 @gmf.link(source="prevLevel", target="nextLevel")

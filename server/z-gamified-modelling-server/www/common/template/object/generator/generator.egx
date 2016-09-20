@@ -1,5 +1,5 @@
 rule GenerateJavascriptModels
-transform modelling : objectmodelling!EPackage {
+transform modelling : objectmodel!EPackage {
   guard : true 
   template : "template.egl"
   target : "generated.js"

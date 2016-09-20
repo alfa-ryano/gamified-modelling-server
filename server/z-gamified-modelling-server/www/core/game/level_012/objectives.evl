@@ -1,4 +1,4 @@
-context  objectmodelling!ObjectModelling {
+context  objectmodel!ObjectModel {
     
   // At least there is an node with name button
   constraint objective_01 {
@@ -9,7 +9,7 @@ context  objectmodelling!ObjectModelling {
   }
 } 
 
-operation ObjectModelling evaluationFunction_01(): Boolean{
+operation ObjectModel evaluationFunction_01(): Boolean{
     if (self.nodes.size() > 0){  
         if (self.nodes.size() >= 5 and self.edges.size() >= 3){
             return true;

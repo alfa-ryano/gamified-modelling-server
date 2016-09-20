@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <editormodel:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:editormodel="editormodel">
-  <stories name="MoreObjects" description="More About Object Modelling">
-    <subStories name="Car" description="Objectification of a Car">
-      <levels name="FirstLevel" description="Create All the Objects" modelType="object" contextMetamodel="objectmodelling!ObjectModelling" sourceMetamodel="ObjectModelling" targetMetamodel="ObjectModelling">
-        <objectives name="FirstObjective" description="Create Front Left Wheel"/>
-        <objectives name="SecondObjective" description="Create Front Right Wheel"/>
-        <objectives name="ThirdObjective" description="Create Back Left Wheel"/>
-        <objectives name="FourthObjective" description="Create Back Right Wheel"/>
-        <objectives name="FifthObjective" description="Create Car"/>
-        <levelCase name="Case One" description="A Car object consists 4 wheels: Front Left Wheel, Front Right Wheel, Back Left Wheel, and Back Right Wheel. Create all the objects! ">
-          <draggableItems name="DraggableItem1" description="FrontLeftWheel" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem2" description="FrontRightWheel" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem4" description="Car" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem3" description="BackLeftWheel" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem5" description="BackRightWheel" type="ObjectDraggableCaseItem"/>
+  <stories name="B" description="A">
+    <subStories name="D" description="C">
+      <levels name="F" description="E">
+        <objectives name="H" description="G"/>
+        <levelCase name="I" description="H">
+          <draggableItems name="K" description="J"/>
         </levelCase>
         <path prevLevel="//@stories.0/@subStories.0/@levels.0" nextLevel="//@stories.0/@subStories.0/@levels.1"/>
       </levels>
-      <levels name="SecondLevel" description="Determine the Relationships" modelType="object" isSequel="true" contextMetamodel="objectmodelling!ObjectModelling" sourceMetamodel="ObjectModelling" targetMetamodel="ObjectModelling">
-        <objectives name="Objective01" description="A Relationship between Car and FrontLeftWheel"/>
-        <objectives name="Objective02" description="A Relationship between Car and FrontRightWheel"/>
-        <objectives name="Objective03" description="A Relationship between Car and BackLeftWheel"/>
-        <objectives name="Objective04" description="A Relationship between Car and BackRightWheel"/>
-        <levelCase name="Case 1" description="Connect all the the four wheel objects into the Car object!">
-          <draggableItems name="DraggableItem1" description="FrontLeftWheel" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem2" description="FrontRightWheel" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem4" description="Car" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem3" description="BackLeftWheel" type="ObjectDraggableCaseItem"/>
-          <draggableItems name="DraggableItem5" description="BackRightWheel" type="ObjectDraggableCaseItem"/>
+      <levels name="K" description="Z" isSequel="true">
+        <objectives name="M" description="V"/>
+        <levelCase name="I" description="U">
+          <draggableItems name="L" description="K" type="ClassDraggableCaseItem"/>
         </levelCase>
       </levels>
     </subStories>

@@ -1,4 +1,4 @@
-context  objectmodelling!ObjectModelling {
+context  objectmodel!ObjectModel {
    
   constraint objective_01 {
     check : 
@@ -15,7 +15,7 @@ context  objectmodelling!ObjectModelling {
   }
 } 
 
-operation ObjectModelling evaluationFunction_01(): Boolean{
+operation ObjectModel evaluationFunction_01(): Boolean{
     if (self.nodes.size() > 0){
         var nameTextBox = self.nodes.selectOne(node | node.name = "name textbox");
         if (nameTextBox <> null){
@@ -27,7 +27,7 @@ operation ObjectModelling evaluationFunction_01(): Boolean{
     return false;
 }
 
-operation ObjectModelling evaluationFunction_02(): Boolean{
+operation ObjectModel evaluationFunction_02(): Boolean{
     if (self.nodes.size() > 0){
         var greetLabel = self.nodes.selectOne(node | node.name = "greet label");
         var nameLabel = self.nodes.selectOne(node | node.name = "name label");

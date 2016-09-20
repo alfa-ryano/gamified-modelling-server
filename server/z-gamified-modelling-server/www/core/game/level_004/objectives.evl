@@ -1,4 +1,4 @@
-context objectmodelling!ObjectModelling {
+context objectmodel!ObjectModel {
    
   constraint objective_01 {
     check : 
@@ -23,7 +23,7 @@ context objectmodelling!ObjectModelling {
   
 } 
 
-operation ObjectModelling evaluationFunction_02(nodeName1, nodeName2): Boolean{
+operation ObjectModel evaluationFunction_02(nodeName1, nodeName2): Boolean{
     if (self.edges.size() > 0){  
 	    for (edge in self.edges){
 	       if(edge.source <> null and edge.target <> null){

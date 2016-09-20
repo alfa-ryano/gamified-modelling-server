@@ -1,0 +1,7 @@
+operation getModelTypeString(modelType: Integer): String{
+    switch (modelType) {
+        case MODELTYPE#object.value : return MODELTYPE#object.name;
+        case MODELTYPE#collaboration.value : return MODELTYPE#collaboration.name;
+        default : return MODELTYPE#object.name;
+   }
+}

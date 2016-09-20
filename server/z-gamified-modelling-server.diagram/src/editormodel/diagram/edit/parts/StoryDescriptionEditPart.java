@@ -60,7 +60,7 @@ public class StoryDescriptionEditPart extends CompartmentEditPart implements ITe
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5005;
+	public static final int VISUAL_ID = 5006;
 
 	/**
 	* @generated

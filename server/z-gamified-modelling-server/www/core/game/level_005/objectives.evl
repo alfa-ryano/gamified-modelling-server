@@ -1,4 +1,4 @@
-context objectmodelling!ObjectModelling {
+context objectmodel!ObjectModel {
     
   // At least there is an node with name button
   constraint objective_01 {
@@ -10,7 +10,7 @@ context objectmodelling!ObjectModelling {
   
 } 
 
-operation ObjectModelling evaluationFunction_01(): Boolean{
+operation ObjectModel evaluationFunction_01(): Boolean{
     var count : Integer = 0;
     var nodeName1 : String = ""; 
     var nodeName2 : String = "";

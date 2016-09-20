@@ -1,19 +1,19 @@
 try{
     // ModellingType --------------------------------------------------
-    var ModellingType = "ObjectModelling";
+    var ModellingType = "ObjectModel";
  
-    // ObjectModelling --------------------------------------------------
-    var ObjectModelling = function() {
+    // ObjectModel --------------------------------------------------
+    var ObjectModel = function() {
         Graph.call(this);
-        this.eClass = "objectmodelling#//ObjectModelling"
+        this.eClass = "objectmodel#//ObjectModel"
     } 
-    ObjectModelling.prototype = new Graph();
-    ObjectModelling.constructor = ObjectModelling;
+    ObjectModel.prototype = new Graph();
+    ObjectModel.constructor = ObjectModel;
  
     // ObjectElement --------------------------------------------------
     var ObjectElement = function() {
         Node.call(this);
-        this.eClass = "objectmodelling#//ObjectElement"
+        this.eClass = "objectmodel#//ObjectElement"
     } 
     ObjectElement.prototype = new Node();
     ObjectElement.constructor = ObjectElement;
@@ -21,11 +21,11 @@ try{
     // LinkElement --------------------------------------------------
     var LinkElement = function() {
         Edge.call(this);
-        this.eClass = "objectmodelling#//LinkElement"
+        this.eClass = "objectmodel#//LinkElement"
     } 
     LinkElement.prototype = new Edge();
     LinkElement.constructor = LinkElement;
  
 } catch (err) {
-    alert("objectmodelling: generated.js: " + err.message);
+    alert("objectmodel: generated.js: " + err.message);
 }

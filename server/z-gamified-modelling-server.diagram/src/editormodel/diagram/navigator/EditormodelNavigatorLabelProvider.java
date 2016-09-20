@@ -25,13 +25,10 @@ import editormodel.diagram.edit.parts.DraggableItemEditPart;
 import editormodel.diagram.edit.parts.GameEditPart;
 import editormodel.diagram.edit.parts.LevelCaseDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelCaseEditPart;
-import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
 import editormodel.diagram.edit.parts.LevelDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelEditPart;
-import editormodel.diagram.edit.parts.LevelNameEditPart;
 import editormodel.diagram.edit.parts.ObjectiveDescriptionEditPart;
 import editormodel.diagram.edit.parts.ObjectiveEditPart;
-import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.PathEditPart;
 import editormodel.diagram.edit.parts.StoryDescriptionEditPart;
 import editormodel.diagram.edit.parts.StoryEditPart;
@@ -215,7 +212,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -231,7 +228,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5004); //$NON-NLS-1$
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -247,7 +244,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5003); //$NON-NLS-1$
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -279,7 +276,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5002); //$NON-NLS-1$
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -295,7 +292,7 @@ public class EditormodelNavigatorLabelProvider extends LabelProvider
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5006); //$NON-NLS-1$
+			EditormodelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

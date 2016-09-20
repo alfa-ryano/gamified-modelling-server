@@ -19,11 +19,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import editormodel.EditormodelPackage;
 import editormodel.diagram.edit.parts.DraggableItemDescriptionEditPart;
 import editormodel.diagram.edit.parts.LevelCaseDescriptionEditPart;
-import editormodel.diagram.edit.parts.LevelCaseNameEditPart;
 import editormodel.diagram.edit.parts.LevelDescriptionEditPart;
-import editormodel.diagram.edit.parts.LevelNameEditPart;
 import editormodel.diagram.edit.parts.ObjectiveDescriptionEditPart;
-import editormodel.diagram.edit.parts.ObjectiveNameEditPart;
 import editormodel.diagram.edit.parts.StoryDescriptionEditPart;
 import editormodel.diagram.edit.parts.SubStoryDescriptionEditPart;
 import editormodel.diagram.parsers.MessageFormatParser;
@@ -37,52 +34,52 @@ public class EditormodelParserProvider extends AbstractProvider implements IPars
 	/**
 	* @generated
 	*/
-	private IParser storyDescription_5005Parser;
+	private IParser storyDescription_5006Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getStoryDescription_5005Parser() {
-		if (storyDescription_5005Parser == null) {
+	private IParser getStoryDescription_5006Parser() {
+		if (storyDescription_5006Parser == null) {
 			EAttribute[] features = new EAttribute[] { EditormodelPackage.eINSTANCE.getStory_Description() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			storyDescription_5005Parser = parser;
+			storyDescription_5006Parser = parser;
 		}
-		return storyDescription_5005Parser;
+		return storyDescription_5006Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser subStoryDescription_5004Parser;
+	private IParser subStoryDescription_5005Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getSubStoryDescription_5004Parser() {
-		if (subStoryDescription_5004Parser == null) {
+	private IParser getSubStoryDescription_5005Parser() {
+		if (subStoryDescription_5005Parser == null) {
 			EAttribute[] features = new EAttribute[] { EditormodelPackage.eINSTANCE.getSubStory_Description() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			subStoryDescription_5004Parser = parser;
+			subStoryDescription_5005Parser = parser;
 		}
-		return subStoryDescription_5004Parser;
+		return subStoryDescription_5005Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser levelDescription_5003Parser;
+	private IParser levelDescription_5004Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getLevelDescription_5003Parser() {
-		if (levelDescription_5003Parser == null) {
+	private IParser getLevelDescription_5004Parser() {
+		if (levelDescription_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { EditormodelPackage.eINSTANCE.getLevel_Description() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			levelDescription_5003Parser = parser;
+			levelDescription_5004Parser = parser;
 		}
-		return levelDescription_5003Parser;
+		return levelDescription_5004Parser;
 	}
 
 	/**
@@ -105,35 +102,35 @@ public class EditormodelParserProvider extends AbstractProvider implements IPars
 	/**
 	* @generated
 	*/
-	private IParser levelCaseDescription_5002Parser;
+	private IParser levelCaseDescription_5003Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getLevelCaseDescription_5002Parser() {
-		if (levelCaseDescription_5002Parser == null) {
+	private IParser getLevelCaseDescription_5003Parser() {
+		if (levelCaseDescription_5003Parser == null) {
 			EAttribute[] features = new EAttribute[] { EditormodelPackage.eINSTANCE.getLevelCase_Description() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			levelCaseDescription_5002Parser = parser;
+			levelCaseDescription_5003Parser = parser;
 		}
-		return levelCaseDescription_5002Parser;
+		return levelCaseDescription_5003Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser draggableItemDescription_5006Parser;
+	private IParser draggableItemDescription_5002Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getDraggableItemDescription_5006Parser() {
-		if (draggableItemDescription_5006Parser == null) {
+	private IParser getDraggableItemDescription_5002Parser() {
+		if (draggableItemDescription_5002Parser == null) {
 			EAttribute[] features = new EAttribute[] { EditormodelPackage.eINSTANCE.getDraggableItem_Description() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			draggableItemDescription_5006Parser = parser;
+			draggableItemDescription_5002Parser = parser;
 		}
-		return draggableItemDescription_5006Parser;
+		return draggableItemDescription_5002Parser;
 	}
 
 	/**
@@ -142,17 +139,17 @@ public class EditormodelParserProvider extends AbstractProvider implements IPars
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case StoryDescriptionEditPart.VISUAL_ID:
-			return getStoryDescription_5005Parser();
+			return getStoryDescription_5006Parser();
 		case SubStoryDescriptionEditPart.VISUAL_ID:
-			return getSubStoryDescription_5004Parser();
+			return getSubStoryDescription_5005Parser();
 		case LevelDescriptionEditPart.VISUAL_ID:
-			return getLevelDescription_5003Parser();
+			return getLevelDescription_5004Parser();
 		case ObjectiveDescriptionEditPart.VISUAL_ID:
 			return getObjectiveDescription_5001Parser();
 		case LevelCaseDescriptionEditPart.VISUAL_ID:
-			return getLevelCaseDescription_5002Parser();
+			return getLevelCaseDescription_5003Parser();
 		case DraggableItemDescriptionEditPart.VISUAL_ID:
-			return getDraggableItemDescription_5006Parser();
+			return getDraggableItemDescription_5002Parser();
 		}
 		return null;
 	}

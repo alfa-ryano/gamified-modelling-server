@@ -1,0 +1,15 @@
+context objectmodel!ObjectModel {
+
+//--K
+ 
+  constraint M {
+    check : 
+        self.evaluationFunction_1()
+    message : 
+        "V"
+  }  
+} 
+
+operation ObjectModel evaluationFunction_1(): Boolean{
+    return true;
+}

@@ -33,5 +33,5 @@ try{
     [% } %] 
 [% } %]
 } catch (err) {
-    alert("collaborationmodelling: generated.js: " + err.message);
+    alert("collaborationmodel: generated.js: " + err.message);
 }

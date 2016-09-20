@@ -8,7 +8,7 @@ var iLevel = 0;
 
 //Setup story and substory
 var story = new Story(game);
-story.name = "ObjectModelling";
+story.name = "ObjectModel";
 story.description = "Object Modelling";
 
 var subStory = new SubStory(game, story);
@@ -578,7 +578,7 @@ subStory.description = "Create Login Screen (Coming Soon)";
 //--- COLLABORATION MODELLING ----------------------------------------------
 
 var story = new Story(game);
-story.name = "CollaborationModelling";
+story.name = "CollaborationModel";
 story.description = "Collaboration Modelling";
 var subStory = new SubStory(game, story);
 subStory.name = "CollaboratingHelloWorld";

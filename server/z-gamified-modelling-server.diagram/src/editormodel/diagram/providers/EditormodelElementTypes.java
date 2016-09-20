@@ -87,7 +87,6 @@ public class EditormodelElementTypes {
 	*/
 	public static final IElementType DraggableItem_3005 = getElementType(
 			"z-gamified-modelling-server.diagram.DraggableItem_3005"); //$NON-NLS-1$
-
 	/**
 	* @generated
 	*/
