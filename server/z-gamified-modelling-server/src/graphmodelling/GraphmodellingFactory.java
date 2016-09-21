@@ -1,6 +1,6 @@
 /**
  */
-package collaborationmodel;
+package graphmodelling;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see collaborationmodel.CollaborationmodelPackage
+ * @see graphmodelling.GraphmodellingPackage
  * @generated
  */
-public interface CollaborationmodelFactory extends EFactory {
+public interface GraphmodellingFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	CollaborationmodelFactory eINSTANCE = collaborationmodel.impl.CollaborationmodelFactoryImpl.init();
+	GraphmodellingFactory eINSTANCE = graphmodelling.impl.GraphmodellingFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Modelling Type</em>'.
@@ -31,49 +31,58 @@ public interface CollaborationmodelFactory extends EFactory {
 	ModellingType createModellingType();
 
 	/**
-	 * Returns a new object of class '<em>Collaboration Model</em>'.
+	 * Returns a new object of class '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Collaboration Model</em>'.
+	 * @return a new object of class '<em>Entity</em>'.
 	 * @generated
 	 */
-	CollaborationModel createCollaborationModel();
+	Entity createEntity();
 
 	/**
-	 * Returns a new object of class '<em>Actor Element</em>'.
+	 * Returns a new object of class '<em>Graph</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actor Element</em>'.
+	 * @return a new object of class '<em>Graph</em>'.
 	 * @generated
 	 */
-	ActorElement createActorElement();
+	Graph createGraph();
 
 	/**
-	 * Returns a new object of class '<em>Object Element</em>'.
+	 * Returns a new object of class '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Element</em>'.
+	 * @return a new object of class '<em>Node</em>'.
 	 * @generated
 	 */
-	ObjectElement createObjectElement();
+	Node createNode();
 
 	/**
-	 * Returns a new object of class '<em>Message Element</em>'.
+	 * Returns a new object of class '<em>Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Message Element</em>'.
+	 * @return a new object of class '<em>Property</em>'.
 	 * @generated
 	 */
-	MessageElement createMessageElement();
+	Property createProperty();
 
 	/**
-	 * Returns a new object of class '<em>Link Element</em>'.
+	 * Returns a new object of class '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Link Element</em>'.
+	 * @return a new object of class '<em>Operation</em>'.
 	 * @generated
 	 */
-	LinkElement createLinkElement();
+	Operation createOperation();
+
+	/**
+	 * Returns a new object of class '<em>Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Edge</em>'.
+	 * @generated
+	 */
+	Edge createEdge();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -82,6 +91,6 @@ public interface CollaborationmodelFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	CollaborationmodelPackage getCollaborationmodelPackage();
+	GraphmodellingPackage getGraphmodellingPackage();
 
-} //CollaborationmodelFactory
+} //GraphmodellingFactory

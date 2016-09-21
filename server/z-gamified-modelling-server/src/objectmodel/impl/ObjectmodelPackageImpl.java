@@ -38,7 +38,7 @@ public class ObjectmodelPackageImpl extends EPackageImpl implements ObjectmodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass objectModellingEClass = null;
+	private EClass objectModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,8 +143,8 @@ public class ObjectmodelPackageImpl extends EPackageImpl implements ObjectmodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getObjectModelling() {
-		return objectModellingEClass;
+	public EClass getObjectModel() {
+		return objectModelEClass;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class ObjectmodelPackageImpl extends EPackageImpl implements ObjectmodelP
 		modellingTypeEClass = createEClass(MODELLING_TYPE);
 		createEAttribute(modellingTypeEClass, MODELLING_TYPE__NAME);
 
-		objectModellingEClass = createEClass(OBJECT_MODELLING);
+		objectModelEClass = createEClass(OBJECT_MODEL);
 
 		objectElementEClass = createEClass(OBJECT_ELEMENT);
 
@@ -234,7 +234,7 @@ public class ObjectmodelPackageImpl extends EPackageImpl implements ObjectmodelP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		objectModellingEClass.getESuperTypes().add(theGraphmodelPackage.getGraph());
+		objectModelEClass.getESuperTypes().add(theGraphmodelPackage.getGraph());
 		objectElementEClass.getESuperTypes().add(theGraphmodelPackage.getNode());
 		linkElementEClass.getESuperTypes().add(theGraphmodelPackage.getEdge());
 
@@ -242,7 +242,7 @@ public class ObjectmodelPackageImpl extends EPackageImpl implements ObjectmodelP
 		initEClass(modellingTypeEClass, ModellingType.class, "ModellingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModellingType_Name(), ecorePackage.getEString(), "name", "ObjectModel", 0, 1, ModellingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(objectModellingEClass, ObjectModel.class, "ObjectModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(objectModelEClass, ObjectModel.class, "ObjectModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(objectElementEClass, ObjectElement.class, "ObjectElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

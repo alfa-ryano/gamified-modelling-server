@@ -57,7 +57,7 @@ public class ObjectmodelFactoryImpl extends EFactoryImpl implements ObjectmodelF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ObjectmodelPackage.MODELLING_TYPE: return createModellingType();
-			case ObjectmodelPackage.OBJECT_MODELLING: return createObjectModelling();
+			case ObjectmodelPackage.OBJECT_MODEL: return createObjectModel();
 			case ObjectmodelPackage.OBJECT_ELEMENT: return createObjectElement();
 			case ObjectmodelPackage.LINK_ELEMENT: return createLinkElement();
 			default:
@@ -80,9 +80,9 @@ public class ObjectmodelFactoryImpl extends EFactoryImpl implements ObjectmodelF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ObjectModel createObjectModelling() {
-		ObjectModellingImpl objectModelling = new ObjectModellingImpl();
-		return objectModelling;
+	public ObjectModel createObjectModel() {
+		ObjectModelImpl objectModel = new ObjectModelImpl();
+		return objectModel;
 	}
 
 	/**

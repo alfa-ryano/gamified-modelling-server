@@ -1,13 +1,8 @@
 /**
  */
-package objectmodel.util;
+package graphmodelling.util;
 
-import graphmodel.Edge;
-import graphmodel.Entity;
-import graphmodel.Graph;
-import graphmodel.Node;
-
-import objectmodel.*;
+import graphmodelling.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -24,17 +19,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see objectmodel.ObjectmodelPackage
+ * @see graphmodelling.GraphmodellingPackage
  * @generated
  */
-public class ObjectmodelSwitch<T> extends Switch<T> {
+public class GraphmodellingSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ObjectmodelPackage modelPackage;
+	protected static GraphmodellingPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -42,9 +37,9 @@ public class ObjectmodelSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ObjectmodelSwitch() {
+	public GraphmodellingSwitch() {
 		if (modelPackage == null) {
-			modelPackage = ObjectmodelPackage.eINSTANCE;
+			modelPackage = GraphmodellingPackage.eINSTANCE;
 		}
 	}
 
@@ -71,33 +66,50 @@ public class ObjectmodelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ObjectmodelPackage.MODELLING_TYPE: {
+			case GraphmodellingPackage.MODELLING_TYPE: {
 				ModellingType modellingType = (ModellingType)theEObject;
 				T result = caseModellingType(modellingType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ObjectmodelPackage.OBJECT_MODEL: {
-				ObjectModel objectModel = (ObjectModel)theEObject;
-				T result = caseObjectModel(objectModel);
-				if (result == null) result = caseGraph(objectModel);
-				if (result == null) result = caseEntity(objectModel);
+			case GraphmodellingPackage.ENTITY: {
+				Entity entity = (Entity)theEObject;
+				T result = caseEntity(entity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ObjectmodelPackage.OBJECT_ELEMENT: {
-				ObjectElement objectElement = (ObjectElement)theEObject;
-				T result = caseObjectElement(objectElement);
-				if (result == null) result = caseNode(objectElement);
-				if (result == null) result = caseEntity(objectElement);
+			case GraphmodellingPackage.GRAPH: {
+				Graph graph = (Graph)theEObject;
+				T result = caseGraph(graph);
+				if (result == null) result = caseEntity(graph);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ObjectmodelPackage.LINK_ELEMENT: {
-				LinkElement linkElement = (LinkElement)theEObject;
-				T result = caseLinkElement(linkElement);
-				if (result == null) result = caseEdge(linkElement);
-				if (result == null) result = caseEntity(linkElement);
+			case GraphmodellingPackage.NODE: {
+				Node node = (Node)theEObject;
+				T result = caseNode(node);
+				if (result == null) result = caseEntity(node);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GraphmodellingPackage.PROPERTY: {
+				Property property = (Property)theEObject;
+				T result = caseProperty(property);
+				if (result == null) result = caseEntity(property);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GraphmodellingPackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T result = caseOperation(operation);
+				if (result == null) result = caseEntity(operation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GraphmodellingPackage.EDGE: {
+				Edge edge = (Edge)theEObject;
+				T result = caseEdge(edge);
+				if (result == null) result = caseEntity(edge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,51 +129,6 @@ public class ObjectmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseModellingType(ModellingType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Object Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Object Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseObjectModel(ObjectModel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Object Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Object Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseObjectElement(ObjectElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Link Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLinkElement(LinkElement object) {
 		return null;
 	}
 
@@ -211,6 +178,36 @@ public class ObjectmodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProperty(Property object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperation(Operation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -241,4 +238,4 @@ public class ObjectmodelSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //ObjectmodelSwitch
+} //GraphmodellingSwitch

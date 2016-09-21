@@ -1,22 +1,16 @@
 /**
  */
-package graphmodel.impl;
+package graphmodelling.impl;
 
-import collaborationmodel.CollaborationmodelPackage;
-import collaborationmodel.impl.CollaborationmodelPackageImpl;
-import graphmodel.Edge;
-import graphmodel.Entity;
-import graphmodel.Graph;
-import graphmodel.GraphmodelFactory;
-import graphmodel.GraphmodelPackage;
-import graphmodel.ModellingType;
-import graphmodel.Node;
-import graphmodel.Operation;
-import graphmodel.Property;
-
-import objectmodel.ObjectmodelPackage;
-
-import objectmodel.impl.ObjectmodelPackageImpl;
+import graphmodelling.Edge;
+import graphmodelling.Entity;
+import graphmodelling.Graph;
+import graphmodelling.GraphmodellingFactory;
+import graphmodelling.GraphmodellingPackage;
+import graphmodelling.ModellingType;
+import graphmodelling.Node;
+import graphmodelling.Operation;
+import graphmodelling.Property;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -31,7 +25,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPackage {
+public class GraphmodellingPackageImpl extends EPackageImpl implements GraphmodellingPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,12 +86,12 @@ public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see graphmodel.GraphmodelPackage#eNS_URI
+	 * @see graphmodelling.GraphmodellingPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private GraphmodelPackageImpl() {
-		super(eNS_URI, GraphmodelFactory.eINSTANCE);
+	private GraphmodellingPackageImpl() {
+		super(eNS_URI, GraphmodellingFactory.eINSTANCE);
 	}
 
 	/**
@@ -110,7 +104,7 @@ public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPac
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link GraphmodelPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link GraphmodellingPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,32 +113,27 @@ public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPac
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static GraphmodelPackage init() {
-		if (isInited) return (GraphmodelPackage)EPackage.Registry.INSTANCE.getEPackage(GraphmodelPackage.eNS_URI);
+	public static GraphmodellingPackage init() {
+		if (isInited) return (GraphmodellingPackage)EPackage.Registry.INSTANCE.getEPackage(GraphmodellingPackage.eNS_URI);
 
 		// Obtain or create and register package
-		GraphmodelPackageImpl theGraphmodelPackage = (GraphmodelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GraphmodelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GraphmodelPackageImpl());
+		GraphmodellingPackageImpl theGraphmodellingPackage = (GraphmodellingPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GraphmodellingPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GraphmodellingPackageImpl());
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		CollaborationmodelPackageImpl theCollaborationmodelPackage = (CollaborationmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CollaborationmodelPackage.eNS_URI) instanceof CollaborationmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CollaborationmodelPackage.eNS_URI) : CollaborationmodelPackage.eINSTANCE);
-
 		// Create package meta-data objects
-		theGraphmodelPackage.createPackageContents();
-		theCollaborationmodelPackage.createPackageContents();
+		theGraphmodellingPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theGraphmodelPackage.initializePackageContents();
-		theCollaborationmodelPackage.initializePackageContents();
+		theGraphmodellingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theGraphmodelPackage.freeze();
+		theGraphmodellingPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(GraphmodelPackage.eNS_URI, theGraphmodelPackage);
-		return theGraphmodelPackage;
+		EPackage.Registry.INSTANCE.put(GraphmodellingPackage.eNS_URI, theGraphmodellingPackage);
+		return theGraphmodellingPackage;
 	}
 
 	/**
@@ -422,8 +411,8 @@ public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphmodelFactory getGraphmodelFactory() {
-		return (GraphmodelFactory)getEFactoryInstance();
+	public GraphmodellingFactory getGraphmodellingFactory() {
+		return (GraphmodellingFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -559,4 +548,4 @@ public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPac
 		createResource(eNS_URI);
 	}
 
-} //GraphmodelPackageImpl
+} //GraphmodellingPackageImpl

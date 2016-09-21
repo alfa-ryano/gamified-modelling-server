@@ -57,7 +57,7 @@ public class CollaborationmodelFactoryImpl extends EFactoryImpl implements Colla
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CollaborationmodelPackage.MODELLING_TYPE: return createModellingType();
-			case CollaborationmodelPackage.COLLABORATION_MODELLING: return createCollaborationModelling();
+			case CollaborationmodelPackage.COLLABORATION_MODEL: return createCollaborationModel();
 			case CollaborationmodelPackage.ACTOR_ELEMENT: return createActorElement();
 			case CollaborationmodelPackage.OBJECT_ELEMENT: return createObjectElement();
 			case CollaborationmodelPackage.MESSAGE_ELEMENT: return createMessageElement();
@@ -82,9 +82,9 @@ public class CollaborationmodelFactoryImpl extends EFactoryImpl implements Colla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CollaborationModel createCollaborationModelling() {
-		CollaborationModellingImpl collaborationModelling = new CollaborationModellingImpl();
-		return collaborationModelling;
+	public CollaborationModel createCollaborationModel() {
+		CollaborationModelImpl collaborationModel = new CollaborationModelImpl();
+		return collaborationModel;
 	}
 
 	/**

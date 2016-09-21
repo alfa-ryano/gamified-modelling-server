@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    position: relative;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   {opacity:0;}
+    50% {opacity:1;}
+    100% {opacity:0;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {opacity:0;}
+    50% {opacity:1;}
+    100% {opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div>
+#LOADING...
+</div>
+
+</body>
+</html>

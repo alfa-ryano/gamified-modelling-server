@@ -10,7 +10,7 @@ story.description = "A";
 // ----SubStory: D ----------------------------------------------------
 var subStory = new SubStory(game, story);
 subStory.name = "D";
-subStory.description = "C";
+subStory.description = "Extraordinary";
    
 		    
    
@@ -58,7 +58,7 @@ game.levels[iLevel] = new Level(game, "K",
     "Z");
 game.levels[iLevel].isSequel = true;
 game.levels[iLevel].levelCase = new LevelCase(game,
-    game.levels[iLevel], "I", "U");
+    game.levels[iLevel], "X", "U");
 game.levels[iLevel].modellingType = "object";
 game.levels[iLevel].levelMode = "extension";        
             

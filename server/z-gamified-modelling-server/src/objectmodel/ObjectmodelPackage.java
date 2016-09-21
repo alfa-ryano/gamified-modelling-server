@@ -85,14 +85,14 @@ public interface ObjectmodelPackage extends EPackage {
 	int MODELLING_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link objectmodel.impl.ObjectModellingImpl <em>Object Modelling</em>}' class.
+	 * The meta object id for the '{@link objectmodel.impl.ObjectModelImpl <em>Object Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see objectmodel.impl.ObjectModellingImpl
-	 * @see objectmodel.impl.ObjectmodelPackageImpl#getObjectModelling()
+	 * @see objectmodel.impl.ObjectModelImpl
+	 * @see objectmodel.impl.ObjectmodelPackageImpl#getObjectModel()
 	 * @generated
 	 */
-	int OBJECT_MODELLING = 1;
+	int OBJECT_MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -101,7 +101,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__ID = GraphmodelPackage.GRAPH__ID;
+	int OBJECT_MODEL__ID = GraphmodelPackage.GRAPH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -110,7 +110,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__NAME = GraphmodelPackage.GRAPH__NAME;
+	int OBJECT_MODEL__NAME = GraphmodelPackage.GRAPH__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -119,7 +119,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__TEXT = GraphmodelPackage.GRAPH__TEXT;
+	int OBJECT_MODEL__TEXT = GraphmodelPackage.GRAPH__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -128,7 +128,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__DESCRIPTION = GraphmodelPackage.GRAPH__DESCRIPTION;
+	int OBJECT_MODEL__DESCRIPTION = GraphmodelPackage.GRAPH__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -137,7 +137,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__VALUE = GraphmodelPackage.GRAPH__VALUE;
+	int OBJECT_MODEL__VALUE = GraphmodelPackage.GRAPH__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -146,7 +146,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__TYPE = GraphmodelPackage.GRAPH__TYPE;
+	int OBJECT_MODEL__TYPE = GraphmodelPackage.GRAPH__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -155,7 +155,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__CLASS_NAME = GraphmodelPackage.GRAPH__CLASS_NAME;
+	int OBJECT_MODEL__CLASS_NAME = GraphmodelPackage.GRAPH__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -164,7 +164,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__GROUP = GraphmodelPackage.GRAPH__GROUP;
+	int OBJECT_MODEL__GROUP = GraphmodelPackage.GRAPH__GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -173,7 +173,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__CATEGORY = GraphmodelPackage.GRAPH__CATEGORY;
+	int OBJECT_MODEL__CATEGORY = GraphmodelPackage.GRAPH__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Access Modifier</b></em>' attribute.
@@ -182,7 +182,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__ACCESS_MODIFIER = GraphmodelPackage.GRAPH__ACCESS_MODIFIER;
+	int OBJECT_MODEL__ACCESS_MODIFIER = GraphmodelPackage.GRAPH__ACCESS_MODIFIER;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -191,7 +191,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__X = GraphmodelPackage.GRAPH__X;
+	int OBJECT_MODEL__X = GraphmodelPackage.GRAPH__X;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -200,7 +200,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__Y = GraphmodelPackage.GRAPH__Y;
+	int OBJECT_MODEL__Y = GraphmodelPackage.GRAPH__Y;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -209,7 +209,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__WIDTH = GraphmodelPackage.GRAPH__WIDTH;
+	int OBJECT_MODEL__WIDTH = GraphmodelPackage.GRAPH__WIDTH;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -218,7 +218,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__HEIGHT = GraphmodelPackage.GRAPH__HEIGHT;
+	int OBJECT_MODEL__HEIGHT = GraphmodelPackage.GRAPH__HEIGHT;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
@@ -227,7 +227,7 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__NODES = GraphmodelPackage.GRAPH__NODES;
+	int OBJECT_MODEL__NODES = GraphmodelPackage.GRAPH__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Edges</b></em>' containment reference list.
@@ -236,16 +236,16 @@ public interface ObjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING__EDGES = GraphmodelPackage.GRAPH__EDGES;
+	int OBJECT_MODEL__EDGES = GraphmodelPackage.GRAPH__EDGES;
 
 	/**
-	 * The number of structural features of the '<em>Object Modelling</em>' class.
+	 * The number of structural features of the '<em>Object Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MODELLING_FEATURE_COUNT = GraphmodelPackage.GRAPH_FEATURE_COUNT + 0;
+	int OBJECT_MODEL_FEATURE_COUNT = GraphmodelPackage.GRAPH_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link objectmodel.impl.ObjectElementImpl <em>Object Element</em>}' class.
@@ -614,14 +614,14 @@ public interface ObjectmodelPackage extends EPackage {
 	EAttribute getModellingType_Name();
 
 	/**
-	 * Returns the meta object for class '{@link objectmodel.ObjectModel <em>Object Modelling</em>}'.
+	 * Returns the meta object for class '{@link objectmodel.ObjectModel <em>Object Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Object Modelling</em>'.
+	 * @return the meta object for class '<em>Object Model</em>'.
 	 * @see objectmodel.ObjectModel
 	 * @generated
 	 */
-	EClass getObjectModelling();
+	EClass getObjectModel();
 
 	/**
 	 * Returns the meta object for class '{@link objectmodel.ObjectElement <em>Object Element</em>}'.
@@ -684,14 +684,14 @@ public interface ObjectmodelPackage extends EPackage {
 		EAttribute MODELLING_TYPE__NAME = eINSTANCE.getModellingType_Name();
 
 		/**
-		 * The meta object literal for the '{@link objectmodel.impl.ObjectModellingImpl <em>Object Modelling</em>}' class.
+		 * The meta object literal for the '{@link objectmodel.impl.ObjectModelImpl <em>Object Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see objectmodel.impl.ObjectModellingImpl
-		 * @see objectmodel.impl.ObjectmodelPackageImpl#getObjectModelling()
+		 * @see objectmodel.impl.ObjectModelImpl
+		 * @see objectmodel.impl.ObjectmodelPackageImpl#getObjectModel()
 		 * @generated
 		 */
-		EClass OBJECT_MODELLING = eINSTANCE.getObjectModelling();
+		EClass OBJECT_MODEL = eINSTANCE.getObjectModel();
 
 		/**
 		 * The meta object literal for the '{@link objectmodel.impl.ObjectElementImpl <em>Object Element</em>}' class.

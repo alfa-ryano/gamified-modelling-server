@@ -77,11 +77,11 @@ public class CollaborationmodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CollaborationmodelPackage.COLLABORATION_MODELLING: {
-				CollaborationModel collaborationModelling = (CollaborationModel)theEObject;
-				T result = caseCollaborationModelling(collaborationModelling);
-				if (result == null) result = caseGraph(collaborationModelling);
-				if (result == null) result = caseEntity(collaborationModelling);
+			case CollaborationmodelPackage.COLLABORATION_MODEL: {
+				CollaborationModel collaborationModel = (CollaborationModel)theEObject;
+				T result = caseCollaborationModel(collaborationModel);
+				if (result == null) result = caseGraph(collaborationModel);
+				if (result == null) result = caseEntity(collaborationModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,17 +137,17 @@ public class CollaborationmodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Collaboration Modelling</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Collaboration Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Collaboration Modelling</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Collaboration Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCollaborationModelling(CollaborationModel object) {
+	public T caseCollaborationModel(CollaborationModel object) {
 		return null;
 	}
 

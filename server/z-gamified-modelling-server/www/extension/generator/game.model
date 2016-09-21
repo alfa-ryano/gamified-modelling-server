@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <editormodel:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:editormodel="editormodel">
   <stories name="B" description="A">
-    <subStories name="D" description="C">
+    <subStories name="D" description="Extraordinary">
       <levels name="F" description="E">
         <objectives name="H" description="G"/>
         <levelCase name="I" description="H">
@@ -11,7 +11,7 @@
       </levels>
       <levels name="K" description="Z" isSequel="true">
         <objectives name="M" description="V"/>
-        <levelCase name="I" description="U">
+        <levelCase name="X" description="U">
           <draggableItems name="L" description="K" type="ClassDraggableCaseItem"/>
         </levelCase>
       </levels>

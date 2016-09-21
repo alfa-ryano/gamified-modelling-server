@@ -77,8 +77,8 @@ public class ObjectmodelAdapterFactory extends AdapterFactoryImpl {
 				return createModellingTypeAdapter();
 			}
 			@Override
-			public Adapter caseObjectModelling(ObjectModel object) {
-				return createObjectModellingAdapter();
+			public Adapter caseObjectModel(ObjectModel object) {
+				return createObjectModelAdapter();
 			}
 			@Override
 			public Adapter caseObjectElement(ObjectElement object) {
@@ -139,7 +139,7 @@ public class ObjectmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link objectmodel.ObjectModel <em>Object Modelling</em>}'.
+	 * Creates a new adapter for an object of class '{@link objectmodel.ObjectModel <em>Object Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -148,7 +148,7 @@ public class ObjectmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @see objectmodel.ObjectModel
 	 * @generated
 	 */
-	public Adapter createObjectModellingAdapter() {
+	public Adapter createObjectModelAdapter() {
 		return null;
 	}
 

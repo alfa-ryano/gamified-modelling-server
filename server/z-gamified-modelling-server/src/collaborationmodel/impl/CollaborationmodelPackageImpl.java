@@ -40,7 +40,7 @@ public class CollaborationmodelPackageImpl extends EPackageImpl implements Colla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass collaborationModellingEClass = null;
+	private EClass collaborationModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,8 +159,8 @@ public class CollaborationmodelPackageImpl extends EPackageImpl implements Colla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCollaborationModelling() {
-		return collaborationModellingEClass;
+	public EClass getCollaborationModel() {
+		return collaborationModelEClass;
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class CollaborationmodelPackageImpl extends EPackageImpl implements Colla
 		modellingTypeEClass = createEClass(MODELLING_TYPE);
 		createEAttribute(modellingTypeEClass, MODELLING_TYPE__NAME);
 
-		collaborationModellingEClass = createEClass(COLLABORATION_MODELLING);
+		collaborationModelEClass = createEClass(COLLABORATION_MODEL);
 
 		actorElementEClass = createEClass(ACTOR_ELEMENT);
 
@@ -272,7 +272,7 @@ public class CollaborationmodelPackageImpl extends EPackageImpl implements Colla
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		collaborationModellingEClass.getESuperTypes().add(theGraphmodelPackage.getGraph());
+		collaborationModelEClass.getESuperTypes().add(theGraphmodelPackage.getGraph());
 		actorElementEClass.getESuperTypes().add(theGraphmodelPackage.getNode());
 		objectElementEClass.getESuperTypes().add(theGraphmodelPackage.getNode());
 		messageElementEClass.getESuperTypes().add(theGraphmodelPackage.getEdge());
@@ -282,7 +282,7 @@ public class CollaborationmodelPackageImpl extends EPackageImpl implements Colla
 		initEClass(modellingTypeEClass, ModellingType.class, "ModellingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModellingType_Name(), ecorePackage.getEString(), "name", "CollaborationModel", 0, 1, ModellingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(collaborationModellingEClass, CollaborationModel.class, "CollaborationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(collaborationModelEClass, CollaborationModel.class, "CollaborationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actorElementEClass, ActorElement.class, "ActorElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

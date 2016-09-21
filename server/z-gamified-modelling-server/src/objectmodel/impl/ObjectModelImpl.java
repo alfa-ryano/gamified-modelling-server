@@ -11,18 +11,18 @@ import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Object Modelling</b></em>'.
+ * An implementation of the model object '<em><b>Object Model</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ObjectModellingImpl extends GraphImpl implements ObjectModel {
+public class ObjectModelImpl extends GraphImpl implements ObjectModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ObjectModellingImpl() {
+	protected ObjectModelImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class ObjectModellingImpl extends GraphImpl implements ObjectModel {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ObjectmodelPackage.Literals.OBJECT_MODELLING;
+		return ObjectmodelPackage.Literals.OBJECT_MODEL;
 	}
 
-} //ObjectModellingImpl
+} //ObjectModelImpl

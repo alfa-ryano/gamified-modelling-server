@@ -85,14 +85,14 @@ public interface CollaborationmodelPackage extends EPackage {
 	int MODELLING_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link collaborationmodel.impl.CollaborationModellingImpl <em>Collaboration Modelling</em>}' class.
+	 * The meta object id for the '{@link collaborationmodel.impl.CollaborationModelImpl <em>Collaboration Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see collaborationmodel.impl.CollaborationModellingImpl
-	 * @see collaborationmodel.impl.CollaborationmodelPackageImpl#getCollaborationModelling()
+	 * @see collaborationmodel.impl.CollaborationModelImpl
+	 * @see collaborationmodel.impl.CollaborationmodelPackageImpl#getCollaborationModel()
 	 * @generated
 	 */
-	int COLLABORATION_MODELLING = 1;
+	int COLLABORATION_MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -101,7 +101,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__ID = GraphmodelPackage.GRAPH__ID;
+	int COLLABORATION_MODEL__ID = GraphmodelPackage.GRAPH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -110,7 +110,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__NAME = GraphmodelPackage.GRAPH__NAME;
+	int COLLABORATION_MODEL__NAME = GraphmodelPackage.GRAPH__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -119,7 +119,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__TEXT = GraphmodelPackage.GRAPH__TEXT;
+	int COLLABORATION_MODEL__TEXT = GraphmodelPackage.GRAPH__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -128,7 +128,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__DESCRIPTION = GraphmodelPackage.GRAPH__DESCRIPTION;
+	int COLLABORATION_MODEL__DESCRIPTION = GraphmodelPackage.GRAPH__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -137,7 +137,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__VALUE = GraphmodelPackage.GRAPH__VALUE;
+	int COLLABORATION_MODEL__VALUE = GraphmodelPackage.GRAPH__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -146,7 +146,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__TYPE = GraphmodelPackage.GRAPH__TYPE;
+	int COLLABORATION_MODEL__TYPE = GraphmodelPackage.GRAPH__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -155,7 +155,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__CLASS_NAME = GraphmodelPackage.GRAPH__CLASS_NAME;
+	int COLLABORATION_MODEL__CLASS_NAME = GraphmodelPackage.GRAPH__CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -164,7 +164,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__GROUP = GraphmodelPackage.GRAPH__GROUP;
+	int COLLABORATION_MODEL__GROUP = GraphmodelPackage.GRAPH__GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -173,7 +173,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__CATEGORY = GraphmodelPackage.GRAPH__CATEGORY;
+	int COLLABORATION_MODEL__CATEGORY = GraphmodelPackage.GRAPH__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Access Modifier</b></em>' attribute.
@@ -182,7 +182,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__ACCESS_MODIFIER = GraphmodelPackage.GRAPH__ACCESS_MODIFIER;
+	int COLLABORATION_MODEL__ACCESS_MODIFIER = GraphmodelPackage.GRAPH__ACCESS_MODIFIER;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -191,7 +191,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__X = GraphmodelPackage.GRAPH__X;
+	int COLLABORATION_MODEL__X = GraphmodelPackage.GRAPH__X;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -200,7 +200,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__Y = GraphmodelPackage.GRAPH__Y;
+	int COLLABORATION_MODEL__Y = GraphmodelPackage.GRAPH__Y;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -209,7 +209,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__WIDTH = GraphmodelPackage.GRAPH__WIDTH;
+	int COLLABORATION_MODEL__WIDTH = GraphmodelPackage.GRAPH__WIDTH;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -218,7 +218,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__HEIGHT = GraphmodelPackage.GRAPH__HEIGHT;
+	int COLLABORATION_MODEL__HEIGHT = GraphmodelPackage.GRAPH__HEIGHT;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
@@ -227,7 +227,7 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__NODES = GraphmodelPackage.GRAPH__NODES;
+	int COLLABORATION_MODEL__NODES = GraphmodelPackage.GRAPH__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Edges</b></em>' containment reference list.
@@ -236,16 +236,16 @@ public interface CollaborationmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING__EDGES = GraphmodelPackage.GRAPH__EDGES;
+	int COLLABORATION_MODEL__EDGES = GraphmodelPackage.GRAPH__EDGES;
 
 	/**
-	 * The number of structural features of the '<em>Collaboration Modelling</em>' class.
+	 * The number of structural features of the '<em>Collaboration Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLABORATION_MODELLING_FEATURE_COUNT = GraphmodelPackage.GRAPH_FEATURE_COUNT + 0;
+	int COLLABORATION_MODEL_FEATURE_COUNT = GraphmodelPackage.GRAPH_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link collaborationmodel.impl.ActorElementImpl <em>Actor Element</em>}' class.
@@ -958,14 +958,14 @@ public interface CollaborationmodelPackage extends EPackage {
 	EAttribute getModellingType_Name();
 
 	/**
-	 * Returns the meta object for class '{@link collaborationmodel.CollaborationModel <em>Collaboration Modelling</em>}'.
+	 * Returns the meta object for class '{@link collaborationmodel.CollaborationModel <em>Collaboration Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Collaboration Modelling</em>'.
+	 * @return the meta object for class '<em>Collaboration Model</em>'.
 	 * @see collaborationmodel.CollaborationModel
 	 * @generated
 	 */
-	EClass getCollaborationModelling();
+	EClass getCollaborationModel();
 
 	/**
 	 * Returns the meta object for class '{@link collaborationmodel.ActorElement <em>Actor Element</em>}'.
@@ -1048,14 +1048,14 @@ public interface CollaborationmodelPackage extends EPackage {
 		EAttribute MODELLING_TYPE__NAME = eINSTANCE.getModellingType_Name();
 
 		/**
-		 * The meta object literal for the '{@link collaborationmodel.impl.CollaborationModellingImpl <em>Collaboration Modelling</em>}' class.
+		 * The meta object literal for the '{@link collaborationmodel.impl.CollaborationModelImpl <em>Collaboration Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see collaborationmodel.impl.CollaborationModellingImpl
-		 * @see collaborationmodel.impl.CollaborationmodelPackageImpl#getCollaborationModelling()
+		 * @see collaborationmodel.impl.CollaborationModelImpl
+		 * @see collaborationmodel.impl.CollaborationmodelPackageImpl#getCollaborationModel()
 		 * @generated
 		 */
-		EClass COLLABORATION_MODELLING = eINSTANCE.getCollaborationModelling();
+		EClass COLLABORATION_MODEL = eINSTANCE.getCollaborationModel();
 
 		/**
 		 * The meta object literal for the '{@link collaborationmodel.impl.ActorElementImpl <em>Actor Element</em>}' class.

@@ -11,18 +11,18 @@ import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Collaboration Modelling</b></em>'.
+ * An implementation of the model object '<em><b>Collaboration Model</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class CollaborationModellingImpl extends GraphImpl implements CollaborationModel {
+public class CollaborationModelImpl extends GraphImpl implements CollaborationModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CollaborationModellingImpl() {
+	protected CollaborationModelImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class CollaborationModellingImpl extends GraphImpl implements Collaborati
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CollaborationmodelPackage.Literals.COLLABORATION_MODELLING;
+		return CollaborationmodelPackage.Literals.COLLABORATION_MODEL;
 	}
 
-} //CollaborationModellingImpl
+} //CollaborationModelImpl

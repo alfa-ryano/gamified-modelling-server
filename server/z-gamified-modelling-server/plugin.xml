@@ -36,56 +36,11 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated objectmodel -->
-      <package
-            uri="objectmodel"
-            class="objectmodel.ObjectmodellingPackage"
-            genModel="www/common/template/object/metamodel/objectmodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated collaborationmodel -->
-      <package
-            uri="collaborationmodel"
-            class="collaborationmodel.CollaborationmodellingPackage"
-            genModel="www/common/template/collaboration/metamodel/collaborationmodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated objectmodel -->
-      <package
-            uri="graphmodel"
-            class="graphmodel.GraphmodellingPackage"
-            genModel="www/common/template/object/metamodel/objectmodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated EditorModel -->
       <package
             uri="editormodel"
             class="editormodel.EditormodelPackage"/>
    </extension>
-   <extension
-         point="org.eclipse.epsilon.evl.emf.validation">
-      <constraintsBinding
-            compose="true"
-            constraints="www/extension/metamodel/editormodel.evl"
-            namespaceURI="EditorModel">
-      </constraintsBinding>
-   </extension>
-   <extension
-         point="org.eclipse.ui.ide.markerResolution">
-      <Generic></Generic>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated graph -->
-      <package
-            uri="graphmodel"
-            class="graphmodel.GraphmodelPackage"
-            genModel="www/common/metamodel/graph.genmodel"/>
-   </extension>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated objectmodel -->
       <package
@@ -109,4 +64,12 @@
             class="graphmodel.GraphmodelPackage"
             genModel="www/common/template/object/metamodel/objectmodel.genmodel"/>
    </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated graph -->
+      <package
+            uri="graphmodelling"
+            class="graphmodelling.GraphmodellingPackage"
+            genModel="www/common/model/graph.genmodel"/>
+   </extension>
+
 </plugin>

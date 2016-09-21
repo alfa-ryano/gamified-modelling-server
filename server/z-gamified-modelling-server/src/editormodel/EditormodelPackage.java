@@ -424,7 +424,6 @@ public interface EditormodelPackage extends EPackage {
 	 */
 	int PATH_FEATURE_COUNT = 2;
 
-
 	/**
 	 * The meta object id for the '{@link editormodel.MODELTYPE <em>MODELTYPE</em>}' enum.
 	 * <!-- begin-user-doc -->
@@ -434,7 +433,6 @@ public interface EditormodelPackage extends EPackage {
 	 * @generated
 	 */
 	int MODELTYPE = 8;
-
 
 	/**
 	 * The meta object id for the '{@link editormodel.DRAGGABLE_ITEM_TYPE <em>DRAGGABLE ITEM TYPE</em>}' enum.

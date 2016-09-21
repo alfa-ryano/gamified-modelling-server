@@ -42,7 +42,7 @@ public enum MODELTYPE implements Enumerator {
 	 * The '<em><b>Object</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>OBJECT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Object</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -57,7 +57,7 @@ public enum MODELTYPE implements Enumerator {
 	 * The '<em><b>Collaboration</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>COLLABORATION</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Collaboration</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

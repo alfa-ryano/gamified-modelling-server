@@ -31,13 +31,13 @@ public interface ObjectmodelFactory extends EFactory {
 	ModellingType createModellingType();
 
 	/**
-	 * Returns a new object of class '<em>Object Modelling</em>'.
+	 * Returns a new object of class '<em>Object Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Modelling</em>'.
+	 * @return a new object of class '<em>Object Model</em>'.
 	 * @generated
 	 */
-	ObjectModel createObjectModelling();
+	ObjectModel createObjectModel();
 
 	/**
 	 * Returns a new object of class '<em>Object Element</em>'.

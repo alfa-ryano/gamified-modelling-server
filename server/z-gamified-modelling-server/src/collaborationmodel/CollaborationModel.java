@@ -6,11 +6,11 @@ import graphmodel.Graph;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Collaboration Modelling</b></em>'.
+ * A representation of the model object '<em><b>Collaboration Model</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see collaborationmodel.CollaborationmodelPackage#getCollaborationModelling()
+ * @see collaborationmodel.CollaborationmodelPackage#getCollaborationModel()
  * @model
  * @generated
  */
