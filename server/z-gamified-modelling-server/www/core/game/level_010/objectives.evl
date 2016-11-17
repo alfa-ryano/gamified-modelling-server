@@ -9,9 +9,9 @@ context  objectmodel!ObjectModel {
   }
 } 
 
-operation Graph evaluationFunction_01(): Boolean{
+operation ObjectModel evaluationFunction_01(): Boolean{
     if (self.nodes.size() > 0){  
-        if (self.nodes.select(node |node.entityClass = "Button").size() >= 2){
+        if (self.nodes.select(node | node.className = "Button").size() >= 2){
             return true;
         }
     }

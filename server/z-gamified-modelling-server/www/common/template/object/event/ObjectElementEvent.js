@@ -15,8 +15,7 @@ function ObjectElementEvent(source, cellView) {
 	if (type == DRAGGABLE_ITEM_TYPE.OBJECT) {
 		cell.attributes.text = text;
 		cell.attributes.model.name = text;
-	}
-	if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
+	}else if (type == DRAGGABLE_ITEM_TYPE.CLASS) {
 		cell.attributes.model.className = text;
 	} else if (type == DRAGGABLE_ITEM_TYPE.SLOT) {
 		var properties = cell.attributes.model.properties;
@@ -37,22 +36,7 @@ function ObjectElementEvent(source, cellView) {
 			property.type = valueType;
 			properties.push(property);
 		}
-	} else if (type == DRAGGABLE_ITEM_TYPE.OPERATION) {
-		var operations = cell.attributes.model.operations;
-		var alreadyExist = false;
-		for (var i = 0; i < operations.length; i++) {
-			if (operations[i].name == name) {
-				operations[i].text = text;
-				alreadyExist = true;
-			}
-		}
-		if (alreadyExist == false) {
-			var operation = new Operation();
-			operation.text = text;
-			operation.name = name;
-			operations.push(operation);
-		}
-	}
+	} 
 
 	// Update bounding box size
 	var view = cell.findView(game.stage.paper);

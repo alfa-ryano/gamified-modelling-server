@@ -19,7 +19,7 @@ operation ObjectModel evaluationFunction_01(): Boolean{
     if (self.nodes.size() > 0){
         var nameTextBox = self.nodes.selectOne(node | node.name = "name textbox");
         if (nameTextBox <> null){
-            if (nameTextBox.entityClass = "TextBox"){
+            if (nameTextBox.className = "TextBox"){
                 return true;
             }
         }
@@ -32,7 +32,7 @@ operation ObjectModel evaluationFunction_02(): Boolean{
         var greetLabel = self.nodes.selectOne(node | node.name = "greet label");
         var nameLabel = self.nodes.selectOne(node | node.name = "name label");
         if (greetLabel <> null and nameLabel <> null){
-	        if (greetLabel.entityClass = "Label" and nameLabel.entityClass = "Label"){
+	        if (greetLabel.className = "Label" and nameLabel.className = "Label"){
 	            return true;
 	        }
         }

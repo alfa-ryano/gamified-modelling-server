@@ -18,11 +18,6 @@
   border: none;
 }
 
-.HtmlObjectOperationText {
-  text-align: left;
-  border: none;
-}
-
 #HtmlNameObject {
   display: inline-block;
   text-align: center;
@@ -31,14 +26,6 @@
 }
 
 #HtmlSlotObject {
-  display: inline-block;
-  border-left: thin solid black;
-  border-right: thin solid black;
-  border-bottom: thin solid black;
-  min-height: 29px;
-}
-
-#HtmlOperationObject {
   display: inline-block;
   border-left: thin solid black;
   border-right: thin solid black;

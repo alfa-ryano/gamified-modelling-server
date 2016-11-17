@@ -81,19 +81,6 @@ function ObjectElementCell(elementName, responseText) {
 				this.$box.find('.HtmlObjectSlotText')[0].innerHTML = text;
 			}
 
-			// set the operations/actions
-			if (this.model.get('model').operations.length > 0) {
-				var operations = this.model.get('model').operations;
-				var text = "";
-				for (var i = 0; i < operations.length; i++) {
-					if (i == 0) {
-						text += operations[i].text;
-					} else {
-						text += ("<br/>" + operations[i].text);
-					}
-				}
-				this.$box.find('.HtmlObjectOperationText')[0].innerHTML = text;
-			}
 			this.$box.css({
 				width : bbox.width,
 				height : bbox.height,
