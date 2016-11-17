@@ -71,5 +71,16 @@
             class="graphmodelling.GraphmodellingPackage"
             genModel="www/common/model/graph.genmodel"/>
    </extension>
+   <extension
+         point="org.eclipse.epsilon.evl.emf.validation">
+      <constraintsBinding
+            compose="true"
+            constraints="www/extension/metamodel/editormodel.evl"
+            namespaceURI="z-gamified-modelling-server.constraintsBinding1">
+      </constraintsBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+   </extension>
 
 </plugin>

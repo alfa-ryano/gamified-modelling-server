@@ -25,5 +25,6 @@ Export-Package: graphmodelling,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.epsilon.evl.emf.validation,
- org.eclipse.ui.ide
+ org.eclipse.ui.ide,
+ javax.servlet
 Bundle-ActivationPolicy: lazy

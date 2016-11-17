@@ -1,0 +1,14 @@
+context editormodel!Game {
+    
+  constraint constraint_01 {
+    check : 
+        self.evaluationFunction_01()
+    message : 
+        "constraint_01: false"
+  }
+} 
+
+operation Game evaluationFunction_01(): Boolean{
+    "QQQQQ".println();
+    return false;
+}
