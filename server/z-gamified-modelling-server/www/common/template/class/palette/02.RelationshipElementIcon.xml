@@ -1,0 +1,5 @@
+<div id="RelationshipElementIcon" name="RelationshipElement" class="Icon" type="Edge">
+	<svg style='width: 90px; height: 90px; shape-rendering: geometricPrecision'>
+		<line x1="0" y1="90" x2="90" y2="0" style="stroke:black;stroke-width:1" />
+	</svg>
+</div>

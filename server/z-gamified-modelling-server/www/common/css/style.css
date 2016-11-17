@@ -93,6 +93,14 @@ body, html {
 	color: #990099;
 }
 
+.AttributeDraggableCaseItem {
+  color: #009900;
+}
+
+.MethodDraggableCaseItem {
+  color: #990099;
+}
+
 .ClassDraggableCaseItem {
 	color: #CC0000;
 }

@@ -140,6 +140,10 @@ var Stage = function(game) {
 				newSpan.className += " " + DRAGGABLE_ITEM_TYPE.SLOT;
 			} else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.OPERATION) {
 				newSpan.className += " " + DRAGGABLE_ITEM_TYPE.OPERATION;
+			} else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.ATTRIBUTE) {
+				newSpan.className += " " + DRAGGABLE_ITEM_TYPE.ATTRIBUTE;
+			} else if (draggableItem.type == DRAGGABLE_ITEM_TYPE.METHOD) {
+				newSpan.className += " " + DRAGGABLE_ITEM_TYPE.METHOD;
 			}
 		}
 	}

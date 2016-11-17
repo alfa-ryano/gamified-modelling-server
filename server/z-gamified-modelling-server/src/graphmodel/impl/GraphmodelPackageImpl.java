@@ -2,6 +2,8 @@
  */
 package graphmodel.impl;
 
+import classmodel.ClassmodelPackage;
+import classmodel.impl.ClassmodelPackageImpl;
 import collaborationmodel.CollaborationmodelPackage;
 import collaborationmodel.impl.CollaborationmodelPackageImpl;
 import graphmodel.Edge;
@@ -128,15 +130,15 @@ public class GraphmodelPackageImpl extends EPackageImpl implements GraphmodelPac
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		CollaborationmodelPackageImpl theCollaborationmodelPackage = (CollaborationmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CollaborationmodelPackage.eNS_URI) instanceof CollaborationmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CollaborationmodelPackage.eNS_URI) : CollaborationmodelPackage.eINSTANCE);
+		ClassmodelPackageImpl theClassmodelPackage = (ClassmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ClassmodelPackage.eNS_URI) instanceof ClassmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ClassmodelPackage.eNS_URI) : ClassmodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGraphmodelPackage.createPackageContents();
-		theCollaborationmodelPackage.createPackageContents();
+		theClassmodelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphmodelPackage.initializePackageContents();
-		theCollaborationmodelPackage.initializePackageContents();
+		theClassmodelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGraphmodelPackage.freeze();

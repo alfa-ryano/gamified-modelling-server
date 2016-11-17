@@ -1,0 +1,23 @@
+@namespace(uri="classmodel",prefix="classmodel")
+
+package classmodel;
+
+import "../../../../common/metamodel/graph.ecore";
+
+class ModellingType {
+    attr String name = "ClassModel"; 
+}
+
+class ClassModel extends graphmodel.Graph {
+    
+}
+
+class ClassElement extends graphmodel.Node {
+    
+} 
+
+class RelationshipElement extends graphmodel.Edge {
+
+}
+
+

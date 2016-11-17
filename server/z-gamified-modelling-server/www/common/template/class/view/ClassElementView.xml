@@ -1,0 +1,12 @@
+<div name="ClassElement" class="ClassElementView" type="node">
+	<button class="delete">x</button>
+	<div id="HtmlNameClass" class="HtmlContainerIcon">
+		<div class="HtmlClassNameText"></div>
+	</div>
+	<div id="HtmlAttributeClass" class="HtmlContainerIcon">
+		<div class="HtmlClassAttributeText"></div>
+	</div>
+	<div id="HtmlMethodClass" class="HtmlContainerIcon">
+		<div class="HtmlClassMethodText"></div>
+	</div>
+</div>

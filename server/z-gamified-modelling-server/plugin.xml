@@ -58,6 +58,14 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated classmodel -->
+      <package
+            uri="classmodel"
+            class="classmodel.ClassmodelPackage"
+            genModel="www/common/template/class/metamodel/classmodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated objectmodel -->
       <package
             uri="graphmodel"
