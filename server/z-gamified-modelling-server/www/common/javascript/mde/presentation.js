@@ -164,7 +164,7 @@ var Stage = function(game) {
 		}
 	}
 
-	this.setLoadingScreen = function(level, theFunction, levelName, levelMode) {
+	this.setLoadingScreen = function(level, playGame, levelName, levelMode) {
 		level = "" + level;
 		document.getElementById("PlayBar").style.visibility = "collapse";
 		document.getElementById("LevelSelectionScreen").style.visibility = "collapse";
@@ -259,7 +259,8 @@ var Stage = function(game) {
 
 		// loading stage
 		setTimeout(function() {
-			if (theFunction(level - 1)) {
+			//playGame = game.play function in model.game.js
+			if (playGame(level - 1)) {
 				document.getElementById("LoadingBar").style.visibility = "collapse";
 				document.getElementById("PlayBar").style.visibility = "visible";
 				document.getElementById("PlayBar").onclick = function() {
@@ -322,12 +323,16 @@ var Stage = function(game) {
 
 		document.getElementById("button-replay").onclick = function() {
 			game.stage.closeDialog();
-			game.stage.setLoadingScreen(game.currentLevel + 1, game.replay);
+			var levelName = game.levels[game.currentLevel].ID;
+			var levelMode = game.levels[game.currentLevel].levelMode;			
+			game.stage.setLoadingScreen(game.currentLevel + 1, game.replay, levelName, levelMode);
 		}
 		document.getElementById("button-next").onclick = function() {
 			game.currentLevel += 1;
 			game.stage.closeDialog();
-			game.stage.setLoadingScreen(game.currentLevel + 1, game.nextLevel);
+			var levelName = game.levels[game.currentLevel].ID;
+			var levelMode = game.levels[game.currentLevel].levelMode;
+			game.stage.setLoadingScreen(game.currentLevel + 1, game.nextLevel, levelName, levelMode);
 		};
 
 
@@ -684,5 +689,28 @@ var Stage = function(game) {
 			document.getElementById(selectedSourceId).style.backgroundColor = "white";
 		}
 		game.levels[game.currentLevel].selectedSourceId = null;
+	}
+	
+	this.loadTutorial = function(){
+		
+		// loading instruction content
+		var path = "";
+		var level = game.currentLevel;
+		var levelName = game.levels[game.currentLevel].ID;
+		var levelMode = game.levels[game.currentLevel].levelMode;
+		if (level.length == 1) {
+			level = "00" + level;
+		}
+		if (level.length == 2) {
+			level = "0" + level;
+		}
+		if (levelMode == "core") {
+			path = "core/game/" + levelName + "/tutorial.js";
+		} else {
+			path = "extension/game/" + levelName + "/tutorial.js";
+		}
+		$.getScript(path, function(){
+			document.onclick = executeTutorial;
+		});
 	}
 }

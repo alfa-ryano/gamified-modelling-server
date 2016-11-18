@@ -191,9 +191,14 @@ var Level = function(game, ID, name) {
 		game.stage.loadNodeTemplates();
 		game.stage.loadDrawingViewportEvent();
 
+		game.stage.loadTutorial();
+		
 		resetTime();
 		startTime("TimeValue");
 	}
+	
+	
+	
 
 }
 Level.prototype = new Entity();
